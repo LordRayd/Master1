@@ -22,35 +22,38 @@
 #define PI 3.14159265
 int _width = 10;
 int _height = 10;
+int R[16];
+int T[16];
+int S[16];
 
 double * translation(double x, double y,double z){
-    double M[16] = {
+    T = {
         1,0,0,0,
         0,1,0,0,
         0,0,1,0,
         x,y,z,1
     };
-    return M;
+    return T;
 }
 
 double * scale(double x, double y,double z){
-    double M[16] = {
+    S = {
         x,0,0,0,
         0,y,0,0,
         0,0,z,0,
         0,0,0,1
     };
-    return M;
+    return S;
 }
 
 double * rotation(double angle, double x, double y, double z){
-    double M[16] ={
+    R ={
         cos(angle*PI/180),sin(angle*PI/180),0,0,
         -sin(angle*PI/180),cos(angle*PI/180),0,0,
         0,0,1,0,
         0,0,0,1
     };
-    return M;
+    return R;
 }
 
 void draw(){
