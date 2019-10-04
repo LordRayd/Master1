@@ -96,8 +96,16 @@ void keyboard(unsigned char key, int x, int y)
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
             glutDisplayFunc(display);
             };
-        case 'p': glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
-        case 'l': glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        case 'p': {
+            init();
+            glPolygonMode(GL_FRONT_AND_BACK, GL_POINT); 
+            glutDisplayFunc(display);
+            };
+        case 'l': {
+            init();
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
+            glutDisplayFunc(display);
+            };
     }
 }
 
