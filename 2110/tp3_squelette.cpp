@@ -49,8 +49,9 @@ void display(void)
     glVertex3f(2,6,0);
     glVertex3f(4,6,0);
     glVertex3f(4,3,0);
+    glTranslatef(1.4,1.4,1.4);
     glEnd();
-    
+
   
     glFlush();
 }
@@ -90,7 +91,9 @@ void keyboard(unsigned char key, int x, int y)
 {
     switch (key)
     {
-        case 'q': exit(0);  //exits the program
+        case 'q': 
+            exit(0); 
+            break;  //exits the program
         case 'f': 
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
             display();
@@ -103,8 +106,11 @@ void keyboard(unsigned char key, int x, int y)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
             display();
             break;
-        case 'r' : 
+        case 's' : 
             glTranslatef(1.4,1.4,1.4);
+            break;
+        case 'r' : 
+            glRotatef(1.4,1.4,1.4);
             break;
         }
 }
