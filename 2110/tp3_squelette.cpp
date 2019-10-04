@@ -23,8 +23,8 @@
 int _width = 10;
 int _height = 10;
 
-int * translation(int x, int y,int z){
-    int M[16]{
+double * translation(int x, int y,int z){
+    double M[16]{
         1,0,0,0,
         0,1,0,0,
         0,0,1,0,
@@ -33,8 +33,8 @@ int * translation(int x, int y,int z){
     return M;
 }
 
-int * scale(int x, int y,int z){
-    int M[16]{
+double * scale(int x, int y,int z){
+    double M[16]{
         x,0,0,0,
         0,y,0,0,
         0,0,z,0,
@@ -43,8 +43,8 @@ int * scale(int x, int y,int z){
     return M;
 }
 
-int * rotation(int angle, int x, int y, int z){
-    int M[16]{
+double * rotation(int angle, int x, int y, int z){
+    double M[16]{
         cos(angle),sin(angle),0,0,
         -sin(angle),cos(angle),0,0,
         0,0,1,0,
