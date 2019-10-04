@@ -58,8 +58,8 @@ double * scale(double x, double y,double z){
 double * rotation(double angle, double x, double y, double z){
     R[0] = cos(angle*PI/180);
     R[1] = sin(angle*PI/180);
-    R[4] = -sin(angle*PI/180)
-    R[5] = cos(angle*PI/180)
+    R[4] = -sin(angle*PI/180);
+    R[5] = cos(angle*PI/180);
     return R;
 }
 
