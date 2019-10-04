@@ -47,8 +47,8 @@ void display(void)
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
     glVertex3f(2,6,0);
-    glVertex3f(4,3,0);
     glVertex3f(4,6,0);
+    glVertex3f(4,3,0);
     glEnd();
     
   
