@@ -91,7 +91,11 @@ void keyboard(unsigned char key, int x, int y)
     switch (key)
     {
         case 'q': exit(0);  //exits the program
-        case 'f': glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        case 'f': {
+            init();
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)    
+            glutDisplayFunc(display);
+            };
         case 'p': glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
         case 'l': glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     }
