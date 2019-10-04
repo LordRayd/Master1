@@ -29,7 +29,7 @@ int * Translation(int x, int y,int z){
         0,1,0,0,
         0,0,1,0,
         x,y,z,1
-    }
+    };
     return M;
 }
 
@@ -39,7 +39,7 @@ int * Scale(int x, int y,int z){
         0,y,0,0,
         0,0,z,0,
         0,0,0,1
-    }
+    };
     return M;
 }
 
@@ -49,7 +49,7 @@ int * Rotation(int angle, int x, int y,int z){
         -sin(angle),cos(angle),0,0,
         0,0,1,0,
         0,0,0,1
-    }
+    };
     return M;
 }
 
