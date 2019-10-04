@@ -49,7 +49,6 @@ void display(void)
     glVertex3f(2,6,0);
     glVertex3f(4,6,0);
     glVertex3f(4,3,0);
-    glTranslatef(1.4,1.4,1.4);
     glEnd();
   
     glFlush();
@@ -129,7 +128,6 @@ void keyboard(unsigned char key, int x, int y)
             glVertex3f(2,6,0);
             glVertex3f(4,6,0);
             glVertex3f(4,3,0);
-            glTranslatef(1.4,1.4,1.4);
             glEnd();
 
   
