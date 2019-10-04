@@ -65,8 +65,8 @@ double * rotation(double angle, double x, double y, double z){
     double * R = new double[16];
     R[0] = cos(angle*PI/180);    R[1] = sin(angle*PI/180);    R[2] = 0;    R[3] = 0;
     R[4] = -sin(angle*PI/180);    R[5] = cos(angle*PI/180);    R[6] = 0;    R[7] = 0;
-    R[8] = 0;   R[9] = 0;    R[10] = 0;    R[11] = 0;
-    R[12] = 0;    R[13] = 0;    R[14] = 0;    R[15] = 0;
+    R[8] = 0;   R[9] = 0;    R[10] = 1;    R[11] = 0;
+    R[12] = 0;    R[13] = 0;    R[14] = 0;    R[15] = 1;
     return R;
 }
 
