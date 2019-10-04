@@ -51,13 +51,6 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-    glBegin(GL_POLYGON);
-    glVertex3f(2,3,0);
-    glVertex3f(2,6,0);
-    glVertex3f(4,6,0);
-    glVertex3f(4,3,0);
-    glEnd();
-
     glLoadIdentity();
     glColor3f(2.0,2.0,1.0);
     glTranslatef(3, 0, 0);
