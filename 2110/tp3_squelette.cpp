@@ -45,8 +45,8 @@ double * scale(double x, double y,double z){
 
 double * rotation(double angle, double x, double y, double z){
     double M[16]{
-        cos(angle),sin(angle),0,0,
-        -sin(angle),cos(angle),0,0,
+        cos(angle*PI/180),sin(angle*PI/180),0,0,
+        -sin(angle*PI/180),cos(angle*PI/180),0,0,
         0,0,1,0,
         0,0,0,1
     };
