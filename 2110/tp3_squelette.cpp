@@ -92,19 +92,20 @@ void keyboard(unsigned char key, int x, int y)
     {
         case 'q': exit(0);  //exits the program
         case 'f': {
-            init();
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
             glutDisplayFunc(display);
+            break;
             };
         case 'p': {
             init();
             glPolygonMode(GL_FRONT_AND_BACK, GL_POINT); 
             glutDisplayFunc(display);
+            break;
             };
         case 'l': {
-            init();
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
             glutDisplayFunc(display);
+            break;
             };
     }
 }
