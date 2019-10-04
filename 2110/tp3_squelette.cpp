@@ -53,7 +53,7 @@ void display(void)
     glEnd();
 
     glColor3f(2.0,2.0,1.0);
-    glTranslatef(1.4,1.4,1.4);
+    glTranslatef(5.0,3.0,0);
   
     glFlush();
 }
