@@ -43,13 +43,6 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-    drawPolygon();
-
-  
-    glFlush();
-}
-
-void drawPolygon(void){
     glColor3f(1.0,1.0,1.0);
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
@@ -58,6 +51,8 @@ void drawPolygon(void){
     glVertex3f(4,3,0);
     glTranslatef(1.4,1.4,1.4);
     glEnd();
+  
+    glFlush();
 }
 
 void reshape(int w, int h)
@@ -128,7 +123,14 @@ void keyboard(unsigned char key, int x, int y)
             glLoadIdentity();
             glMatrixMode(GL_MODELVIEW);
             glTranslatef(1.4,1.4,1.4);
-            drawPolygon();
+            glColor3f(1.0,1.0,1.0);
+            glBegin(GL_POLYGON);
+            glVertex3f(2,3,0);
+            glVertex3f(2,6,0);
+            glVertex3f(4,6,0);
+            glVertex3f(4,3,0);
+            glTranslatef(1.4,1.4,1.4);
+            glEnd();
 
   
             glFlush();
