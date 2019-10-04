@@ -94,15 +94,18 @@ void keyboard(unsigned char key, int x, int y)
         case 'f': 
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
             display();
+            reshape(_width,_height);
             break;
         case 'p': 
             init();
             glPolygonMode(GL_FRONT_AND_BACK, GL_POINT); 
             display();
+            reshape(_width,_height);
             break;
         case 'l': 
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
             display();
+            reshape(_width,_height);
             break;
     }
 }
