@@ -42,32 +42,35 @@ double S[16] = {
 };
 
 double * translation(double x, double y,double z){
-    T = std::initializer_list<double>({
+    auto init = std::initializer_list<double>({
         1,0,0,0,
         0,1,0,0,
         0,0,1,0,
         x,y,z,1
     });
+    std::copy(init.begin(), init.end(), T);
     return T;
 }
 
 double * scale(double x, double y,double z){
-    S = std::initializer_list<double>({
+    auto init = std::initializer_list<double>({
         x,0,0,0,
         0,y,0,0,
         0,0,z,0,
         0,0,0,1
     });
+    std::copy(init.begin(), init.end(), S);
     return S;
 }
 
 double * rotation(double angle, double x, double y, double z){
-    R = std::initializer_list<double>({
+    auto init = std::initializer_list<double>({
         cos(angle*PI/180),sin(angle*PI/180),0,0,
         -sin(angle*PI/180),cos(angle*PI/180),0,0,
         0,0,1,0,
         0,0,0,1
     });
+    std::copy(init.begin(), init.end(), R);
     return R;
 }
 
