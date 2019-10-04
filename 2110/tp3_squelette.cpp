@@ -120,6 +120,7 @@ void keyboard(unsigned char key, int x, int y)
             glEnd();
 
             glLoadIdentity();
+            glPushMatrix();
             glMatrixMode(GL_MODELVIEW);
             glTranslatef(1.4,1.4,1.4);
             glColor3f(1.0,1.0,1.0);
@@ -129,6 +130,9 @@ void keyboard(unsigned char key, int x, int y)
             glVertex3f(4,6,0);
             glVertex3f(4,3,0);
             glEnd();
+            glPopMatrix();
+
+            
 
   
             glFlush();
