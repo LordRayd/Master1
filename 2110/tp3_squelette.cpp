@@ -21,6 +21,14 @@
 int _width = 10;
 int _height = 10;
 
+void draw(){
+    glBegin(GL_POLYGON);
+    glVertex3f(2,3,0);
+    glVertex3f(2,6,0);
+    glVertex3f(4,6,0);
+    glVertex3f(4,3,0);
+    glEnd();
+}
 
 /**
  void display(void)
@@ -43,10 +51,6 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-    glLoadIdentity();
-    glColor3f(2.0,2.0,1.0);
-    glTranslatef(10, 0, 0);
-    glColor3f(1.0,1.0,1.0);
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
     glVertex3f(2,6,0);
@@ -54,10 +58,20 @@ void display(void)
     glVertex3f(4,3,0);
     glEnd();
 
+    glLoadIdentity();
+    glColor3f(2.0,2.0,1.0);
+    glTranslatef(3, 0, 0);
+    glColor3f(1.0,1.0,1.0);
+    draw();
+
+    
+
     
   
     glFlush();
 }
+
+
 
 void reshape(int w, int h)
 {
