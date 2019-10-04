@@ -58,6 +58,7 @@ void display(void)
     glTranslatef(0,3,0);
     glColor3f(1.0,1.0,1.0);
     draw();
+    draw();
   
     glFlush();
 }
