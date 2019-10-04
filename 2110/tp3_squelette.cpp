@@ -53,9 +53,7 @@ void display(void)
     glVertex3f(0,-_height,0);
     glVertex3f(0,_height,0);
     glEnd();
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    glLoadIdentity();
     draw();
     glColor3f(2.0,2.0,1.0);
     glTranslatef(4, 0, 0);
