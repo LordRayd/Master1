@@ -103,7 +103,7 @@ void keyboard(unsigned char key, int x, int y)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
             display();
             break;
-        case 's' : 
+        case 'r' : 
             glTranslatef(1.4,1.4,1.4);
             glPopMatrix();
             break;
