@@ -25,52 +25,41 @@ int _height = 10;
 double R[16] = {
     0,0,0,0,
     0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
+    0,0,1,0,
+    0,0,0,1
 };
 double T[16] = {
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
+    1,0,0,0,
+    0,1,0,0,
+    0,0,1,0,
+    0,0,0,1
 };
 double S[16] = {
     0,0,0,0,
     0,0,0,0,
     0,0,0,0,
-    0,0,0,0,
+    0,0,0,1
 };
 
 double * translation(double x, double y,double z){
-    auto init = std::initializer_list<double>({
-        1,0,0,0,
-        0,1,0,0,
-        0,0,1,0,
-        x,y,z,1
-    });
-    std::copy(init.begin(), init.end(), T);
+    T[12] = x;
+    T[13] = y;
+    T[14] = z;
     return T;
 }
 
 double * scale(double x, double y,double z){
-    auto init = std::initializer_list<double>({
-        x,0,0,0,
-        0,y,0,0,
-        0,0,z,0,
-        0,0,0,1
-    });
-    std::copy(init.begin(), init.end(), S);
+    S[0] = x;
+    S[5] = y;
+    S[10] = z;
     return S;
 }
 
 double * rotation(double angle, double x, double y, double z){
-    auto init = std::initializer_list<double>({
-        cos(angle*PI/180),sin(angle*PI/180),0,0,
-        -sin(angle*PI/180),cos(angle*PI/180),0,0,
-        0,0,1,0,
-        0,0,0,1
-    });
-    std::copy(init.begin(), init.end(), R);
+    R[0] = cos(angle*PI/180);
+    R[1] = sin(angle*PI/180);
+    R[4] = -sin(angle*PI/180)
+    R[5] = cos(angle*PI/180)
     return R;
 }
 
