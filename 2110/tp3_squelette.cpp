@@ -22,9 +22,9 @@
 #define PI 3.14159265
 int _width = 10;
 int _height = 10;
-int R[16];
-int T[16];
-int S[16];
+double R[16];
+double T[16];
+double S[16];
 
 double * translation(double x, double y,double z){
     T = {
