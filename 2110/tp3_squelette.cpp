@@ -43,7 +43,7 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-
+    glPushMatrix();
     glColor3f(1.0,1.0,1.0);
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
@@ -104,7 +104,6 @@ void keyboard(unsigned char key, int x, int y)
             display();
             break;
         case 's' : 
-            glPushMatrix();	
             glTranslatef(1.4,1.4,1.4);
             glPopMatrix();
             display();
