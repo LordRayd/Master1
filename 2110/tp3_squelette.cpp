@@ -114,7 +114,7 @@ void display(void)
     draw();*/
   
     glLoadIdentity();
-    glLoadMatrixf(rotation(100,0,0,1));
+    glLoadMatrixd(rotation(100,0,0,1));
     draw();
     glFlush();
 }
