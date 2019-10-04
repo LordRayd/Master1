@@ -59,10 +59,9 @@ public class Launcher {
 					System.out.println("Voisin : " + str);
 				}
 			});*/
-			System.out.println("Voisin de : ranelagh");
-			String[] voisins = reseau.stationsVoisinesDe("ranelagh");
-			Arrays.stream(voisins).forEach(voisin -> System.out.println(Reseau.modifierNom(voisin)));
-			System.out.println("Nb Station : " +reseau.getStation().size());
+			System.out.println("Voisin de : Ranelagh");
+			String[] voisins = reseau.stationsVoisinesDe("Ranelagh");
+			Arrays.stream(voisins).forEach(voisin -> System.out.println(voisin));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
