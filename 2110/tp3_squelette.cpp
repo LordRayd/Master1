@@ -61,18 +61,21 @@ void display(void)
     draw();
     
     glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(2.0,2.0,1.0);
     glTranslatef(4, 0, 0);
     draw();
     //Rotate
     glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(0.0,0.0,1.0);
     glRotatef(100,0,0,1);
     draw();
     //Scale
     glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(1.0,0.0,0.0);
     glScalef(1.5,1.5,1);
