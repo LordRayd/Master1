@@ -130,7 +130,7 @@ void keyboard(unsigned char key, int x, int y)
             glVertex3f(4,6,0);
             glVertex3f(4,3,0);
             glEnd();
-            glPopMatrix();
+            glPushMatrix();
 
             
 
