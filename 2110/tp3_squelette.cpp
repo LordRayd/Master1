@@ -23,7 +23,7 @@
 int _width = 10;
 int _height = 10;
 
-int * Translation(int x, int y,int z){
+int * translation(int x, int y,int z){
     int M[16]{
         1,0,0,0,
         0,1,0,0,
@@ -33,7 +33,7 @@ int * Translation(int x, int y,int z){
     return M;
 }
 
-int * Scale(int x, int y,int z){
+int * scale(int x, int y,int z){
     int M[16]{
         x,0,0,0,
         0,y,0,0,
@@ -43,7 +43,7 @@ int * Scale(int x, int y,int z){
     return M;
 }
 
-int * Rotation(int angle, int x, int y,int z){
+int * rotation(int angle, int x, int y, int z){
     int M[16]{
         cos(angle),sin(angle),0,0,
         -sin(angle),cos(angle),0,0,
@@ -91,7 +91,7 @@ void display(void)
     glLoadIdentity();
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     draw();
-    
+    /*-
     glLoadIdentity();
     glMatrixMode(GL_MODELVIEW);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -111,8 +111,11 @@ void display(void)
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(1.0,0.0,0.0);
     glScalef(1.5,1.5,1);
-    draw();
+    draw();*/
   
+    glLoadIdentity();
+    glLoadMatrix(rotation(100,0,0,1));
+    draw();
     glFlush();
 }
 
