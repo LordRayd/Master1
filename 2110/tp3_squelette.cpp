@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Caroline Larboulette on 16/10/2017.
-//
+// gcc tp3_squelette.cpp -o tp3.exe -lglut -lGL -lGLU
 //
 
 //Those includes are the good ones for Mac OSX to use OpenGL and GLUT (The OpenGL Utility Toolkit) -- to make windows among other things.
