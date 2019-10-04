@@ -59,7 +59,7 @@ void display(void)
     glTranslatef(4, 0, 0);
     draw();
     glColor3f(1.0,8.0,1.0);
-    glRotate3f(45,0,0,0);
+    glRotatef(45,0,0,0);
     glTranslatef(0,7,0);
     draw();
   
