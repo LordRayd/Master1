@@ -77,7 +77,7 @@ void init(void)
     glLoadIdentity();
     //left, right, bottom, top, near, far
     glOrtho(-5.0, 5.0, -5.0, 5.0, -1.0, 1.0);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_POLYGON); //Polygons are outlined by default
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINES); //Polygons are outlined by default
     glMatrixMode(GL_MODELVIEW);
 
 }
