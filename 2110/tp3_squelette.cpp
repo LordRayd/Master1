@@ -23,7 +23,7 @@
 int _width = 10;
 int _height = 10;
 
-int[] Translation(int x, int y,int z){
+int * Translation(int x, int y,int z){
     int M[16]{
         1,0,0,0,
         0,1,0,0,
@@ -33,7 +33,7 @@ int[] Translation(int x, int y,int z){
     return M;
 }
 
-int[] Scale(int x, int y,int z){
+int * Scale(int x, int y,int z){
     int M[16]{
         x,0,0,0
         0,y,0,0
@@ -43,7 +43,7 @@ int[] Scale(int x, int y,int z){
     return M;
 }
 
-int[] Rotation(int angle, int x, int y,int z){
+int * Rotation(int angle, int x, int y,int z){
     int M[16]{
         cos(angle),sin(angle),0,0
         -sin(angle),cos(angle),0,0
