@@ -131,15 +131,18 @@ void display(void)
     draw();*/
   
     glLoadIdentity();
+    glColor3f(0.0,0.0,1.0);
     glLoadMatrixd(rotation(100,0,0,1));
     draw();
 
     glLoadIdentity();
     glLoadMatrixd(scale(1.5,1.5,1));
+    glColor3f(1.0,0.0,0.0);
     draw();
 
     glLoadIdentity();
     glLoadMatrixd(translation(4, 0, 0));
+    glColor3f(2.0,2.0,1.0);
     draw();
     glFlush();
 }
