@@ -27,7 +27,7 @@ int * Translation(int x, int y,int z){
     int M[16]{
         1,0,0,0,
         0,1,0,0,
-        0,0,1,0
+        0,0,1,0,
         x,y,z,1
     }
     return M;
@@ -35,9 +35,9 @@ int * Translation(int x, int y,int z){
 
 int * Scale(int x, int y,int z){
     int M[16]{
-        x,0,0,0
-        0,y,0,0
-        0,0,z,0
+        x,0,0,0,
+        0,y,0,0,
+        0,0,z,0,
         0,0,0,1
     }
     return M;
@@ -45,9 +45,9 @@ int * Scale(int x, int y,int z){
 
 int * Rotation(int angle, int x, int y,int z){
     int M[16]{
-        cos(angle),sin(angle),0,0
-        -sin(angle),cos(angle),0,0
-        0,0,1,0
+        cos(angle),sin(angle),0,0,
+        -sin(angle),cos(angle),0,0,
+        0,0,1,0,
         0,0,0,1
     }
     return M;
