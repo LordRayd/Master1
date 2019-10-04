@@ -57,9 +57,14 @@ void display(void)
     glLoadIdentity();
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     draw();
+    
+    glLoadIdentity();
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(2.0,2.0,1.0);
     glTranslatef(4, 0, 0);
     draw();
+    glLoadIdentity();
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(1.0,8.0,1.0);
     glRotatef(100,0,,1);
     draw();
