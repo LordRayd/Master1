@@ -24,7 +24,7 @@ int _width = 10;
 int _height = 10;
 
 double * translation(double x, double y,double z){
-    double M[16]{
+    double M[16] = {
         1,0,0,0,
         0,1,0,0,
         0,0,1,0,
@@ -34,7 +34,7 @@ double * translation(double x, double y,double z){
 }
 
 double * scale(double x, double y,double z){
-    double M[16]{
+    double M[16] = {
         x,0,0,0,
         0,y,0,0,
         0,0,z,0,
@@ -44,7 +44,7 @@ double * scale(double x, double y,double z){
 }
 
 double * rotation(double angle, double x, double y, double z){
-    double M[16]{
+    double M[16] ={
         cos(angle*PI/180),sin(angle*PI/180),0,0,
         -sin(angle*PI/180),cos(angle*PI/180),0,0,
         0,0,1,0,
