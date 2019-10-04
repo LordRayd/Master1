@@ -43,7 +43,6 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-    glPushMatrix();
     glColor3f(1.0,1.0,1.0);
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
@@ -51,6 +50,7 @@ void display(void)
     glVertex3f(4,6,0);
     glVertex3f(4,3,0);
     glEnd();
+    
   
     glFlush();
 }
@@ -105,7 +105,6 @@ void keyboard(unsigned char key, int x, int y)
             break;
         case 'r' : 
             glTranslatef(1.4,1.4,1.4);
-            glPopMatrix();
             break;
         }
 }
