@@ -75,7 +75,7 @@ void display(void)
     glLoadIdentity();
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glColor3f(1.0,0.0,0.0);
-    glScalef(1.5,15,1);
+    glScalef(1.5,1.5,1);
     draw();
   
     glFlush();
