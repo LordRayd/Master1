@@ -43,12 +43,12 @@ void display(void)
     glVertex3f(0,_height,0);
     glEnd();
 
-    /*glColor3f(1.0,1.0,1.0);
+    glColor3f(1.0,1.0,1.0);
     glBegin(GL_POLYGON);
     glVertex3f(2,3,0);
     glVertex3f(2,6,0);
     glVertex3f(4,6,0);
-    glVertex3f(4,3,0);*/
+    glVertex3f(4,3,0);
     glEnd();
     
   
@@ -77,7 +77,7 @@ void init(void)
     glLoadIdentity();
     //left, right, bottom, top, near, far
     glOrtho(-5.0, 5.0, -5.0, 5.0, -1.0, 1.0);
-    glPolygonMode(GL_FRONT, GL_LINES); //Polygons are outlined by default
+    glPolygonMode(GL_FRONT, GL_LINE); //Polygons are outlined by default
     glMatrixMode(GL_MODELVIEW);
 
 }
