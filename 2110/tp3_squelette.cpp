@@ -22,6 +22,8 @@
 #define PI 3.14159265
 int _width = 10;
 int _height = 10;
+
+/*
 double R[16] = {
     0,0,0,0,
     0,0,0,0,
@@ -39,27 +41,30 @@ double S[16] = {
     0,0,0,0,
     0,0,0,0,
     0,0,0,1
-};
+};*/
 
 double * translation(double x, double y,double z){
-    T[12] = x;
-    T[13] = y;
-    T[14] = z;
+    T[0] = 1;    T[1] = 0;    T[2] = 0;    T[3] = 0;
+    T[4] = 0;    T[5] = 1;    T[6] = 0;    T[7] = 0;
+    T[8] = 0;    T[9] = 0;    T[10] = 1;   T[11] = 0;
+    T[12] = x;   T[13] = y;   T[14] = z;   T[15] = 1;
     return T;
 }
 
 double * scale(double x, double y,double z){
-    S[0] = x;
-    S[5] = y;
-    S[10] = z;
+    double * S = new Double[16];
+    S[0] = x;    S[1] = 0;    S[2] = 0;    S[3] = 0;
+    S[4] = 0;    S[5] = y;    S[6] = 0;    S[7] = 0;
+    S[8] = 0;    S[9] = 0;    S[10] = z;   S[11] = 0;
+    S[12] = 0;   S[13] = 0;   S[14] = 0;   S[15] = 1;
     return S;
 }
 
 double * rotation(double angle, double x, double y, double z){
-    R[0] = cos(angle*PI/180);
-    R[1] = sin(angle*PI/180);
-    R[4] = -sin(angle*PI/180);
-    R[5] = cos(angle*PI/180);
+    R[0] = cos(angle*PI/180);    R[1] = sin(angle*PI/180);    R[2] = 0;    R[3] = 0;
+    R[4] = -sin(angle*PI/180);    R[5] = cos(angle*PI/180);    R[6] = 0;    R[7] = 0;
+    R[8] = 0;   R[9] = 0;    R[10] = 0;    R[11] = 0;
+    R[12] = 0;    R[13] = 0;    R[14] = 0;    R[15] = 0;
     return R;
 }
 
