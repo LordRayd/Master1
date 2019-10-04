@@ -106,7 +106,6 @@ void keyboard(unsigned char key, int x, int y)
         case 's' : 
             glTranslatef(1.4,1.4,1.4);
             glPopMatrix();
-            display();
             break;
         }
 }
