@@ -23,10 +23,13 @@ int _height = 10;
 
 void draw(){
     glBegin(GL_POLYGON);
+    glVertex3f(2,6,0);
     glVertex3f(2,3,0);
+    glVertex3f(4,3,0);
+    glVertex3f(4,6,0);
+    glVertex3f(3,7,0);
     glVertex3f(2,6,0);
     glVertex3f(4,6,0);
-    glVertex3f(4,3,0);
     glEnd();
 }
 
@@ -54,10 +57,10 @@ void display(void)
     glLoadIdentity();
     draw();
     glColor3f(2.0,2.0,1.0);
-    glTranslatef(3, 0, 0);
+    glTranslatef(4, 0, 0);
     draw();
     glColor3f(1.0,8.0,1.0);
-    glTranslatef(0,3,0);
+    glTranslatef(0,7,0);
     draw();
   
     glFlush();
