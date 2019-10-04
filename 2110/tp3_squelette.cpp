@@ -133,6 +133,14 @@ void display(void)
     glLoadIdentity();
     glLoadMatrixd(rotation(100,0,0,1));
     draw();
+
+    glLoadIdentity();
+    glLoadMatrixd(scale(1.5,1.5,1));
+    draw();
+
+    glLoadIdentity();
+    glLoadMatrixd(translation(4, 0, 0));
+    draw();
     glFlush();
 }
 
