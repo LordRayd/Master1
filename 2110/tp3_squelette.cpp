@@ -61,7 +61,7 @@ void display(void)
     glTranslatef(4, 0, 0);
     draw();
     glColor3f(1.0,8.0,1.0);
-    glRotatef(45,1,1,1);
+    glRotatef(45,2,4,0);
     draw();
   
     glFlush();
