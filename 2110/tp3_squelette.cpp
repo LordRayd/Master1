@@ -110,14 +110,30 @@ void keyboard(unsigned char key, int x, int y)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); 
             display();
             break;
-        case 's' :
+        case 's' :glClear(GL_COLOR_BUFFER_BIT);
+    
+            glColor3f(1.0, 0.0, 0.0);
+            glLineWidth(2.0);
+            glBegin(GL_LINES); //Draws x-axis
+            glVertex3f(-_width,0,0);
+            glVertex3f(_width,0,0);
+            glEnd();
+
+            glColor3f(0.0, 1.0, 0.0);
+            glBegin(GL_LINES); //Draws y-axis
+            glVertex3f(0,-_height,0);
+            glVertex3f(0,_height,0);
+            glEnd();
+
             glLoadIdentity();
             glMatrixMode(GL_MODELVIEW);
             glTranslatef(1.4,1.4,1.4);
             drawPolygon();
+
+  
+            glFlush();
             break;
         case 'r' : 
-            glRotatef(1.4,1.4,1.4);
             break;
         }
 }
