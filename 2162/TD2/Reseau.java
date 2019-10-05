@@ -112,7 +112,9 @@ public class Reseau {
 	}
 
 	public static String modifierNom(String nom_){
-		return Normalizer.normalize(nom_.replaceAll(" ","").toLowerCase(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+		return Normalizer.normalize(nom_.replaceAll(" ","")
+			.toLowerCase(), Normalizer.Form.NFD)
+			.replaceAll("[^\\p{ASCII}]", "");
 	}
 		
 }

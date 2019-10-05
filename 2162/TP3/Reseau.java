@@ -5,16 +5,17 @@ import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.StringTokenizer;
 
 public class Reseau {
 
 	public Collection<Station> station;
-	public Map<String,Collection<String>> graphe;
+	public Graphe graphe;
 	
 	public Reseau() {
 		this.station = new HashSet<Station>();
-		this.graphe = new HashMap<String,Collection<String>>();
+		this.graphe = new Graphe();
 	}
 	
 	public static Reseau CreeReseauAPartirDuFichier(String nomDeFichier_) 
@@ -27,35 +28,15 @@ public class Reseau {
 				while(st.hasMoreTokens()) {
 					
 					Ligne ligne = new Ligne(new Integer(st.nextToken().trim()));
-					Station depart = new Station(st.nextToken());
+					Station depart = new Station(modifierNom(st.nextToken()));
 					st.nextToken();
-					Station arrive = new Station(st.nextToken());
+					Station arrive = new Station(modifierNom(st.nextToken()));
 					
-					for(Station station : reseau.getStation()) {
-						if(station.getNom().equals(depart.getNom()) || station.getNom().equals(arrive.getNom())) {
-							station.ajouteLigne(ligne);
-						}
-					}
 					depart.ajouteLigne(ligne);
 					arrive.ajouteLigne(ligne);
-					reseau.ajouteStation(depart);
-					reseau.ajouteStation(arrive);
-					if(!reseau.graphe.containsKey(depart.getNom())){
-						HashSet<String> list = new HashSet<String>();
-						list.add(depart.getNom());
-						reseau.graphe.put(depart.getNom(),list);
-					}else{
-						if( reseau.graphe.isEmpty() || !reseau.graphe.get(depart.getNom()).contains(arrive.getNom()))
-							reseau.graphe.get(depart.getNom()).add(arrive.getNom());
-					}
-					if(!reseau.graphe.containsKey(arrive.getNom())){
-						HashSet<String> list = new HashSet<String>();
-						list.add(depart.getNom());
-						reseau.graphe.put(arrive.getNom(),list);
-					}else{
-						if(reseau.graphe.isEmpty() || !reseau.graphe.get(arrive.getNom()).contains(depart.getNom()))
-							reseau.graphe.get(arrive.getNom()).add(depart.getNom());
-					}
+					ajouteStation(reseau, depart);
+					ajouteStation(reseau, arrive);
+					ajouteNoeudGraphe(reseau, depart, arrive,ligne);
 				}
 			}
 		}catch(Exception e) {
@@ -64,57 +45,39 @@ public class Reseau {
 		return reseau;
 	}
 
-	public void ajouteStation(Station station_) { 
-        this.station.add(station_); 
+	public static boolean ajouteStation(Reseau reseau_,Station station_) { 
+        return reseau_.getStation().add(station_); 
 	}
 
-	public void ajouteStationGraphe(Reseau reseau_, Station stationDepart_, Station stationArrive_){
-		if(!stationDansGraphe(this, stationDepart_)){
-			this.ajouteSommetGraphe(this, stationDepart_, stationArrive_);
-		}else{
-			if(this.stationEstUnNoeudGraphe(reseau_, stationDepart_, stationArrive_))
-				this.ajouteNoeudGraphe(reseau_, stationDepart_, stationArrive_);
+	public static boolean ajouteNoeudGraphe(Reseau reseau_ , Station stationDepart_, Station stationArrive_, Ligne ligne_){
+		return Graphe.ajouteNoeud(reseau_.getGraphe(),stationDepart_,stationArrive_, ligne_);
+	}
+
+	public static boolean stationDansGraphe(Reseau reseau_, Station station_){
+		return Graphe.stationEstUnSommet(reseau_.getGraphe(), station_);
+	}
+
+	
+	public static boolean stationEstUnVoisinDe(Reseau reseau_, Station stationSommet_, Station stationNoeud_){
+		return Graphe.estUnVoisinDe(reseau_.getGraphe(), stationSommet_, stationNoeud_);
+	}
+	
+	public Collection<Station> stationSurLigne(Reseau reseau_, int ligne_){
+		return Graphe.stationEstSurLaLigne(reseau_.getGraphe(), ligne_);
+	}
+
+	public static String[] stationsVoisinesDe(Reseau reseau_, String nomDeStation_){
+		Collection<String> stations = Graphe.stationsVoisinesDe(reseau_.getGraphe(), nomDeStation_);
+		if(stations.isEmpty()){
+			return null;
 		}
-	}
-
-	public boolean ajouteSommetGraphe(Reseau reseau_, Station stationDepart_, Station stationArrive_){
-		HashSet<String> list = new HashSet<String>();
-		list.add(stationArrive_.getNom());
-		return reseau_.getGraphe().put(stationDepart_.getNom(),list);
-	}
-
-	public boolean ajouteNoeudGraphe(Reseau reseau_ , Station stationDepart_, Station stationArrive_){
-		return reseau_.getGraphe().get(stationDepart_.getNom()).add(stationArrive_.getNom());
-	}
-
-	public boolean stationDansGraphe(Reseau reseau_, Station station_){
-		return reseau_.getGraphe().containsKey(station_.getNom());
-	}
-
-	public boolean stationEstUnNoeudGraphe(Reseau reseau_, Station stationSommet_, Station stationNoeud_){
-		return !reseau.getGraphe().isEmpty() && !reseau.getGraphe().get(stationDepart_.getNom()).contains(stationArrive_.getNom());
-	}
-
-	public Collection<Station> stationSurLigne(int ligne_){
-		HashSet<Station> stationSurLigne = new HashSet<Station>();
-		for(Station st : this.station){
-			if(st.getLignes().contains(ligne_))
-				stationSurLigne.add(st);
+		String[] voisins = new String[stations.size()];
+		int x = 0;
+		for(String str : stations){
+			voisins[x] = str;
+			x = x + 1;
 		}
-		return stationSurLigne;
-	}
-
-	public String[] stationsVoisinesDe(String nomDeStation_){
-		if(this.graphe.containsKey(nomDeStation_)){
-			String[] voisins = new String[this.graphe.get(nomDeStation_).size()];
-			int x = 0;
-			for(String str : this.graphe.get(nomDeStation_)){
-				voisins[x] = str;
-				x = x + 1;
-			}
-			return voisins;
-		}
-		return null;
+		return voisins;
 	}
 
 	public Collection<Station> getStation() {
@@ -125,7 +88,7 @@ public class Reseau {
 		this.station = station_;
 	}
 
-	public Map<String,Collection<String>> getGraphe(){
+	public Graphe getGraphe(){
 		return this.graphe;
 	}
 	
@@ -136,5 +99,23 @@ public class Reseau {
 		}
 		return toString;
 	}
-		
+
+	public static String modifierNom(String nom_){
+		return Normalizer
+			.normalize(nom_, Normalizer.Form.NFD)
+			//.replaceAll("[\\p{InCombiningDiacriticalMarks}\\p{IsLm}\\p{IsSk}]+", "")
+			//.replaceAll("[^a-zA-Z0-9]", "")
+			//.replaceAll("[^\\p{ASCII}]", "")
+			//.replaceAll(" ","")
+			.toLowerCase()
+			;
+	}
+	
+	public static String unaccent(String src) {
+		return Normalizer
+				.normalize(src, Normalizer.Form.NFD)
+				.replaceAll("[^\\p{ASCII}]", "");
+	}
+
+	
 }
