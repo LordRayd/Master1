@@ -83,10 +83,10 @@ public class Launcher {
 			String accents4	= "/Users/rponte/arquivos-portalfcm/Eletron/Atualização_Diária-1.23.40.exe";
 			String expected4	= "/Users/rponte/arquivos-portalfcm/Eletron/Atualizacao_Diaria-1.23.40.exe";
 			
-			System.out.println(StringUtils.unaccent(accents));
-			System.out.println(StringUtils.unaccent(accents2));
-			System.out.println(StringUtils.unaccent(accents3));
-			System.out.println(StringUtils.unaccent(accents4));
+			System.out.println(Reseau.unaccent(accents));
+			System.out.println(Reseau.unaccent(accents2));
+			System.out.println(Reseau.unaccent(accents3));
+			System.out.println(Reseau.unaccent(accents4));
 				/*assertEquals(expected2, StringUtils.unaccent(accents2));
 				assertEquals(expected3, StringUtils.unaccent(accents3));
 				assertEquals(expected4, StringUtils.unaccent(accents4));*/
