@@ -104,10 +104,10 @@ public class Reseau {
 		return Normalizer
 			.normalize(nom_, Normalizer.Form.NFD)
 			//.replaceAll("[\\p{InCombiningDiacriticalMarks}\\p{IsLm}\\p{IsSk}]+", "")
-			//.replaceAll("[^a-zA-Z0-9]", "")
 			.replaceAll("[^\\p{ASCII}]", "")
 			.replaceAll(" ","")
 			.toLowerCase()
+			.replaceAll("[^a-z0-9]", "")
 			;
 	}
 	
