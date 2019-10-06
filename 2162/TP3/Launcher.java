@@ -68,8 +68,8 @@ public class Launcher {
 			/*System.out.println("Voisin de : Ranelagh");
 			String[] voisins = Reseau.stationsVoisinesDe(reseau,"Ranelagh");
 			Arrays.stream(voisins).forEach(voisin -> System.out.println(Reseau.modifierNom(voisin)));*/
-			System.out.println("Nombre de stations : "+reseau.getStation().size());
-			reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
+			//System.out.println("Nombre de stations : "+reseau.getStation().size());
+			//reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
 			Reseau.cheminDeVers(reseau,new Station("chateaudevincennes"), new Station("berault"))
 				.stream()
 				.forEach((tr) -> {
