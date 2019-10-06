@@ -103,19 +103,15 @@ public class Reseau {
 	public static String modifierNom(String nom_){
 		return Normalizer
 			.normalize(nom_, Normalizer.Form.NFD)
-			//.replaceAll("[\\p{InCombiningDiacriticalMarks}\\p{IsLm}\\p{IsSk}]+", "")
 			.replaceAll("[^\\p{ASCII}]", "")
 			.replaceAll(" ","")
 			.toLowerCase()
 			.replaceAll("[^a-z0-9]", "")
 			;
 	}
-	
-	public static String unaccent(String src) {
-		return Normalizer
-				.normalize(src, Normalizer.Form.NFD)
-				.replaceAll("[^\\p{ASCII}]", "");
-	}
 
-	
+	public static Collection<Trajet> cheminDeVers(Reseau reseau_, Station station1_, Staion station2_){
+		return Graphe.cheminDeVers(reseau_.getGraphe(), station1_, station2_);
+	}
+		
 }

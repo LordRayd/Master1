@@ -71,5 +71,30 @@ public class Graphe{
         );
         return nomStations;
 	}
-    
+ 
+
+    public static Collection<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
+        Collection<Trajet> chemin = new HashSet<Station>();
+        return cheminDeVersRec(graphe_, station1_, station2_, chemin);
+    }
+
+    public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_){
+        if(station1_.equals(station2_))
+            return trajet_;
+
+        HashSet<Trajet> chemin = new HashSet<Trajet>(trajet_);
+        HashSet<Trajet> resultatChemin = new HashSet<Trajet>();
+        for(Trajet tr : graphe_.getTrajets()){
+            chemin = new HashSet<Trajet>(trajet_);
+            if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
+                chemin.add(tr);
+                depart = tr.getArrive();
+                chemin =cheminDeVersRec(graphe_, depart, station2_, trajet_);
+                if(!chemin.isEmpty() && chemin.size() < resultatChemin.size()){
+                    resultatChemin = new HashSet<Trajet>(chemin);
+                }      
+            }
+        }
+        return resultatChemin;
+    }
 }
