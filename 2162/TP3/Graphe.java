@@ -90,13 +90,13 @@ public class Graphe{
             if(chemin.isEmpty() || chemin.size() > trajet_.size() ){
                 if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
 
-                    trajet = trajet_.clone();
+                    trajet = (HashSet<Trajet>)trajet_.clone();
                     trajet.add(tr);
 
                     Station depart = tr.getArrive();
                     rec = cheminDeVersRec(graphe_, depart, station2_, trajet, chemin);
                     if(!rec.isEmpty() && (rec.size() < chemin.size() || chemin.isEmpty())){
-                        chemin = rec.clone();
+                        chemin = (HashSet<Trajet>)rec.clone();
                     }      
                 }
             }
