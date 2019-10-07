@@ -87,7 +87,7 @@ public class Graphe{
         Collection<Trajet> trajet;
         Collection<Trajet> rec;
         for(Trajet tr : graphe_.getTrajets()){
-            if((chemin.isEmpty() || chemin.size() > trajet_.size() ){
+            if(chemin.isEmpty() || chemin.size() > trajet_.size() ){
                 if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
 
                     trajet = new HashSet<Trajet>(trajet_);
