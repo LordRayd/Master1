@@ -32,6 +32,6 @@ public class Ligne{
 	    }
 		
 		public String toString() {			
-			return new String("Ligne n°: "+this.numero+"\n");
+			return new String("Ligne n°: "+this.numero);
 		}
 }
