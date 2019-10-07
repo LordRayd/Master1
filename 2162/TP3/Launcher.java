@@ -70,7 +70,7 @@ public class Launcher {
 			String[] voisins = Reseau.stationsVoisinesDe(reseau,"Ranelagh");
 			Arrays.stream(voisins).forEach(voisin -> System.out.println(Reseau.modifierNom(voisin)));*/
 			//System.out.println("Nombre de stations : "+reseau.getStation().size());
-			//reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
+			reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
 			Collection<Trajet> chemin = Reseau.cheminDeVers(reseau,new Station("chateaudevincennes"), new Station("berault"));
 			System.out.println(chemin.size());
 			//Valeur de 20 pour la pile de recherche
