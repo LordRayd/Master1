@@ -30,7 +30,7 @@ public class Trajet{
         String toString = new String();
         toString += "Depart : ";
         toString += this.getDepart();
-        toString += " Arrive : ";
+        toString += "Arrive : ";
         toString += this.getArrive();
         toString += this.getLigne();
         return toString;
