@@ -73,30 +73,30 @@ public class Graphe{
 	}
  
 
-    public static Collection<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
-        Collection<Trajet> trajet = new HashSet<Trajet>();
-        Collection<Trajet> chemin = new HashSet<Trajet>();
+    public static HashSet<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
+        HashSet<Trajet> trajet = new HashSet<Trajet>();
+        HashSet<Trajet> chemin = new HashSet<Trajet>();
         return cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
     }
 
-    public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_, Collection<Trajet> chemin){
+    public static HashSet<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, HashSet<Trajet> trajet_, HashSet<Trajet> chemin){
         
         if(station1_.equals(station2_))
             return trajet_;
 
-        Collection<Trajet> trajet;
-        Collection<Trajet> rec;
+            HashSet<Trajet> trajet;
+            HashSet<Trajet> rec;
         for(Trajet tr : graphe_.getTrajets()){
             if(chemin.isEmpty() || chemin.size() > trajet_.size() ){
                 if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
 
-                    trajet = (Collection<Trajet>)trajet_.clone();
+                    trajet = (HashSet<Trajet>)trajet_.clone();
                     trajet.add(tr);
 
                     Station depart = tr.getArrive();
                     rec = cheminDeVersRec(graphe_, depart, station2_, trajet, chemin);
                     if(!rec.isEmpty() && (rec.size() < chemin.size() || chemin.isEmpty())){
-                        chemin = (Collection<Trajet>)rec.clone();
+                        chemin = (HashSet<Trajet>)rec.clone();
                     }      
                 }
             }
