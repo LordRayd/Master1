@@ -1,5 +1,4 @@
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 
 public class Graphe{
@@ -74,11 +73,9 @@ public class Graphe{
 	}
  
 
-    public static HashSet<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
-        HashSet<Trajet> chemin = new HashSet<Trajet>();
-        chemin = cheminDeVersRec(graphe_, station1_, station2_, chemin);
-        chemin = Collections.reverse(chemin);
-        return chemin;
+    public static Collection<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
+        Collection<Trajet> chemin = new HashSet<Trajet>();
+        return cheminDeVersRec(graphe_, station1_, station2_, chemin);
     }
 
     public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_){
