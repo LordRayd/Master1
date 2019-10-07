@@ -71,7 +71,7 @@ public class Launcher {
 			Arrays.stream(voisins).forEach(voisin -> System.out.println(Reseau.modifierNom(voisin)));*/
 			//System.out.println("Nombre de stations : "+reseau.getStation().size());
 			//reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
-			Collection<Trajet> chemin = Reseau.cheminDeVers(reseau,new Station("reuillydiderot"), new Station("chatelet"));
+			HashSet<Trajet> chemin = Reseau.cheminDeVers(reseau,new Station("reuillydiderot"), new Station("chatelet"));
 			System.out.println(chemin.size());
 			for(Trajet tr : chemin){
 				System.out.println(tr.toString());
