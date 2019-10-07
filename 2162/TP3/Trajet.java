@@ -25,6 +25,17 @@ public class Trajet{
     public Ligne getLigne(){
         return this.ligne;
     }
+
+    public String toString(){
+        String toString = new String();
+        toString += "Depart : ";
+        toString += this.getDepart();
+        toString += " Arrive : ";
+        toString += this.getArrive();
+        toString += " Ligne : ";
+        toString += this.getLigne();
+        return toString;
+    }
     
 	@Override
 	public boolean equals(Object o_) {

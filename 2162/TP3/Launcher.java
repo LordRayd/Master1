@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
+import sun.tools.serialver.resources.serialver;
+
 public class Launcher {
 
 	public static void lireMetro(String nomDeFichier_) throws IOException{
@@ -73,6 +75,9 @@ public class Launcher {
 			//reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
 			Collection<Trajet> chemin = Reseau.cheminDeVers(reseau,new Station("chateaudevincennes"), new Station("berault"));
 			System.out.println(chemin.size());
+			for(Trajet tr : chemin){
+				System.out.println(tr.toString());
+			}
 			//Valeur de 20 pour la pile de recherche
 			//pile plus grand que chemin arret
 		} catch (IOException e) {
