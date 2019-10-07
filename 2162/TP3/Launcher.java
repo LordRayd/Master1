@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-import sun.tools.serialver.resources.serialver;
-
 public class Launcher {
 
 	public static void lireMetro(String nomDeFichier_) throws IOException{
