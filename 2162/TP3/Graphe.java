@@ -90,6 +90,7 @@ public class Graphe{
                 trajet = new HashSet<Trajet>(trajet_);
                 trajet.add(tr);
                 rec = new HashSet<Trajet>();
+                rec.add(tr);
                 Station depart = tr.getArrive();
                 rec.addAll(cheminDeVersRec(graphe_, depart, station2_, trajet));
                 if(!rec.isEmpty() /*&& rec.size() < resultatChemin.size()*/){
