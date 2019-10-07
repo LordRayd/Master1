@@ -74,26 +74,34 @@ public class Graphe{
  
 
     public static Collection<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
+        Collection<Trajet> trajet = new HashSet<Trajet>();
         Collection<Trajet> chemin = new HashSet<Trajet>();
-        return cheminDeVersRec(graphe_, station1_, station2_, chemin);
+        return cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
     }
 
-    public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_){
+    public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_, Collection<Trajet> chemin){
+        
         if(station1_.equals(station2_))
             return trajet_;
 
+        Collection<Trajet> trajet;
         Collection<Trajet> rec;
-        Collection<Trajet> resultatChemin = new HashSet<Trajet>();
         for(Trajet tr : graphe_.getTrajets()){
-            if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
+            if((chemin.isEmpty() || chemin.size() > trajet_.size() ){
+                if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
 
-                Station depart = tr.getArrive();
-                rec = cheminDeVersRec(graphe_, depart, station2_, new HashSet<Trajet>(trajet_).add(tr));
-                if(!rec.isEmpty() && (rec.size() < resultatChemin.size() || resultatChemin.isEmpty())){
-                    resultatChemin = new HashSet<Trajet>(rec);
-                }      
+                    trajet = new HashSet<Trajet>(trajet_);
+                    trajet.add(tr);
+
+                    Station depart = tr.getArrive();
+                    rec = cheminDeVersRec(graphe_, depart, station2_, trajet);
+                    if(!rec.isEmpty() && (rec.size() < chemin.size() || chemin.isEmpty())){
+                        chemin = new HashSet<Trajet>(rec);
+                    }      
+                }
             }
         }
-        return resultatChemin;
+        return chemin;
     }
+
 }
