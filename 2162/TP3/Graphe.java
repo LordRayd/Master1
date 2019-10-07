@@ -75,7 +75,8 @@ public class Graphe{
 
     public static Collection<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
         Collection<Trajet> chemin = new HashSet<Trajet>();
-        return cheminDeVersRec(graphe_, station1_, station2_, chemin);
+        chemin = cheminDeVersRec(graphe_, station1_, station2_, chemin);
+        return Collections.reverse(chemin);
     }
 
     public static Collection<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_){
