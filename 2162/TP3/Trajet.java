@@ -32,7 +32,6 @@ public class Trajet{
         toString += this.getDepart();
         toString += " Arrive : ";
         toString += this.getArrive();
-        toString += " Ligne : ";
         toString += this.getLigne();
         return toString;
     }
