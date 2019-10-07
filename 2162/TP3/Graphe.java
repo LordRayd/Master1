@@ -85,8 +85,8 @@ public class Graphe{
         Collection<Trajet> chemin = new HashSet<Trajet>(trajet_);
         Collection<Trajet> resultatChemin = new HashSet<Trajet>();
         for(Trajet tr : graphe_.getTrajets()){
-            chemin = new HashSet<Trajet>(trajet_);
-            if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
+            if(station1_.equals(tr.getDepart()) /*&& !trajet_.contains(tr)*/){
+                chemin = new HashSet<Trajet>(trajet_);
                 chemin.add(tr);
                 Station depart = tr.getArrive();
                 chemin =cheminDeVersRec(graphe_, depart, station2_, chemin);
