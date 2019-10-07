@@ -94,7 +94,7 @@ public class Graphe{
                     trajet.add(tr);
 
                     Station depart = tr.getArrive();
-                    rec = cheminDeVersRec(graphe_, depart, station2_, trajet);
+                    rec = cheminDeVersRec(graphe_, depart, station2_, trajet, chemin);
                     if(!rec.isEmpty() && (rec.size() < chemin.size() || chemin.isEmpty())){
                         chemin = new HashSet<Trajet>(rec);
                     }      
