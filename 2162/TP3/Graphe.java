@@ -86,12 +86,12 @@ public class Graphe{
         Collection<Trajet> rec;
         Collection<Trajet> resultatChemin = new HashSet<Trajet>();
         for(Trajet tr : graphe_.getTrajets()){
-            if(station1_.equals(tr.getDepart()) /*&& !trajet_.contains(tr)*/){
+            if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
                 chemin = new HashSet<Trajet>(trajet_);
                 chemin.add(tr);
                 Station depart = tr.getArrive();
                 rec = cheminDeVersRec(graphe_, depart, station2_, chemin);
-                if(!rec.isEmpty() /*&& chemin.size() < resultatChemin.size()*/){
+                if(!rec.isEmpty() && chemin.size() < resultatChemin.size()){
                     resultatChemin = new HashSet<Trajet>(chemin);
                 }      
             }
