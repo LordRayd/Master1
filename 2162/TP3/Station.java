@@ -37,7 +37,7 @@ public class Station implements Iterable<Ligne>{
 	public String toString() {
 		String toString = new String("Nom station : "+this.nom+" Ligne : ");
 		for(Ligne ligne : this.lignes) {
-			toString += ligne.toString()+",";
+			toString += ligne.toString()+"\n";
 		}
 		return toString;
 	}
