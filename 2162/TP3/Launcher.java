@@ -56,9 +56,9 @@ public class Launcher {
 		
 		try {
 			Reseau reseau = Reseau.CreeReseauAPartirDuFichier("metro.txt");
-			for (Station st : reseau.getStation()){
+			/*for (Station st : reseau.getStation()){
 				System.out.println(st.toString());
-			}
+			}*/
 			//System.out.println(reseau.toString());
 			
 			/*for(Trajet t : reseau.getGraphe().getTrajets()){
@@ -74,7 +74,7 @@ public class Launcher {
 			/*System.out.println("Voisin de : Ranelagh");
 			String[] voisins = Reseau.stationsVoisinesDe(reseau,"Ranelagh");
 			Arrays.stream(voisins).forEach(voisin -> System.out.println(Reseau.modifierNom(voisin)));*/
-			//System.out.println("Nombre de stations : "+reseau.getStation().size());
+			System.out.println("Nombre de stations : "+reseau.getStation().size());
 			//reseau.getStation().stream().sorted(Comparator.comparing(Station::getNom)).forEach((st) -> System.out.println(st.getNom()));
 			
 			/*ArrayList<Trajet> chemin = Reseau.cheminDeVers(reseau,new Station("reuillydiderot"), new Station("chatelet"));
