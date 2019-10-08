@@ -118,7 +118,7 @@ public class Graphe{
     public static HashSet<Trajet> triOrdreTrajet(HashSet<Trajet> trajet_, Station depart_, Station arrive_){
         HashSet<Trajet> trier = new HashSet<Trajet>();
         Station depart = depart_;
-        while(!depart.equals(arrive_)){
+        while(trier.size() < trajet_.size()){
             for(Trajet tr : trajet_){
                 if(depart.equals(tr.getDepart()) && !trajet_.contains(tr)){
                     trier.add(tr);
