@@ -80,7 +80,7 @@ public class Graphe{
         return triOrdreTrajet(trouve,station1_,station2_);
     }
 
-    public static HashSet<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, Collection<Trajet> trajet_, Collection<Trajet> chemin_){
+    public static HashSet<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, HashSet<Trajet> trajet_, HashSet<Trajet> chemin_){
         
         if(station1_.equals(station2_))
             return trajet_;
@@ -115,7 +115,7 @@ public class Graphe{
         return chemin;
     }
 
-    public static HashSet<Trajet> triOrdreTrajet(Collection<Trajet> trajet_, Station depart_, Station arrive_){
+    public static HashSet<Trajet> triOrdreTrajet(HashSet<Trajet> trajet_, Station depart_, Station arrive_){
         HashSet<Trajet> trier = new HashSet<Trajet>();
         Station depart = depart_;
         while(!depart.equals(arrive_)){
