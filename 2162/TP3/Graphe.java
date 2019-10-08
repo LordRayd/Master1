@@ -103,7 +103,7 @@ public class Graphe{
                     if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
                         chemin = (HashSet<Trajet>)rec.clone();
                     } 
-                } else if(station1_.equals(tr.getArrive())){
+                } /*else if(station1_.equals(tr.getArrive())){
                     trajet = (HashSet<Trajet>)trajet_.clone();
                     trajet.add(tr);
 
@@ -112,7 +112,7 @@ public class Graphe{
                     if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
                         chemin = (HashSet<Trajet>)rec.clone();
                     }
-                }
+                }*/
             }
         }
         return chemin;
