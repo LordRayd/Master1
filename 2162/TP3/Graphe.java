@@ -89,20 +89,20 @@ public class Graphe{
         if(station1_.equals(station2_))
             return trajet_;
 
-            ArrayList<Trajet> trajet;
+        ArrayList<Trajet> trajet;
         ArrayList<Trajet> rec;
         ArrayList<Trajet> chemin = new ArrayList<Trajet>();
         for(Trajet tr : graphe_.getTrajets()){
             if((chemin_.isEmpty() || chemin_.size() > trajet_.size()) && !trajet_.contains(tr) ){
                 if(station1_.equals(tr.getDepart()) ){
 
-                    trajet = new ArrayList(trajet_);
+                    trajet = new ArrayList<Trajet>(trajet_);
                     trajet.add(tr);
 
                     Station arrive = tr.getArrive();
                     rec = cheminDeVersRec(graphe_, arrive, station2_, trajet, chemin_);
                     if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
-                        chemin = new ArrayList(rec);
+                        chemin = new ArrayList<Trajet>(rec);
                     } 
                 } /*else if(station1_.equals(tr.getArrive())){
                     trajet = (HashSet<Trajet>)trajet_.clone();
