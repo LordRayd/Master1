@@ -56,12 +56,14 @@ public class Launcher {
 		
 		try {
 			Reseau reseau = Reseau.CreeReseauAPartirDuFichier("metro.txt");
-			
+			for (Station st : reseau.getStation()){
+				System.out.println(st.toString());
+			}
 			//System.out.println(reseau.toString());
-			for(Trajet t : reseau.getGraphe().getTrajets()){
+			
+			/*for(Trajet t : reseau.getGraphe().getTrajets()){
 				System.out.println("depart : "+ t.getDepart() + " arrive : " + t.getArrive());
 			}
-			/*
 			reseau.graphe.forEach((key, value) -> {
 				System.out.println("Station : " + key);
 				for(String str : value){
