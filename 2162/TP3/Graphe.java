@@ -120,7 +120,7 @@ public class Graphe{
         Station depart = depart_;
         while(trier.size() < trajet_.size()){
             for(Trajet tr : trajet_){
-                if(depart.equals(tr.getDepart()) && !trajet_.contains(tr)){
+                if(depart.equals(tr.getDepart()) && !trier.contains(tr)){
                     trier.add(tr);
                     depart = tr.getArrive();
                 }
