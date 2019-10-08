@@ -77,11 +77,7 @@ public class Graphe{
     public static ArrayList<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
         ArrayList<Trajet> trajet = new ArrayList<Trajet>();
         ArrayList<Trajet> chemin = new ArrayList<Trajet>();
-        ArrayList<Trajet> trouve =  cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
-        for(Trajet tr : trouve){
-            System.out.println(tr.toString());
-        }
-        return triOrdreTrajet(trouve,station1_,station2_);
+        return  cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
     }
 
     public static ArrayList<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, ArrayList<Trajet> trajet_, ArrayList<Trajet> chemin_){
@@ -118,21 +114,4 @@ public class Graphe{
         }
         return chemin;
     }
-
-    public static ArrayList<Trajet> triOrdreTrajet(ArrayList<Trajet> trajet_, Station depart_, Station arrive_){
-        ArrayList<Trajet> trier = new ArrayList<Trajet>();
-        Station depart = depart_;
-        while(trier.size() < trajet_.size()){
-            for(Trajet tr : trajet_){
-                if(depart.equals(tr.getDepart()) && !trier.contains(tr)){
-                    trier.add(tr);
-                    depart = tr.getArrive();
-                }
-            }
-        }
-        return trier;
-    }
-
-
-
 }
