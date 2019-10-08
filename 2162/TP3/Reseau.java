@@ -104,6 +104,7 @@ public class Reseau {
 	public static String modifierNom(String nom_){
 		return Normalizer
 			.normalize(nom_, Normalizer.Form.NFD)
+			.replaceAll("—","-")
 			.replaceAll("[^\\p{ASCII}]", "")
 			.replaceAll(" ","")
 			.toLowerCase()
