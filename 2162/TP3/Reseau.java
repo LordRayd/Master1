@@ -108,7 +108,7 @@ public class Reseau {
 			.replaceAll("[^\\p{ASCII}]", "")
 			.replaceAll(" ","")
 			.toLowerCase()
-			.replaceAll("[^a-z0-9\-]", "")
+			.replaceAll("[^a-z0-9-]", "")
 			;
 	}
 
