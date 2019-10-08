@@ -126,6 +126,7 @@ public class Graphe{
                 }
             }
         }
+        return trier;
     }
 
 
