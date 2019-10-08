@@ -106,9 +106,9 @@ public class Reseau {
 			.normalize(nom_, Normalizer.Form.NFD)
 			.replaceAll("—", "-")
 			.replaceAll("[^\\p{ASCII}-]", "")
-			/*.replaceAll(" ","")
+			.replaceAll(" ","")
 			.toLowerCase()
-			.replaceAll("[^a-z0-9]", "")*/
+			/*.replaceAll("[^a-z0-9]", "")*/
 			;
 	}
 
