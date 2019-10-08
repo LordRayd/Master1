@@ -54,7 +54,7 @@ public class Station implements Iterable<Ligne>{
             return false;
         }
         Station station = (Station) o_;
-        return Reseau.modifierNom(station.getNom()).equals(Reseau.modifierNom(this.getNom));
+        return Reseau.modifierNom(station.getNom()).equals(Reseau.modifierNom(this.getNom()));
 	}
 	
 	@Override
