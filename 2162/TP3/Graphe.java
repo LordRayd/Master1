@@ -85,12 +85,21 @@ public class Graphe{
         if(station1_.equals(station2_))
             return trajet_;
 
-            Collection<Trajet> trajet;
-            Collection<Trajet> rec;
+        Collection<Trajet> trajet;
+        Collection<Trajet> rec;
         for(Trajet tr : graphe_.getTrajets()){
-            if(chemin_.isEmpty() || chemin_.size() > trajet_.size() ){
-                if(station1_.equals(tr.getDepart()) && !trajet_.contains(tr)){
+            if((chemin_.isEmpty() || chemin_.size() > trajet_.size()) && !trajet_.contains(tr) ){
+                if(station1_.equals(tr.getDepart()) ){
 
+                    trajet = (Collection<Trajet>)trajet_.clone();
+                    trajet.add(tr);
+
+                    Station arrive = tr.getArrive();
+                    rec = cheminDeVersRec(graphe_, arrive, station2_, trajet, chemin_);
+                    if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
+                        chemin = (Collection<Trajet>)rec.clone();
+                    } 
+                } else if(station1_.equals(tr.getArrive())){
                     trajet = (Collection<Trajet>)trajet_.clone();
                     trajet.add(tr);
 
@@ -98,7 +107,7 @@ public class Graphe{
                     rec = cheminDeVersRec(graphe_, depart, station2_, trajet, chemin_);
                     if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
                         chemin = (Collection<Trajet>)rec.clone();
-                    }      
+                    }
                 }
             }
         }
