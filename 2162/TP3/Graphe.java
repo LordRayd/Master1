@@ -73,35 +73,35 @@ public class Graphe{
 	}
  
 
-    public static HashSet<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
-        HashSet<Trajet> trajet = new HashSet<Trajet>();
-        HashSet<Trajet> chemin = new HashSet<Trajet>();
-        HashSet<Trajet> trouve =  cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
+    public static ArrayList<Trajet> cheminDeVers(Graphe graphe_ , Station station1_, Station station2_){
+        ArrayList<Trajet> trajet = new ArrayList<Trajet>();
+        ArrayList<Trajet> chemin = new ArrayList<Trajet>();
+        ArrayList<Trajet> trouve =  cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
         for(Trajet tr : trouve){
             System.out.println(tr.toString());
         }
         return triOrdreTrajet(trouve,station1_,station2_);
     }
 
-    public static HashSet<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, HashSet<Trajet> trajet_, HashSet<Trajet> chemin_){
+    public static ArrayList<Trajet> cheminDeVersRec(Graphe graphe_ , Station station1_, Station station2_, ArrayList<Trajet> trajet_, ArrayList<Trajet> chemin_){
         
         if(station1_.equals(station2_))
             return trajet_;
 
-        HashSet<Trajet> trajet;
-        HashSet<Trajet> rec;
-        HashSet<Trajet> chemin = new HashSet<Trajet>();
+            ArrayList<Trajet> trajet;
+        ArrayList<Trajet> rec;
+        ArrayList<Trajet> chemin = new ArrayList<Trajet>();
         for(Trajet tr : graphe_.getTrajets()){
             if((chemin_.isEmpty() || chemin_.size() > trajet_.size()) && !trajet_.contains(tr) ){
                 if(station1_.equals(tr.getDepart()) ){
 
-                    trajet = (HashSet<Trajet>)trajet_.clone();
+                    trajet = new ArrayList(trajet_);
                     trajet.add(tr);
 
                     Station arrive = tr.getArrive();
                     rec = cheminDeVersRec(graphe_, arrive, station2_, trajet, chemin_);
                     if(!rec.isEmpty() && (rec.size() < chemin_.size() || chemin_.isEmpty())){
-                        chemin = (HashSet<Trajet>)rec.clone();
+                        chemin = new ArrayList(rec);
                     } 
                 } /*else if(station1_.equals(tr.getArrive())){
                     trajet = (HashSet<Trajet>)trajet_.clone();
@@ -118,8 +118,8 @@ public class Graphe{
         return chemin;
     }
 
-    public static HashSet<Trajet> triOrdreTrajet(HashSet<Trajet> trajet_, Station depart_, Station arrive_){
-        HashSet<Trajet> trier = new HashSet<Trajet>();
+    public static ArrayList<Trajet> triOrdreTrajet(ArrayList<Trajet> trajet_, Station depart_, Station arrive_){
+        ArrayList<Trajet> trier = new ArrayList<Trajet>();
         Station depart = depart_;
         while(trier.size() < trajet_.size()){
             for(Trajet tr : trajet_){
