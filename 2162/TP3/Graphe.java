@@ -19,13 +19,13 @@ public class Graphe{
     }
     
     public static boolean stationEstUnSommet(Graphe graphe_, Station station_){
-        return graphe_.getTrajets().stream().anyMatch((t) -> t.getDepart().getNom().equals(station_.getNom()));
+        return graphe_.getTrajets().stream().anyMatch((t) -> t.getDepart().equals(station_));
     }
 
     public static boolean estUnVoisinDe(Graphe graphe_, Station stationA_, Station stationB_){
         return graphe_.getTrajets().stream().anyMatch(
-            (t) -> (t.getDepart().getNom().equals(stationA_.getNom()) && t.getArrive().getNom().equals(stationB_.getNom())) 
-            || (t.getDepart().getNom().equals(stationB_.getNom()) && t.getArrive().getNom().equals(stationA_.getNom())) 
+            (t) -> (t.getDepart().equals(stationA_) && t.getArrive().equals(stationB_)) 
+            || (t.getDepart().equals(stationB_) && t.getArrive().equals(stationA_)) 
         );
     }
 
@@ -63,10 +63,10 @@ public class Graphe{
         graphe_.getTrajets()
             .stream()
             .forEach((t) -> {
-                if(nomDeStation_.equals(t.getDepart().getNom())){
-                    nomStations.add(t.getArrive().getNom());
-                }else if(nomDeStation_.equals(t.getArrive().getNom())){
-                    nomStations.add(t.getDepart().getNom());
+                if(Reseau.modifierNom(nomDeStation_).equals(Reseau.modifierNom(t.getDepart().getNom()))){
+                    nomStations.add(Reseau.modifierNom(t.getArrive().getNom()));
+                }else if(Reseau.modifierNom(nomDeStation_).equals(Reseau.modifierNom(t.getArrive().getNom()))){
+                    nomStations.add(Reseau.modifierNom(t.getDepart().getNom()));
                 }
             }
         );
