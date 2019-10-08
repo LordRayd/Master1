@@ -54,12 +54,12 @@ public class Station implements Iterable<Ligne>{
             return false;
         }
         Station station = (Station) o_;
-        return station.getNom().equals(this.nom);
+        return Reseau.modifierNom(station.getNom()).equals(Reseau.modifierNom(this.getNom));
 	}
 	
 	@Override
     public int hashCode() {
-        return Objects.hash(this.nom);
+        return Objects.hash(Reseau.modifierNom(this.nom));
     }
 	
 	

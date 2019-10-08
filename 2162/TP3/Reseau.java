@@ -29,9 +29,9 @@ public class Reseau {
 				while(st.hasMoreTokens()) {
 					
 					Ligne ligne = new Ligne(new Integer(st.nextToken().trim()));
-					Station depart = new Station(modifierNom(st.nextToken()));
+					Station depart = new Station(st.nextToken());
 					st.nextToken();
-					Station arrive = new Station(modifierNom(st.nextToken()));
+					Station arrive = new Station(st.nextToken());
 					
 					depart.ajouteLigne(ligne);
 					arrive.ajouteLigne(ligne);
