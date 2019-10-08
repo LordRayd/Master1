@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -110,7 +111,7 @@ public class Reseau {
 			;
 	}
 
-	public static HashSet<Trajet> cheminDeVers(Reseau reseau_, Station station1_, Station station2_){
+	public static ArrayList<Trajet> cheminDeVers(Reseau reseau_, Station station1_, Station station2_){
 		return Graphe.cheminDeVers(reseau_.getGraphe(), station1_, station2_);
 	}
 		
