@@ -1,4 +1,4 @@
-ATTENTION l'éxecution de ce programme ne fonctionnera complétemment que sur Linux
+ATTENTION l'exécution de ce programme ne fonctionnera complétement que sur Linux
 
 OS Utilisé:
     Ubuntu 18.04 LTS
