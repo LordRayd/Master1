@@ -77,6 +77,9 @@ public class Graphe{
         HashSet<Trajet> trajet = new HashSet<Trajet>();
         HashSet<Trajet> chemin = new HashSet<Trajet>();
         HashSet<Trajet> trouve =  cheminDeVersRec(graphe_, station1_, station2_, trajet, chemin);
+        for(Trajet tr : trouve){
+            System.out.println(tr.toString());
+        }
         return triOrdreTrajet(trouve,station1_,station2_);
     }
 
