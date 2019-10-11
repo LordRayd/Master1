@@ -107,5 +107,5 @@ int main (int argc,char **argv) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
-    creatMdj();
+    readMdj();
 }
