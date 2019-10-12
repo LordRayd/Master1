@@ -20,39 +20,7 @@ int semid; /* nom local de l'ensemble des semaphores */
 int shmid;
 
 void readMdj(){
-    struct sembuf op;
-
-    /*P(&semNbL)*/
-    op.sem_num=SEMNBL;op.sem_op=-1;op.sem_flg=0;
-    semop(semid,&op,1);
-
-    if((shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-
-    int * shmint;
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
-        perror("probleme shmat");
-        exit(4);
-    }
-    *shmint++;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
-
-    // seul lecteur
-    if (*shmint ==1){
-        /*P(&info)*/
-        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
-        semop(semid,&op,1);
-    }
-
-    // en exclusion avec le rédac.
-    /*V(&semNbL)*/
-    op.sem_num=SEMNBL;op.sem_op=1;op.sem_flg=0;
-    semop(semid,&op,1);
+    
 
     FILE * fic;
     if((fic=fopen("/tmp/motdj","r"))!=NULL){
@@ -62,35 +30,7 @@ void readMdj(){
         }
     }
     fclose(fic);
-    sleep(5);
-    /*P(&semNbL)*/
-    op.sem_num=SEMNBL;op.sem_op=-1;op.sem_flg=0;
-    semop(semid,&op,1);
-
-    if((shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
-        perror("probleme shmat");
-        exit(4);
-    }
-    *shmint--;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
-
-    if (*shmint == 0){
-        /*V(&info)*/
-        op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
-        semop(semid,&op,1);
-    }
-
-    /*V(&semNbL)*/
-    op.sem_num=SEMNBL;op.sem_op=1;op.sem_flg=0;
-    semop(semid,&op,1);
+    
 }
 
 
