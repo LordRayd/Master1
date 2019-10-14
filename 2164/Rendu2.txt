@@ -12,4 +12,19 @@ Etudiant : Maxime Hamon
 Les bonnes sources : L'auteur de la bonne source est Martin Woolley qui travail pour le "Bluetooth Special Interest Group" 
 qui est un groupe spécialisé dans le développement de l'utilisation du bluetooth et l'amélioration de ses fonctionnalités.
 Sources : bluetooth.com 
-Les mauvaises sources : Très bonne argumentaire sur le choix de la source. L'article n'est pas signé et les images 
+Les mauvaises sources : Très bonne argumentaire sur le choix de la source. L'article n'est pas signé et les images proviennent 
+bien de différents sites
+
+Sujet n°3 : Big Data
+Etudiant : Maxime Guillaume
+Les bonnes sources : Le choix de la source me parait pertinante car l'auteur est uune personne compétente dans ce domaine, il 
+s'agit d'un enseignant du MIT ett un détenteur de différents prix pour le récompenser de ses recherches.
+Les mauvaises sources : L'auteur qui est un neurobiologiste tente de comparé le cerveau humain, son sujet de prédilection, et 
+l'intelligence artificiel dont il ne possède que des connaissances vagues malgré les recherches qu'il a put faire sur le sujet.
+
+Sujet n°4 : Interface cerveau ordinateur
+Etudiant : Johan Gousset
+La bonne source : L'article est publié sur le site de L'IEEE qui est un organisme reconnut mondialement pour l'exactitude de ses publications.
+Il s'agit du résultat de la recherche de 3 chercheurs. 
+La mauvaise source : Cette article n'est que la réecriture d'informations trouvé par son auteur qui est une responsable de communication
+donc une personne non compétente dans ce domaine. De plus le média ne sert qu'a faire circuler des informations partiels. 
