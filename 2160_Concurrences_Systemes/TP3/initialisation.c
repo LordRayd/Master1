@@ -42,7 +42,7 @@ int main (int argc,char **argv) {
         exit(3);
     }
 
-    if((shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(IPC_PRIVATE, 4096, IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
