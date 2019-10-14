@@ -20,7 +20,6 @@ int semid; /* nom local de l'ensemble des semaphores */
 int shmid;
 
 void readMdj(){
-    printf("Entre readMdj\n");
     struct sembuf op;
 
     printf("test1");
