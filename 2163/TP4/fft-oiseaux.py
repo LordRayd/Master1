@@ -46,6 +46,15 @@ def tffAmplitude(Nf,offset):
     plt.plot(F1,mX1)
     
 def tffPhase(Nf,offset):
+    sf = np.zeros(Nf)
+    sf[:]=x[offset:offset+Nf]
+    X =fft(sf)/Nf
+    F =np.linspace(0,fs,Nf)	
+    mX = 2*abs(X)
+    powerSpectra = 10 * np.log10(abs(X))
+    pX=np.angle(X)
+    print(np.size(mX))
+    
     fig2 = plt.figure()
     plt.xlabel('Frequency [Hz]')
     plt.ylabel('Phase')
@@ -78,6 +87,6 @@ def calculerSpectre(Nf, offset, winSize):
     plt.xlabel('Frequency [Hz]')
     plt.ylabel('Amplitude')
     
-    for i in range(offset,winSize+offset):
+    #for i in range(offset,winSize+offset):
         
     
