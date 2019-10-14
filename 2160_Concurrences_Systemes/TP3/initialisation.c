@@ -21,9 +21,11 @@ int shmid;
 
 int main (int argc,char **argv) {
 
+    system("touch /tmp/motdj");
+
     ushort init_sem[2]={1,1}; //strucutre par initialise le semaphore mutex
     // creation d'une cle IPC
-    if ((cle=ftok(argv[1],'0')) == -1 ) {
+    if ((cle=ftok("/tmp/motdj",'0')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
         exit(1);
     }

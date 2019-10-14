@@ -108,7 +108,7 @@ void readMdj(){
 int main (int argc,char **argv) {
 
     // creation d'une cle IPC en fonction du nom du programme
-    if ((cle=ftok(argv[1],'0')) == -1 ) {
+    if ((cle=ftok("/tmp/motdj",'0')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
         exit(1);
     }
