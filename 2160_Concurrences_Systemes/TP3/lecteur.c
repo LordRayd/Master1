@@ -28,7 +28,8 @@ void readMdj(){
     op.sem_num=SEMNBL;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
-    if((shmid = shmget(IPC_PRIVATE, sizeof(int), 0)) == -1){
+    printf("test1");
+    if((shmid = shmget(IPC_PRIVATE, 4096, 0)) == -1){
         perror("shmget");
         exit(1);
     }
