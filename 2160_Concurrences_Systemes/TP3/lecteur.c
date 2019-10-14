@@ -22,33 +22,28 @@ int shmid;
 void readMdj(){
     struct sembuf op;
 
-    printf("test1");
     /*P(&semNbL)*/
-    op.sem_num=SEMNBL;op.sem_op=-1;op.sem_flg=0;
+    op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
     if((shmid = shmget(IPC_PRIVATE, 4096, 0)) == -1){
         perror("shmget");
         exit(1);
     }
-    printf("test1");
     int * shmint;
     if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    printf("test1");
     *shmint++;
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
-    printf("test1");
 
     // seul lecteur
     if (*shmint ==1){
-        
-        printf("P(&info)\n");
+        printf("P(&info)");
         /*P(&info)*/
         op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
@@ -57,7 +52,7 @@ void readMdj(){
     // en exclusion avec le rédac.
     /*V(&semNbL)*/
     printf("V(&semNbL)\n");
-    op.sem_num=SEMNBL;op.sem_op=1;op.sem_flg=0;
+    op.sem_num=1;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 
     FILE * fic;
@@ -71,7 +66,7 @@ void readMdj(){
     sleep(5);
     /*P(&semNbL)*/
         printf("P(&semNbL)\n");
-    op.sem_num=SEMNBL;op.sem_op=-1;op.sem_flg=0;
+    op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
     if((shmid = shmget(IPC_PRIVATE, sizeof(int), 0)) == -1){
@@ -98,7 +93,7 @@ void readMdj(){
 
     /*V(&semNbL)*/
         printf("V(&semNbL)\n");
-    op.sem_num=SEMNBL;op.sem_op=1;op.sem_flg=0;
+    op.sem_num=1;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 }
 
