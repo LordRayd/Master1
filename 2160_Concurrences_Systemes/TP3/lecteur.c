@@ -32,17 +32,19 @@ void readMdj(){
         perror("shmget");
         exit(1);
     }
-
+    printf("test1");
     int * shmint;
     if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
+    printf("test1");
     *shmint++;
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
+    printf("test1");
 
     // seul lecteur
     if (*shmint ==1){
@@ -55,7 +57,7 @@ void readMdj(){
 
     // en exclusion avec le rédac.
     /*V(&semNbL)*/
-        printf("V(&semNbL)\n");
+    printf("V(&semNbL)\n");
     op.sem_num=SEMNBL;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 
