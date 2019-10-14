@@ -111,7 +111,7 @@ int main (int argc,char **argv) {
     }
 
     // demande un ensemble de semaphore (ici un seul mutex)
-    if ((semid = semget(cle,2,0))==-1) {
+    if ((semid = semget(cle,2,NULL))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
