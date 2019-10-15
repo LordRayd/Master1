@@ -71,37 +71,25 @@ def tffSpectre(NF,offset):
     plt.xlabel('Time [sec]')
     
 
-def calculerSpectre(Nf, offset, winSize):
+def calculerSpectreRec(Nf, offset, winSize):
+    sf = np.zeros(Nf)
+    sf[:]=x[offset:offset+winSize]*np.hamming(winSize)
+    X =fft(sf)/Nf
+    F =np.linspace(0,fs,Nf)	
+    mX = 2*abs(X)
+    powerSpectra = 10 * np.log10(abs(X))
+    pX=np.angle(X)
+    print(np.size(mX))
+    
     plt.figure()
-    f, t, Sxx = signal.spectrogram(x, fs)
-    #plt.pcolormesh(t, f, np.log(Sxx))
-    plt.pcolormesh(t, f[offset:winSize+offset], np.log(Sxx[offset:winSize+offset]))
-    plt.ylabel('Frequency [Hz]')
-    plt.xlabel('Time [sec]')
-    
-def calculerSpectre(echantillons,fe,fenetre,nz=2,db=False):
-    N = echantillons.size
-    zeros=np.zeros(nz*N)
-    echantillons = np.concatenate((zeros,echantillons*signal.get_window(fenetre,N),zeros))
-    spectre = np.absolute(fft(echantillons))
-    spectre = spectre / spectre.max()
-    NN = len(echantillons)
-    if db:
-        spectre = 20*np.log10(spectre)
-    freq = np.arange(NN)*fe/NN
-    return [freq,spectre]
-    
-def movingFFT(Nf, offset, winSize, winType) :
-    [freq,spectre] = calculerSpectre(x,fs,winType,nz=2,db=True)
-    figure(figsize=(10,4))
-    plot(freq,spectre,'r')
-    xlabel('f')
-    ylabel('AdB')
-    axis([-0.1,fs/2,-160,0])
-    grid()
-    
-    
+    plt.xlabel('Frequency [Hz]')
+    plt.ylabel('Amplitude')
+    F1=F[offset:1024+offset]
+    #mX1=mX[256:1024+256]
+    mX1=powerSpectra[offset:winSize+offset]
+    plt.plot(F1,mX1)
+
 tffAmplitude(4096,512)
 tffPhase(4096,512)
 tffSpectre(4096,512)
-movingFFT(4096,512,1000,"hamming")
+calculerSpectreRec(4096,512,1024)

@@ -35,7 +35,7 @@ void readMdj(){
         perror("probleme shmat");
         exit(4);
     }
-    *shmint++;
+    *shmint = *shmint+1;
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
