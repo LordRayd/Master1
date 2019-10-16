@@ -12,6 +12,9 @@
 
 #define INFO 0
 #define SEMNBL 1
+#define SEMNBR 2
+#define DEML 3
+#define DEMR 4
 
 key_t cle; /* cle ipc */
 
@@ -22,8 +25,8 @@ int shmid;
 int main (int argc,char **argv) {
 
     system("touch /tmp/motdj");
-
-    ushort init_sem[2]={1,1}; //strucutre par initialise le semaphore mutex
+    
+    ushort init_sem[5]={1,1,1,1,1}; //strucutre par initialise le semaphore mutex
     // creation d'une cle IPC
     if ((cle=ftok("/tmp/motdj",'0')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
@@ -31,13 +34,13 @@ int main (int argc,char **argv) {
     }
 
     // demande un ensemble de semaphore (ici un seul mutex)
-    if ((semid=semget(cle,2,IPC_CREAT|0666))==-1) {
+    if ((semid=semget(cle,5,IPC_CREAT|0666))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     } 
 
     // initialise l'ensemble
-    if (semctl(semid,2,SETALL,init_sem)==-1) {
+    if (semctl(semid,5,SETALL,init_sem)==-1) {
         fprintf(stderr,"Probleme sur semctl SETALL\n");
         exit(3);
     }
