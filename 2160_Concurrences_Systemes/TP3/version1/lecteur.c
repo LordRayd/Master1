@@ -22,11 +22,11 @@ int shmid;
 void readMdj(){
     struct sembuf op;
 
-    /*P(&semNbL)*/
+    printf("P(&semNbL)\n");
     op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
-    if((shmid = shmget(IPC_PRIVATE, 4096, 0)) == -1){
+    if((shmid = shmget(cle, 4096, NULL)) == -1){
         perror("shmget");
         exit(1);
     }
@@ -35,22 +35,21 @@ void readMdj(){
         perror("probleme shmat");
         exit(4);
     }
-    *shmint = *shmint+1;
+    
+    (*shmint)++;
+
+    // seul lecteur
+    if (*shmint ==1){
+        printf("P(&info)\n");
+        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+    }
+
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
 
-    // seul lecteur
-    if (*shmint ==1){
-        printf("P(&info)");
-        /*P(&info)*/
-        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
-        semop(semid,&op,1);
-    }
-
-    // en exclusion avec le rédac.
-    /*V(&semNbL)*/
     printf("V(&semNbL)\n");
     op.sem_num=1;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
@@ -60,16 +59,16 @@ void readMdj(){
         char str[4096];
         while ((fgets(str,4096,fic)!= (char*)NULL)){
             printf("%s",str);
+            sleep(5);
         }
     }
     fclose(fic);
-    sleep(5);
-    /*P(&semNbL)*/
-        printf("P(&semNbL)\n");
+    
+    printf("\nP(&semNbL)\n");
     op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
-    if((shmid = shmget(IPC_PRIVATE, sizeof(int), 0)) == -1){
+    if((shmid = shmget(cle, 4096, NULL)) == -1){
         perror("shmget");
         exit(1);
     }
@@ -78,21 +77,21 @@ void readMdj(){
         perror("probleme shmat");
         exit(4);
     }
-    *shmint--;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
+    (*shmint)--;
 
     if (*shmint == 0){
-        /*V(&info)*/
         printf("V(&info)\n");
         op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
     }
 
+    if(shmdt(shmint) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
+    }
+
     /*V(&semNbL)*/
-        printf("V(&semNbL)\n");
+    printf("V(&semNbL)\n");
     op.sem_num=1;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 }

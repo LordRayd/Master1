@@ -17,8 +17,6 @@ key_t cle; /* cle ipc */
 
 int semid; /* nom local de l'ensemble des semaphores */
 
-int shmid;
-
 void creatMdj(){
     struct sembuf op;
     /*P(&info)*/
