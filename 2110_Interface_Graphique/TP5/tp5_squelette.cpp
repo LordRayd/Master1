@@ -1,7 +1,7 @@
 //
 //  tp5_squelette.cpp
 //  
-//
+// 
 //  Created by Caroline Larboulette on 12/11/2017.
 //
 //  g++ tp5_squelette.cpp -framework OpenGL -framework GLUT
