@@ -21,6 +21,7 @@
 *****************************************************************************/
 
 #include "simpleViewer.h"
+#include "tp4_exo1.h"
 #include <qapplication.h>
 
 int main(int argc, char **argv) {
@@ -28,7 +29,7 @@ int main(int argc, char **argv) {
   QApplication application(argc, argv);
 
   // Instantiate the viewer.
-  Viewer viewer;
+  ViewerEx viewer;
 
   viewer.setWindowTitle("simpleViewer");
 

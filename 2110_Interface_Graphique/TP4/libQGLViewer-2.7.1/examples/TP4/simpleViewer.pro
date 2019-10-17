@@ -11,7 +11,10 @@
 TEMPLATE = app
 TARGET   = simpleViewer
 
-HEADERS  = simpleViewer.h
-SOURCES  = simpleViewer.cpp main.cpp
+HEADERS  = simpleViewer.h \
+    tp4_exo1.h \
+    tp4_exo1.h
+SOURCES  = simpleViewer.cpp main.cpp \
+    tp4_exo1.cpp
 
 include( ../examples.pri )

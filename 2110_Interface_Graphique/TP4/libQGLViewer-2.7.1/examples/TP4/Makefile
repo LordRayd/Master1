@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = simpleViewer1.0.0
-DISTDIR = /home/lordrayd/Documents/Master1/2110/TP4/libQGLViewer-2.7.1/examples/simpleViewer\ (copie)/.obj/simpleViewer1.0.0
+DISTDIR = /home/lordrayd/Documents/Master1/2110/TP4/libQGLViewer-2.7.1/examples/TP4/.obj/simpleViewer1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/lordrayd/Documents/Master1/2110/TP4/libQGLViewer-2.7.1/QGLViewer
 LIBS          = $(SUBLIBS) -L../../QGLViewer -lQGLViewer-qt5 -lGL -lQt5OpenGL -lQt5Widgets -lQt5Gui -lQt5Xml -lQt5Core -lpthread 
@@ -51,9 +51,11 @@ OBJECTS_DIR   = .obj/
 ####### Files
 
 SOURCES       = simpleViewer.cpp \
-		main.cpp 
+		main.cpp \
+		tp4_exo1.cpp 
 OBJECTS       = .obj/simpleViewer.o \
-		.obj/main.o
+		.obj/main.o \
+		.obj/tp4_exo1.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -108,6 +110,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -127,8 +130,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		simpleViewer.pro simpleViewer.h simpleViewer.cpp \
-		main.cpp
+		simpleViewer.pro simpleViewer.h \
+		tp4_exo1.h \
+		tp4_exo1.h simpleViewer.cpp \
+		main.cpp \
+		tp4_exo1.cpp
 QMAKE_TARGET  = simpleViewer
 DESTDIR       = 
 TARGET        = simpleViewer
@@ -194,6 +200,7 @@ Makefile: simpleViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -275,6 +282,7 @@ Makefile: simpleViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -316,8 +324,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents simpleViewer.h $(DISTDIR)/
-	$(COPY_FILE) --parents simpleViewer.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents simpleViewer.h tp4_exo1.h tp4_exo1.h $(DISTDIR)/
+	$(COPY_FILE) --parents simpleViewer.cpp main.cpp tp4_exo1.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -384,8 +392,20 @@ compiler_clean: compiler_moc_predefs_clean
 		../../QGLViewer/vec.h \
 		../../QGLViewer/config.h \
 		../../QGLViewer/frame.h \
-		../../QGLViewer/constraint.h
+		../../QGLViewer/constraint.h \
+		tp4_exo1.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/main.o main.cpp
+
+.obj/tp4_exo1.o: tp4_exo1.cpp tp4_exo1.h \
+		../../QGLViewer/qglviewer.h \
+		../../QGLViewer/camera.h \
+		../../QGLViewer/keyFrameInterpolator.h \
+		../../QGLViewer/quaternion.h \
+		../../QGLViewer/vec.h \
+		../../QGLViewer/config.h \
+		../../QGLViewer/frame.h \
+		../../QGLViewer/constraint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/tp4_exo1.o tp4_exo1.cpp
 
 ####### Install
 
