@@ -100,7 +100,8 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(x,y,z,0,0,30,roll,heading,pitch);// Add parameters here that are not default ones
+    gluLookAt(25,5,100,0,0,30,0,1,0);
+    //gluLookAt(x,y,z,0,0,30,roll,heading,pitch);// Add parameters here that are not default ones
    
     //Draw axes
     glColor3f(1.0, 0.0, 0.0);
@@ -143,7 +144,8 @@ void init(void)
     //perspective projection left right bottom top near far
     //Change parameters to see your object
     //glFrustum(-50.0,50.0,-50.0,50.0,0,10);
-    gluPerspective(90,16/9,0,10);
+    glOrtho(90,16/9,0,10);
+    //gluPerspective(90,16/9,0,10);
     glMatrixMode(GL_MODELVIEW);
     
 }
