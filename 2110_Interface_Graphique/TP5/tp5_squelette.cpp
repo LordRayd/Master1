@@ -196,6 +196,14 @@ void keyboard(unsigned char key, int h, int g)
             roll = roll+1;
             break;
         }
+        case '7' : {
+            heading = heading-1;
+            break;
+        }
+        case '9' : {
+            heading = heading+1;
+            break;
+        }
         case 27: exit(0);  //exits the program
     }
     display();
