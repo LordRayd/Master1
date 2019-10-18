@@ -184,6 +184,18 @@ void keyboard(unsigned char key, int h, int g)
             pitch = pitch+0.1;
             break;
         }
+        case '5' : {
+            pitch = pitch-0.1;
+            break;
+        }
+        case '4' : {
+            roll = roll+0.1;
+            break;
+        }
+        case '6' : {
+            roll = roll+0.1;
+            break;
+        }
         case 27: exit(0);  //exits the program
     }
     display();
