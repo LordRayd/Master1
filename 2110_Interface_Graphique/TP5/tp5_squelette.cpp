@@ -189,7 +189,7 @@ void keyboard(unsigned char key, int h, int g)
             break;
         }
         case '4' : {
-            roll = roll+1;
+            roll = roll-1;
             break;
         }
         case '6' : {
