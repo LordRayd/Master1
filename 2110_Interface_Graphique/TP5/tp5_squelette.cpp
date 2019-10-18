@@ -177,7 +177,7 @@ void keyboard(unsigned char key, int h, int g)
             y = y+1;
             break;
         }
-        case 'm': exit(0);  //exits the program
+        case 27: exit(0);  //exits the program
     }
     display();
 }
