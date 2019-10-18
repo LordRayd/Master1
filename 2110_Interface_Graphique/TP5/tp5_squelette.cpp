@@ -22,7 +22,7 @@ using namespace std;
 
 void drawHouse()
 {
-    glColor3f(0.0, 0.0, 0.0);
+    glColor3f(1.0, 1.0, 1.0);
     //Add your code here !
     glBegin(GL_LINES);
 
