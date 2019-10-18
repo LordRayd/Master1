@@ -100,7 +100,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(8,5,100,0,0,30,0,1,0);
+    gluLookAt(30,20,70,0,0,30,0,1,0);
     //gluLookAt(x,y,z,0,0,30,roll,heading,pitch);// Add parameters here that are not default ones
    
     //Draw axes
