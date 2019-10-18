@@ -22,6 +22,9 @@ using namespace std;
 double x = 30;
 double y = 20;
 double z = 70;
+double roll = 0;
+double pitch = 0;
+double heading = 1;
 
 void drawHouse()
 {
@@ -97,7 +100,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(x,y,z,0,0,30,0,1,0);// Add parameters here that are not default ones
+    gluLookAt(x,y,z,0,0,30,roll,heading,pitch);// Add parameters here that are not default ones
    
     //Draw axes
     glColor3f(1.0, 0.0, 0.0);
