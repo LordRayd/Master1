@@ -19,6 +19,9 @@
 
 using namespace std;
 
+double x = 30;
+double y = 20;
+double z = 70;
 
 void drawHouse()
 {
@@ -94,7 +97,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(30,20,70,0,0,30,1,1,0);// Add parameters here that are not default ones
+    gluLookAt(x,y,z,0,0,30,0,1,0);// Add parameters here that are not default ones
    
     //Draw axes
     glColor3f(1.0, 0.0, 0.0);
@@ -150,6 +153,30 @@ void keyboard(unsigned char key, int x, int y)
 {
     switch (key)
     {
+        case 'z' : {
+            x = x+1;
+            break;
+        }
+        case 's' : {
+            x = x-1;
+            break;
+        } 
+        case 'q' : {
+            z = z-1;
+            break;
+        }
+        case 'd' : {
+            z = z+1;
+            break;
+        }
+        case 'a' : {
+            y = y-1;
+            break;
+        }
+        case 'e' : {
+            y = y+1;
+            break;
+        }
         case 'q': exit(0);  //exits the program
     }
 }
