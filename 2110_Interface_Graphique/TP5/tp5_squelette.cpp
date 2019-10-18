@@ -23,6 +23,54 @@ using namespace std;
 void drawHouse()
 {
     //Add your code here !
+    glBegin(GL_LINES);
+
+        //BAS
+        glVertex3f(0.0,0.0,30.0);
+        glVertex3f(0.0,0.0,54.0);
+
+        glVertex3f(0.0,0.0,30.0);
+        glVertex3f(16.0,0.0,30.0);
+
+        glVertex3f(16.0,0.0,30.0);
+        glVertex3f(16.0,0.0,54.0);
+
+        glVertex3f(0.0,0.0,54.0);
+        glVertex3f(16.0,0.0,54.0);
+
+        //HAUT
+        glVertex3f(0.0,10.0,30.0);
+        glVertex3f(0.0,10.0,54.0);
+
+        glVertex3f(0.0,10.0,30.0);
+        glVertex3f(16.0,10.0,30.0);
+
+        glVertex3f(16.0,10.0,30.0);
+        glVertex3f(16.0,10.0,54.0);
+
+        glVertex3f(0.0,10.0,54.0);
+        glVertex3f(16.0,10.0,54.0);
+
+        //TOIT
+        glVertex3f(8.0,16.0,30.0);
+        glVertex3f(8.0,16.0,54.0);
+
+        glVertex3f(8.0,16.0,54.0);
+        glVertex3f(16.0,10.0,54.0);
+
+        glVertex3f(8.0,16.0,54.0);
+        glVertex3f(0.0,10.0,54.0);
+
+        
+        glVertex3f(8.0,16.0,30.0);
+        glVertex3f(0.0,10.0,30.0);
+
+        
+        glVertex3f(8.0,16.0,30.0);
+        glVertex3f(16.0,10.0,30.0);
+
+    glEnd();
+
 }
 
 void display(void)
