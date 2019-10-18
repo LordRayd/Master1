@@ -180,7 +180,10 @@ void keyboard(unsigned char key, int h, int g)
             y = y+1;
             break;
         }
-        case ''
+        case '8' : {
+            pitch = pitch+0.1;
+            break;
+        }
         case 27: exit(0);  //exits the program
     }
     display();
