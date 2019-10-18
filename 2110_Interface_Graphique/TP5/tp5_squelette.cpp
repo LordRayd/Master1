@@ -70,7 +70,7 @@ void drawHouse()
         glVertex3f(8.0,16.0,30.0);
         glVertex3f(16.0,10.0,30.0);
 
-        //
+        //Arrete bas haut
         glVertex3f(0.0,0.0,30.0);
         glVertex3f(0.0,10.0,30.0);
         
