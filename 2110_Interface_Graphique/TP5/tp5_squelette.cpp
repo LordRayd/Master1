@@ -144,7 +144,7 @@ void init(void)
     //perspective projection left right bottom top near far
     //Change parameters to see your object
     //glFrustum(-50.0,50.0,-50.0,50.0,0,10);
-    glOrtho(-20,20,-20,20,-20,60);
+    glOrtho(-40,40,-40,40,-40,100);
     //gluPerspective(90,16/9,0,10);
     glMatrixMode(GL_MODELVIEW);
     
