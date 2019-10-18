@@ -121,7 +121,8 @@ void init(void)
     glLoadIdentity();
     //perspective projection left right bottom top near far
     //Change parameters to see your object
-    glFrustum(-50.0,50.0,-50.0,50.0,0,10);
+    //glFrustum(-50.0,50.0,-50.0,50.0,0,10);
+    gluPerspective(90,16/9,0,10);
     glMatrixMode(GL_MODELVIEW);
     
 }
