@@ -78,26 +78,26 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(0,0,0,0,0,-100,0,1,0);// Add parameters here that are not default ones
+    gluLookAt(60,60,60,0,0,-100,0,1,0);// Add parameters here that are not default ones
    
     //Draw axes
     glColor3f(1.0, 0.0, 0.0);
     glLineWidth(2.0);
     glBegin(GL_LINES); //Draws x-axis
-    glVertex3f(-50,0,0);
-    glVertex3f(50,0,0);
+        glVertex3f(-50,0,0);
+        glVertex3f(50,0,0);
     glEnd();
     
     glColor3f(0.0, 1.0, 0.0);
     glBegin(GL_LINES); //Draws y-axis
-    glVertex3f(0,-50,0);
-    glVertex3f(0,50,0);
+        glVertex3f(0,-50,0);
+        glVertex3f(0,50,0);
     glEnd();
     
     glColor3f(0.0, 0.0, 1.0);
     glBegin(GL_LINES); //Draws z-axis
-    glVertex3f(0,0,-50);
-    glVertex3f(0,0,50);
+        glVertex3f(0,0,-50);
+        glVertex3f(0,0,50);
     glEnd();
   
     drawHouse();
