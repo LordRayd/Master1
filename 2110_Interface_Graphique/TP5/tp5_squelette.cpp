@@ -94,7 +94,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     glLoadIdentity();
-    gluLookAt(30,20,70,0,0,30,0,1,0);// Add parameters here that are not default ones
+    gluLookAt(8,5,60,0,0,30,0,1,0);// Add parameters here that are not default ones
    
     //Draw axes
     glColor3f(1.0, 0.0, 0.0);
