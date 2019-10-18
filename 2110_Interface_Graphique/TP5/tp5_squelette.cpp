@@ -149,7 +149,7 @@ void init(void)
  void keyboard(unsigned char key, int x, int y)
  key returns the character hit by the user
  **/
-void keyboard(unsigned char key, int x, int y)
+void keyboard(unsigned char key, int h, int g)
 {
     switch (key)
     {
