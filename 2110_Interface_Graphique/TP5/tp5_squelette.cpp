@@ -70,6 +70,21 @@ void drawHouse()
         glVertex3f(8.0,16.0,30.0);
         glVertex3f(16.0,10.0,30.0);
 
+        //
+        glVertex3f(0.0,0.0,30.0);
+        glVertex3f(0.0,10.0,30.0);
+        
+        
+        glVertex3f(16.0,0.0,30.0);
+        glVertex3f(16.0,10.0,30.0);
+
+        
+        glVertex3f(16.0,0.0,54.0);
+        glVertex3f(16.0,10.0,54.0);
+        
+        glVertex3f(0.0,0.0,54.0);
+        glVertex3f(0.0,10.0,54.0);
+
     glEnd();
 
 }
