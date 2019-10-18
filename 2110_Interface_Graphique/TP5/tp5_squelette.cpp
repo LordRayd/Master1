@@ -106,20 +106,20 @@ void display(void)
     glColor3f(1.0, 0.0, 0.0);
     glLineWidth(2.0);
     glBegin(GL_LINES); //Draws x-axis
-        glVertex3f(-50,0,0);
-        glVertex3f(50,0,0);
+        glVertex3f(-100,0,0);
+        glVertex3f(100,0,0);
     glEnd();
     
     glColor3f(0.0, 1.0, 0.0);
     glBegin(GL_LINES); //Draws y-axis
-        glVertex3f(0,-50,0);
-        glVertex3f(0,50,0);
+        glVertex3f(0,-100,0);
+        glVertex3f(0,100,0);
     glEnd();
     
     glColor3f(0.0, 0.0, 1.0);
     glBegin(GL_LINES); //Draws z-axis
-        glVertex3f(0,0,-50);
-        glVertex3f(0,0,50);
+        glVertex3f(0,0,-100);
+        glVertex3f(0,0,100);
     glEnd();
   
     drawHouse();
@@ -180,6 +180,7 @@ void keyboard(unsigned char key, int h, int g)
             y = y+1;
             break;
         }
+        case ''
         case 27: exit(0);  //exits the program
     }
     display();
