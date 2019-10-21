@@ -40,7 +40,7 @@ class Echiquier[P <: Piece: ClassTag](cote_  :  Int){
 
     def placerEn(piece_ : Option[P], x_ : Int, y_ : Int) : Unit = this.plateau(x_).update(y_,piece_)
 
-    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : P): Unit = placerEn(Some(piece_), coupleXY_._1, coupleXY_._2)
+    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : P): Unit = this.placerEn(Some(piece_), coupleXY_._1, coupleXY_._2)
 
     def vider(x_ : Int, y_ : Int) : Unit = this.placerEn(None,x_,y_)
 
