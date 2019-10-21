@@ -30,34 +30,65 @@ object Ansi{
     def reset : String = "\u001B[0m"
 }
 
-class Echiquier[Piece : ClassTag](cote_  :  Int){
+class Echiquier[P <: Piece: ClassTag](cote_  :  Int){
 
-    var plateau : Array[Array[Option[Piece]]] = Array.ofDim[Option[Piece]](cote_,cote_)
+    private var plateau : Array[Array[Option[P]]] = Array.ofDim[Option[P]](cote_,cote_)
+
+    for( i <- 0 to cote_ -1 ; j <- 0 to cote_ -1) this.vider(i,j)
 
     def this() = this(8)
 
-    def placerEn(piece_ : Option[Piece], x_ : Int, y_ : Int) : Unit = this.plateau(x_).update(y_,piece_)
+    def placerEn(piece_ : Option[P], x_ : Int, y_ : Int) : Unit = this.plateau(x_).update(y_,piece_)
 
-    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : Option[Piece]): Unit = placerEn(piece_, coupleXY_._1, coupleXY_._2)
+    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : P): Unit = placerEn(Some(piece_), coupleXY_._1, coupleXY_._2)
 
-    def apply(x_ : Int, y_ : Int) : Piece = {
-        this.plateau(x_)(y_)
-    }
+    def vider(x_ : Int, y_ : Int) : Unit = this.placerEn(None,x_,y_)
 
-    def apply(coupleXY_ : Tuple2[Int, Int]) : Piece = {
-        this.plateau(coupleXY_._1)(coupleXY_._2)
+    def apply(x_ : Int, y_ : Int) : Option[P] = this.plateau(x_)(y_)
+
+    def apply(coupleXY_ : Tuple2[Int, Int]) : Option[P] = this.plateau(coupleXY_._1)(coupleXY_._2)
+
+    override def toString() : String = {
+        var ret : String = "";
+        for (i <- 0 to cote_ -1) { ret += " " * 5 + i}
+        ret += "\n  " + Ansi.fBlue
+        ret += " " * 6 * cote_ + " "
+        ret += Ansi.reset + "\n" 
+        for(i <- 0 to cote_ -1){
+            ret += s"$i "+ Ansi.fBlue +" ";
+            for(j <- 0 to cote_ -1){
+                if(this.plateau(i)(j) == None){
+                    ret += Ansi.fBlack + Ansi.white + " " * 5;
+                } else {
+                    val Some(piece) = this.plateau(i)(j)
+                    ret += Ansi.fBlack + Ansi.white + s"$piece";
+                }
+                ret += Ansi.fBlue+ " "
+            }
+            ret += Ansi.reset + "\n" + "  " + Ansi.fBlue
+            ret += " " * 6 * cote_ + " "
+            ret += Ansi.reset + "\n"
+        }
+        return ret
     }
 }
 
 trait Piece {
-
+    def length: Int // donne la longueur du texte de la piece (hors codes ANSI) 
 }
 
-class PieceCol(etiquette_ :  String,  codeAnsi_ :  String){
+class PieceCol(etiquette_ :  String,  codeAnsi_ :  String) extends Piece{
     private var etiquette : String = etiquette_
     private var codeAnsi : String = codeAnsi_
     def this(etiquette_ : String) = this(etiquette_, Ansi.fBlack + Ansi.white)
-    override def toString : String =  codeAnsi_ + etiquette_ + Ansi.reset
+    override def toString : String = {
+        var ret = codeAnsi_ 
+        var etiq = etiquette_.slice(0,this.length)
+        etiq += " " * (this.length - etiq.length)
+        ret += etiq + Ansi.reset
+        ret
+    } 
+    def length : Int = 5
 }
 
 object PieceCol{
@@ -65,22 +96,36 @@ object PieceCol{
     def apply(etiquette_ : String ) : PieceCol = new PieceCol(etiquette_)
 }
 
+object Cavalier{
+    def apply() : PieceCol = PieceCol("Caval", Ansi.yellow)
+}
 
+object Dame{
+    def apply() : PieceCol = PieceCol("Dame", Ansi.red)
+}
 
-object tp5 {
+object Fou{
+    def apply() : PieceCol = PieceCol("Fou", Ansi.green)
+}
 
-    def main(args_ : Array[String] ):Unit = {
-        println("coucou"+Ansi.fBlue+Ansi.red+" abcdef "+Ansi.reset)
-        val cavalier = PieceCol("caval", Ansi.red)      
-        println(cavalier) 
-        //var echiquier = new Echiquier(8)
-        //echiquier.placerEn(piece,3,3)
+object Pion{
+    def apply() : PieceCol = PieceCol("Pion", Ansi.cyan)
+}
 
-        var valeur: Option[Int] = Some(2)     
-        println(valeur) // donne Some(2)     
-        val Some(combien) = valeur     
-        println(combien) // donne 2     
-        valeur = None     
-        println(valeur) // donne None
+object Rien{
+    def apply() = None 
+}
+
+object Main {   
+    def main(args: Array[String]): Unit ={     
+        val echiquier = new Echiquier[PieceCol]()     
+        echiquier((0, 6)) = Cavalier()   // indice : utilisez un object Cavalier et un apply()     
+        echiquier((3, 5)) = Dame()     
+        echiquier((6, 3)) = Fou()     
+        echiquier((5, 2)) = Pion()     
+        //echiquier((5, 2)) = Rien() // on vide la case     
+        print(echiquier)     
+        println(echiquier(5,2))     
+        println(echiquier(3,5))
     }
 }
