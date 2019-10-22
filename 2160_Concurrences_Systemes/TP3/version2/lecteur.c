@@ -120,7 +120,7 @@ void readMdj(){
     (*variable)--;
 
     lecteur = *variable;
-    variable++;
+    variable = debut + 1;
     demandeRedacteur = *variable;
 
     if(lecteur==0 && demandeRedacteur){
