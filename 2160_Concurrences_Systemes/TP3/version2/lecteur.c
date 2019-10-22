@@ -61,8 +61,8 @@ void readMdj(){
         op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("V(&SEMLEC)\n");
-        op.sem_num=SEMLEC;op.sem_op=1;op.sem_flg=0;
+        printf("P(&SEMLEC)\n");
+        op.sem_num=SEMLEC;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
         printf("P(&Info)\n");
