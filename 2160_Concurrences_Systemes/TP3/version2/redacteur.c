@@ -11,18 +11,80 @@
 #include <unistd.h>
 
 #define INFO 0
-#define SEMNBL 1
+#define SEMLEC 1
+#define SEMRED 2
 
 key_t cle; /* cle ipc */
 
 int semid; /* nom local de l'ensemble des semaphores */
 
+int shmid;
+
+int * variable;
+int * debut;
+
+int redacteur;
+int lecteur;
+int demandeRedacteur;
+int demandeLecteur;
+
 void creatMdj(){
     struct sembuf op;
-    /*P(&info)*/
+    
+    printf("P(&Info)\n");
     op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+
+    //recuperation redacteur et demande redacteur
+    debut = variable;
+    redacteur = *variable;
+    variable++;
+    demandeRedacteur = *variable;
+    variable = debut +3;
+    lecteur = *variable;
+
+    if(lecteur || redacteur || demandeRedacteur){
+        //demande redacteur ++
+        variable = debut +1;
+        (*variable)++;
+
+        //Libere les variables
+        if(shmdt(debut) == -1){
+            perror("probleme sur shmdt");
+            exit(4);
+        }
+        printf("V(&info)\n");
+        op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("V(&SEMRED)\n");
+        op.sem_num=SEMRED;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("P(&Info)\n");
+        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
+            perror("probleme shmat");
+            exit(4);
+        }
+        debut = variable;
+        
+        //demande redacteur - 1
+        variable = debut +1;
+        (*variable)--;
+    }
+
+    //redacteur +1
+    variable = debut;
+    (*variable)++;
+    
     system("cat > /tmp/motdj");
 
     /*V(&info)*/
@@ -42,6 +104,12 @@ int main (int argc,char **argv) {
     if ((semid=semget(cle,2,NULL))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
+    }
+
+    
+    if((shmid = shmget(cle, 4*sizeof(int), 0)) == -1){
+        perror("shmget");
+        exit(1);
     }
     creatMdj();
 }
