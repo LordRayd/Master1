@@ -77,7 +77,7 @@ void creatMdj(){
         debut = variable;
         
         //demande redacteur - 1
-        variable = debut +1;
+        variable++;
         (*variable)--;
     }
 
