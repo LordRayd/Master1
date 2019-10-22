@@ -126,6 +126,15 @@ void creatMdj(){
             }
         }
     }
+
+    //Libere les variables
+    if(shmdt(debut) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
+    }
+    printf("V(&info)\n");
+    op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
+    semop(semid,&op,1);
     
 }
 
