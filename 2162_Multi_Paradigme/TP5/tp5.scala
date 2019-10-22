@@ -30,17 +30,17 @@ object Ansi{
     def reset : String = "\u001B[0m"
 }
 
-class Echiquier[P <: Piece: ClassTag](cote_  :  Int){
+class Echiquier[P <: Piece: ClassTag](cote_  :  Int = 8){
 
     private var plateau : Array[Array[Option[P]]] = Array.ofDim[Option[P]](cote_,cote_)
 
     for( i <- 0 to cote_ -1 ; j <- 0 to cote_ -1) this.vider(i,j)
 
-    def this() = this(8)
-
     def placerEn(piece_ : Option[P], x_ : Int, y_ : Int) : Unit = this.plateau(x_).update(y_,piece_)
 
-    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : P): Unit = this.placerEn(Some(piece_), coupleXY_._1, coupleXY_._2)
+    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : P): Unit = this.update(coupleXY_, Some(piece_))
+
+    def update(coupleXY_ : Tuple2[Int,  Int], piece_ : Option[P]): Unit = this.placerEn(piece_, coupleXY_._1, coupleXY_._2)
 
     def vider(x_ : Int, y_ : Int) : Unit = this.placerEn(None,x_,y_)
 
@@ -123,7 +123,7 @@ object Main {
         echiquier((3, 5)) = Dame()     
         echiquier((6, 3)) = Fou()     
         echiquier((5, 2)) = Pion()     
-        //echiquier((5, 2)) = Rien() // on vide la case     
+        echiquier((5, 2)) = Rien() // on vide la case     
         print(echiquier)     
         println(echiquier(5,2))     
         println(echiquier(3,5))
