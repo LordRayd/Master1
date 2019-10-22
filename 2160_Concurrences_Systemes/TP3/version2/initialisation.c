@@ -21,6 +21,7 @@ int semid; /* nom local de l'ensemble des semaphores */
 int shmid;
 
 int * variable;
+int * debut;
 
 int main (int argc,char **argv) {
 
@@ -53,6 +54,7 @@ int main (int argc,char **argv) {
         perror("probleme shmat");
         exit(4);
     }
+    debut = variable;
     *variable = 0;
     variable++;
     
@@ -63,7 +65,7 @@ int main (int argc,char **argv) {
     variable++;
     
     *variable = 0;
-    if(shmdt(variable) == -1){
+    if(shmdt(debut) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
