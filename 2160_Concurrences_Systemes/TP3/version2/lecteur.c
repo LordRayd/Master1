@@ -44,8 +44,7 @@ void readMdj(){
     //recuperation redacteur et demande redacteur
     debut = variable;
     redacteur = *variable;
-    variable++;
-    demandeRedacteur = *variable;
+    demandeRedacteur = *(variable++);
 
     if(redacteur || demandeRedacteur){
 

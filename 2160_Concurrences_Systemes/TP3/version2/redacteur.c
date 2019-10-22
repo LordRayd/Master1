@@ -107,8 +107,8 @@ void creatMdj(){
     }
     debut = variable;
     
-    //redaacteur - 1
-    *variable--;
+    //redacteur - 1
+    (*variable)--;
 
     variable = debut +1;
     if(*variable){
