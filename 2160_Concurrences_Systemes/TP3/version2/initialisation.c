@@ -45,7 +45,7 @@ int main (int argc,char **argv) {
         exit(3);
     }
 
-    if((shmid = shmget(cle+"lec", 4096, IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(cle, 4096, IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
