@@ -11,8 +11,8 @@
 #include <unistd.h>
 
 #define INFO 0
-#define SEMNBL 1
-#define SEMNBR 2
+#define SEMLEC 1
+#define SEMRED 2
 
 key_t cle; /* cle ipc */
 
@@ -21,12 +21,18 @@ int semid; /* nom local de l'ensemble des semaphores */
 int shmid;
 
 int * variable;
+int * debut;
+
+int redacteur;
+int lecteur;
+int demandeRedacteur;
+int demandeLecteur;
 
 
 void readMdj(){
     struct sembuf op;
 
-    printf("P(&semNbL)\n");
+    printf("P(&Info)\n");
     op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
@@ -35,15 +41,60 @@ void readMdj(){
         exit(4);
     }
 
-    if(shmdt(variable) == -1){
+    //recuperation redacteur et demande redacteur
+    debut = variable;
+    redacteur = *variable;
+    variable++;
+    demandeRedacteur = *variable;
+
+    if(redacteur || demandeRedacteur){
+
+        //Demande lecteur +1
+        variable = debut + 2;
+        (*variable)++;
+
+        //Libere les variable
+        if(shmdt(debut) == -1){
+            perror("probleme sur shmdt");
+            exit(4);
+        }
+        printf("V(&info)\n");
+        op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("P(&SEMLEC)\n");
+        op.sem_num=SEMLEC;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("P(&Info)\n");
+        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
+            perror("probleme shmat");
+            exit(4);
+        }
+        debut = variable;
+
+        //Demande lecteur -1
+        variable = debut + 2;
+        (*variable)--;
+    }
+    // Lecteur +1
+    variable = debut +3;
+    (*variable)++;
+
+    //Libere les variables
+    if(shmdt(debut) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
-
-    printf("V(&semNbL)\n");
-    op.sem_num=1;op.sem_op=1;op.sem_flg=0;
+    printf("V(&info)\n");
+    op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 
+
+    // Lire le fichier
     FILE * fic;
     if((fic=fopen("/tmp/motdj","r"))!=NULL){
         char str[4096];
@@ -54,30 +105,39 @@ void readMdj(){
     }
     fclose(fic);
     
-    printf("\nP(&semNbL)\n");
-    op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
+    printf("P(&Info)\n");
+    op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    (*shmint)--;
+    debut = variable;
 
-    if (*shmint == 0){
-        printf("V(&info)\n");
-        op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
+    
+    // Lecteur -1
+    variable = debut +3;
+    (*variable)--;
+
+    lecteur = *variable;
+    variable++;
+    demandeRedacteur = *variable;
+
+    if(lecteur && demandeRedacteur){
+        printf("V(&SEMRED)\n");
+        op.sem_num=SEMRED;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
     }
 
-    if(shmdt(shmint) == -1){
+
+    //Libere les variables
+    if(shmdt(debut) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
-
-    /*V(&semNbL)*/
-    printf("V(&semNbL)\n");
-    op.sem_num=1;op.sem_op=1;op.sem_flg=0;
+    printf("V(&info)\n");
+    op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
 }
 
