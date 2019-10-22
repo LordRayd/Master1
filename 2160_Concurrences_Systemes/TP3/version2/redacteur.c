@@ -52,6 +52,7 @@ void creatMdj(){
         //demande redacteur ++
         variable = debut +1;
         (*variable)++;
+        printf("demandeRedacteur %d\n",*variable);
 
         //Libere les variables
         if(shmdt(debut) == -1){
