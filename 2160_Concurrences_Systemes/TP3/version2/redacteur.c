@@ -85,11 +85,48 @@ void creatMdj(){
     variable = debut;
     (*variable)++;
     
-    system("cat > /tmp/motdj");
-
-    /*V(&info)*/
+    //Libere les variables
+    if(shmdt(debut) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
+    }
+    printf("V(&info)\n");
     op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
     semop(semid,&op,1);
+
+    //ecrire le mot du jour
+    system("cat > /tmp/motdj");
+
+    printf("P(&Info)\n");
+    op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
+    semop(semid,&op,1);
+
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+    debut = variable;
+    
+    //redaacteur - 1
+    *variable--;
+
+    variable = debut +1;
+    if(*variable){
+        printf("V(&SEMRED)\n");
+        op.sem_num=SEMRED;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+    } else {
+        variable = debut +2;
+        if(*variable){
+            int nb;
+            for (nb=0;nb < *variable, nb++){
+                printf("V(&SEMLEC)\n");
+                op.sem_num=SEMLEC;op.sem_op=-1;op.sem_flg=0;
+                semop(semid,&op,1);
+            }
+        }
+    }
+    
 }
 
 int main (int argc,char **argv) {
