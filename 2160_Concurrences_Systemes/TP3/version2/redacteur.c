@@ -56,8 +56,7 @@ void creatMdj(){
         variable = debut;
         variable++;
         (*variable)++;
-        printf("lecteur : %d\nredacteur : %d\ndemRedacteur : %d",lecteur,redacteur,demandeRedacteur);
-
+        
         //Libere les variables
         variable = debut;
         if(shmdt(variable) == -1){
@@ -103,7 +102,7 @@ void creatMdj(){
     //ecrire le mot du jour
     system("cat > /tmp/motdj");
 
-    printf("P(&Info)\n");
+    printf("\nP(&Info)\n");
     op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 

@@ -46,7 +46,6 @@ void readMdj(){
     variable++;
     demandeRedacteur = *variable;
 
-    printf("redacteur : %d\ndemRedacteur : %d\n",redacteur,demandeRedacteur);
     if(redacteur || demandeRedacteur){
 
         //Demande lecteur +1
@@ -114,7 +113,7 @@ void readMdj(){
     }
     fclose(fic);
     
-    printf("P(&Info)\n");
+    printf("\nP(&Info)\n");
     op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
