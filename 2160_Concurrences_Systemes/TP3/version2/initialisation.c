@@ -20,11 +20,13 @@ int semid; /* nom local de l'ensemble des semaphores */
 
 int shmid;
 
+int * shmint;
+
 int main (int argc,char **argv) {
 
     system("touch /tmp/motdj");
 
-    ushort init_sem[3]={1,1,1}; //strucutre par initialise le semaphore mutex
+    ushort init_sem[2]={1,1,1}; //strucutre par initialise le semaphore mutex
     // creation d'une cle IPC
     if ((cle=ftok("/tmp/motdj",'0')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
@@ -43,22 +45,57 @@ int main (int argc,char **argv) {
         exit(3);
     }
 
-    if((shmid = shmget(cle, sizeof(int)*4, IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(cle+"lec", 4096, IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
-
-    int * shmint;
     if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    int i=0;
-    for(i = 0; i<4; i++){
-        *shmint = 0;
-        if(i<3)shmint = shmint+sizeof(int);
+    *shmint = 0;
+    if(shmdt(shmint) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
     }
 
+    if((shmid = shmget(cle+"lecdem", 4096, IPC_CREAT | 0666)) == -1){
+        perror("shmget");
+        exit(1);
+    }
+    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+    *shmint = 0;
+    if(shmdt(shmint) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
+    }
+
+    if((shmid = shmget(cle+"red", 4096, IPC_CREAT | 0666)) == -1){
+        perror("shmget");
+        exit(1);
+    }
+    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+    *shmint = 0;
+    if(shmdt(shmint) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
+    }
+
+    if((shmid = shmget(cle+"reddem", 4096, IPC_CREAT | 0666)) == -1){
+        perror("shmget");
+        exit(1);
+    }
+    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+    *shmint = 0;
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
