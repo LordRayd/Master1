@@ -20,7 +20,7 @@ int semid; /* nom local de l'ensemble des semaphores */
 
 int shmid;
 
-int * shmint;
+int * variable;
 
 int main (int argc,char **argv) {
 
@@ -49,54 +49,21 @@ int main (int argc,char **argv) {
         perror("shmget");
         exit(1);
     }
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    *shmint = 0;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
-
-    if((shmid = shmget(cle+"lecdem", 4096, IPC_CREAT | 0666)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
-        perror("probleme shmat");
-        exit(4);
-    }
-    *shmint = 0;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
-
-    if((shmid = shmget(cle+"red", 4096, IPC_CREAT | 0666)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
-        perror("probleme shmat");
-        exit(4);
-    }
-    *shmint = 0;
-    if(shmdt(shmint) == -1){
-        perror("probleme sur shmdt");
-        exit(4);
-    }
-
-    if((shmid = shmget(cle+"reddem", 4096, IPC_CREAT | 0666)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
-        perror("probleme shmat");
-        exit(4);
-    }
-    *shmint = 0;
-    if(shmdt(shmint) == -1){
+    *variable = 0;
+    variable++;
+    
+    *variable = 0;
+    variable++;
+    
+    *variable = 0;
+    variable++;
+    
+    *variable = 0;
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }

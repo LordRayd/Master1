@@ -20,33 +20,22 @@ int semid; /* nom local de l'ensemble des semaphores */
 
 int shmid;
 
+int * variable;
+
+
 void readMdj(){
     struct sembuf op;
 
     printf("P(&semNbL)\n");
-    op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
+    op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
 
-    if((shmid = shmget(cle, 4096, NULL)) == -1){
-        perror("shmget");
-        exit(1);
-    }
-    int * shmint;
-    if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    
-    (*shmint)++;
 
-    // seul lecteur
-    if (*shmint ==1){
-        printf("P(&info)\n");
-        op.sem_num=INFO;op.sem_op=-1;op.sem_flg=0;
-        semop(semid,&op,1);
-    }
-
-    if(shmdt(shmint) == -1){
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
@@ -68,11 +57,6 @@ void readMdj(){
     printf("\nP(&semNbL)\n");
     op.sem_num=1;op.sem_op=-1;op.sem_flg=0;
     semop(semid,&op,1);
-
-    if((shmid = shmget(cle, 4096, NULL)) == -1){
-        perror("shmget");
-        exit(1);
-    }
 
     if(*(shmint  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
@@ -111,5 +95,11 @@ int main (int argc,char **argv) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
+
+    if((shmid = shmget(cle, 4096, NULL)) == -1){
+        perror("shmget");
+        exit(1);
+    }
+
     readMdj();
 }
