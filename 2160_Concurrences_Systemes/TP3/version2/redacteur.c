@@ -62,7 +62,7 @@ void creatMdj(){
         op.sem_num=INFO;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("V(&SEMRED)\n");
+        printf("P(&SEMRED)\n");
         op.sem_num=SEMRED;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
