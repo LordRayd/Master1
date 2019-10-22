@@ -47,6 +47,7 @@ void readMdj(){
 
     if(redacteur || demandeRedacteur){
 
+        printf("redacteur already need");
         //Demande lecteur +1
         variable = debut + 2;
         (*variable)++;
