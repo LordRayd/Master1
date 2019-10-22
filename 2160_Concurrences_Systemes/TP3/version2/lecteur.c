@@ -54,7 +54,8 @@ void readMdj(){
         (*variable)++;
 
         //Libere les variable
-        if(shmdt(debut) == -1){
+        variable = debut;
+        if(shmdt(variable) == -1){
             perror("probleme sur shmdt");
             exit(4);
         }
@@ -85,7 +86,8 @@ void readMdj(){
     (*variable)++;
 
     //Libere les variables
-    if(shmdt(debut) == -1){
+        variable = debut;
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
@@ -132,7 +134,8 @@ void readMdj(){
 
 
     //Libere les variables
-    if(shmdt(debut) == -1){
+    variable = debut;
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }

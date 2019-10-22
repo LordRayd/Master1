@@ -55,7 +55,8 @@ void creatMdj(){
         printf("demandeRedacteur %d\n",*variable);
 
         //Libere les variables
-        if(shmdt(debut) == -1){
+        variable = debut;
+        if(shmdt(variable) == -1){
             perror("probleme sur shmdt");
             exit(4);
         }
@@ -87,7 +88,7 @@ void creatMdj(){
     (*variable)++;
     
     //Libere les variables
-    if(shmdt(debut) == -1){
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
@@ -129,7 +130,8 @@ void creatMdj(){
     }
 
     //Libere les variables
-    if(shmdt(debut) == -1){
+    variable = debut;
+    if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
