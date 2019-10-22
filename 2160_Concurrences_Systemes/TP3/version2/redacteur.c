@@ -54,9 +54,9 @@ void creatMdj(){
     if(lecteur || redacteur || demandeRedacteur){
         //demande redacteur ++
         variable = debut;
-    variable++;
+        variable++;
         (*variable)++;
-        printf("demandeRedacteur %d\n",*variable);
+        printf("lecteur : %d\nredacteur : %d\ndemRedacteur : %d",lecteur,redacteur,demandeRedacteur);
 
         //Libere les variables
         variable = debut;
@@ -155,7 +155,7 @@ int main (int argc,char **argv) {
     }
 
     // demande un ensemble de semaphore (ici un seul mutex)
-    if ((semid=semget(cle,3,NULL))==-1) {
+    if ((semid=semget(cle,3,0))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
