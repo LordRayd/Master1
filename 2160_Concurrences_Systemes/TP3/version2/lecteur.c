@@ -124,7 +124,7 @@ void readMdj(){
     variable++;
     demandeRedacteur = *variable;
 
-    if(lecteur && demandeRedacteur){
+    if(lecteur==0 && demandeRedacteur){
         printf("V(&SEMRED)\n");
         op.sem_num=SEMRED;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
