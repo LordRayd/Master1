@@ -43,9 +43,10 @@ void readMdj(){
     //recuperation redacteur et demande redacteur
     debut = variable;
     redacteur = *variable;
-    demandeRedacteur = *(variable++);
+    variable++;
+    demandeRedacteur = *variable;
 
-    printf("redacteur : %d\ndemRedacteur : %d_n",redacteur,demandeRedacteur);
+    printf("redacteur : %d\ndemRedacteur : %d\n",redacteur,demandeRedacteur);
     if(redacteur || demandeRedacteur){
 
         //Demande lecteur +1
