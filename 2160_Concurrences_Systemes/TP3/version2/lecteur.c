@@ -12,6 +12,7 @@
 
 #define INFO 0
 #define SEMNBL 1
+#define SEMNBR 2
 
 key_t cle; /* cle ipc */
 
