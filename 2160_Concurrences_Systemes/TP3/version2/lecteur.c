@@ -45,6 +45,7 @@ void readMdj(){
     redacteur = *variable;
     demandeRedacteur = *(variable++);
 
+    printf("redacteur : %d\ndemRedacteur : %d",redacteur,demandeRedacteur);
     if(redacteur || demandeRedacteur){
 
         printf("redacteur already need");
