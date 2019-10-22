@@ -156,7 +156,7 @@ int main (int argc,char **argv) {
         exit(2);
     }
 
-    if((shmid = shmget(cle, 4*sizeof(int), NULL)) == -1){
+    if((shmid = shmget(cle, 4*sizeof(int), 0)) == -1){
         perror("shmget");
         exit(1);
     }
