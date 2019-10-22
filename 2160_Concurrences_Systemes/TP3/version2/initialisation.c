@@ -56,7 +56,7 @@ int main (int argc,char **argv) {
     int i=0;
     for(i = 0; i<4; i++){
         *shmint = 0;
-        if(i<3)&shmint = &shmint+sizeof(int);
+        if(i<3)shmint = shmint+sizeof(int);
     }
 
     if(shmdt(shmint) == -1){
