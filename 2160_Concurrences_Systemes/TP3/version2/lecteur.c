@@ -28,7 +28,6 @@ int lecteur;
 int demandeRedacteur;
 int demandeLecteur;
 
-
 void readMdj(){
     struct sembuf op;
 
