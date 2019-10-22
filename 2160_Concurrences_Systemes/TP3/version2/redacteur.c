@@ -119,7 +119,7 @@ void creatMdj(){
         variable = debut +2;
         if(*variable){
             int nb;
-            for (nb=0;nb < *variable, nb++){
+            for(nb=0;nb < *variable; nb++){
                 printf("V(&SEMLEC)\n");
                 op.sem_num=SEMLEC;op.sem_op=-1;op.sem_flg=0;
                 semop(semid,&op,1);
