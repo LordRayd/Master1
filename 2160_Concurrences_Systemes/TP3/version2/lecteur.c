@@ -50,7 +50,9 @@ void readMdj(){
 
         printf("redacteur already need");
         //Demande lecteur +1
-        variable = debut + 2;
+        variable = debut ;
+    variable++;
+    variable++;
         (*variable)++;
 
         //Libere les variable
@@ -78,15 +80,20 @@ void readMdj(){
         debut = variable;
 
         //Demande lecteur -1
-        variable = debut + 2;
+        variable = debut ;
+        variable++;
+        variable++;
         (*variable)--;
     }
     // Lecteur +1
-    variable = debut +3;
+    variable = debut;
+    variable++;
+    variable++;
+    variable++;
     (*variable)++;
 
     //Libere les variables
-        variable = debut;
+    variable = debut;
     if(shmdt(variable) == -1){
         perror("probleme sur shmdt");
         exit(4);
@@ -119,11 +126,15 @@ void readMdj(){
 
     
     // Lecteur -1
-    variable = debut +3;
+    variable = debut;
+    variable++;
+    variable++;
+    variable++;
     (*variable)--;
 
     lecteur = *variable;
-    variable = debut + 1;
+    variable = debut;
+    variable++;
     demandeRedacteur = *variable;
 
     if(lecteur==0 && demandeRedacteur){

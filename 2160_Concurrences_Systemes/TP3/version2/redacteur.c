@@ -45,12 +45,16 @@ void creatMdj(){
     redacteur = *variable;
     variable++;
     demandeRedacteur = *variable;
-    variable = debut +3;
+    variable = debut;
+    variable++;
+    variable++;
+    variable++;
     lecteur = *variable;
 
     if(lecteur || redacteur || demandeRedacteur){
         //demande redacteur ++
-        variable = debut +1;
+        variable = debut;
+    variable++;
         (*variable)++;
         printf("demandeRedacteur %d\n",*variable);
 
@@ -112,7 +116,8 @@ void creatMdj(){
     //redacteur - 1
     (*variable)--;
 
-    variable = debut +1;
+    variable = debut;
+    variable++;
     if(*variable){
         printf("V(&SEMRED)\n");
         op.sem_num=SEMRED;op.sem_op=-1;op.sem_flg=0;
