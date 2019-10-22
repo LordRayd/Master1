@@ -12,6 +12,7 @@
 
 #define INFO 0
 #define SEMNBL 1
+#define SEMNBR 2
 
 key_t cle; /* cle ipc */
 
@@ -23,7 +24,7 @@ int main (int argc,char **argv) {
 
     system("touch /tmp/motdj");
 
-    ushort init_sem[2]={1,1}; //strucutre par initialise le semaphore mutex
+    ushort init_sem[3]={1,1,1}; //strucutre par initialise le semaphore mutex
     // creation d'une cle IPC
     if ((cle=ftok("/tmp/motdj",'0')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
@@ -31,18 +32,18 @@ int main (int argc,char **argv) {
     }
 
     // demande un ensemble de semaphore (ici un seul mutex)
-    if ((semid=semget(cle,2,IPC_CREAT|0666))==-1) {
+    if ((semid=semget(cle,3,IPC_CREAT|0666))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     } 
 
     // initialise l'ensemble
-    if (semctl(semid,2,SETALL,init_sem)==-1) {
+    if (semctl(semid,3,SETALL,init_sem)==-1) {
         fprintf(stderr,"Probleme sur semctl SETALL\n");
         exit(3);
     }
 
-    if((shmid = shmget(cle, 4096, IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(cle, sizeof(int)*4, IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
@@ -52,7 +53,12 @@ int main (int argc,char **argv) {
         perror("probleme shmat");
         exit(4);
     }
-    *shmint = 0;
+    int i=0;
+    for(i = 0; i<4; i++){
+        *shmint = 0;
+        if(i<3)&shmint = &shmint+sizeof(int);
+    }
+
     if(shmdt(shmint) == -1){
         perror("probleme sur shmdt");
         exit(4);
