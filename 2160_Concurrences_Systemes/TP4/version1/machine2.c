@@ -11,15 +11,6 @@ void die(){
     exit(0);
 }
 
-int alea(){
-    int i=0;
-    int init;
-    time_t t;
-    init= time(&t);
-    srandom(init);
-    return random()%10;
-}
-
 int affichage(int N, int* tab){
     for(int i=0;i<N;i++){
         printf("%d  ",tab[i]);
@@ -80,7 +71,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         sigdelset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
         usleep(((random()%100)+100)*1000);
-        }
+    }
 }
 
 
@@ -129,7 +120,7 @@ int main(int argc, char* argv[]){
         exit(6);
     }
     for(int i=0;i<N;i++){
-        valeurRouleau[i]=alea();
+        valeurRouleau[i]=random()%10;
     }
     affichage(N,valeurRouleau);
     printf("\n");
