@@ -11,9 +11,9 @@ void die(){
     exit(0);
 }
 
-int affichage(int N, int* tab){
-    for(int i=0;i<N;i++){
-        printf("%d  ",tab[i]);
+int affichage(int nb, int* tab){
+    for(int i=0;i<nb;i++){
+        printf("%d     ",tab[i]);
     }
 }
 
@@ -32,14 +32,12 @@ int gagne(int shmid, int nbRouleau){
     for(int i=0;i<nbRouleau;i++){
         if(i==0){
             val=variables[i];
-
         }else{
             if(val!=variables[i])
                 erreur++;
         }
     }
 
-    //Se détache du segment
     shmdt(variables);
 
     if(erreur){
@@ -54,7 +52,7 @@ int codefils(int semid,int shmid, int N,int index){
     struct sigaction action;
     int* variables;
     int rc;
-    //Arme la réception du signal
+    //Arme le signal
     action.sa_flags=0;
     action.sa_handler=die;
     rc=sigaction(SIGUSR1,&action,NULL);
@@ -66,7 +64,7 @@ int codefils(int semid,int shmid, int N,int index){
             printf("Probleme sur semop\n");
             exit(1);
         }
-        //Bloque les SIGUSR1
+        //stop SIGUSR1
         sigaddset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
 
@@ -75,17 +73,14 @@ int codefils(int semid,int shmid, int N,int index){
             exit(1);
         }
 
-        //Modifie son rouleau
         variables[index]=variables[index]+1;
         if(variables[index]>9){
             variables[index]=0;
         }
 
-        //Affiche les rouleaux
         affichage(N,variables);
         printf("\n");
 
-        //Se détache du segment
         shmdt(variables);
 
         //V(&muttex)
@@ -94,7 +89,7 @@ int codefils(int semid,int shmid, int N,int index){
             printf("Probleme sur semop\n");
             exit(1);
         }
-        //Réautorise les SIGUSR1
+        //autorisse SIGUSR1
         sigdelset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
 
@@ -125,24 +120,23 @@ int main(int argc, char* argv[]){
         printf("problem ftok");
         exit(1);
     }
-    //Récupère l'id du sémaphore
+    // demande un ensemble de semaphore (ici un seul mutex)
     if((semid=semget(cle,1,IPC_CREAT|IPC_EXCL|0666))==-1){
         printf("problem semget");
         exit(1);
     }
-    //Initialise tout les sémaphores
+
+    // initialise l'ensemble
     if(semctl(semid,1,SETALL,init_sem)==-1){
         printf("problem semctl");
         exit(1);
     }
-    //Récupère l'id du segment partagé
+    
     if((shmid=shmget(cle,4096,IPC_CREAT|0644))==-1){
         printf("problem shmget");
         exit(1);
     }
 
-
-    //S'accroche au segment et l'initialise
     int *variables;
     if(*(variables=shmat(shmid,NULL,0))==-1){
         printf("problem shmat");
@@ -154,10 +148,9 @@ int main(int argc, char* argv[]){
     affichage(N,variables);
     printf("\n");
 
-    //Se décroche du segment
     shmdt(variables);
 
-    //Creation des rouleaux
+    //Init rouleau
     for(int i=0; i<N;i++){
         if((pid=fork())==0){
             codefils(semid,shmid,N,i);
@@ -166,7 +159,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    //Arret des rouleaux
+    //Stop Rouleau pour getchar
     struct sembuf op;
     for(int i=0; i<N;i++){
         getchar();
