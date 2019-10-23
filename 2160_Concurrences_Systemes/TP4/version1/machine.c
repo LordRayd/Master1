@@ -47,12 +47,13 @@ int codefils(int semid,int shmid, int N,int index){
     struct sembuf op;
     struct sigaction action;
     int* variables;
-    int rc;
+
     //Arme le signal
     action.sa_flags=0;
     action.sa_handler=die;
-    rc=sigaction(SIGUSR1,&action,NULL);
+    int rc = sigaction(SIGUSR1,&action,NULL);
     sigset_t set;
+
     while(1){
         //P(&muttex)
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
