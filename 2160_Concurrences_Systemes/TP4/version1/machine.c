@@ -60,12 +60,10 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
     rc=sigaction(SIGUSR1,&action,NULL);
     sigset_t set;
     while(1){
-        //Réserve sa place pour le segment
-        op.sem_num=0;
-        op.sem_op=-1;
-        op.sem_flg=0;
+        //P(&muttex)
+        op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
-            printf("Probleme sur semop\n");
+            printf("problem semop");
             exit(8);
         }
         //Bloque les SIGUSR1
@@ -73,8 +71,8 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         sigprocmask(SIG_SETMASK,&set,NULL);
 
         //S'accroche au segment
-        if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
-            printf("Probleme sur shmat\n");
+        if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
+            printf("problem shmat");
             exit(7);
         }
 
@@ -86,18 +84,15 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
 
         //Affiche les rouleaux
         affichage(N,valeurRouleau);
-        printf("\n");
 
         //Se détache du segment
         shmdt(valeurRouleau);
 
-        //Libère sa place sur le segment
-        op.sem_num=0;
-        op.sem_op=1;
-        op.sem_flg=0;
+        //V(&muttex)
+        op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
-            printf("Probleme sur semop\n");
-            exit(8);
+            printf("problem semop");
+            exit(1);
         }
         //Réautorise les SIGUSR1
         sigdelset(&set,SIGUSR1);
@@ -109,38 +104,38 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
 
 int main(int argc, char* argv[]){
     if(argc<2){
-        printf("Veuillez entrez un nombre de rouleau\n");
+        printf("Pas de noombre de rouleau");
         exit(1);
     }
-    //SEGMENT PARTAGE PORTE SUR UN TABLEAU D'ENTIER CONTENANT LA VALEUR DES ROULEAUX
+    
     int pid;
     int N=atoi(argv[1]);
     int pidTab[N];
     int valRouleau[N];
 
     key_t cle;
-    ushort sem[1]={1};
+    ushort init_sem[1]={1};
     int semid;
     int shmid;
 
-    //Récupère la clé
+    // creation d'une cle IPC
     if((cle=ftok(argv[0],'0'))==-1){
-        printf("Probleme sur ftok\n");
+        printf("problem ftok");
         exit(2);
     }
-    //Récupère l'id du sémaphore
-    if((semid=semget(cle,1,IPC_CREAT|IPC_EXCL|0666))==-1){
-        printf("Probleme sur semget\n");
+    // demande un ensemble de semaphore (ici un seul mutex)
+    if((semid=semget(cle,1,IPC_CREAT|0666))==-1){
+        printf("problem semget");
         exit(3);
     }
-    //Initialise tout les sémaphores
-    if(semctl(semid,1,SETALL,sem)==-1){
-        printf("Probleme sur semctl\n");
+    // initialise l'ensemble
+    if(semctl(semid,1,SETALL,init_sem)==-1){
+        printf("problem semctl");
         exit(4);
     }
-    //Récupère l'id du segment partagé
+    
     if((shmid=shmget(cle,4096,IPC_CREAT|0644))==-1){
-        printf("Probleme sur shmget\n");
+        printf("problem shmget");
         exit(5);
     }
 
@@ -148,7 +143,7 @@ int main(int argc, char* argv[]){
     //S'accroche au segment et l'initialise
     int *valeurRouleau;
     if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
-        printf("Probleme sur shmat\n");
+        printf("problem shmat");
         exit(6);
     }
     for(int i=0;i<N;i++){
@@ -172,20 +167,18 @@ int main(int argc, char* argv[]){
     struct sembuf op;
     for(int i=0; i<N;i++){
         getchar();
-        op.sem_num=0;
-        op.sem_op=-1;
-        op.sem_flg=0;
+        //P(&muttex)
+        op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if(semop(semid,&op,1)==-1){
-            printf("Problême sur semop\n");
+            printf("problem semop");
             exit(8);
         }
         kill(pidTab[i],SIGUSR1);
-        op.sem_num=0;
-        op.sem_op=1;
-        op.sem_flg=0;
+        //V(&muttex)
+        op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if(semop(semid,&op,1)==-1){
-            printf("Problême sur semop\n");
-            exit(8);
+            printf("problem semop");
+            exit(1);
         }
     }
 
@@ -193,8 +186,8 @@ int main(int argc, char* argv[]){
 
     //Détruit les sémaphore
     if(semctl(semid,0,IPC_RMID,0)==-1){
-        printf("Probleme sur la destruction des semaphore\n");
-        exit(7);
+        printf("problem semctl");
+        exit(1);
     }
-    printf("Merci d'avoir joue\n");
+    printf("Merci d'avoir joue");
 }
