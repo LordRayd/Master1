@@ -63,7 +63,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         //P(&muttex)
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
-            printf("problem semop");
+            printf("Probleme sur semop\n");
             exit(8);
         }
         //Bloque les SIGUSR1
@@ -71,8 +71,8 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         sigprocmask(SIG_SETMASK,&set,NULL);
 
         //S'accroche au segment
-        if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
-            printf("problem shmat");
+        if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
+            printf("Probleme sur shmat");
             exit(7);
         }
 
@@ -91,7 +91,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         //V(&muttex)
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
-            printf("problem semop");
+            printf("problem semop\n");
             exit(1);
         }
         //Réautorise les SIGUSR1
@@ -107,7 +107,7 @@ int main(int argc, char* argv[]){
         printf("Pas de noombre de rouleau");
         exit(1);
     }
-    
+    //SEGMENT PARTAGE PORTE SUR UN TABLEAU D'ENTIER CONTENANT LA VALEUR DES ROULEAUX
     int pid;
     int N=atoi(argv[1]);
     int pidTab[N];
@@ -118,22 +118,22 @@ int main(int argc, char* argv[]){
     int semid;
     int shmid;
 
-    // creation d'une cle IPC
+    //Récupère la clé
     if((cle=ftok(argv[0],'0'))==-1){
         printf("problem ftok");
         exit(2);
     }
-    // demande un ensemble de semaphore (ici un seul mutex)
+    //Récupère l'id du sémaphore
     if((semid=semget(cle,1,IPC_CREAT|0666))==-1){
         printf("problem semget");
         exit(3);
     }
-    // initialise l'ensemble
+    //Initialise tout les sémaphores
     if(semctl(semid,1,SETALL,init_sem)==-1){
         printf("problem semctl");
         exit(4);
     }
-    
+    //Récupère l'id du segment partagé
     if((shmid=shmget(cle,4096,IPC_CREAT|0644))==-1){
         printf("problem shmget");
         exit(5);
