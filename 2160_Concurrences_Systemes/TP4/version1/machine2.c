@@ -26,26 +26,24 @@ int gagne(int nbRouleau){
     }
 
     //Détermine si le joueur gagne
-    int premier=0;
-    int nbPrece=0;
-    int erreur=2;
+    int val=0;
+    int erreur=0;
 
     for(int i=0;i<N;i++){
         if(i==0){
-            premier=valeurRouleau[i];
+            val=valeurRouleau[i];
 
         }else{
-            if((premier!=valeurRouleau[i])&&(nbPrece!=valeurRouleau[i])){
-                erreur--;
+            if(val!=valeurRouleau[i]){
+                erreur++;
             }
         }
-        nbPrece=valeurRouleau[i];
     }
 
     //Se détache du segment
     shmdt(valeurRouleau);
 
-    if(erreur<=0){
+    if(erreur){
         printf("Perdue\n");
     }else{
         printf("Gagne\n");
