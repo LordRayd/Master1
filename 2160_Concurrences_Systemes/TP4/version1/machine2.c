@@ -79,7 +79,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         //Réautorise les SIGUSR1
         sigdelset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
-        usleep(50000);
+        usleep(((random()%100)+100)*1000);
         }
 }
 
