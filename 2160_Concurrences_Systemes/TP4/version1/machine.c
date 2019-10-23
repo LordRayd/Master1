@@ -72,7 +72,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
 
         //S'accroche au segment
         if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
-            printf("Probleme sur shmat");
+            printf("Probleme sur shmat\n");
             exit(7);
         }
 
@@ -84,6 +84,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
 
         //Affiche les rouleaux
         affichage(N,valeurRouleau);
+        printf("\n");
 
         //Se détache du segment
         shmdt(valeurRouleau);
@@ -91,8 +92,8 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         //V(&muttex)
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
-            printf("problem semop\n");
-            exit(1);
+            printf("Probleme sur semop\n");
+            exit(8);
         }
         //Réautorise les SIGUSR1
         sigdelset(&set,SIGUSR1);
@@ -104,7 +105,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
 
 int main(int argc, char* argv[]){
     if(argc<2){
-        printf("Pas de noombre de rouleau");
+        printf("Veuillez entrez un nombre de rouleau\n");
         exit(1);
     }
     //SEGMENT PARTAGE PORTE SUR UN TABLEAU D'ENTIER CONTENANT LA VALEUR DES ROULEAUX
@@ -114,7 +115,7 @@ int main(int argc, char* argv[]){
     int valRouleau[N];
 
     key_t cle;
-    ushort init_sem[1]={1};
+    ushort sem[1]={1};
     int semid;
     int shmid;
 
@@ -124,12 +125,12 @@ int main(int argc, char* argv[]){
         exit(2);
     }
     //Récupère l'id du sémaphore
-    if((semid=semget(cle,1,IPC_CREAT|0666))==-1){
-        printf("problem semget");
+    if((semid=semget(cle,1,IPC_CREAT|IPC_EXCL|0666))==-1){
+        printf("problem semget\n");
         exit(3);
     }
     //Initialise tout les sémaphores
-    if(semctl(semid,1,SETALL,init_sem)==-1){
+    if(semctl(semid,1,SETALL,sem)==-1){
         printf("problem semctl");
         exit(4);
     }
