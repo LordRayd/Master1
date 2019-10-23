@@ -25,7 +25,7 @@ int gagne(int shmid, int nbRouleau){
     }
 
     //La valeur supposés de tous les rouleaux
-    int val=variables[i];
+    int val=variables[0];
     //Boolean vérifiant les erreurs
     int erreur=0;
 
