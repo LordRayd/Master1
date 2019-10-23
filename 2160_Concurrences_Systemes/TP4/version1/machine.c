@@ -7,38 +7,49 @@
 #include<sys/time.h>
 #include<stdio.h>
 
+int pid[];
+
 int main(void) {
 
-  int i =0;
-
-  int init; // valeur pour initialiser le generateur   
-
-  // recupere l'heure systeme pour initialiser le generateur
-  time_t t;  //strut
-  init= time(&t);
-  int val ;
-
-  random(init);  // initialisation du generateur
-
-  while ( i++ <3){
-    if(fork() == 0){
-      val = random()%10;
-      while(1){
-        if(getchar()){
-          break;
-        }
-        val = (val+1)%10;
-        usleep(((random()%100)+100)*1000);
-        printf("val %d : %d",i, val);
-      }
-      printf("val final %d : %d",i, val);
-      exit(0);
+    if((shmid = shmget(cle, 4*sizeof(int), IPC_CREAT | 0666)) == -1){
+        perror("shmget");
+        exit(1);
     }
-  }
-  int x ;
-  for(x=0; x<3; x++){
-    wait(NULL);
-  }
+    if(*(variable  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+
+    int i =0;
+
+    int init; // valeur pour initialiser le generateur   
+
+    // recupere l'heure systeme pour initialiser le generateur
+    time_t t;  //strut
+    init= time(&t);
+    int val ;
+
+    random(init);  // initialisation du generateur
+
+    while ( i++ <3){
+        if(fork() == 0){
+            val = random()%10;
+            while(1){
+            if(getchar()){
+                break;
+            }
+            val = (val+1)%10;
+            usleep(((random()%100)+100)*1000);
+            printf("val %d : %d",i, val);
+            }
+            printf("val final %d : %d",i, val);
+            exit(0);
+        }
+    }
+    int x ;
+    for(x=0; x<3; x++){
+        wait(NULL);
+    }
     //printf("%ld \n",random()%10);  // genere un nombre aleatoire
 
 }
