@@ -122,22 +122,22 @@ int main(int argc, char* argv[]){
     //Récupère la clé
     if((cle=ftok(argv[0],'0'))==-1){
         printf("problem ftok");
-        exit(2);
+        exit(1);
     }
     //Récupère l'id du sémaphore
     if((semid=semget(cle,1,IPC_CREAT|IPC_EXCL|0666))==-1){
-        printf("problem semget\n");
-        exit(3);
+        printf("problem semget");
+        exit(1);
     }
     //Initialise tout les sémaphores
     if(semctl(semid,1,SETALL,init_sem)==-1){
         printf("problem semctl");
-        exit(4);
+        exit(1);
     }
     //Récupère l'id du segment partagé
     if((shmid=shmget(cle,4096,IPC_CREAT|0644))==-1){
         printf("problem shmget");
-        exit(5);
+        exit(1);
     }
 
 
@@ -151,7 +151,7 @@ int main(int argc, char* argv[]){
         variables[i]=random()%10;
     }
     affichage(N,variables);
-    
+
     //Se décroche du segment
     shmdt(variables);
 
@@ -172,7 +172,7 @@ int main(int argc, char* argv[]){
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if(semop(semid,&op,1)==-1){
             printf("problem semop");
-            exit(8);
+            exit(1);
         }
         kill(pidTab[i],SIGUSR1);
         //V(&muttex)
