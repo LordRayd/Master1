@@ -16,10 +16,29 @@ int main(void) {
   // recupere l'heure systeme pour initialiser le generateur
   time_t t;  //strut
   init= time(&t);
+  int val ;
 
-  srandom(init);  // initialisation du generateur
+  random(init);  // initialisation du generateur
 
-  while ( i++ <10)
-    printf("%ld \n",random());  // genere un nombre aleatoire
+  while ( i++ <3){
+    if(fork() == 0){
+      val = random()%10;
+      while(1){
+        if(getchar()){
+          break;
+        }
+        val = (val+1)%10;
+        usleep(((random()%100)+100)*1000);
+        printf("val %d : %d",i, val);
+      }
+      printf("val final %d : %d",i, val);
+      exit(0);
+    }
+  }
+  int x ;
+  for(x=0; x<3; x++){
+    wait(NULL);
+  }
+    //printf("%ld \n",random()%10);  // genere un nombre aleatoire
 
 }
