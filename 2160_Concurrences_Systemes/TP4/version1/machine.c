@@ -41,9 +41,9 @@ int gagne(int shmid, int nbRouleau){
     shmdt(variables);
 
     if(erreur){
-        printf("Perdue\n");
+        printf("Vous avez perdu !! :(\n");
     }else{
-        printf("Gagne\n");
+        printf("Vous avez gagne !!!! Felicitation\n");
     }
 }
 
