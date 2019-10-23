@@ -17,7 +17,7 @@ int affichage(int N, int* tab){
     }
 }
 
-int gagne(int nbRouleau){
+int gagne(int shmid, int nbRouleau){
     int *valeurRouleau;
     //S'accroche au segment
     if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
@@ -29,7 +29,7 @@ int gagne(int nbRouleau){
     int val=0;
     int erreur=0;
 
-    for(int i=0;i<N;i++){
+    for(int i=0;i<nbRouleau;i++){
         if(i==0){
             val=valeurRouleau[i];
 
@@ -190,7 +190,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    gagne(N);
+    gagne(shmid, N);
 
     //Détruit les sémaphore
     if(semctl(semid,0,IPC_RMID,0)==-1){
