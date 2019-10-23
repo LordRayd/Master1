@@ -115,7 +115,7 @@ int main(int argc, char* argv[]){
     int valRouleau[N];
 
     key_t cle;
-    ushort sem[1]={1};
+    ushort init_sem[1]={1};
     int semid;
     int shmid;
 
@@ -130,7 +130,7 @@ int main(int argc, char* argv[]){
         exit(3);
     }
     //Initialise tout les sémaphores
-    if(semctl(semid,1,SETALL,sem)==-1){
+    if(semctl(semid,1,SETALL,init_sem)==-1){
         printf("problem semctl");
         exit(4);
     }
