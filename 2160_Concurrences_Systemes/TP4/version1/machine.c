@@ -13,13 +13,13 @@ void die(){
 
 int affichage(int N, int* tab){
     for(int i=0;i<N;i++){
-        printf("%d ",tab[i]);
+        printf("%d  ",tab[i]);
     }
 }
 
 int gagne(int shmid, int nbRouleau){
-    int *variables;
-    if(*(variables=shmat(shmid,NULL,NULL))==-1){
+    int *valeurRouleau;
+    if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
         printf("Probleme sur shmat\n");
         exit(1);
     }
@@ -31,16 +31,16 @@ int gagne(int shmid, int nbRouleau){
 
     for(int i=0;i<nbRouleau;i++){
         if(i==0){
-            val=variables[i];
+            val=valeurRouleau[i];
 
         }else{
-            if(val!=variables[i])
+            if(val!=valeurRouleau[i])
                 erreur++;
         }
     }
 
     //Se détache du segment
-    shmdt(variables);
+    shmdt(valeurRouleau);
 
     if(erreur){
         printf("Perdue\n");
@@ -49,10 +49,10 @@ int gagne(int shmid, int nbRouleau){
     }
 }
 
-int codefils(int semid,int shmid, int N,int index){
+int codefils(int semid,int shmid, int N,int numeroRouleau){
     struct sembuf op;
     struct sigaction action;
-    int* variables;
+    int* valeurRouleau;
     int rc;
     //Arme la réception du signal
     action.sa_flags=0;
@@ -71,22 +71,23 @@ int codefils(int semid,int shmid, int N,int index){
         sigprocmask(SIG_SETMASK,&set,NULL);
 
         //S'accroche au segment
-        if((variables=shmat(shmid,NULL,NULL))==-1){
+        if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
             printf("Probleme sur shmat\n");
             exit(7);
         }
 
         //Modifie son rouleau
-        variables[index]=variables[index]+1;
-        if(variables[index]>9){
-            variables[index]=0;
+        valeurRouleau[numeroRouleau]=valeurRouleau[numeroRouleau]+1;
+        if(valeurRouleau[numeroRouleau]>9){
+            valeurRouleau[numeroRouleau]=0;
         }
 
         //Affiche les rouleaux
-        affichage(N,variables);
+        affichage(N,valeurRouleau);
+        printf("\n");
 
         //Se détache du segment
-        shmdt(variables);
+        shmdt(valeurRouleau);
 
         //V(&muttex)
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
@@ -141,18 +142,18 @@ int main(int argc, char* argv[]){
 
 
     //S'accroche au segment et l'initialise
-    int *variables;
-    if((variables=shmat(shmid,NULL,NULL))==-1){
+    int *valeurRouleau;
+    if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
         printf("problem shmat");
         exit(6);
     }
     for(int i=0;i<N;i++){
-        variables[i]=random()%10;
+        valeurRouleau[i]=random()%10;
     }
-    affichage(N,variables);
+    affichage(N,valeurRouleau);
     printf("\n");
     //Se décroche du segment
-    shmdt(variables);
+    shmdt(valeurRouleau);
 
     //Creation des rouleaux
     for(int i=0; i<N;i++){
@@ -184,7 +185,7 @@ int main(int argc, char* argv[]){
 
     gagne(shmid, N);
 
-    //ipcrm
+    //Détruit les sémaphore
     if(semctl(semid,0,IPC_RMID,0)==-1){
         printf("problem semctl");
         exit(1);
