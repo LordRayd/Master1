@@ -19,7 +19,7 @@ int affichage(int N, int* tab){
 
 int gagne(int shmid, int nbRouleau){
     int *valeurRouleau;
-    if(*(valeurRouleau=shmat(shmid,NULL,0))==-1){
+    if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
         printf("Probleme sur shmat\n");
         exit(1);
     }
@@ -71,7 +71,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         sigprocmask(SIG_SETMASK,&set,NULL);
 
         //S'accroche au segment
-        if(*(valeurRouleau=shmat(shmid,NULL,0))==-1){
+        if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
             printf("problem shmat");
             exit(7);
         }
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]){
 
     //S'accroche au segment et l'initialise
     int *valeurRouleau;
-    if(*(valeurRouleau=shmat(shmid,NULL,0))==-1){
+    if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
         printf("problem shmat");
         exit(6);
     }
