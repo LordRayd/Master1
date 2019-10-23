@@ -20,7 +20,7 @@ int affichage(int N, int* tab){
 int gagne(int shmid, int nbRouleau){
     int *valeurRouleau;
     //S'accroche au segment
-    if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
+    if(*(valeurRouleau=shmat(shmid,NULL,NULL))==-1){
         printf("Probleme sur shmat\n");
         exit(6);
     }
