@@ -73,10 +73,10 @@ int codefils(int semid,int shmid, int N,int index){
             exit(1);
         }
 
-        variables[index]=variables[index]+1;
-        if(variables[index]>9){
+        variables[index]=(variables[index]+1)%10;
+        /*if(variables[index]>9){
             variables[index]=0;
-        }
+        }*/
 
         affichage(N,variables);
         printf("\n");
