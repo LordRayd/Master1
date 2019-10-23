@@ -97,6 +97,8 @@ int codefils(int semid,int shmid, int N,int index){
         //Réautorise les SIGUSR1
         sigdelset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
+
+        //On met en attente de maniere aleatoire
         usleep(((random()%100)+100)*1000);
     }
 }
@@ -107,7 +109,7 @@ int main(int argc, char* argv[]){
         printf("Veuillez entrez un nombre de rouleau\n");
         exit(1);
     }
-    //SEGMENT PARTAGE PORTE SUR UN TABLEAU D'ENTIER CONTENANT LA VALEUR DES ROULEAUX
+    
     int pid;
     int N=atoi(argv[1]);
     int pidTab[N];
@@ -118,7 +120,7 @@ int main(int argc, char* argv[]){
     int semid;
     int shmid;
 
-    //Récupère la clé
+    // creation d'une cle IPC
     if((cle=ftok(argv[0],'0'))==-1){
         printf("problem ftok");
         exit(1);
