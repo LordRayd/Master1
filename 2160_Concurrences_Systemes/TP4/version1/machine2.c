@@ -116,7 +116,7 @@ int main(int argc, char* argv[]){
         exit(4);
     }
     //Récupère l'id du segment partagé
-    if((shmid=shmget(cle,4096,IPC_CREAT|IPC_EXCL|0644))==-1){
+    if((shmid=shmget(cle,4096,IPC_CREAT|0644))==-1){
         printf("Probleme sur shmget\n");
         exit(5);
     }
