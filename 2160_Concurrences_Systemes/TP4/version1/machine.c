@@ -25,17 +25,13 @@ int gagne(int shmid, int nbRouleau){
     }
 
     //La valeur supposés de tous les rouleaux
-    int val=0;
+    int val=variables[i];
     //Boolean vérifiant les erreurs
     int erreur=0;
 
     for(int i=0;i<nbRouleau;i++){
-        if(i==0){
-            val=variables[i];
-        }else{
-            if(val!=variables[i])
-                erreur++;
-        }
+        if(val!=variables[i])
+            erreur=1;
     }
 
     shmdt(variables);
@@ -74,9 +70,6 @@ int codefils(int semid,int shmid, int N,int index){
         }
 
         variables[index]=(variables[index]+1)%10;
-        /*if(variables[index]>9){
-            variables[index]=0;
-        }*/
 
         affichage(N,variables);
         printf("\n");
