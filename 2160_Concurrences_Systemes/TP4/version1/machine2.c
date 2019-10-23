@@ -17,6 +17,41 @@ int affichage(int N, int* tab){
     }
 }
 
+int gagne(int nbRouleau){
+    int valeurRouleau[N];
+    //S'accroche au segment
+    if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
+        printf("Probleme sur shmat\n");
+        exit(6);
+    }
+
+    //Détermine si le joueur gagne
+    int premier=0;
+    int nbPrece=0;
+    int erreur=2;
+
+    for(int i=0;i<N;i++){
+        if(i==0){
+            premier=valeurRouleau[i];
+
+        }else{
+            if((premier!=valeurRouleau[i])&&(nbPrece!=valeurRouleau[i])){
+                erreur--;
+            }
+        }
+        nbPrece=valeurRouleau[i];
+    }
+
+    //Se détache du segment
+    shmdt(valeurRouleau);
+
+    if(erreur<=0){
+        printf("Perdue\n");
+    }else{
+        printf("Gagne\n");
+    }
+}
+
 int codefils(int semid,int shmid, int N,int numeroRouleau){
     struct sembuf op;
     struct sigaction action;
@@ -157,37 +192,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    //S'accroche au segment
-    if((valeurRouleau=shmat(shmid,NULL,NULL))==-1){
-        printf("Probleme sur shmat\n");
-        exit(6);
-    }
-
-    //Détermine si le joueur gagne
-    int premier=0;
-    int nbPrece=0;
-    int erreur=2;
-
-    for(int i=0;i<N;i++){
-        if(i==0){
-            premier=valeurRouleau[i];
-
-        }else{
-            if((premier!=valeurRouleau[i])&&(nbPrece!=valeurRouleau[i])){
-                erreur--;
-            }
-        }
-        nbPrece=valeurRouleau[i];
-    }
-
-    //Se détache du segment
-    shmdt(valeurRouleau);
-
-    if(erreur<=0){
-        printf("Perdue\n");
-    }else{
-        printf("Gagne\n");
-    }
+    gagne(N);
 
     //Détruit les sémaphore
     if(semctl(semid,0,IPC_RMID,0)==-1){
