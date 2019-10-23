@@ -64,7 +64,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
             printf("Probleme sur semop\n");
-            exit(8);
+            exit(1);
         }
         //Bloque les SIGUSR1
         sigaddset(&set,SIGUSR1);
@@ -73,7 +73,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         //S'accroche au segment
         if(*(variables=shmat(shmid,NULL,0))==-1){
             printf("Probleme sur shmat\n");
-            exit(7);
+            exit(1);
         }
 
         //Modifie son rouleau
@@ -93,7 +93,7 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
             printf("Probleme sur semop\n");
-            exit(8);
+            exit(1);
         }
         //Réautorise les SIGUSR1
         sigdelset(&set,SIGUSR1);
@@ -151,6 +151,7 @@ int main(int argc, char* argv[]){
         variables[i]=random()%10;
     }
     affichage(N,variables);
+    printf("\n");
 
     //Se décroche du segment
     shmdt(variables);
