@@ -49,7 +49,7 @@ int gagne(int shmid, int nbRouleau){
     }
 }
 
-int codefils(int semid,int shmid, int N,int numeroRouleau){
+int codefils(int semid,int shmid, int N,int index){
     struct sembuf op;
     struct sigaction action;
     int* variables;
@@ -70,16 +70,15 @@ int codefils(int semid,int shmid, int N,int numeroRouleau){
         sigaddset(&set,SIGUSR1);
         sigprocmask(SIG_SETMASK,&set,NULL);
 
-        //S'accroche au segment
         if(*(variables=shmat(shmid,NULL,0))==-1){
             printf("Probleme sur shmat\n");
             exit(1);
         }
 
         //Modifie son rouleau
-        variables[numeroRouleau]=variables[numeroRouleau]+1;
-        if(variables[numeroRouleau]>9){
-            variables[numeroRouleau]=0;
+        variables[index]=variables[index]+1;
+        if(variables[index]>9){
+            variables[index]=0;
         }
 
         //Affiche les rouleaux
