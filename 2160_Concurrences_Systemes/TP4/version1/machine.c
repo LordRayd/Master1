@@ -151,7 +151,7 @@ int main(int argc, char* argv[]){
         variables[i]=random()%10;
     }
     affichage(N,variables);
-    printf("\n");
+    
     //Se décroche du segment
     shmdt(variables);
 
