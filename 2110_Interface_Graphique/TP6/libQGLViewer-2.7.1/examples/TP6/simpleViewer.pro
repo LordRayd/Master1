@@ -12,8 +12,12 @@ TEMPLATE = app
 TARGET   = TP6
 
 HEADERS  = simpleViewer.h \
-    glm.h
+    glm.h \
+    vertex.h \
+    face.h
 SOURCES  = simpleViewer.cpp main.cpp \
-    glm.cpp
+    glm.cpp \
+    vertex.cpp \
+    face.cpp
 
 include( ../examples.pri )

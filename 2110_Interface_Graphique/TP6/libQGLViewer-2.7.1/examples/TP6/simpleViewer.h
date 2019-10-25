@@ -21,10 +21,17 @@
 *****************************************************************************/
 
 #include <QGLViewer/qglviewer.h>
+#include "vertex.h"
+#include "face.h"
+#include "QGLViewer/vec.h"
+
+using namespace qglviewer;
 
 class Viewer : public QGLViewer {
 protected:
   virtual void draw();
   virtual void init();
-  virtual QString helpString() const;
+public:
+    std::vector<Face> faces;
+    std::vector<Vertex> vertex;
 };

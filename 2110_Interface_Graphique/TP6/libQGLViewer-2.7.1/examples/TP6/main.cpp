@@ -21,6 +21,7 @@
 *****************************************************************************/
 
 #include "simpleViewer.h"
+#include "glm.h"
 #include <qapplication.h>
 
 int main(int argc, char **argv) {

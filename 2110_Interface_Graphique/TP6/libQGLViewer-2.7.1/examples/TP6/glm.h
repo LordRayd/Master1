@@ -78,30 +78,30 @@ typedef struct _GLMgroup {
  */
 typedef struct _GLMmodel {
             char*    pathname;			/* path to this model */
-            char*    mtllibname;			/* name of the material library */
+            char*    mtllibname;        /* name of the material library */
 
-            GLuint   numvertices;			/* number of vertices in model */
+            GLuint   numvertices;       /* number of vertices in model */
             GLfloat* vertices;			/* array of vertices  */
 
-            GLuint   numnormals;			/* number of normals in model */
+            GLuint   numnormals;        /* number of normals in model */
             GLfloat* normals;			/* array of normals */
 
             GLuint   numtexcoords;		/* number of texcoords in model */
             GLfloat* texcoords;			/* array of texture coordinates */
 
             GLuint   numfacetnorms;		/* number of facetnorms in model */
-            GLfloat* facetnorms;			/* array of facetnorms */
+            GLfloat* facetnorms;        /* array of facetnorms */
 
-            GLuint       numtriangles;		/* number of triangles in model */
+            GLuint       numtriangles;  /* number of triangles in model */
             GLMtriangle* triangles;		/* array of triangles */
 
-            GLuint       nummaterials;		/* number of materials in model */
+            GLuint       nummaterials;  /* number of materials in model */
             GLMmaterial* materials;		/* array of materials */
 
             GLuint       numgroups;		/* number of groups in model */
-            GLMgroup*    groups;			/* linked list of groups */
+            GLMgroup*    groups;        /* linked list of groups */
 
-            GLfloat position[3];			/* position of the model */
+            GLfloat position[3];        /* position of the model */
 
 } GLMmodel;
 
