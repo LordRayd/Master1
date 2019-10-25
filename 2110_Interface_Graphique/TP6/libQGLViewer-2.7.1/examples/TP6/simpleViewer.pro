@@ -9,9 +9,11 @@
 # This example can be cut and pasted to start the development of a new application.
 
 TEMPLATE = app
-TARGET   = simpleViewer
+TARGET   = TP6
 
-HEADERS  = simpleViewer.h
-SOURCES  = simpleViewer.cpp main.cpp
+HEADERS  = simpleViewer.h \
+    glm.h
+SOURCES  = simpleViewer.cpp main.cpp \
+    glm.cpp
 
 include( ../examples.pri )
