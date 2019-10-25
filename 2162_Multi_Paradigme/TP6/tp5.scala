@@ -1,5 +1,6 @@
 import scala.io.AnsiColor
 import scala.reflect.ClassTag
+import scala.collection._
 
 object Ansi{
 
@@ -32,9 +33,7 @@ object Ansi{
 
 class Echiquier[P <: Piece: ClassTag](cote_  :  Int = 8){
 
-    private var plateau : Array[Array[Option[P]]] = Array.ofDim[Option[P]](cote_,cote_)
-
-    for( i <- 0 to cote_ -1 ; j <- 0 to cote_ -1) this.vider(i,j)
+    private var plateau : Array[Array[Option[P]]] = Array.fill(cote_,cote_)(None)
 
     def placerEn(piece_ : Option[P], x_ : Int, y_ : Int) : Unit = this.plateau(x_).update(y_,piece_)
 
@@ -116,16 +115,43 @@ object Rien{
     def apply() = None 
 }
 
+class CavalierEuler(cote_ : Int = 8){
+    private var vue : Echiquier[PieceCol] = new Echiquier[PieceCol](cote_)
+    private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
+
+    def controller(x_ : Int, y_ : Int): Unit = {
+        def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
+            var list = List()
+
+            list.::(xy_._1 -3, xy_._2 + 1)
+            list.::(xy_._1 -1, xy_._2 + 3)
+            list.::(xy_._1 +1, xy_._2 + 3)
+            list.::(xy_._1 +3, xy_._2 + 1)
+            list.::(xy_._1 -3, xy_._2 - 1)
+            list.::(xy_._1 -1, xy_._2 - 3)
+            list.::(xy_._1 +1, xy_._2 - 3)
+            list.::(xy_._1 +3, xy_._2 - 1)
+
+            list.filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
+                .filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
+        }
+
+        def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
+            //this.modele.toStream().anyMatch((t) => t(_)(_) == 0)
+            return false;
+        }
+
+        def synchroniseVueAuModele() : Unit = {
+            
+        }
+
+    }
+}
+
 object Main {   
     def main(args: Array[String]): Unit ={     
-        val echiquier = new Echiquier[PieceCol]()     
-        echiquier((0, 6)) = Cavalier()   // indice : utilisez un object Cavalier et un apply()     
-        echiquier((3, 5)) = Dame()     
-        echiquier((6, 3)) = Fou()     
-        echiquier((5, 2)) = Pion()     
-        echiquier((5, 2)) = Rien() // on vide la case     
-        print(echiquier)     
-        println(echiquier(5,2))     
-        println(echiquier(3,5))
+        var arr = Array(Array(2,1), Array(4,0))
+        var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
+        println(contain)
     }
 }
