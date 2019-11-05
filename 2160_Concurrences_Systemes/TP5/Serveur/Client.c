@@ -22,7 +22,7 @@ void getDate(char *date){
     }
     read(f2,date,MAX);
 
-    close(f2)
+    close(f2);
 }
 
 int main(int argc, char * argv[]){
