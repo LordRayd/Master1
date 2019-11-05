@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
 #define MAX 512
 #define FIFO_FILE "tubeCommun"
 
