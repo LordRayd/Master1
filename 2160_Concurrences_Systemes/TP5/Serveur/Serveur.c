@@ -34,7 +34,7 @@ int main(int argc, char * argv[]){
     mknod(FIFO_FILE, S_IFIFO|0666,0);
 
     while(1){
-        printf("attente client");
+        printf("attente client\n");
         if((f = open(FIFO_FILE, O_RDONLY)) >=0 ){
             int client;
             printf("open\n");
