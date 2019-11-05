@@ -25,7 +25,7 @@ int main(int argc, char * argv[]){
     sprintf(tube, "/tmp/tube_%d",pid);
 
     umask(0);
-    mknode(tube, S_IFIFO|0666, 0);
+    mknod(tube, S_IFIFO|0666, 0);
 
     if(( f1 = open(FIFO_FILE, O_WRONLY)) < 0){
         printf("Erreur ouverture tube serveur commun");

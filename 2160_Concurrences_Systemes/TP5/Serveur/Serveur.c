@@ -4,6 +4,7 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 512
 #define FIFO_FILE "tubeCommun"
@@ -29,7 +30,7 @@ int main(int argc, char * argv[]){
     int f, pid;
 
     umask(0);
-    mknode(FIFO_FILE, S_IFIFO|0666,0);
+    mknod(FIFO_FILE, S_IFIFO|0666,0);
 
     while(1){
         printf("attente client");
