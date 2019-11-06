@@ -119,7 +119,7 @@ class CavalierEuler(cote_ : Int = 8){
     private var vue : Echiquier[PieceCol] = new Echiquier[PieceCol](cote_)
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
     private val heuristique = Array.fill(cote_, cote_)(0)
-    
+
     def controleur(x_ : Int, y_ : Int): Unit = {
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list : List[Tuple2[Int, Int]] = List()
@@ -161,6 +161,15 @@ class CavalierEuler(cote_ : Int = 8){
                 vue((i,j)) = PieceCol(valeur.toString)
             }
         }
+
+        def miseAJourHeuristique() : Unit = {
+            var end : Int = cote_ - 1
+            for(i <- 0 to end; j <- 0 to end){
+                heuristique(i)(j) = trouveDeplacementsCavalier((i,j)).size
+                vue((i,j)) = PieceCol(valeur.toString)
+            }
+        }
+        
         trouvePositions((x_,y_), 1)
         synchroniseVueAuModele()
     }
