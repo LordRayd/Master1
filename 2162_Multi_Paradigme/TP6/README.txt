@@ -29,7 +29,7 @@ Question 8
     10x10 : environ 1800 ms
     11x11 : environ 2600 ms
 
-Question 8
+Question 9
 
     5x5 : 40 ms
     6x6 : 47 ms
@@ -38,4 +38,6 @@ Question 8
     9x9 : 83 ms
     10x10 : 98 ms
     11x11 : 122 ms
-    12x12 : 122 ms
+    12x12 : 203 ms
+    13x13 : 203 ms
+    14x14 : 203 ms
