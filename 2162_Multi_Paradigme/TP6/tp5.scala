@@ -152,7 +152,7 @@ class CavalierEuler(cote_ : Int = 8){
         }   */
 
         def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
-            positionPossible : List[Tuple2[Int,Int]] = trouveDeplacementsCavalier(xy_)
+            positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
                 modele(pos._1)(pos._2) = etape_
                 if(etape_ == ((cote_*cote_)-1)){
