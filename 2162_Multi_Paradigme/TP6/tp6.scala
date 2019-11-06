@@ -120,8 +120,6 @@ class CavalierEuler(cote_ : Int = 8){
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
 
     def controleur(x_ : Int, y_ : Int): Unit = {
-        trouvePositions((x_,y_), 0)
-        synchroniseVueAuModele()
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list = List()
 
@@ -154,6 +152,7 @@ class CavalierEuler(cote_ : Int = 8){
         def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
+                println(pos)
                 modele(pos._1)(pos._2) = etape_
                 if(etape_ == (( cote_ * cote_ ) - 1)){
                     return true;
@@ -175,6 +174,8 @@ class CavalierEuler(cote_ : Int = 8){
                 vue((i,j)) = PieceCol(valeur.toString)
             }
         }
+        trouvePositions((x_,y_), 0)
+        synchroniseVueAuModele()
     }
 
     override def toString() : String = {
