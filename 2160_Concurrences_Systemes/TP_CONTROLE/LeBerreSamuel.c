@@ -13,6 +13,17 @@
 #include <time.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sched.h>
+#include <sys/ipc.h> // services IPC
+#include <sys/resource.h>
+#include <sys/shm.h>
+#include <sys/sem.h> // semaphore IPC
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #define MUTEX 0
 #define ESCLAVE 1
