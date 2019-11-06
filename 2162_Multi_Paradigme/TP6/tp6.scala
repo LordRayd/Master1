@@ -118,7 +118,8 @@ object Rien{
 class CavalierEuler(cote_ : Int = 8){
     private var vue : Echiquier[PieceCol] = new Echiquier[PieceCol](cote_)
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
-
+    private val heuristique = Array.fill(cote_, cote_)(0)
+    
     def controleur(x_ : Int, y_ : Int): Unit = {
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list : List[Tuple2[Int, Int]] = List()
@@ -171,15 +172,12 @@ class CavalierEuler(cote_ : Int = 8){
 
 object Main {
     def main(args: Array[String]): Unit ={
-        val euler = new CavalierEuler(7)
+        val euler = new CavalierEuler(6)
         val t0 = System.currentTimeMillis()
         euler.controleur(0,0)
         val t1 = System.currentTimeMillis()
         println(euler) 
         println("Elapsed time: " + (t1 - t0) + "ms")
 
-        /*var arr = Array(Array(2,1), Array(4,0))
-        var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
-        println(contain)*/
     }
 }

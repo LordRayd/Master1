@@ -16,15 +16,15 @@ Le fonctionnement du programme n'est pas garanti sous un autre OS que Ubuntu
 Vous pouvez lancer le programme avec la commande :
     scala TP6.jar
 ou en lançant le script :
-    ./launch.sh
+    ./Launch.sh
 
 
 Question 8
 
     5x5 : 37 ms
     6x6 : 109 ms
-    7x7 : 
-    8x8 : 
-    9x9 : 
-    10x10 : 
-    11x11 : 
+    7x7 : environ 300 ms machine pas assez puissante calcul trop couteux
+    8x8 : environ 600 ms
+    9x9 : environ 1200 ms
+    10x10 : environ 1800 ms
+    11x11 : environ 2600 ms
