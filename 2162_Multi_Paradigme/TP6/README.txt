@@ -21,9 +21,10 @@ ou en lançant le script :
 
 Question 8
 
-    5x5 : 
+    5x5 : 37 ms
     6x6 : 109 ms
     7x7 : 
     8x8 : 
     9x9 : 
     10x10 : 
+    11x11 : 
