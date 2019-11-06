@@ -140,18 +140,17 @@ class CavalierEuler(cote_ : Int = 8){
 
         def trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
             var positionPossible = trouveDeplacementsCavalier(xy_)
+            println("trouvePos " + etape_ )
+            modele(xy_._1)(xy_._2) = etape_
+            if(etape_ == ((cote_ * cote_ )) ){
+                return true;
+            }
             for( pos <- positionPossible){
-                println("trouvePos " + etape_ )
-                modele(xy_._1)(xy_._2) = etape_
-                if(etape_ == ((cote_ * cote_ )) ){
-                    return true;
-                }
                 if(trouvePositions(pos, etape_ + 1)){
                     return true
-                }else{
-                    modele(xy_._1)(xy_._2) = 0
                 }
             }
+            modele(xy_._1)(xy_._2) = 0
             return false;
         }
 
