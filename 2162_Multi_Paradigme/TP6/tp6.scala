@@ -134,8 +134,9 @@ class CavalierEuler(cote_ : Int = 8){
 
             var listret = list.filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
                                 .filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
-            for(l <- listret){
-                println(l._1 + "test " + l._2)
+            for(li <- listret){
+                println(li._1)
+                println(li._2)
             }
 
             listret
