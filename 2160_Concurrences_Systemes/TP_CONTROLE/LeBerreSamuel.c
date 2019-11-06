@@ -144,7 +144,7 @@ int main(int argc, char * argv[]){
     }
 
     //Allocation espace necessaire tab
-    if((shmid = shmget(cle, 4096*((NB_ELEMENT*3)+2), IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(cle, 4096, IPC_CREAT | IPC_EXCL | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
