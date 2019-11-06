@@ -136,6 +136,7 @@ class CavalierEuler(cote_ : Int = 8){
 
             list.filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
                 .filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
+                .sortBy((xy : Tuple2[Int,  Int]) => heuristique(xy._1)(xy._2))
             
         }
 
