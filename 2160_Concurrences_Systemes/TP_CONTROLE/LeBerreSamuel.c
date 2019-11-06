@@ -189,14 +189,18 @@ int main(int argc, char * argv[]){
 
     int i =0;
     int pid;
-    maitre();
-    while(i<NB_ESCLAVE){
-        if((pid = fork()) == 0){
-            esclave();
-            exit(0);
+    if((pid = fork()) == 0){
+        while(i<NB_ESCLAVE){
+            if((pid = fork()) == 0){
+                esclave();
+                exit(0);
+            }
+            i++;
         }
-        i++;
+    }else{
+        maitre();
     }
+    
 
 
 
