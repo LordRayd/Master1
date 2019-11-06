@@ -153,6 +153,9 @@ class CavalierEuler(cote_ : Int = 8){
             positionPossible : List[Tuple2[Int,Int]] = trouveDeplacementsCavalier(xy_)
             for( pos : positionPossible){
                 modele(pos._1)(pos._2) = etape_
+                if(etape_ == ((cote_*cote_)-1)){
+                    return true;
+                }
                 if(trouvePositions(pos,etape_+1)){
                     return true
                 }else{
@@ -163,16 +166,24 @@ class CavalierEuler(cote_ : Int = 8){
         }
 
         def synchroniseVueAuModele() : Unit = {
-            
+            for(i <- 0 to cote_-1; j <- 0 to cote_-1){
+                val = modele(i)(j)
+                vue(i)(j) = PieceCol(val.toString)
+            }
         }
 
     }
 }
 
 object Main {   
-    def main(args: Array[String]): Unit ={     
-        var arr = Array(Array(2,1), Array(4,0))
+    def main(args: Array[String]): Unit ={
+        val t0 = System.nanoTime()
+        
+        val t1 = System.nanoTime()
+        println("Elapsed time: " + (t1 - t0) + "ns")   
+
+        /*var arr = Array(Array(2,1), Array(4,0))
         var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
-        println(contain)
+        println(contain)*/
     }
 }
