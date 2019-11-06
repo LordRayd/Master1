@@ -28,7 +28,7 @@
 #define MUTEX 0
 #define ESCLAVE 1
 #define ELEMENT_TAB 2
-#define NB_ESCLAVE 1
+#define NB_ESCLAVE 3
 #define NB_ELEMENT 10
 
 key_t cle; /* cle ipc */
