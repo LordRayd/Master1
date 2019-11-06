@@ -155,7 +155,7 @@ class CavalierEuler(cote_ : Int = 8){
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
                 modele(pos._1)(pos._2) = etape_
-                if(etape_ == ((cote_*cote_)-1)){
+                if(etape_ == (( cote_ * cote_ ) - 1)){
                     return true;
                 }
                 if(trouvePositions(pos, etape_ + 1)){
