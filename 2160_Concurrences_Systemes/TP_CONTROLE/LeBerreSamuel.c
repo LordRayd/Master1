@@ -84,7 +84,7 @@ void maitre(){
     }
 }
 
-void affichage(char c, int rep, int delai){
+void affichage(char letter, int rep, int delai){
     int x;
     for(x=0; x<rep; x++){
         write(1,&letter,1);
