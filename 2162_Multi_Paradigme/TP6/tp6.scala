@@ -174,7 +174,10 @@ class CavalierEuler(cote_ : Int = 8){
                 vue((i,j)) = PieceCol(valeur.toString)
             }
         }
+    }
 
+    override def toString() : String = {
+        
     }
 }
 
