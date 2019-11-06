@@ -152,7 +152,7 @@ class CavalierEuler(cote_ : Int = 8){
         }   */
 
         def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
-            positionPossible = trouveDeplacementsCavalier(xy_)
+            var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
                 modele(pos._1)(pos._2) = etape_
                 if(etape_ == ((cote_*cote_)-1)){
@@ -168,10 +168,10 @@ class CavalierEuler(cote_ : Int = 8){
         }
 
         def synchroniseVueAuModele() : Unit = {
-            end : Int = cote_ - 1
+            var end : Int = cote_ - 1
             for(i <- 0 to end; j <- 0 to end){
-                val = modele(i)(j)
-                vue(i)(j) = PieceCol(val.toString)
+                var valeur = modele(i)(j)
+                vue(i)(j) = PieceCol(valeur.toString)
             }
         }
 
