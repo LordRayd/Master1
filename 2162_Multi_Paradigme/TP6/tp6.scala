@@ -121,6 +121,7 @@ class CavalierEuler(cote_ : Int = 8){
 
     def controleur(x_ : Int, y_ : Int): Unit = {
         trouvePositions((x_,y_), 0)
+        synchroniseVueAuModele()
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list = List()
 
@@ -176,7 +177,6 @@ class CavalierEuler(cote_ : Int = 8){
     }
 
     override def toString() : String = {
-        controleur.synchroniseVueAuModele()
         vue.toString
     }
 }
