@@ -90,7 +90,7 @@ void affichage(char letter, int rep, int delai){
     int x;
     for(x=0; x<rep; x++){
         write(1,&letter,1);
-        write(1,'\n',1);
+        printf("\n");
         //sched_yield();
         sleep(delai);
     }
