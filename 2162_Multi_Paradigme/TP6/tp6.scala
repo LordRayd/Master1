@@ -140,7 +140,6 @@ class CavalierEuler(cote_ : Int = 8){
 
         def trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
             var positionPossible = trouveDeplacementsCavalier(xy_)
-            println("trouvePos " + etape_ )
             modele(xy_._1)(xy_._2) = etape_
             if(etape_ == ((cote_ * cote_ )) ){
                 return true;
@@ -173,9 +172,9 @@ class CavalierEuler(cote_ : Int = 8){
 object Main {   
     def main(args: Array[String]): Unit ={
         val euler = new CavalierEuler(6)
-        val t0 = System.nanoTime()
+        val t0 = System.currentTimeMillis()
         euler.controleur(0,0)
-        val t1 = System.nanoTime()
+        val t1 = System.currentTimeMillis()
         println(euler) 
         println("Elapsed time: " + (t1 - t0) + "ns")
 
