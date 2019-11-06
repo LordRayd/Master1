@@ -123,14 +123,14 @@ class CavalierEuler(cote_ : Int = 8){
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list : List[Tuple2[Int, Int]] = List()
 
-            list = list:+(xy_._1 -3, xy_._2 + 1)
-            list = list:+(xy_._1 -1, xy_._2 + 3)
-            list = list:+(xy_._1 +1, xy_._2 + 3)
-            list = list:+(xy_._1 +3, xy_._2 + 1)
-            list = list:+(xy_._1 -3, xy_._2 - 1)
-            list = list:+(xy_._1 -1, xy_._2 - 3)
-            list = list:+(xy_._1 +1, xy_._2 - 3)
-            list = list:+(xy_._1 +3, xy_._2 - 1)
+            list = list:+(xy_._1 -2, xy_._2 + 1)
+            list = list:+(xy_._1 -1, xy_._2 + 2)
+            list = list:+(xy_._1 +1, xy_._2 + 2)
+            list = list:+(xy_._1 +2, xy_._2 + 1)
+            list = list:+(xy_._1 -2, xy_._2 - 1)
+            list = list:+(xy_._1 -1, xy_._2 - 2)
+            list = list:+(xy_._1 +1, xy_._2 - 2)
+            list = list:+(xy_._1 +2, xy_._2 - 1)
 
 
             list.filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
