@@ -15,6 +15,8 @@
 #include <string.h>
 
 #define MUTEX 0
+#define ESCLAVE 1
+#define ELEMENT_TAB 2
 #define NB_ESCLAVE 5
 #define NB_ELEMENT 10
 
@@ -38,21 +40,70 @@ void maitre(){
         op.sem_num=MUTEX;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
+        printf("V(&ELEMENT_TAB)\n");
+        op.sem_num=ELEMENT_TAB;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
         
         if(*(tab  = (int*) shmat(shmid,NULL,0)) == -1){
             perror("probleme shmat");
             exit(4);
         }
 
-        int pos = *tab;
+        int pos = 2 + tab[0]*3;
+        tab[0] = (tab[0] +1) % NB_ELEMENT;
 
-        tab = tab + sizeof(int) + pos*(2*sizeof(int)+sizeof(char));
+        tab[pos] = (int)c;
+        tab[pos+1] = rep;
+        tab[pos+2] = delai;
 
-        *tab = (int)c;
-        tab = tab + sizeof(char);
-        *tab = rep;
-        tab = tab + sizeof(int);
-        *tab = delai;
+        if(shmdt(tab) == -1){
+            perror("probleme sur shmdt");
+            exit(4);
+        }
+
+        
+
+        printf("V(&ESCLAVE)\n");
+        op.sem_num=ESCLAVE;op.sem_op=1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("V(&MUTEX)\n");
+        op.sem_num=MUTEX;op.sem_op=1;op.sem_flg=0;
+        semop(semid,&op,1);
+    }
+}
+
+void esclave(){
+
+    while(1){
+
+        printf("P(&ESCLAVE)\n");
+        op.sem_num=ESCLAVE;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        printf("P(&MUTEX)\n");
+        op.sem_num=MUTEX;op.sem_op=-1;op.sem_flg=0;
+        semop(semid,&op,1);
+
+        if(*(tab  = (int*) shmat(shmid,NULL,0)) == -1){
+            perror("probleme shmat");
+            exit(4);
+        }
+
+        int posLect = 2 + tab[1] * 3;
+
+        tab[1] = (tab[1] +1) % NB_ELEMENT;
+
+
+        char letter = tab[posLect];
+        int rep = tab[posLect+1];
+        int delai = tab[posLect+2];
+        int x;
+        for(x=0; x<rep; x++){
+            write(1,&letter,1);
+            sched_yield();
+            sleep(delai);
+        }
 
         if(shmdt(tab) == -1){
             perror("probleme sur shmdt");
@@ -63,24 +114,16 @@ void maitre(){
         op.sem_num=MUTEX;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
 
-
-    }
-}
-
-void esclave(){
-
-    int x;
-    for(x=0;x<5;x++){
-        write(1,4,1);
-        sched_yield();
-        sleep(1);
+        printf("V(&ELEMENT_TAB)\n");
+        op.sem_num=ELEMENT_TAB;op.sem_op=1;op.sem_flg=0;
+        semop(semid,&op,1);
     }
 }
 
 int main(int argc, char * argv[]){
 
     //init sem
-    ushort init_sem[1]={10};
+    ushort init_sem[3]={1,0,NB_ELEMENT};
 
     // creation d'une cle IPC en fonction du nom du programme
     if ((cle=ftok(argv[0],'0')) == -1 ) {
@@ -89,21 +132,34 @@ int main(int argc, char * argv[]){
     }
 
     // demande un ensemble de semaphore (ici deux mutex)
-    if ((semid=semget(cle,1,IPC_CREAT|0666))==-1) {
+    if ((semid=semget(cle,3,IPC_CREAT|0666))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
 
     // initialise l'ensemble
-    if (semctl(semid,1,SETALL,init_sem)==-1) {
+    if (semctl(semid,3,SETALL,init_sem)==-1) {
         fprintf(stderr,"Probleme sur semctl SETALL\n");
         exit(3);
     }
 
     //Allocation espace necessaire tab
-    if((shmid = shmget(cle, sizeof(int)+NB_ELEMENT*(sizeof(char)+sizeof(int)*2), IPC_CREAT | 0666)) == -1){
+    if((shmid = shmget(cle, sizeof(int)*2+NB_ELEMENT*(sizeof(char)+sizeof(int)*2), IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
+    }
+
+    if(*(tab  = (int*) shmat(shmid,NULL,0)) == -1){
+        perror("probleme shmat");
+        exit(4);
+    }
+    int x;
+    for(x=0; x< ((NB_ELEMENT*3)+2); x++){
+        tab[x] = 0;
+    }
+    if(shmdt(tab) == -1){
+        perror("probleme sur shmdt");
+        exit(4);
     }
 
 
