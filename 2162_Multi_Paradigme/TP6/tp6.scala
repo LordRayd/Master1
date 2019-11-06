@@ -142,6 +142,7 @@ class CavalierEuler(cote_ : Int = 8){
         }
 
         def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
+            println("trouvePos " + etape_ )
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
                 println("pos")
