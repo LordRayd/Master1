@@ -168,7 +168,7 @@ class CavalierEuler(cote_ : Int = 8){
         }
 
         def synchroniseVueAuModele() : Unit = {
-            end : Int = cote_-1
+            end : Int = cote_ - 1
             for(i <- 0 to end; j <- 0 to end){
                 val = modele(i)(j)
                 vue(i)(j) = PieceCol(val.toString)
