@@ -147,6 +147,7 @@ class CavalierEuler(cote_ : Int = 8){
                 return true;
             }
             for( pos <- positionPossible){
+                miseAJourHeuristique()
                 if(trouvePositions(pos, etape_ + 1)){
                     return true
                 }
