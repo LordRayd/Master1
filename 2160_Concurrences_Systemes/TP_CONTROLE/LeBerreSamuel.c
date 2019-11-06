@@ -157,9 +157,13 @@ int main(int argc, char * argv[]){
         exit(3);
     }
     printf("1\n");
-
+ key_t cle2;
+if ((cle2=ftok(argv[0],'1')) == -1 ) {
+        fprintf(stderr,"Probleme sur ftoks\n");
+        exit(1);
+    }
     //Allocation espace necessaire tab
-    if((shmid = shmget(cle, 4096, IPC_CREAT | 0644)) == -1){
+    if((shmid = shmget(cle2, 4096, IPC_CREAT | 0666)) == -1){
         perror("shmget");
         exit(1);
     }
