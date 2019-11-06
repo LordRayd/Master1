@@ -133,6 +133,7 @@ void esclave(){
 
 int main(int argc, char * argv[]){
 
+    printf("1\n");
     //init sem
     ushort init_sem[3]={1,0,NB_ELEMENT};
 
@@ -141,18 +142,21 @@ int main(int argc, char * argv[]){
         fprintf(stderr,"Probleme sur ftoks\n");
         exit(1);
     }
+    printf("1\n");
 
     // demande un ensemble de semaphore (ici deux mutex)
     if ((semid=semget(cle,3,IPC_CREAT|0666))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
+    printf("1\n");
 
     // initialise l'ensemble
     if (semctl(semid,3,SETALL,init_sem)==-1) {
         fprintf(stderr,"Probleme sur semctl SETALL\n");
         exit(3);
     }
+    printf("1\n");
 
     //Allocation espace necessaire tab
     if((shmid = shmget(cle, 4096, IPC_CREAT | IPC_EXCL | 0666)) == -1){
@@ -160,18 +164,22 @@ int main(int argc, char * argv[]){
         exit(1);
     }
 
+    printf("1\n");
     if(*(tab  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
+    printf("1\n");
     int x;
     for(x=0; x< ((NB_ELEMENT*3)+2); x++){
         tab[x] = 0;
     }
+    printf("1\n");
     if(shmdt(tab) == -1){
         perror("probleme sur shmdt");
         exit(4);
     }
+    printf("1\n");
 
 
     int i =0;
