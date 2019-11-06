@@ -120,7 +120,7 @@ class CavalierEuler(cote_ : Int = 8){
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
 
     def controller(x_ : Int, y_ : Int): Unit = {
-        trouvePositions(x_,y_)
+        trouvePositions((x_,y_), 0)
         synchroniseVueAuModele()
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list = List()
