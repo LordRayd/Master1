@@ -122,7 +122,7 @@ class CavalierEuler(cote_ : Int = 8){
     def controleur(x_ : Int, y_ : Int): Unit = {
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             println("trouveDep x:" + x_ + " y:" + y_)
-            var list = List()
+            var list : List[Tuple2[Int, Int]] = List()
 
             list = list:+(xy_._1 -3, xy_._2 + 1)
             /*list = list.::(xy_._1 -1, xy_._2 + 3)
