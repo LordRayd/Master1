@@ -124,14 +124,14 @@ class CavalierEuler(cote_ : Int = 8){
             println("trouveDep x:" + x_ + " y:" + y_)
             var list = List()
 
-            list.::(xy_._1 -3, xy_._2 + 1)
-            list.::(xy_._1 -1, xy_._2 + 3)
-            list.::(xy_._1 +1, xy_._2 + 3)
-            list.::(xy_._1 +3, xy_._2 + 1)
-            list.::(xy_._1 -3, xy_._2 - 1)
-            list.::(xy_._1 -1, xy_._2 - 3)
-            list.::(xy_._1 +1, xy_._2 - 3)
-            list.::(xy_._1 +3, xy_._2 - 1)
+            list = list :: (xy_._1 -3, xy_._2 + 1)
+            list = list :: (xy_._1 -1, xy_._2 + 3)
+            list = list :: (xy_._1 +1, xy_._2 + 3)
+            list = list :: (xy_._1 +3, xy_._2 + 1)
+            list = list :: (xy_._1 -3, xy_._2 - 1)
+            list = list :: (xy_._1 -1, xy_._2 - 3)
+            list = list :: (xy_._1 +1, xy_._2 - 3)
+            list = list :: (xy_._1 +3, xy_._2 - 1)
 
             println(list)
 
