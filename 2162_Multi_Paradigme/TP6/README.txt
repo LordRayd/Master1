@@ -31,7 +31,7 @@ Question 8
 
 Question 8
 
-    5x5 : 32 ms
+    5x5 : 40 ms
     6x6 : 89 ms
     7x7 : environ 60 ms 
     8x8 : environ 600 ms
