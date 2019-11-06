@@ -112,7 +112,7 @@ void esclave(){
         int x;
         for(x=0; x<rep; x++){
             write(1,&letter,1);
-            sched_yield();
+            //sched_yield();
             sleep(delai);
         }
 
