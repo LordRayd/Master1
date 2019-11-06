@@ -28,3 +28,13 @@ Question 8
     9x9 : environ 1200 ms
     10x10 : environ 1800 ms
     11x11 : environ 2600 ms
+
+Question 8
+
+    5x5 : 37 ms
+    6x6 : 89 ms
+    7x7 : environ 300 ms machine pas assez puissante calcul trop couteux
+    8x8 : environ 600 ms
+    9x9 : environ 1200 ms
+    10x10 : environ 1800 ms
+    11x11 : environ 2600 ms
