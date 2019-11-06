@@ -172,7 +172,7 @@ class CavalierEuler(cote_ : Int = 8){
 
 object Main {   
     def main(args: Array[String]): Unit ={
-        val euler = new CavalierEuler(5)
+        val euler = new CavalierEuler(6)
         val t0 = System.nanoTime()
         euler.controleur(0,0)
         val t1 = System.nanoTime()
