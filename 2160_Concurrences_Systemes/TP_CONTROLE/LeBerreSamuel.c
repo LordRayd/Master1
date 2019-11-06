@@ -63,7 +63,7 @@ void maitre(){
         int pos = 2 + tab[0]*3;
         tab[0] = (tab[0] +1) % NB_ELEMENT;
 
-        tab[pos] = (int) &c;
+        tab[pos] = (int)c;
         tab[pos+1] = rep;
         tab[pos+2] = delai;
 
