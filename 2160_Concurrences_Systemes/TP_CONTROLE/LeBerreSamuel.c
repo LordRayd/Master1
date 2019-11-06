@@ -143,6 +143,8 @@ void esclave(){
 int main(int argc, char * argv[]){
 
     nb_esclave = argv[1];
+
+    printf("nb esclave : %d", nb_esclave);
     //init sem
     ushort init_sem[3]={1,0,NB_ELEMENT};
 
