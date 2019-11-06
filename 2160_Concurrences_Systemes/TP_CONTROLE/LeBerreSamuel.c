@@ -203,7 +203,7 @@ int main(int argc, char * argv[]){
     int nb;
     for(nb=0; nb < NB_ESCLAVE; nb++){
         
-    WAIT(NULL);
+        wait(NULL);
     }
 
 
