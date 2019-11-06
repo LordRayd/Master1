@@ -180,7 +180,7 @@ object Main {
         println("Elapsed time: " + (t1 - t0) + "ns")
 
             for(i <- 0 to 5; j <- 0 to 5){
-                println("x,y : " + i + " " + j + " " +modele(i)(j))
+                println("x,y : " + i + " " + j + " " + euler.modele(i)(j))
             }
         /*var arr = Array(Array(2,1), Array(4,0))
         var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
