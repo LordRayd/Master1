@@ -28,10 +28,12 @@
 #define MUTEX 0
 #define ESCLAVE 1
 #define ELEMENT_TAB 2
-#define NB_ESCLAVE 3
 #define NB_ELEMENT 10
 
 key_t cle; /* cle ipc */
+
+
+int nb_esclave;
 
 int semid; /* nom local de l'ensemble des semaphores */
 
@@ -140,6 +142,7 @@ void esclave(){
 
 int main(int argc, char * argv[]){
 
+    nb_esclave = argv[1];
     //init sem
     ushort init_sem[3]={1,0,NB_ELEMENT};
 
@@ -191,7 +194,7 @@ int main(int argc, char * argv[]){
     int i =0;
     int pid;
     if((pid = fork()) == 0){
-        while(i<NB_ESCLAVE){
+        while(i<nb_esclave){
             if((pid = fork()) == 0){
                 esclave();
                 exit(0);
@@ -202,7 +205,7 @@ int main(int argc, char * argv[]){
         maitre();
     }
     int nb;
-    for(nb=0; nb < NB_ESCLAVE; nb++){
+    for(nb=0; nb < nb_esclave; nb++){
         
         wait(NULL);
     }
