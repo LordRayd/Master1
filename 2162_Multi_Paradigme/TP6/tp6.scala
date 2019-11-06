@@ -136,23 +136,10 @@ class CavalierEuler(cote_ : Int = 8){
                 .filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
         }
 
-        /*def trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
-            for(int i=0; i<cote_; i++){
-                for(int j=0; j<cote_; j++){
-                    if(this.modele(i)(j) == 0){
-                        return false;
-                    } else if(this.modele(i)(j) == (cote_ * cote_)){
-                        return true
-                    }
-                }
-            }
-            return true;
-        }   */
-
         def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
-                println(pos)
+                println("pos")
                 modele(pos._1)(pos._2) = etape_
                 if(etape_ == (( cote_ * cote_ ) - 1)){
                     return true;
