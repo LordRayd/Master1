@@ -142,14 +142,14 @@ class CavalierEuler(cote_ : Int = 8){
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
                 println("trouvePos " + etape_ )
-                modele(pos._1)(pos._2) = etape_
+                modele(xy_._1)(xy_._2) = etape_
                 if(etape_ == (cote_ * cote_ ) ){
                     return true;
                 }
                 if(trouvePositions(pos, etape_ + 1)){
                     return true
                 }else{
-                    modele(pos._1)(pos._2) = 0
+                    modele(xy_._1)(xy_._2) = 0
                 }
             }
             return false;
