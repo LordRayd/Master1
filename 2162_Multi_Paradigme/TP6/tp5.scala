@@ -119,7 +119,7 @@ class CavalierEuler(cote_ : Int = 8){
     private var vue : Echiquier[PieceCol] = new Echiquier[PieceCol](cote_)
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
 
-    def controller(x_ : Int, y_ : Int): Unit = {
+    def controleur(x_ : Int, y_ : Int): Unit = {
         trouvePositions((x_,y_), 0)
         synchroniseVueAuModele()
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
@@ -171,7 +171,7 @@ class CavalierEuler(cote_ : Int = 8){
             var end : Int = cote_ - 1
             for(i <- 0 to end; j <- 0 to end){
                 var valeur = modele(i)(j)
-                vue(i)(j) = PieceCol(valeur.toString)
+                vue((i,j)) = PieceCol(valeur.toString)
             }
         }
 
