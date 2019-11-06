@@ -133,6 +133,8 @@ class CavalierEuler(cote_ : Int = 8){
             list.::(xy_._1 +1, xy_._2 - 3)
             list.::(xy_._1 +3, xy_._2 - 1)
 
+            println(list)
+
             var listret = list.filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
                                 .filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
             for(li <- listret){
