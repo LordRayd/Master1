@@ -142,6 +142,10 @@ void esclave(){
 
 int main(int argc, char * argv[]){
 
+    if(argc < 1){
+        printf("pas assez d'argument\n");
+        exit(1);
+    }
     nb_esclave = (int) argv[1];
 
     printf("nb esclave : %d", nb_esclave);
