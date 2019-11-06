@@ -142,7 +142,7 @@ void esclave(){
 
 int main(int argc, char * argv[]){
 
-    nb_esclave = argv[1];
+    nb_esclave = (int) argv[1];
 
     printf("nb esclave : %d", nb_esclave);
     //init sem
