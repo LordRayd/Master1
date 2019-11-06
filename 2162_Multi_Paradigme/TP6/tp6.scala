@@ -125,13 +125,13 @@ class CavalierEuler(cote_ : Int = 8){
             var list : List[Tuple2[Int, Int]] = List()
 
             list = list:+(xy_._1 -3, xy_._2 + 1)
-            /*list = list.::(xy_._1 -1, xy_._2 + 3)
-            list = list.::(xy_._1 +1, xy_._2 + 3)
-            list = list.::(xy_._1 +3, xy_._2 + 1)
-            list = list.::(xy_._1 -3, xy_._2 - 1)
-            list = list.::(xy_._1 -1, xy_._2 - 3)
-            list = list.::(xy_._1 +1, xy_._2 - 3)
-            list = list.::(xy_._1 +3, xy_._2 - 1)*/
+            list = list:+(xy_._1 -1, xy_._2 + 3)
+            list = list:+(xy_._1 +1, xy_._2 + 3)
+            list = list:+(xy_._1 +3, xy_._2 + 1)
+            list = list:+(xy_._1 -3, xy_._2 - 1)
+            list = list:+(xy_._1 -1, xy_._2 - 3)
+            list = list:+(xy_._1 +1, xy_._2 - 3)
+            list = list:+(xy_._1 +3, xy_._2 - 1)
 
             println(list)
 
