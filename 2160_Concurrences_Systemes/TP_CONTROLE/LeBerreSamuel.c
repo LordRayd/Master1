@@ -32,8 +32,8 @@ struct sembuf op;
 
 void maitre(){
     char c;
-    unsigned int rep;
-    unsigned int delai;
+    int rep;
+    int delai;
     while ( scanf(" %c%u%u",&c, &rep,&delai) == 3){
         
         printf("P(&MUTEX)\n");
@@ -52,7 +52,7 @@ void maitre(){
         int pos = 2 + tab[0]*3;
         tab[0] = (tab[0] +1) % NB_ELEMENT;
 
-        tab[pos] = (int)c;
+        tab[pos] = &c;
         tab[pos+1] = rep;
         tab[pos+2] = delai;
 
