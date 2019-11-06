@@ -14,7 +14,7 @@ Environnement Java:
 Le fonctionnement du programme n'est pas garanti sous un autre OS que Ubuntu
 
 Vous pouvez lancer le programme avec la commande :
-    scala TP6.jar
+    scala TP6_Samuel_LEBERRE.jar
 ou en lançant le script :
     ./Launch.sh
 
