@@ -47,11 +47,11 @@ void maitre(){
     int delai;
     while ( scanf(" %c%u%u",&c, &rep,&delai) == 3){
         
-        printf("P(&MUTEX)\n");
+        //printf("P(&MUTEX)\n");
         op.sem_num=MUTEX;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("V(&ELEMENT_TAB)\n");
+        //printf("V(&ELEMENT_TAB)\n");
         op.sem_num=ELEMENT_TAB;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
         
@@ -74,11 +74,11 @@ void maitre(){
 
         
 
-        printf("V(&ESCLAVE)\n");
+        //printf("V(&ESCLAVE)\n");
         op.sem_num=ESCLAVE;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("V(&MUTEX)\n");
+        //printf("V(&MUTEX)\n");
         op.sem_num=MUTEX;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
     }
@@ -92,7 +92,7 @@ void esclave(){
         op.sem_num=ESCLAVE;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("P(&MUTEX)\n");
+        //printf("P(&MUTEX)\n");
         op.sem_num=MUTEX;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
@@ -121,11 +121,11 @@ void esclave(){
             exit(4);
         }
 
-        printf("V(&MUTEX)\n");
+        //printf("V(&MUTEX)\n");
         op.sem_num=MUTEX;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
 
-        printf("V(&ELEMENT_TAB)\n");
+        //printf("V(&ELEMENT_TAB)\n");
         op.sem_num=ELEMENT_TAB;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
     }
@@ -133,7 +133,6 @@ void esclave(){
 
 int main(int argc, char * argv[]){
 
-    printf("1\n");
     //init sem
     ushort init_sem[3]={1,0,NB_ELEMENT};
 
@@ -142,21 +141,18 @@ int main(int argc, char * argv[]){
         fprintf(stderr,"Probleme sur ftoks\n");
         exit(1);
     }
-    printf("1\n");
 
     // demande un ensemble de semaphore (ici deux mutex)
     if ((semid=semget(cle,3,IPC_CREAT|0666))==-1) {
         fprintf(stderr,"Probleme sur semget\n");
         exit(2);
     }
-    printf("1\n");
 
     // initialise l'ensemble
     if (semctl(semid,3,SETALL,init_sem)==-1) {
         fprintf(stderr,"Probleme sur semctl SETALL\n");
         exit(3);
     }
-    printf("1\n");
 
     key_t cle2;
     if ((cle2=ftok(argv[0],'1')) == -1 ) {
@@ -169,12 +165,11 @@ int main(int argc, char * argv[]){
         exit(1);
     }
 
-    printf("1\n");
     if(*(tab  = (int*) shmat(shmid,NULL,0)) == -1){
         perror("probleme shmat");
         exit(4);
     }
-    printf("1\n");
+    
     int x;
     for(x=0; x< ((NB_ELEMENT*3)+2); x++){
         tab[x] = 0;
@@ -184,7 +179,6 @@ int main(int argc, char * argv[]){
         perror("probleme sur shmdt");
         exit(4);
     }
-    printf("1\n");
 
 
     int i =0;
