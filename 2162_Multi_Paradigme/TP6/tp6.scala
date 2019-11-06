@@ -162,7 +162,7 @@ class CavalierEuler(cote_ : Int = 8){
                 vue((i,j)) = PieceCol(valeur.toString)
             }
         }
-        trouvePositions((x_,y_), 0)
+        trouvePositions((x_,y_), 1)
         synchroniseVueAuModele()
     }
 
