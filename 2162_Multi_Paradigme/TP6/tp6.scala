@@ -176,12 +176,12 @@ class CavalierEuler(cote_ : Int = 8){
 
 object Main {   
     def main(args: Array[String]): Unit ={
+        val euler = new CavalierEuler(6)
         val t0 = System.nanoTime()
-        val euler = new CavalierEuler(5)     
-        euler.controleur(0,0)     
-        println(euler) 
+        euler.controleur(0,0)
         val t1 = System.nanoTime()
-        println("Elapsed time: " + (t1 - t0) + "ns")   
+        println(euler) 
+        println("Elapsed time: " + (t1 - t0) + "ns")
 
         /*var arr = Array(Array(2,1), Array(4,0))
         var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
