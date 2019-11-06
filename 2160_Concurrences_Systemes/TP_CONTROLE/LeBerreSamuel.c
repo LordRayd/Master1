@@ -88,7 +88,7 @@ void esclave(){
 
     while(1){
 
-        printf("P(&ESCLAVE)\n");
+        printf("pid : %d P(&ESCLAVE)\n", getpid());
         op.sem_num=ESCLAVE;op.sem_op=-1;op.sem_flg=0;
         semop(semid,&op,1);
 
@@ -157,8 +157,9 @@ int main(int argc, char * argv[]){
         exit(3);
     }
     printf("1\n");
- key_t cle2;
-if ((cle2=ftok(argv[0],'1')) == -1 ) {
+
+    key_t cle2;
+    if ((cle2=ftok(argv[0],'1')) == -1 ) {
         fprintf(stderr,"Probleme sur ftoks\n");
         exit(1);
     }
