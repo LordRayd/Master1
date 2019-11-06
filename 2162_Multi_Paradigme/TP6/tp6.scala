@@ -133,13 +133,9 @@ class CavalierEuler(cote_ : Int = 8){
             list = list:+(xy_._1 +3, xy_._2 - 1)
 
 
-            var listret = list.filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
-                                .filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
-            for(li <- listret){
-                println(li)
-            }
-
-            listret
+            list.filter((xy : Tuple2[Int,  Int]) =>  xy._1 >= 0 && xy._1 < cote_  && xy._2 >= 0 && xy._2 < cote_)
+                .filter((xy : Tuple2[Int,  Int]) => this.modele(xy._1)(xy._2) == 0)
+            
         }
 
         def trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
@@ -183,6 +179,9 @@ object Main {
         println(euler) 
         println("Elapsed time: " + (t1 - t0) + "ns")
 
+            for(i <- 0 to 5; j <- 0 to 5){
+                println("x,y : " + i + " " + j + " " +modele(i)(j))
+            }
         /*var arr = Array(Array(2,1), Array(4,0))
         var contain = arr.find(_.sameElements(Array(_, 0))).isDefined
         println(contain)*/
