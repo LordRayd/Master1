@@ -158,7 +158,7 @@ class CavalierEuler(cote_ : Int = 8){
                 if(etape_ == ((cote_*cote_)-1)){
                     return true;
                 }
-                if(trouvePositions(pos,etape_+1)){
+                if(trouvePositions(pos, etape_ + 1)){
                     return true
                 }else{
                     modele(pos._1)(pos._2) = 0
