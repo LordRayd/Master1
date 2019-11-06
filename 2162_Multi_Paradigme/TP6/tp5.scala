@@ -120,6 +120,8 @@ class CavalierEuler(cote_ : Int = 8){
     private var modele : Array[Array[Int]] = Array.fill(cote_,cote_)(0)
 
     def controller(x_ : Int, y_ : Int): Unit = {
+        trouvePositions(x_,y_)
+        synchroniseVueAuModele()
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
             var list = List()
 
@@ -178,7 +180,9 @@ class CavalierEuler(cote_ : Int = 8){
 object Main {   
     def main(args: Array[String]): Unit ={
         val t0 = System.nanoTime()
-        
+        val euler = new CavalierEuler(6)     
+        euler.controleur(0,0)     
+        println(euler) 
         val t1 = System.nanoTime()
         println("Elapsed time: " + (t1 - t0) + "ns")   
 
