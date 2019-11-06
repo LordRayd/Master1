@@ -121,7 +121,7 @@ class CavalierEuler(cote_ : Int = 8){
 
     def controleur(x_ : Int, y_ : Int): Unit = {
         def trouveDeplacementsCavalier(xy_ : Tuple2[Int, Int]): List[Tuple2[Int, Int]] = {
-            println("trouveDep x:" + x_+ " y:" +y_)
+            println("trouveDep x:" + x_ + " y:" + y_)
             var list = List()
 
             list.::(xy_._1 -3, xy_._2 + 1)
@@ -142,7 +142,7 @@ class CavalierEuler(cote_ : Int = 8){
             listret
         }
 
-        def  trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
+        def trouvePositions(xy_ : Tuple2[Int,  Int], etape_ : Int): Boolean = {
             println("trouvePos " + etape_ )
             var positionPossible = trouveDeplacementsCavalier(xy_)
             for( pos <- positionPossible){
