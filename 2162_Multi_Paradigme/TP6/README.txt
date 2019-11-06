@@ -31,7 +31,7 @@ Question 8
 
 Question 8
 
-    5x5 : 37 ms
+    5x5 : 32 ms
     6x6 : 89 ms
     7x7 : environ 300 ms machine pas assez puissante calcul trop couteux
     8x8 : environ 600 ms
