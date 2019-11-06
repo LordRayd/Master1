@@ -195,6 +195,7 @@ int main(int argc, char * argv[]){
             esclave();
             exit(0);
         }
+        i++;
     }
 
 
