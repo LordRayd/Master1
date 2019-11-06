@@ -143,7 +143,7 @@ class CavalierEuler(cote_ : Int = 8){
             for( pos <- positionPossible){
                 println("trouvePos " + etape_ )
                 modele(xy_._1)(xy_._2) = etape_
-                if(etape_ == ((cote_ * cote_ )-7) ){
+                if(etape_ == ((cote_ * cote_ )-1) ){
                     return true;
                 }
                 if(trouvePositions(pos, etape_ + 1)){
