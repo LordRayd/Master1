@@ -84,6 +84,15 @@ void maitre(){
     }
 }
 
+void affichage(char c, int rep, int delai){
+    int x;
+    for(x=0; x<rep; x++){
+        write(1,&letter,1);
+        //sched_yield();
+        sleep(delai);
+    }
+}
+
 void esclave(){
 
     while(1){
@@ -109,12 +118,7 @@ void esclave(){
         char letter = tab[posLect];
         int rep = tab[posLect+1];
         int delai = tab[posLect+2];
-        int x;
-        for(x=0; x<rep; x++){
-            write(1,&letter,1);
-            //sched_yield();
-            sleep(delai);
-        }
+        
 
         if(shmdt(tab) == -1){
             perror("probleme sur shmdt");
@@ -128,6 +132,8 @@ void esclave(){
         //printf("V(&ELEMENT_TAB)\n");
         op.sem_num=ELEMENT_TAB;op.sem_op=1;op.sem_flg=0;
         semop(semid,&op,1);
+
+        affichage(letter,rep,delai);
     }
 }
 
