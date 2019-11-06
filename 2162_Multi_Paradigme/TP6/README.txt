@@ -36,5 +36,5 @@ Question 8
     7x7 : environ 60 ms 
     8x8 : environ 69 ms
     9x9 : environ 83 ms
-    10x10 : environ 1800 ms
+    10x10 : environ 98 ms
     11x11 : environ 2600 ms

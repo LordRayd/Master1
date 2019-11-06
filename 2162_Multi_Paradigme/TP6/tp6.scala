@@ -182,7 +182,7 @@ class CavalierEuler(cote_ : Int = 8){
 
 object Main {
     def main(args: Array[String]): Unit ={
-        val euler = new CavalierEuler(10)
+        val euler = new CavalierEuler(11)
         val t0 = System.currentTimeMillis()
         euler.controleur(0,0)
         val t1 = System.currentTimeMillis()
