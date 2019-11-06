@@ -167,7 +167,6 @@ class CavalierEuler(cote_ : Int = 8){
             var end : Int = cote_ - 1
             for(i <- 0 to end; j <- 0 to end){
                 heuristique(i)(j) = trouveDeplacementsCavalier((i,j)).size
-                vue((i,j)) = PieceCol(valeur.toString)
             }
         }
         
