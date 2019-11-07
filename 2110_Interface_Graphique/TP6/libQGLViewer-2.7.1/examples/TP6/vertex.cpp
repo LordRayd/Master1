@@ -1,21 +1,20 @@
 #include "vertex.h"
 
-Vertex::Vertex(){
+using namespace qglviewer;
 
-}
-Vertex::Vertex(int x, int y, int z, Vec normale)
+Vertex::Vertex(){}
+
+Vertex::Vertex(double x_, double y_, double z_, Vec normal_)
 {
-    this->x = x;
-    this->y = y;
-    this->z = z;
-    this->normale = normale;
+    this->position = Vec(x_,y_,z_);
+    this->normal = normal_;
 }
-Vertex::Vertex(int x,int y,int z){
-    this->x = x;
-    this->y = y;
-    this->z = z;
+
+Vertex::Vertex(double x_, double y_, double z_)
+{
+    this->position = Vec(x_,y_,z_);
 }
-Vertex::Vertex(Vec pos, Vec norm){
-    this->normale=norm;
-    this->position = pos;
+
+void Vertex::setNormal(Vec normal_){
+    this->normal = normal_;
 }

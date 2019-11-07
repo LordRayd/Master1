@@ -1,20 +1,19 @@
 #ifndef VERTEX_H
 #define VERTEX_H
-#include "glm.h"
-#include "QGLViewer/vec.h"
 
-using namespace qglviewer;
+#include <../../QGLViewer/qglviewer.h>
 
 class Vertex
 {
 public:
-    int x,y,z;
-    Vec position;
-    Vec normale;
-    Vertex(int x,int y,int z, Vec normale);
-    Vertex(int x,int y,int z);
-    Vertex(Vec pos, Vec norm);
     Vertex();
+    Vertex(double x_, double y_, double z_, qglviewer::Vec normal_);
+    Vertex(double x_, double y_, double z_);
+    void setNormal(qglviewer::Vec normal_);
+
+    qglviewer::Vec position;
+    qglviewer::Vec normal;
+
 };
 
 #endif // VERTEX_H

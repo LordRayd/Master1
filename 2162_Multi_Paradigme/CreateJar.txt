@@ -1,1 +1,2 @@
-jar -cmvf .\Manifest.txt TPX.jar *.class 
+Java : jar -cmvf .\Manifest.txt TPX.jar *.class
+Scala : scalac XXXX.scala -d XXX.jar

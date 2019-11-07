@@ -1,15 +1,19 @@
 #ifndef FACE_H
 #define FACE_H
-#include "vertex.h"
-#include "QGLViewer/vec.h"
 
-using namespace qglviewer;
+#include <../../QGLViewer/qglviewer.h>
+#include <vertex.h>
+
 class Face
 {
 public:
-    Vertex *p1, *p2, *p3;
-    Vec normale;
-    Face(Vertex* p1, Vertex* p2, Vertex *p3);
+    Face();
+    Face(Vertex* p1_, Vertex* p2_, Vertex* p3_, qglviewer::Vec normal_);
+    Face(Vertex* p1_, Vertex* p2_, Vertex* p3_);
+    Vertex* p1;
+    Vertex* p2;
+    Vertex* p3;
+    qglviewer::Vec normal;
 };
 
 #endif // FACE_H
