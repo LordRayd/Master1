@@ -1,18 +1,34 @@
 class Sudoku(startConfig_ : Array[Array[Int]]){
-
+    private val nbCote : Int = 9
     def solver(): Array[Array[Int]] = {
         var workGrid : Array[Array[Int]] = startConfig_
 
+    def dansLigne(number_ : Int, x_ : Int) : Boolean = {
+        workGrid(x_).contains(number_)
+    }
+
+    def dansColonne(number_ : Int, y_ : Int) : Boolean = {
+        var ret = false
+        for(i <- 0 to nbCote - 1){
+            if(!ret)
+                ret = (workGrid(i)(y_) == number_)
+        }
+        ret
+    }
+
+    def dansCarre(number_ : Int, x_ : Int, y_ : Int) : Boolean = {
+        
+    }
         def isPossibleAt(number_ : Int, x_ : Int, y_ : Int) : Boolean  = {
-            var ret : Boolean = false
-            //ret = (workGrid(_)(y_).exists(number_) || workGrid(x_)(_).exists(number_))
-            return ret
+            (!dansLigne(number_,x_) && !dansColonne(number_,y_))
         }
 
         def fillXY(x_ : Int, y_ : Int) : Unit = {
 
         }
-        
+        println("return True possible 1 en 0 , 2 : " +isPossibleAt(1,0,2))
+        println("return False possible 7 en 0 , 2 : " +isPossibleAt(7,0,2))
+        println("return False possible 3 en 1 , 1 : " +isPossibleAt(3,1,1))
         return workGrid
     }
 
@@ -49,6 +65,7 @@ object Main {
         )
         var sudo : Sudoku = new Sudoku(grille)
         val t0 = System.currentTimeMillis()
+        sudo.solver()
         println(sudo)
         val t1 = System.currentTimeMillis()
         println("Elapsed time: " + (t1 - t0) + "ms")
