@@ -6,10 +6,10 @@
 
  http://www.libqglviewer.com - contact@libqglviewer.com
 
- This file may be used under the terms of the GNU General Public License
+ This file may be used under the terms of the GNU General Public License 
  versions 2.0 or 3.0 as published by the Free Software Foundation and
  appearing in the LICENSE file included in the packaging of this file.
- In addition, as a special exception, Gilles Debunne gives you certain
+ In addition, as a special exception, Gilles Debunne gives you certain 
  additional rights, described in the file GPL_EXCEPTION in this package.
 
  libQGLViewer uses dual licensing. Commercial/proprietary software must
@@ -21,7 +21,6 @@
 *****************************************************************************/
 
 #include "simpleViewer.h"
-#include "bezier.h"
 #include <qapplication.h>
 
 int main(int argc, char **argv) {
@@ -29,9 +28,9 @@ int main(int argc, char **argv) {
   QApplication application(argc, argv);
 
   // Instantiate the viewer.
-  bezier viewer;
+  Viewer viewer;
 
-  viewer.setWindowTitle("parametric curve");
+  viewer.setWindowTitle("simpleViewer");
 
   // Make the viewer window visible on screen.
   viewer.show();

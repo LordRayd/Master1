@@ -1,4 +1,4 @@
-/****************************************************************************
+***************************************************************************
 
  Copyright (C) 2002-2014 Gilles Debunne. All rights reserved.
 
@@ -21,8 +21,6 @@
 *****************************************************************************/
 
 #include <QGLViewer/qglviewer.h>
-#include "vertex.h"
-#include "face.h"
 #include "QGLViewer/vec.h"
 
 using namespace qglviewer;

@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = QGLViewer-qt52.7.1
-DISTDIR = /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/.obj/QGLViewer-qt52.7.1
+DISTDIR = /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/.obj/QGLViewer-qt52.7.1
 LINK          = g++
 LFLAGS        = -Wl,-O1 -shared -Wl,-soname,libQGLViewer-qt5.so.2
 LIBS          = $(SUBLIBS) -lGL -lGLU -lQt5OpenGL -lQt5Widgets -lQt5Gui -lQt5Xml -lQt5Core -lpthread 
@@ -168,6 +168,7 @@ DIST          = qglviewer-icon.xpm \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -320,6 +321,7 @@ Makefile: QGLViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -399,6 +401,7 @@ Makefile: QGLViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -488,7 +491,7 @@ compiler_moc_header_clean:
 		qglviewer.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include qglviewer.h -o .moc/moc_qglviewer.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include qglviewer.h -o .moc/moc_qglviewer.cpp
 
 .moc/moc_camera.cpp: keyFrameInterpolator.h \
 		quaternion.h \
@@ -499,7 +502,7 @@ compiler_moc_header_clean:
 		camera.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include camera.h -o .moc/moc_camera.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include camera.h -o .moc/moc_camera.cpp
 
 .moc/moc_manipulatedFrame.cpp: frame.h \
 		constraint.h \
@@ -513,7 +516,7 @@ compiler_moc_header_clean:
 		manipulatedFrame.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include manipulatedFrame.h -o .moc/moc_manipulatedFrame.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include manipulatedFrame.h -o .moc/moc_manipulatedFrame.cpp
 
 .moc/moc_manipulatedCameraFrame.cpp: manipulatedFrame.h \
 		frame.h \
@@ -528,7 +531,7 @@ compiler_moc_header_clean:
 		manipulatedCameraFrame.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include manipulatedCameraFrame.h -o .moc/moc_manipulatedCameraFrame.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include manipulatedCameraFrame.h -o .moc/moc_manipulatedCameraFrame.cpp
 
 .moc/moc_frame.cpp: constraint.h \
 		quaternion.h \
@@ -537,7 +540,7 @@ compiler_moc_header_clean:
 		frame.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include frame.h -o .moc/moc_frame.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include frame.h -o .moc/moc_frame.cpp
 
 .moc/moc_keyFrameInterpolator.cpp: quaternion.h \
 		vec.h \
@@ -547,7 +550,7 @@ compiler_moc_header_clean:
 		keyFrameInterpolator.h \
 		.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include keyFrameInterpolator.h -o .moc/moc_keyFrameInterpolator.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include .moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer -I/usr/include/libdrm -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include keyFrameInterpolator.h -o .moc/moc_keyFrameInterpolator.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -906,19 +909,19 @@ uninstall_target: FORCE
 
 install_include: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/local/include/QGLViewer || mkdir -p $(INSTALL_ROOT)/usr/local/include/QGLViewer
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/qglviewer.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/qglviewer.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/camera.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/camera.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/manipulatedFrame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/manipulatedFrame.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/manipulatedCameraFrame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/manipulatedCameraFrame.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/frame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/frame.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/constraint.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/constraint.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/keyFrameInterpolator.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/keyFrameInterpolator.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/mouseGrabber.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/mouseGrabber.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/quaternion.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/quaternion.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/vec.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/vec.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/domUtils.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/domUtils.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/config.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/config.h
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer/qglviewer_fr.qm $(INSTALL_ROOT)/usr/local/include/QGLViewer/qglviewer_fr.qm
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/qglviewer.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/qglviewer.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/camera.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/camera.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/manipulatedFrame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/manipulatedFrame.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/manipulatedCameraFrame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/manipulatedCameraFrame.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/frame.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/frame.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/constraint.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/constraint.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/keyFrameInterpolator.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/keyFrameInterpolator.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/mouseGrabber.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/mouseGrabber.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/quaternion.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/quaternion.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/vec.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/vec.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/domUtils.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/domUtils.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/config.h $(INSTALL_ROOT)/usr/local/include/QGLViewer/config.h
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/QGLViewer/qglviewer_fr.qm $(INSTALL_ROOT)/usr/local/include/QGLViewer/qglviewer_fr.qm
 
 uninstall_include: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/include/QGLViewer/qglviewer_fr.qm
@@ -939,26 +942,26 @@ uninstall_include: FORCE
 
 install_documentation: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer || mkdir -p $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/changeLog-1.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/changeLog-1.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/changeLog.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/changeLog.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/commercial.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/commercial.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/compilation.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/compilation.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/developer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/developer.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/download.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/download.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/download_statistics.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/download_statistics.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/dualLicensing.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/dualLicensing.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/faq.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/faq.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/features.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/features.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/index.fr.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/index.fr.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/index.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/index.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/installUnix.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/installUnix.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/installWindows.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/installWindows.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/introduction.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/introduction.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/keyboard.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/keyboard.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/mouse.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/mouse.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/techFaq.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/techFaq.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/qglviewer.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/qglviewer.css
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/libQGLViewer-2.7.1.qch $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/libQGLViewer-2.7.1.qch
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/changeLog-1.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/changeLog-1.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/changeLog.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/changeLog.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/commercial.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/commercial.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/compilation.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/compilation.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/developer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/developer.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/download.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/download.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/download_statistics.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/download_statistics.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/dualLicensing.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/dualLicensing.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/faq.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/faq.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/features.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/features.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/index.fr.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/index.fr.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/index.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/index.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/installUnix.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/installUnix.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/installWindows.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/installWindows.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/introduction.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/introduction.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/keyboard.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/keyboard.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/mouse.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/mouse.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/techFaq.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/techFaq.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/qglviewer.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/qglviewer.css
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/libQGLViewer-2.7.1.qch $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/libQGLViewer-2.7.1.qch
 
 uninstall_documentation: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/libQGLViewer-2.7.1.qch
@@ -986,56 +989,56 @@ uninstall_documentation: FORCE
 
 install_docImages: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images || mkdir -p $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/3dsViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/3dsViewer.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/agora.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/agora.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/anaglyph.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/anaglyph.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/animation.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/animation.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/backgroundImage.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/backgroundImage.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/blobWar.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/blobWar.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/callback.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/callback.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/cameraLight.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/cameraLight.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/clippingPlane.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/clippingPlane.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/constrainedCamera.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/constrainedCamera.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/constrainedFrame.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/constrainedFrame.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/cornerAxis.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/cornerAxis.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/css.gif $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/css.gif
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/designerplugin.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/designerplugin.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/downloadButton.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/downloadButton.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/drawLight.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/drawLight.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/dvonn.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/dvonn.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/eventRecorder.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/eventRecorder.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/fastDraw.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/fastDraw.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/frameTransform.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/frameTransform.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/frustumCulling.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/frustumCulling.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/interface.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/interface.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/keyboardAndMouse.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/keyboardAndMouse.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/keyFrames.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/keyFrames.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/linux.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/linux.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/luxo.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/luxo.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/mac.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/mac.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/manipulatedFrame.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/manipulatedFrame.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/mouseGrabber.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/mouseGrabber.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/multiSelect.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/multiSelect.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/multiView.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/multiView.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/openGL.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/openGL.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/overpainting.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/overpainting.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/qglviewer.ico $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.ico
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/qglviewer.icon.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.icon.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/qglviewer.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/qglviewer.small.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.small.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/qt.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qt.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/quarto.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/quarto.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/screenCoordSystem.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/screenCoordSystem.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/select.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/select.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/simpleViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/simpleViewer.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/sphere.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/sphere.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/standardCamera.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/standardCamera.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/stereoViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/stereoViewer.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/terrain.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/terrain.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/textureViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/textureViewer.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/thumbnail.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/thumbnail.jpg
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/windows.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/windows.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/images/xhtml.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/xhtml.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/3dsViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/3dsViewer.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/agora.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/agora.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/anaglyph.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/anaglyph.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/animation.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/animation.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/backgroundImage.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/backgroundImage.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/blobWar.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/blobWar.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/callback.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/callback.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/cameraLight.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/cameraLight.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/clippingPlane.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/clippingPlane.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/constrainedCamera.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/constrainedCamera.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/constrainedFrame.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/constrainedFrame.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/cornerAxis.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/cornerAxis.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/css.gif $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/css.gif
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/designerplugin.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/designerplugin.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/downloadButton.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/downloadButton.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/drawLight.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/drawLight.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/dvonn.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/dvonn.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/eventRecorder.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/eventRecorder.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/fastDraw.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/fastDraw.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/frameTransform.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/frameTransform.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/frustumCulling.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/frustumCulling.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/interface.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/interface.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/keyboardAndMouse.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/keyboardAndMouse.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/keyFrames.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/keyFrames.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/linux.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/linux.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/luxo.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/luxo.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/mac.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/mac.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/manipulatedFrame.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/manipulatedFrame.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/mouseGrabber.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/mouseGrabber.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/multiSelect.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/multiSelect.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/multiView.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/multiView.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/openGL.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/openGL.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/overpainting.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/overpainting.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/qglviewer.ico $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.ico
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/qglviewer.icon.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.icon.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/qglviewer.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/qglviewer.small.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qglviewer.small.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/qt.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/qt.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/quarto.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/quarto.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/screenCoordSystem.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/screenCoordSystem.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/select.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/select.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/simpleViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/simpleViewer.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/sphere.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/sphere.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/standardCamera.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/standardCamera.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/stereoViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/stereoViewer.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/terrain.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/terrain.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/textureViewer.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/textureViewer.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/thumbnail.jpg $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/thumbnail.jpg
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/windows.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/windows.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/images/xhtml.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/xhtml.png
 
 uninstall_docImages: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/images/xhtml.png
@@ -1093,149 +1096,149 @@ uninstall_docImages: FORCE
 
 install_docRefManual: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual || mkdir -p $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/annotated.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/annotated.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/bc_s.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/bc_s.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/bdwn.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/bdwn.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/camera_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/camera_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/camera_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/camera_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classes.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classes.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classQGLViewer-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classQGLViewer-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classQGLViewer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classQGLViewer.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1AxisPlaneConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1AxisPlaneConstraint-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1AxisPlaneConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1AxisPlaneConstraint.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Camera-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Camera-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Camera.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Camera.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1CameraConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1CameraConstraint-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1CameraConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1CameraConstraint.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Constraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Constraint-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Constraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Constraint.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Frame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Frame-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Frame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Frame.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1KeyFrameInterpolator-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1KeyFrameInterpolator-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1KeyFrameInterpolator.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1KeyFrameInterpolator.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1LocalConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1LocalConstraint-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1LocalConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1LocalConstraint.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedCameraFrame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedCameraFrame-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedCameraFrame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedCameraFrame.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedFrame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedFrame-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedFrame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedFrame.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1MouseGrabber-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1MouseGrabber-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1MouseGrabber.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1MouseGrabber.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Quaternion-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Quaternion-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Quaternion.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Quaternion.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Vec-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Vec-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Vec.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Vec.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1WorldConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1WorldConstraint-members.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1WorldConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1WorldConstraint.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/closed.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/closed.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/config_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/config_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/constraint_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/constraint_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/constraint_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/constraint_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/dir_0d5ec90603fafeb6b6840b6051802ddc.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/dir_0d5ec90603fafeb6b6840b6051802ddc.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/doc.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doc.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/domUtils_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/domUtils_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/doxygen.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doxygen.css
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/doxygen.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doxygen.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/dynsections.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/dynsections.js
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/files.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/files.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/folderclosed.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/folderclosed.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/folderopen.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/folderopen.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/frame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/frame_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/frame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/frame_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_0x7e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_0x7e.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_b.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_b.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_c.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_c.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_d.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_d.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_e.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_enum.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_enum.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_eval.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_eval.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_f.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_f.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_0x7e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_0x7e.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_b.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_b.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_c.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_c.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_d.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_d.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_e.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_f.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_f.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_g.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_g.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_i.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_i.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_k.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_k.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_l.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_l.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_m.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_m.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_n.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_n.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_o.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_o.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_p.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_p.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_q.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_q.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_r.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_r.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_s.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_s.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_t.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_t.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_u.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_u.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_v.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_v.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_w.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_w.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_func_z.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_z.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_g.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_g.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_i.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_i.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_k.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_k.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_l.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_l.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_m.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_m.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_n.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_n.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_o.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_o.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_p.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_p.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_q.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_q.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_r.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_r.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_rela.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_rela.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_s.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_s.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_t.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_t.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_u.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_u.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_v.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_v.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_vars.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_vars.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_w.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_w.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_x.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_x.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_y.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_y.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/functions_z.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_z.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/globals.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/globals_defs.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals_defs.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/globals_func.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals_func.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/hierarchy.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/hierarchy.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/index.filtered.qhp $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.filtered.qhp
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/index.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/index.qhp $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.qhp
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/jquery.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/jquery.js
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/keyFrameInterpolator_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/keyFrameInterpolator_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/keyFrameInterpolator_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/keyFrameInterpolator_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/manipulatedCameraFrame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedCameraFrame_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/manipulatedCameraFrame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedCameraFrame_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/manipulatedFrame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedFrame_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/manipulatedFrame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedFrame_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/menu.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/menu.js
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/menudata.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/menudata.js
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/mouseGrabber_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/mouseGrabber_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/mouseGrabber_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/mouseGrabber_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/namespaceqglviewer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/namespaceqglviewer.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/namespaces.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/namespaces.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/nav_f.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_f.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/nav_g.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_g.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/nav_h.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_h.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/open.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/open.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/qglviewer_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/qglviewer_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/qglviewer_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/qglviewer_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/quaternion_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/quaternion_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/quaternion_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/quaternion_8h.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/saveSnapshot_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/saveSnapshot_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/search $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/search
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/splitbar.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/splitbar.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/sync_off.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/sync_off.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/sync_on.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/sync_on.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/tab_a.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_a.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/tab_b.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_b.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/tab_h.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_h.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/tab_s.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_s.png
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/tabs.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tabs.css
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/vec_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/vec_8cpp.html
-	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/doc/refManual/vec_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/vec_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/annotated.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/annotated.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/bc_s.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/bc_s.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/bdwn.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/bdwn.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/camera_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/camera_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/camera_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/camera_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classes.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classes.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classQGLViewer-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classQGLViewer-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classQGLViewer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classQGLViewer.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1AxisPlaneConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1AxisPlaneConstraint-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1AxisPlaneConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1AxisPlaneConstraint.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Camera-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Camera-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Camera.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Camera.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1CameraConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1CameraConstraint-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1CameraConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1CameraConstraint.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Constraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Constraint-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Constraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Constraint.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Frame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Frame-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Frame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Frame.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1KeyFrameInterpolator-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1KeyFrameInterpolator-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1KeyFrameInterpolator.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1KeyFrameInterpolator.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1LocalConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1LocalConstraint-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1LocalConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1LocalConstraint.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedCameraFrame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedCameraFrame-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedCameraFrame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedCameraFrame.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedFrame-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedFrame-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1ManipulatedFrame.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1ManipulatedFrame.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1MouseGrabber-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1MouseGrabber-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1MouseGrabber.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1MouseGrabber.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Quaternion-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Quaternion-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Quaternion.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Quaternion.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Vec-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Vec-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1Vec.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1Vec.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1WorldConstraint-members.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1WorldConstraint-members.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/classqglviewer_1_1WorldConstraint.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/classqglviewer_1_1WorldConstraint.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/closed.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/closed.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/config_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/config_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/constraint_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/constraint_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/constraint_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/constraint_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/dir_0d5ec90603fafeb6b6840b6051802ddc.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/dir_0d5ec90603fafeb6b6840b6051802ddc.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/doc.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doc.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/domUtils_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/domUtils_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/doxygen.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doxygen.css
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/doxygen.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/doxygen.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/dynsections.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/dynsections.js
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/files.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/files.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/folderclosed.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/folderclosed.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/folderopen.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/folderopen.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/frame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/frame_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/frame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/frame_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_0x7e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_0x7e.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_b.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_b.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_c.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_c.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_d.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_d.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_e.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_enum.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_enum.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_eval.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_eval.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_f.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_f.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_0x7e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_0x7e.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_b.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_b.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_c.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_c.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_d.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_d.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_e.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_e.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_f.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_f.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_g.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_g.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_i.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_i.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_k.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_k.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_l.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_l.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_m.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_m.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_n.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_n.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_o.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_o.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_p.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_p.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_q.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_q.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_r.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_r.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_s.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_s.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_t.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_t.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_u.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_u.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_v.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_v.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_w.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_w.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_func_z.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_func_z.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_g.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_g.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_i.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_i.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_k.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_k.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_l.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_l.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_m.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_m.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_n.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_n.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_o.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_o.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_p.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_p.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_q.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_q.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_r.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_r.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_rela.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_rela.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_s.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_s.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_t.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_t.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_u.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_u.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_v.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_v.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_vars.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_vars.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_w.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_w.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_x.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_x.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_y.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_y.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/functions_z.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/functions_z.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/globals.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/globals_defs.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals_defs.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/globals_func.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/globals_func.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/hierarchy.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/hierarchy.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/index.filtered.qhp $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.filtered.qhp
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/index.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/index.qhp $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/index.qhp
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/jquery.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/jquery.js
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/keyFrameInterpolator_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/keyFrameInterpolator_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/keyFrameInterpolator_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/keyFrameInterpolator_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/manipulatedCameraFrame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedCameraFrame_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/manipulatedCameraFrame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedCameraFrame_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/manipulatedFrame_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedFrame_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/manipulatedFrame_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/manipulatedFrame_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/menu.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/menu.js
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/menudata.js $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/menudata.js
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/mouseGrabber_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/mouseGrabber_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/mouseGrabber_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/mouseGrabber_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/namespaceqglviewer.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/namespaceqglviewer.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/namespaces.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/namespaces.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/nav_f.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_f.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/nav_g.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_g.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/nav_h.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/nav_h.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/open.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/open.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/qglviewer_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/qglviewer_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/qglviewer_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/qglviewer_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/quaternion_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/quaternion_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/quaternion_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/quaternion_8h.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/saveSnapshot_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/saveSnapshot_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/search $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/search
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/splitbar.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/splitbar.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/sync_off.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/sync_off.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/sync_on.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/sync_on.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/tab_a.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_a.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/tab_b.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_b.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/tab_h.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_h.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/tab_s.png $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tab_s.png
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/tabs.css $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/tabs.css
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/vec_8cpp.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/vec_8cpp.html
+	-$(QINSTALL) /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP7/libQGLViewer-2.7.1/doc/refManual/vec_8h.html $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/vec_8h.html
 
 uninstall_docRefManual: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/doc/QGLViewer/refManual/vec_8h.html

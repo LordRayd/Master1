@@ -9,12 +9,12 @@
 # This example can be cut and pasted to start the development of a new application.
 
 TEMPLATE = app
-TARGET   = TP7
+TARGET   = simpleViewer
 
-HEADERS  = \
-    bezier.h
-
-SOURCES  = bezier.cpp main.cpp \
-
+HEADERS  = simpleViewer.h \
+    tp4_exo1.h \
+    tp4_exo1.h
+SOURCES  = simpleViewer.cpp main.cpp \
+    tp4_exo1.cpp
 
 include( ../examples.pri )
