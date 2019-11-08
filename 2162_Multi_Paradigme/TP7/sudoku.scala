@@ -1,31 +1,35 @@
 class Sudoku(startConfig_ : Array[Array[Int]]){
 
-    def solver(): List[Array[Array[Int]]] = {
-        var workGrid Array[Array[Int]] = startConfig_
+    def solver(): Array[Array[Int]] = {
+        var workGrid : Array[Array[Int]] = startConfig_
 
-        def isPossibleAt(number_ : Int, x_ : Int, y_ : Int): Boolean  = {
+        def isPossibleAt(number_ : Int, x_ : Int, y_ : Int) : Boolean  = {
             var ret : Boolean = false
-            ret = (workGrid(_)(y_).exists(number_) || workingGrid(x_)(_).exists(number_))
-            ret
+            //ret = (workGrid(_)(y_).exists(number_) || workGrid(x_)(_).exists(number_))
+            return ret
         }
 
-        def fillXY(x_ : Int, y_ : Int) : Unit{
+        def fillXY(x_ : Int, y_ : Int) : Unit = {
 
         }
+        
+        return workGrid
     }
 
     override def toString() : String = {
-        ret : String = ""
-        for (i <- 0 to 9) ret += s" $i "
-        for(i <- 0 to 9){
-            ret += s"$i "
-            for(j <- 0 to 9){
+
+        var ret : String = "  "
+        for (i <- 0 to 8) ret += s"  $i"
+        ret += "\n\n"
+        for(i <- 0 to 8){
+            ret += s"$i  "
+            for(j <- 0 to 8){
                 var valeur : Int = startConfig_(i)(j)
-                ret += s"$valeur "
+                ret += s" $valeur "
             }
             ret += "\n"
         }
-        ret
+        return ret
     } 
 }
 
@@ -45,7 +49,7 @@ object Main {
         )
         var sudo : Sudoku = new Sudoku(grille)
         val t0 = System.currentTimeMillis()
-        
+        println(sudo)
         val t1 = System.currentTimeMillis()
         println("Elapsed time: " + (t1 - t0) + "ms")
     }
