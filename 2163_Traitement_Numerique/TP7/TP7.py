@@ -10,6 +10,7 @@ import matplotlib.image as mpimg
 import matplotlib as mat
 import numpy as np
 from scipy import signal
+from scipy import misc
 
 #%%
 img = mpimg.imread('Images/chimpanze.jpg')
@@ -88,7 +89,7 @@ for i in range(0,125):
     
 
 for i in range(125,256):
-    imfft_passe_haut[i] = 250
+    imfft_passe_haut[i] = 255
     
 
 plt.figure()
@@ -112,3 +113,35 @@ plt.imshow(im_recon_bas,cmap='gray')
 plt.figure()
 plt.title("Passe Haut")
 plt.imshow(im_recon_haut,cmap='gray')
+
+#%% 3
+M = misc.imread('Images/chimpanze.jpg')
+salt_value = 95
+noise = np.random.randint(salt_value+1, size=(256, 256))
+
+#---------- Pepper ----------#
+indexe = np.where(noise == 0)
+A = indexe[0]
+B = indexe[1]
+M[A,B] = 0
+
+#---------- Salt ----------#
+indexe = np.where(noise == salt_value)
+A = indexe[0]
+B = indexe[1]
+M[A,B] = 255
+
+#---------- Plot & Save ----------#
+fig = plt.figure()
+plt.imshow(M,cmap='gray')
+plt.show()
+
+
+filtre1 = np.array([1/9,1/9,1/9,1/9,1/9,1/9,1/9,1/9,1/9])
+filtre = filtre1.reshape((3, 3))
+img = signal.convolve2d(M,filtre)
+plt.figure()
+plt.title('Image bruitée filtrée par un moyenneur (3 x 3)')
+plt.imshow(img,cmap='gray')
+
+#%%
