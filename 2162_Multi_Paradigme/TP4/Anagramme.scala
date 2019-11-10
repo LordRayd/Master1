@@ -18,9 +18,9 @@ object Anagramme {
 
     }
 
-    /*def anagrammeDe(mot_ : String): Set[String] = {
+    def anagrammeDe(mot_ : String): Set[String] = {
         return mot_.permutations.toSet
-    }*/
+    }
 
     def trouveAnagrammesRec(mot_ : String): HashSet[String] = {
         var retour : HashSet[String] = new HashSet[String]()
