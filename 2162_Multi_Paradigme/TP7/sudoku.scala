@@ -5,10 +5,10 @@
 
 class Sudoku(startConfig_ : Array[Array[Int]]){
     private val nbCote : Int = 9
-    def solver():  List[Array[Array[Int]]] = {
+    def solver():  Array[Array[Int]] = {
         var matriceSuddoku : List[Array[Array[Int]]] = List()
 
-        var workGrid : Array[Array[Int]] = startConfig_
+        var workGrid : Array[Array[Int]] = startConfig_.clone
 
         def dansLigne(number_ : Int, x_ : Int) : Boolean = {
             workGrid(x_).contains(number_)
@@ -25,9 +25,9 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
 
         def dansCarre(number_ : Int, x_ : Int, y_ : Int) : Boolean = {
             var ret = false;
-            val r = (x_ / 3) * 3
-            val c = (y_ / 3) * 3
-            for (i <- r to r + 2; j <- c to c + 2) {
+            val ligne = (x_ / 3) * 3
+            val colonne = (y_ / 3) * 3
+            for (i <- ligne to ligne + 2; j <- colonne to colonne + 2) {
                 if (workGrid(i)(j) == number_) {
                     ret =  true
                 }
@@ -53,42 +53,63 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
         }
 
         def fillXY(x_ : Int, y_ : Int) : Unit = {
-            var nextX : Int = 0
-            var nextY : Int = 0
-            /*if(x_ < 8){
-                nextX = x_ + 1
-                nextY = y_
-            }else if(y_ < 8){
-                nextX = x_
-                nextY = y_ + 1
-            }else{
-
-            }*/
-            for(i <- 0 to nbCote-1){
-                var workGridCopy = workGrid.copy
-                
-                if(isPossibleAt(i,x_,y_)){
-                    workGrid(x_)(y_) = i
-                    
-                    if(estFinie()){
-
-                    }else{
-                        fillXY(nextX,nextY)
+            //println(s" x: $x_  y: $y_")
+            val ini : Array[Array[Int]] = workGrid.clone
+            var ret : Array[Array[Int]] = Array.fill(nbCote,nbCote)(0)
+            if(x_ == nbCote-1 && y_ == nbCote-1){
+                if(!dejaRemplit(x_,y_)){
+                    for(i <- 1 to nbCote){
+                        if(isPossibleAt(i,x_,y_)){
+                            workGrid(x_)(y_) = i
+                        }
                     }
-
                 }
-
-                workGrid = workGridCopy.copy
+                ret = workGrid.clone
+            } else {
+                var nextX : Int = x_
+                var nextY : Int = y_
+                if(y_ < 8){
+                    nextX = x_
+                    nextY = y_ + 1
+                }else if(x_ < 8){
+                    nextX = x_ + 1
+                    nextY = 0
+                }
+                //println(s" x: $x_  y: $y_")
+                //println(s" nextX: $nextX  nextY: $nextY")
+                if(!dejaRemplit(x_,y_)){
+                    for(i <- 1 to nbCote){
+                        /*if(i == 9){
+                        println(s" x: $x_  y: $y_ nombre : $i")
+                        }*/
+                        if(isPossibleAt(i,x_,y_)){
+                            workGrid(x_)(y_) = i
+                            fillXY(nextX,nextY)
+                            if(estFinie()){
+                                ret = workGrid.clone
+                            }else{
+                                workGrid(x_)(y_) = 0
+                            }
+                        }
+                    }
+                }else{
+                    if(!estFinie()){
+                        fillXY(nextX,nextY)
+                    }else{
+                        ret = workGrid.clone
+                    }
+                }
+                
+            }
+            if(estFinie()){
+                workGrid = ret.clone
+            }else{
+                workGrid = ini.clone
             }
             
-            
         }
-
-        println("return True  possible 1 en 0 , 2 : " +isPossibleAt(1,0,2))
-        println("return False possible 7 en 0 , 2 : " +isPossibleAt(7,0,2))
-        println("return False possible 3 en 1 , 1 : " +isPossibleAt(3,1,1))
-        println("return False possible 6 en 1 , 6 : " +isPossibleAt(6,1,6))
-        return matriceSuddoku
+        fillXY(0,0)
+        return workGrid
     }
 
     override def toString() : String = {
@@ -118,14 +139,31 @@ object Main {
             Array(8,0,0,0,6,0,0,0,3),
             Array(4,0,0,8,0,3,0,0,1),
             Array(7,0,0,0,2,0,0,0,6),
-            Array(6,0,0,0,0,0,2,8,0),
+            Array(0,6,0,0,0,0,2,8,0),
             Array(0,0,0,4,1,9,0,0,5),
             Array(0,0,0,0,8,0,0,7,9)
         )
+        var grilleAlmostDone : Array[Array[Int]] = Array(
+            Array(5,3,4,6,7,8,9,1,2),
+            Array(6,7,2,1,9,5,3,4,8),
+            Array(1,9,8,3,4,2,5,6,7),
+            Array(8,5,9,7,6,1,4,2,3),
+            Array(4,2,6,8,5,3,7,0,1),
+            Array(7,1,3,9,2,4,8,5,6),
+            Array(9,6,1,5,3,7,2,8,4),
+            Array(2,8,7,4,1,9,6,3,5),
+            Array(3,4,5,2,8,6,1,7,9)
+        )
         var sudo : Sudoku = new Sudoku(grille)
         val t0 = System.currentTimeMillis()
-        sudo.solver()
-        println(sudo)
+        var soluce : Array[Array[Int]] = sudo.solver()
+        for(i <- 0 to 8){
+            for(j <- 0 to 8){
+                print(soluce(i)(j))
+            }
+            print("\n")
+        }
+        //println(sudo)
         val t1 = System.currentTimeMillis()
         println("Elapsed time: " + (t1 - t0) + "ms")
     }
