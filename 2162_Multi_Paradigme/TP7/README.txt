@@ -17,3 +17,6 @@ Vous pouvez lancer le programme avec la commande :
     scala TP7_Samuel_LEBERRE.jar
 ou en lançant le script :
     ./Launch.sh
+
+Temps pour résoudre le sudoku en exemple:
+    217 ms

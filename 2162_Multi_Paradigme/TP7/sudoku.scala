@@ -45,7 +45,7 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
         def estFinie() : Boolean = {
             var ret : Boolean = true
             for (i <- 0 to nbCote - 1; j <- 0 to nbCote - 1) {
-                if(workGrid(i)(j)==0 || !isPossibleAt(workGrid(i)(j),i,j)) {
+                if(workGrid(i)(j) == 0) {
                     ret =  false
                 }
             }
@@ -53,7 +53,6 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
         }
 
         def fillXY(x_ : Int, y_ : Int) : Unit = {
-            //println(s" x: $x_  y: $y_")
             val ini : Array[Array[Int]] = workGrid.clone
             var ret : Array[Array[Int]] = Array.fill(nbCote,nbCote)(0)
             if(x_ == nbCote-1 && y_ == nbCote-1){
@@ -75,13 +74,8 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
                     nextX = x_ + 1
                     nextY = 0
                 }
-                //println(s" x: $x_  y: $y_")
-                //println(s" nextX: $nextX  nextY: $nextY")
                 if(!dejaRemplit(x_,y_)){
                     for(i <- 1 to nbCote){
-                        /*if(i == 9){
-                        println(s" x: $x_  y: $y_ nombre : $i")
-                        }*/
                         if(isPossibleAt(i,x_,y_)){
                             workGrid(x_)(y_) = i
                             fillXY(nextX,nextY)
@@ -93,20 +87,17 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
                         }
                     }
                 }else{
-                    if(!estFinie()){
-                        fillXY(nextX,nextY)
-                    }else{
+                    fillXY(nextX,nextY)
+                    if(estFinie()){
                         ret = workGrid.clone
                     }
                 }
-                
             }
             if(estFinie()){
                 workGrid = ret.clone
             }else{
                 workGrid = ini.clone
             }
-            
         }
         fillXY(0,0)
         return workGrid
@@ -143,7 +134,7 @@ object Main {
             Array(0,0,0,4,1,9,0,0,5),
             Array(0,0,0,0,8,0,0,7,9)
         )
-        var grilleAlmostDone : Array[Array[Int]] = Array(
+        /*var grilleAlmostDone : Array[Array[Int]] = Array(
             Array(5,3,4,6,7,8,9,1,2),
             Array(6,7,2,1,9,5,3,4,8),
             Array(1,9,8,3,4,2,5,6,7),
@@ -153,7 +144,7 @@ object Main {
             Array(9,6,1,5,3,7,2,8,4),
             Array(2,8,7,4,1,9,6,3,5),
             Array(3,4,5,2,8,6,1,7,9)
-        )
+        )*/
         var sudo : Sudoku = new Sudoku(grille)
         val t0 = System.currentTimeMillis()
         var soluce : Array[Array[Int]] = sudo.solver()
