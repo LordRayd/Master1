@@ -5,7 +5,9 @@
 
 class Sudoku(startConfig_ : Array[Array[Int]]){
     private val nbCote : Int = 9
-    def solver(): Array[Array[Int]] = {
+    def solver():  List[Array[Array[Int]]] = {
+        var matriceSuddoku : List[Array[Array[Int]]] = List()
+
         var workGrid : Array[Array[Int]] = startConfig_
 
         def dansLigne(number_ : Int, x_ : Int) : Boolean = {
@@ -40,14 +42,53 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
             (!dejaRemplit(x_,y_) && !dansLigne(number_,x_) && !dansColonne(number_,y_) && !dansCarre(number_,x_,y_))
         }
 
-        def fillXY(x_ : Int, y_ : Int) : Unit = {
-
+        def estFinie() : Boolean = {
+            var ret : Boolean = true
+            for (i <- 0 to nbCote - 1; j <- 0 to nbCote - 1) {
+                if(workGrid(i)(j)==0 || !isPossibleAt(workGrid(i)(j),i,j)) {
+                    ret =  false
+                }
+            }
+            return ret
         }
+
+        def fillXY(x_ : Int, y_ : Int) : Unit = {
+            var nextX : Int = 0
+            var nextY : Int = 0
+            /*if(x_ < 8){
+                nextX = x_ + 1
+                nextY = y_
+            }else if(y_ < 8){
+                nextX = x_
+                nextY = y_ + 1
+            }else{
+
+            }*/
+            for(i <- 0 to nbCote-1){
+                var workGridCopy = workGrid.copy
+                
+                if(isPossibleAt(i,x_,y_)){
+                    workGrid(x_)(y_) = i
+                    
+                    if(estFinie()){
+
+                    }else{
+                        fillXY(nextX,nextY)
+                    }
+
+                }
+
+                workGrid = workGridCopy.copy
+            }
+            
+            
+        }
+
         println("return True  possible 1 en 0 , 2 : " +isPossibleAt(1,0,2))
         println("return False possible 7 en 0 , 2 : " +isPossibleAt(7,0,2))
         println("return False possible 3 en 1 , 1 : " +isPossibleAt(3,1,1))
         println("return False possible 6 en 1 , 6 : " +isPossibleAt(6,1,6))
-        return workGrid
+        return matriceSuddoku
     }
 
     override def toString() : String = {
