@@ -144,4 +144,11 @@ plt.figure()
 plt.title('Image bruitée filtrée par un moyenneur (3 x 3)')
 plt.imshow(img,cmap='gray')
 
-#%%
+#%% 4 
+img = misc.imread('Images/bete.png')
+
+def seuillage(image,level):
+   taille = image.shape
+   print(taille)
+   
+seuillage(img,125)
