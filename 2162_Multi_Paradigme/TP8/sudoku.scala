@@ -97,17 +97,6 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
 object Main {
     def main(args: Array[String]): Unit ={
 
-        /*var grille : Array[Array[Int]] = Array(
-            Array(5,3,0,0,7,0,0,0,0),
-            Array(6,0,0,1,9,5,0,0,0),
-            Array(0,9,8,0,0,0,0,6,0),
-            Array(8,0,0,0,6,0,0,0,3),
-            Array(4,0,0,8,0,3,0,0,1),
-            Array(7,0,0,0,2,0,0,0,6),
-            Array(0,6,0,0,0,0,2,8,0),
-            Array(0,0,0,4,1,9,0,0,5),
-            Array(0,0,0,0,8,0,0,7,9)
-        )*/
         val table = $(
             $(5, 3, 0,  0, 7, 0,  0, 0, 0),
              
@@ -122,21 +111,9 @@ object Main {
             $(0, 0, 0,  4, 1, 9,  0, 0, 5),      
             $(0, 0, 0,  0, 8, 0,  0, 7, 9)
         )
-        /*var grilleAlmostDone : Array[Array[Int]] = Array(
-            Array(5,3,4,6,7,8,9,1,2),
-            Array(6,7,2,1,9,5,3,4,8),
-            Array(1,9,8,3,4,2,5,6,7),
-            Array(8,5,9,7,6,1,4,2,3),
-            Array(4,2,6,8,5,3,7,0,1),
-            Array(7,1,3,9,2,4,8,5,6),
-            Array(9,6,1,5,3,7,2,8,4),
-            Array(2,8,7,4,1,9,6,3,5),
-            Array(3,4,5,2,8,6,1,7,9)
-        )*/
+
         var sudo : Sudoku = new Sudoku(table)
         val t0 = System.currentTimeMillis()
-        //var soluce : Array[$[Int]] = sudo.solver()
-        //println(sudo.toString)
 
         /*
         var test : String = table.map(_.mkString(" ")).mkString("\n")
