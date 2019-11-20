@@ -1,2 +1,2 @@
 #!/bin/bash
-scala TP7_Samuel_LEBERRE.jar
+scala TP8_Samuel_LEBERRE.jar
