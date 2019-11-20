@@ -1,121 +1,6 @@
 import scala.{Array => $}
 
 class Sudoku(startConfig_ : Array[Array[Int]]){
-    private val nbCote : Int = 9
-    def solver():  Array[Array[Int]] = {
-        var matriceSuddoku : List[Array[Array[Int]]] = List()
-
-        var workGrid : Array[Array[Int]] = startConfig_.clone
-
-        def dansLigne(number_ : Int, x_ : Int) : Boolean = {
-            workGrid(x_).contains(number_)
-        }
-
-        def dansColonne(number_ : Int, y_ : Int) : Boolean = {
-            var ret = false
-            for(i <- 0 to nbCote - 1){
-                if(!ret)
-                    ret = (workGrid(i)(y_) == number_)
-            }
-            ret
-        }
-
-        def dansCarre(number_ : Int, x_ : Int, y_ : Int) : Boolean = {
-            var ret = false;
-            val ligne = (x_ / 3) * 3
-            val colonne = (y_ / 3) * 3
-            for (i <- ligne to ligne + 2; j <- colonne to colonne + 2) {
-                if (workGrid(i)(j) == number_) {
-                    ret =  true
-                }
-            }
-            return ret;
-        }
-        def dejaRemplit(x_ : Int, y_ : Int) : Boolean = {
-            workGrid(x_)(y_) != 0
-        } 
-
-        def isPossibleAt(number_ : Int, x_ : Int, y_ : Int) : Boolean  = {
-            (!dejaRemplit(x_,y_) && !dansLigne(number_,x_) && !dansColonne(number_,y_) && !dansCarre(number_,x_,y_))
-        }
-
-        def estFinie() : Boolean = {
-            var ret : Boolean = true
-            for (i <- 0 to nbCote - 1; j <- 0 to nbCote - 1) {
-                if(workGrid(i)(j) == 0) {
-                    ret =  false
-                }
-            }
-            return ret
-        }
-
-        def fillXY(x_ : Int, y_ : Int) : Unit = {
-            val ini : Array[Array[Int]] = workGrid.clone
-            var ret : Array[Array[Int]] = Array.fill(nbCote,nbCote)(0)
-            if(x_ == nbCote-1 && y_ == nbCote-1){
-                if(!dejaRemplit(x_,y_)){
-                    for(i <- 1 to nbCote){
-                        if(isPossibleAt(i,x_,y_)){
-                            workGrid(x_)(y_) = i
-                        }
-                    }
-                }
-                ret = workGrid.clone
-            } else {
-                var nextX : Int = x_
-                var nextY : Int = y_
-                if(y_ < 8){
-                    nextX = x_
-                    nextY = y_ + 1
-                }else if(x_ < 8){
-                    nextX = x_ + 1
-                    nextY = 0
-                }
-                if(!dejaRemplit(x_,y_)){
-                    for(i <- 1 to nbCote){
-                        if(isPossibleAt(i,x_,y_)){
-                            workGrid(x_)(y_) = i
-                            fillXY(nextX,nextY)
-                            if(estFinie()){
-                                ret = workGrid.clone
-                            }else{
-                                workGrid(x_)(y_) = 0
-                            }
-                        }
-                    }
-                }else{
-                    fillXY(nextX,nextY)
-                    if(estFinie()){
-                        ret = workGrid.clone
-                    }
-                }
-            }
-            if(estFinie()){
-                workGrid = ret.clone
-                matriceSuddoku = matriceSuddoku:+workGrid.clone
-            }else{
-                workGrid = ini.clone
-            }
-        }
-        fillXY(0,0)
-        return workGrid
-    }
-
-    override def toString() : String = {
-
-        var ret : String = "  "
-        for (i <- 0 to 8) ret += s"  $i"
-        ret += "\n\n"
-        for(i <- 0 to 8){
-            ret += s"$i  "
-            for(j <- 0 to 8){
-                var valeur : Int = startConfig_(i)(j)
-                ret += s" $valeur "
-            }
-            ret += "\n"
-        }
-        return ret
-    }
 
     def parcours_1(i_ : Int = 0) : Tuple2[Int, Int] = (i_ / 9, i_ % 9)
 
@@ -177,16 +62,35 @@ class Sudoku(startConfig_ : Array[Array[Int]]){
         }     
     }
 
+
     def parcours_11(t_ : Array[Array[Int]], i_  : Int = 0) : Option[Array[Array[Int]]] = {       
         parcours_1(i_) match { 
-            ? => ?        
+            case(9,0)  => Some(t_)       
             case(x,y) => {           
-                parcours_11( ?? , i_ +1)         
+                parcours_11( t_.updated(x,t_(x).updated(y,i_)) , i_ +1)         
             }       
         }     
     } 
 
-
+    def parcours_12(t_ : Array[Array[Int]], i_  : Int = 0) : Option[Array[Array[Int]]] = {       
+        (i_ / 9, i_ % 9) match {         
+            case(9, 0) => Some(t_)         
+            case(x,y) if t_(x)(y) != 0 => parcours_12(t_, i_ +1)         
+            case(x,y) => {           
+                def nombresDejaPris(j_ : Int) = List((x, j_), (j_,y), (3*(x/3)+j_ / 3, 3*(y/3)+j_ %3)).map((x) => t_( x._1)(x._2 ))           
+                val dejaPris = (0 until 9).flatMap(nombresDejaPris).toSet           
+                val aEssayer = (1 to 9).toSeq.diff(dejaPris.toSeq)           
+                // si on place le nombre j_ sur la case courante et qu'on avance ?           
+                def placer(j_ : Int) = parcours_12( t_.updated(x,t_(x).updated(y,j_)), i_ +1)           
+                if (aEssayer.isEmpty) None // pas de solution (rien à essayer)           
+                else {             
+                    val ts = aEssayer.map(placer).filterNot(_ == None)             
+                    if (ts.length > 0) ts(0) 
+                    else None           
+                }         
+            }       
+        }     
+    }
 
 }
 
@@ -260,7 +164,21 @@ object Main {
 
         //sudo.parcours_7()
 
-        sudo.parcours_9()
+        //sudo.parcours_9()
+
+        /*
+        sudo.parcours_11(table) match {          
+            case Some(res) => println("11: \n"+ res.map( _.mkString(" ") ).mkString("\n"))          
+            case None => println("pas de solution") 
+        }
+        */
+
+        
+        sudo.parcours_12(table) match {          
+            case Some(res) => println("12: \n"+ res.map( _.mkString(" ") ).mkString("\n"))          
+            case None => println("pas de solution") 
+        }
+
         val t1 = System.currentTimeMillis()
         println("Elapsed time: " + (t1 - t0) + "ms")
     }
