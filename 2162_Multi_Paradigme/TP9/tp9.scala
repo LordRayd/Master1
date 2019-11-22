@@ -39,10 +39,10 @@ class Labyrinthe(init_ : Array[Array[Int]]){
     }
     override def toString = {  
         init_.map( _.map( _ match{
-            case 0 => Ansi.fBlack
-            case 1 => Ansi.fYellow
-            case 9 => Ansi.fRed 
-        } ).mkString("  ")).mkString(Ansi.reset + "\n" )
+            case 0 => Ansi.fBlack + "  "
+            case 1 => Ansi.fYellow + "  "
+            case 9 => Ansi.fRed + "  "
+        } ).mkString()).mkString(Ansi.reset + "\n" )
         /*
         e.mkString(
             _ match {
