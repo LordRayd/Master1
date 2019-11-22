@@ -9,11 +9,19 @@
 # This example can be cut and pasted to start the development of a new application.
 
 TEMPLATE = app
-TARGET   = TP6
+TARGET   = simpleViewer
 
-HEADERS  = face.h objparser.h vertex.h glm.h\
-    view.h
-SOURCES  = face.cpp objparser.cpp vertex.cpp main.cpp glm.cpp\
-    view.cpp
+HEADERS  = simpleViewer.h \
+    glm.h \
+    vertex.h \
+    face.h \
+    view.h \
+    objparser.h
+SOURCES  = simpleViewer.cpp main.cpp \
+    glm.cpp \
+    vertex.cpp \
+    face.cpp \
+    view.cpp \
+    objparser.cpp
 
 include( ../examples.pri )

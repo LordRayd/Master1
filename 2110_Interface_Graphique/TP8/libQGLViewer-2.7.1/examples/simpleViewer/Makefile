@@ -35,9 +35,9 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = simpleViewer1.0.0
-DISTDIR = /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/examples/simpleViewer/.obj/simpleViewer1.0.0
+DISTDIR = /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/examples/simpleViewer/.obj/simpleViewer1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP6/libQGLViewer-2.7.1/QGLViewer
+LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/QGLViewer
 LIBS          = $(SUBLIBS) -L../../QGLViewer -lQGLViewer-qt5 -lGL -lQt5OpenGL -lQt5Widgets -lQt5Gui -lQt5Xml -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
@@ -51,9 +51,19 @@ OBJECTS_DIR   = .obj/
 ####### Files
 
 SOURCES       = simpleViewer.cpp \
-		main.cpp 
+		main.cpp \
+		glm.cpp \
+		vertex.cpp \
+		face.cpp \
+		view.cpp \
+		objparser.cpp 
 OBJECTS       = .obj/simpleViewer.o \
-		.obj/main.o
+		.obj/main.o \
+		.obj/glm.o \
+		.obj/vertex.o \
+		.obj/face.o \
+		.obj/view.o \
+		.obj/objparser.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -128,8 +138,18 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		simpleViewer.pro simpleViewer.h simpleViewer.cpp \
-		main.cpp
+		simpleViewer.pro simpleViewer.h \
+		glm.h \
+		vertex.h \
+		face.h \
+		view.h \
+		objparser.h simpleViewer.cpp \
+		main.cpp \
+		glm.cpp \
+		vertex.cpp \
+		face.cpp \
+		view.cpp \
+		objparser.cpp
 QMAKE_TARGET  = simpleViewer
 DESTDIR       = 
 TARGET        = simpleViewer
@@ -216,7 +236,7 @@ Makefile: simpleViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		simpleViewer.pro \
-		/usr/lib/x86_64-linux-gnu/libQGLViewer-qt5.prl \
+		../../QGLViewer/libQGLViewer-qt5.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5OpenGL.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Widgets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Gui.prl \
@@ -298,7 +318,7 @@ Makefile: simpleViewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 simpleViewer.pro:
-/usr/lib/x86_64-linux-gnu/libQGLViewer-qt5.prl:
+../../QGLViewer/libQGLViewer-qt5.prl:
 /usr/lib/x86_64-linux-gnu/libQt5OpenGL.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Widgets.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Gui.prl:
@@ -319,8 +339,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents simpleViewer.h $(DISTDIR)/
-	$(COPY_FILE) --parents simpleViewer.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents simpleViewer.h glm.h vertex.h face.h view.h objparser.h $(DISTDIR)/
+	$(COPY_FILE) --parents simpleViewer.cpp main.cpp glm.cpp vertex.cpp face.cpp view.cpp objparser.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -379,7 +399,13 @@ compiler_clean: compiler_moc_predefs_clean
 		../../QGLViewer/constraint.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/simpleViewer.o simpleViewer.cpp
 
-.obj/main.o: main.cpp simpleViewer.h \
+.obj/main.o: main.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/main.o main.cpp
+
+.obj/glm.o: glm.cpp glm.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/glm.o glm.cpp
+
+.obj/vertex.o: vertex.cpp vertex.h \
 		../../QGLViewer/qglviewer.h \
 		../../QGLViewer/camera.h \
 		../../QGLViewer/keyFrameInterpolator.h \
@@ -388,7 +414,48 @@ compiler_clean: compiler_moc_predefs_clean
 		../../QGLViewer/config.h \
 		../../QGLViewer/frame.h \
 		../../QGLViewer/constraint.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/main.o main.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/vertex.o vertex.cpp
+
+.obj/face.o: face.cpp face.h \
+		../../QGLViewer/qglviewer.h \
+		../../QGLViewer/camera.h \
+		../../QGLViewer/keyFrameInterpolator.h \
+		../../QGLViewer/quaternion.h \
+		../../QGLViewer/vec.h \
+		../../QGLViewer/config.h \
+		../../QGLViewer/frame.h \
+		../../QGLViewer/constraint.h \
+		vertex.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/face.o face.cpp
+
+.obj/view.o: view.cpp view.h \
+		../../QGLViewer/qglviewer.h \
+		../../QGLViewer/camera.h \
+		../../QGLViewer/keyFrameInterpolator.h \
+		../../QGLViewer/quaternion.h \
+		../../QGLViewer/vec.h \
+		../../QGLViewer/config.h \
+		../../QGLViewer/frame.h \
+		../../QGLViewer/constraint.h \
+		vertex.h \
+		face.h \
+		objparser.h \
+		glm.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/view.o view.cpp
+
+.obj/objparser.o: objparser.cpp objparser.h \
+		../../QGLViewer/qglviewer.h \
+		../../QGLViewer/camera.h \
+		../../QGLViewer/keyFrameInterpolator.h \
+		../../QGLViewer/quaternion.h \
+		../../QGLViewer/vec.h \
+		../../QGLViewer/config.h \
+		../../QGLViewer/frame.h \
+		../../QGLViewer/constraint.h \
+		vertex.h \
+		face.h \
+		glm.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/objparser.o objparser.cpp
 
 ####### Install
 

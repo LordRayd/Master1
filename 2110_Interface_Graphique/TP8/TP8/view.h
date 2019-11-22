@@ -1,6 +1,12 @@
 #ifndef VIEW_H
 #define VIEW_H
-
+#ifdef __gnu_linux__
+    #include <GL/freeglut.h>
+    #include <GL/gl.h>
+#else
+    #include <OpenGL/gl.h>
+    #include <GLUT/glut.h>
+#endif
 #include <../../QGLViewer/qglviewer.h>
 #include <vertex.h>
 #include <face.h>
@@ -18,6 +24,9 @@ public:
 
     virtual void draw();
     virtual void init();
+    virtual void materiel();
+    virtual void model();
+    virtual void light();
 
     ObjParser parser;
 };

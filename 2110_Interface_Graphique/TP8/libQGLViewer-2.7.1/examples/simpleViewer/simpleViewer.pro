@@ -11,7 +11,17 @@
 TEMPLATE = app
 TARGET   = simpleViewer
 
-HEADERS  = simpleViewer.h
-SOURCES  = simpleViewer.cpp main.cpp
+HEADERS  = simpleViewer.h \
+    glm.h \
+    vertex.h \
+    face.h \
+    view.h \
+    objparser.h
+SOURCES  = simpleViewer.cpp main.cpp \
+    glm.cpp \
+    vertex.cpp \
+    face.cpp \
+    view.cpp \
+    objparser.cpp
 
 include( ../examples.pri )
