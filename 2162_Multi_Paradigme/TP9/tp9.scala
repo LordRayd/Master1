@@ -30,38 +30,13 @@ object Ansi{
 }
 
 class Labyrinthe(init_ : Array[Array[Int]]){
-    def getAnsiCode(valeur_ : Int) : String = {
-        valeur_ match{
-            case 0 => Ansi.fBlack
-            case 1 => Ansi.fYellow
-            case 9 => Ansi.fRed 
-        }
-    }
     override def toString = {  
         init_.map( _.map( _ match{
             case 0 => Ansi.fBlack + "  "
             case 1 => Ansi.fYellow + "  "
             case 9 => Ansi.fRed + "  "
-        } ).mkString()).mkString(Ansi.reset + "\n" )
-        /*
-        e.mkString(
-            _ match {
-                case 1 => Ansi.fYellow + " " + Ansi.reset
-                case 0 => Ansi.fBlack + " " + Ansi.reset
-                case 9 => Ansi.fRed + " " + Ansi.reset
-            }
-        ) ).mkString("\n")*/
-
-        /*
-            e match {
-               case 0 => e.mkString(Ansi.fBlack + " " + Ansi.reset)
-               case 1 => e.mkString(Ansi.fYellow + " " + Ansi.reset)
-               case 9 => e.mkString(Ansi.fRed + " "+ Ansi.reset)
-            }  ).mkString("\n"))
-        //??? 
-        // utilisez seulement les opérateurs map, match et mkString (plusieurs fois si nécessaire)  */ 
-    } 
-    // toString 
+        } ).mkString).mkString(Ansi.reset + "\n" )
+       
     /*def cheminSortieAPartirDe(pos_ : Tuple2[Int, Int], lab_ : Array[Array[Int]] = init_) : Set[Array[Array[Int]]]= {     
         pos_ match {  
             //?????    
