@@ -38,7 +38,11 @@ class Labyrinthe(init_ : Array[Array[Int]]){
         }
     }
     override def toString = {  
-        init_.map( (e) => e.map( getAnsiCode(_) ).mkString(" " + Ansi.reset)).mkString("\n" + Ansi.reset)
+        init_.map( _.map( _ match{
+            case 0 => Ansi.fBlack
+            case 1 => Ansi.fYellow
+            case 9 => Ansi.fRed 
+        } ).mkString(" " + Ansi.reset)).mkString("\n" + Ansi.reset)
         /*
         e.mkString(
             _ match {
