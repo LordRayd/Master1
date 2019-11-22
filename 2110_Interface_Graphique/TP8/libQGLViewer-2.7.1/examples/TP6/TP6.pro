@@ -11,13 +11,9 @@
 TEMPLATE = app
 TARGET   = TP6
 
-HEADERS  = simpleViewer.h \
-    glm.h \
-    vertex.h \
-    face.h
-SOURCES  = simpleViewer.cpp main.cpp \
-    glm.cpp \
-    vertex.cpp \
-    face.cpp
+HEADERS  = face.h objparser.h vertex.h glm.h\
+    view.h
+SOURCES  = face.cpp objparser.cpp vertex.cpp main.cpp glm.cpp\
+    view.cpp
 
 include( ../examples.pri )
