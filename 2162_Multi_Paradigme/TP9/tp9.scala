@@ -35,7 +35,7 @@ class Labyrinthe(init_ : Array[Array[Int]]){
             case 0 => Ansi.fBlack + "  "
             case 1 => Ansi.fYellow + "  "
             case 9 => Ansi.fRed + "  "
-        } ).mkString).mkString(Ansi.reset + "\n" )
+        } ).mkString).mkString(Ansi.reset + "\n" + Ansi.reset)
     }
     /*def cheminSortieAPartirDe(pos_ : Tuple2[Int, Int], lab_ : Array[Array[Int]] = init_) : Set[Array[Array[Int]]]= {     
         pos_ match {  
