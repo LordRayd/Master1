@@ -42,7 +42,7 @@ class Labyrinthe(init_ : Array[Array[Int]]){
             case 0 => Ansi.fBlack
             case 1 => Ansi.fYellow
             case 9 => Ansi.fRed 
-        } ).mkString(" " + Ansi.reset)).mkString("\n" + Ansi.reset)
+        } ).mkString(" " + Ansi.reset)).mkString(Ansi.reset+ "\n" )
         /*
         e.mkString(
             _ match {
