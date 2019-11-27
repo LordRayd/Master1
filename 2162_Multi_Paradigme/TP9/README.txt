@@ -13,10 +13,17 @@ Environnement Java:
 
 Le fonctionnement du programme n'est pas garanti sous un autre OS que Ubuntu
 
-Vous pouvez lancer le programme avec la commande :
-    scala TP8_Samuel_LEBERRE.jar
-ou en lançant le script :
-    ./Launch.sh
+Pour lancer le programme java il faut lancer le script:
+    ./LaunchJava.sh
+Pour utiliser le programme scala il faut utiliser le script:
+    ./LaunchScala
 
-Temps pour résoudre le sudoku en exemple:
-     ms
+Les résultats obtenues lors de la résolution des 3 labyrinthes fournis sont présents dans les photos
+    Laby1-result-1-a-5.jpg : contient les 5 premiers résultats du labyrinthe 1
+    Laby1-result-6-a-7.jpg : contient les 2 derniers résultats du labyrinthe 1
+    Laby2-result-1.jpg : contient le seul résultat du labyrinthe 2
+    Laby3-result-1.jpg : contient le premier résultat du labyrinthe 3
+    Laby3-result-2.jpg : contient le deuxième résultat du labyrinthe 3
+
+Temps pour résoudre les labyrinthes en exemple:
+    361 ms
