@@ -161,9 +161,13 @@ object Main {
             $(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,1)
         )
 
-        val laby = new Labyrinthe(m1)   
+        val laby1 = new Labyrinthe(m1) 
+        val laby2 = new Labyrinthe(m2) 
+        val laby3 = new Labyrinthe(m3)   
         //println(laby)
-        laby.cheminSortieAPartirDe((0,1)).foreach(  s => print((new Labyrinthe(s))+"\n\n") )
+        laby1.cheminSortieAPartirDe((0,1)).foreach(  s => print((new Labyrinthe(s))+"\n\n") )
+        laby2.cheminSortieAPartirDe((0,1)).foreach(  s => print((new Labyrinthe(s))+"\n\n") )
+        laby3.cheminSortieAPartirDe((0,1)).foreach(  s => print((new Labyrinthe(s))+"\n\n") )
         val t1 = System.currentTimeMillis()
         println("Elapsed time: " + (t1 - t0) + "ms")
     }
