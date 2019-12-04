@@ -11,24 +11,26 @@ public class SynchroLecteurRedacteurWaitNotify extends SynchroLecteurRedacteur{
     }
     
 	public void debutLire(){
-        int val = 0;
         synchronized(this){
-            val = this.mutex;
-            if(val != 0){
+            if(this.mutex != 0){
                 this.mutex = 0;
             }else{
                 lecteur.add(Thread.currentThread());
-                try{
-                    Thread.currentThread().wait();
-                }catch(Exception e){
+                synchronized(Thread.currentThread()){
+                    try{
+                        Thread.currentThread().wait();
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+
                 }
             }
         }
 	}
 
 	public void finLire(){
-        synchronized(this){
             Thread reveille = null;
+        synchronized(this){
             if(!this.redacteur.isEmpty()){
                 reveille = this.redacteur.get(0);
                 this.redacteur.remove(0);
@@ -36,6 +38,7 @@ public class SynchroLecteurRedacteurWaitNotify extends SynchroLecteurRedacteur{
                 reveille = this.lecteur.get(0);
                 this.lecteur.remove(0);
             }
+        }
             if(reveille != null){
                 synchronized(reveille){
                     try{
@@ -46,16 +49,15 @@ public class SynchroLecteurRedacteurWaitNotify extends SynchroLecteurRedacteur{
 
                 }
             }else{
+                synchronized(this){
                 this.mutex = 1;
             }
         }
 	}
 
 	public void debutEcrire(){
-        int val = 0;
         synchronized(this){
-            val = this.mutex;
-            if(val != 0){
+            if(this.mutex != 0){
                 this.mutex = 0;
             }else{
                 this.redacteur.add(Thread.currentThread());
@@ -74,11 +76,6 @@ public class SynchroLecteurRedacteurWaitNotify extends SynchroLecteurRedacteur{
         if(!this.redacteur.isEmpty()){
             reveille = this.redacteur.get(0);
             this.redacteur.remove(0);
-        }else if(!this.lecteur.isEmpty()){
-            reveille = this.lecteur.get(0);
-            this.lecteur.remove(0);
-        }
-        if(reveille != null){
             synchronized(reveille){
                 try{
                     reveille.notify();
@@ -86,10 +83,18 @@ public class SynchroLecteurRedacteurWaitNotify extends SynchroLecteurRedacteur{
                     e.printStackTrace();
                 }
             }
+        }else if(!this.lecteur.isEmpty()){
+            for(Thread th : this.lecteur){
+                synchronized(th){
+                th.notify();
+                }
+            }
+            this.lecteur.clear();
         }else{
-            
+
             this.mutex = 1;
         }
+            
         }
         
 	}
