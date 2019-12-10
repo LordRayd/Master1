@@ -34,7 +34,24 @@ class Perceptron(couches_ : Array[Int]){
     } // poidsHasard
 
     def retroPropag(observe_ : Array[Double], souhaite_ : Array[Double], pas_ : Double = 0.1): Unit = { // 25 lignes maxi 
+        var observe = observe_
+        while(!verifInferieur(observe, souhaite_)){
 
+            //modif poid 1
+            apply(inputI(0))
+            observe = outputI(couches_.length - 1)
+        }
+    }
+
+    def verifInferieur(observe_ : Array[Double], souhaite_ : Array[Double]) : Boolean = {
+        var ret : Boolean = true
+        require(observe_.length == souhaite_.length, "pour la verification les vecteurs doivent avoir la même taille")
+        for(i <- observe_.indices){
+            if(observe_(i) < souhaite_(i)){
+                ret = false
+            }
+        }
+        ret
     }
     
     def apply(in_ : Array[Double]) : Array[Double] = { // 12 lignes maxi 
@@ -42,11 +59,10 @@ class Perceptron(couches_ : Array[Int]){
             outputI(0)(i) = in_(i)
         }
         
-        for( c <- poids.indices)  // chaque couche       
-            for (n <- poids(c).indices)  // chaque neurone         
-                for(p <- poids(c)(n).indices) 
-                    inputI(c)(p) += poids(c)(n)(p) * outputI(c-1)(n)
-        
+        for( c <- poids.indices; n <- poids(c).indices ){  // chaque couche // chaque neurone
+            inputI(c+1)(n) = prod(poids(c)(n), outputI(c))
+            outputI(c+1)(n) = fp(inputI(c+1)(n))
+        }
         outputI(couches_.length - 1)
     }
 }
@@ -62,8 +78,10 @@ object Perceptron{
 
 object Main {
     def main(args: Array[String]): Unit ={
-        val perceptron = Perceptron($(4, 1))
-        val reponse = perceptron($(1.0, 0.0))
-        println(reponse)
+        val perceptron = Perceptron($(2, 2, 1))
+        perceptron($(0.0, 0.0)).foreach(println)
+        perceptron($(0.0, 1.0)).foreach(println)
+        perceptron($(1.0, 0.0)).foreach(println)
+        perceptron($(1.0, 1.0)).foreach(println)
     }
 }

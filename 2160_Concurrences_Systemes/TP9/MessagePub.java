@@ -14,7 +14,7 @@ public  class MessagePub extends Thread{
 
   
 	
-	static SynchroLecteurRedacteur Synchro =new SynchroLecteurRedacteurWaitNotify();
+	static SynchroLecteurRedacteur Synchro =new SynchroLecteurRedacteurWaitNotifyPrioLecteur();
 	//= new SynchroLecteurRedacteurSemaphore();
 	// 
 	
