@@ -12,47 +12,87 @@
 
 // semaphores
 pthread_mutex_t mutex =PTHREAD_MUTEX_INITIALIZER;
+int xJedi=0,yJedi=0;
+int xRobot=0, yRobot=0;
+int nbJediScore = 0;
+
+void robot(){
+	srand(time(NULL));
+	xRobot  = rand() % COLS;
+	yRobot  = rand() % LINES;
+
+	int dx=rand() % 2;
+	if (dx ==0) dx=-1;
+	int dy=rand() % 2;
+	if (dy ==0) dy=-1;
+
+	while(true){
+		int toClone =0;
+		if(xRobot==0 || xRobot == COLS-1){
+			dx = -dx;
+			toClone = 1;
+		}
+		if(yRobot==0 || yRobot == LINES-1){
+			dy = -dy;
+			toClone = 1;
+		}
+		pthread_mutex_lock(&mutex);
+		mvaddch(yRobot,xRobot,' ');
+		xRobot+=dx;
+		yRobot+=dy;
+		mvaddch(yRobot,xRobot,'R');
+		refresh();
+		pthread_mutex_unlock(&mutex);
+		usleep(250000);
+	}
+}
 
 void jedi(){
 	srand(time(NULL));
-	int	x  = rand() % COLS ;
-	int	y  = rand() % LINES ;
+	xJedi  = rand() % COLS ;
+	yJedi  = rand() % LINES ;
 	int dx=0,dy=0;
 	noecho();
 	char c = getch();
 	echo();
-	while(c=='z' || c =='q' || c=='s' || c=='d'){
-		if(c=='s'){
-			dx=0;
-			dy=1;
-		}else if(c=='q'){
-			dx=-1;
-			dy=0;
-		}else if(c=='z'){
-			dx=0;
-			dy=-1;
-		}else {
-			dx=1;
-			dy=0;
+	while(c=='z' || c =='q' || c=='s' || c=='d' || c=='r'){
+		if(c=='r'){
+			pthread_t th;
+			pthread_create(&th, NULL, robot, (int *) (0,0));
+		}else{
+			if(c=='s'){
+				dx=0;
+				dy=1;
+			}else if(c=='q'){
+				dx=-1;
+				dy=0;
+			}else if(c=='z'){
+				dx=0;
+				dy=-1;
+			}else {
+				dx=1;
+				dy=0;
+			}
+			if((xJedi==0 && dx <0)  || (xJedi== COLS-1 && dx > 0)){
+				dx = 0;
+			}
+			if((yJedi==0 && dy <0)  || (yJedi== LINES-1 && dy> 0)){
+				dy = 0;
+			}
+			pthread_mutex_lock(&mutex);
+			mvaddch(yJedi,xJedi,' ');
+			xJedi+=dx;
+			yJedi+=dy;
+			mvaddch(yJedi,xJedi,'O');
+			refresh();
+			pthread_mutex_unlock(&mutex);
 		}
-		if((x==0 && dx <0)  || (x== COLS-1 && dx > 0)){
-			dx = 0;
-		}
-		if((y==0 && dy <0)  || (y== LINES-1 && dy> 0)){
-			dy = 0;
-		}
-		pthread_mutex_lock(&mutex);
-		mvaddch(y,x,' ');
-		x+=dx;
-		y+=dy;
-		mvaddch(y,x,'o');
-		refresh();
-		pthread_mutex_unlock(&mutex);
 		noecho();
 		c = getch();
 		echo();
 	}
 }
+
 void etoile(int x, int y){
 	srand(time(NULL));
 	if(x==0)
@@ -83,12 +123,20 @@ void etoile(int x, int y){
 		mvaddch(y,x,' ');
 		x+=dx;
 		y+=dy;
-		mvaddch(y,x,'*');
-		refresh();
-		pthread_mutex_unlock(&mutex);
-		usleep(250000);
+		if(x==xJedi && y==yJedi){
+			nbJediScore++;
+			pthread_mutex_unlock(&mutex);
+			pthread_exit(0);
+		}else if (x==xRobot && y==yRobot){
+			pthread_mutex_unlock(&mutex);
+			pthread_exit(0);
+		}else {
+			mvaddch(y,x,'*');
+			refresh();
+			pthread_mutex_unlock(&mutex);
+			usleep(250000);
+		}
 	}
-	pthread_exit(0);
 }
 
 // programme principal
