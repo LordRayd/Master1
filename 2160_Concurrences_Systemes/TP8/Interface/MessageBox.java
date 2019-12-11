@@ -46,6 +46,7 @@ public class MessageBox {
   public Message receive(Filter f_) {
     Message result = tryReceive(f_);
     if (result == null) {
+
       synchronized (f_.getSender()) {
         this.waitingMessage.put(f_.getSender(), Thread.currentThread());
         try {
