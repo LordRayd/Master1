@@ -38,6 +38,12 @@ class Perceptron(couches_ : Array[Int]){
         while(!verifInferieur(observe, souhaite_)){
 
             //modif poid 1
+            /* Test */
+            for( c <- poids.indices)  // chaque couche       
+                for (n <- poids(c).indices)  // chaque neurone         
+                    for(p <- poids(c)(n).indices) 
+                        poids(c)(n)(p) = poids(c)(n)(p) - ( pas_ * errQuad(observe_, souhaite_)) 
+
             apply(inputI(0))
             observe = outputI(couches_.length - 1)
         }
