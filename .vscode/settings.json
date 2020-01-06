@@ -47,6 +47,7 @@
         "fcntl.h": "c",
         "types.h": "c",
         "stat.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "cinttypes": "cpp"
     }
 }

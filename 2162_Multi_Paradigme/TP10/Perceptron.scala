@@ -34,56 +34,47 @@ class Perceptron(couches_ : Array[Int]){
     }
     poidsHasard()
 
+    def calculErreur(attendu_ : Array[Double], arrivee_ : Array[Double]) : Double = {
+        require(attendu_.length == arrivee_.length, "pour l'erreur les vecteurs doivent avoir la même taille")  
+        var erreur : Double = 0.0
+        for( i <- attendu_.indices)
+            erreur = erreur + (attendu_(i) - arrivee_(i))
+        erreur
+    }
+
+    def erreurTest(observe_ : Double , attendu_ : Array[Double]) : Double = {
+        var err : Double = 0.0
+        for(i <- attendu_.indices){
+            err = err + ( attendu_(i) - observe_)
+        }
+        err
+    }
+
+    /**
+     * Je n'ai pas réussit à faire la réétropopagation j'y ai pourtant passé plusieurs heures mais je n'y arrive pas
+     * Je comprend la theorie mais n'arrive pas à la mettre en pratique
+     */
+
     def retroPropag(observe_ : Array[Double], souhaite_ : Array[Double], pas_ : Double = 0.1): Unit = { // 25 lignes maxi 
         var observe = observe_
         var iteration : Int = 0
-        var erreur = errQuad(observe, souhaite_)
-        while(erreur < 0.1 && iteration < 20000){
-
-            //modif poid 1
-
-
-            poids(0)(0)(0) = poids(0)(0)(0) - ( pas_ * erreur)
-            poids(0)(0)(1) = poids(0)(0)(1) - ( pas_ * erreur)
-            poids(0)(1)(0) = poids(0)(1)(0) - ( pas_ * erreur)
-            poids(0)(1)(1) = poids(0)(1)(1) - ( pas_ * erreur)
-
-            apply(outputI(0))
-            observe = outputI(couches_.length - 1)
+        var erreur = calculErreur(souhaite_, observe)
+        while(iteration < 20){
             
-            poids(1)(0)(0) = poids(1)(0)(0) - ( pas_ * erreur)
-            poids(1)(0)(1) = poids(1)(0)(1) - ( pas_ * erreur)
-            //Affichage
-            println()
-            println(s" iteration : $iteration")
-            println(errQuad(observe_, souhaite_))
-            println("tab poids")
-            affichePoids()
-            println("Tab In Out")
-            for(c <- outputI.indices){
-                for(n <- outputI(c).indices){
-                    println("Input : " + inputI(c)(n))
-                    println("Output : " + outputI(c)(n))
+            for( i <- poids.length - 1 to 0){
+                for(j <- poids(i).length - 1 to 0){
+                    erreur = erreurTest(outputI(i)(j), outputI(couches_.length - 1))
+                    println(erreur)
+                    for(k <- poids(i)(j).length to 0){
+                        poids(i)(j)(k) = poids(i)(j)(k) - (pas_ * erreur)
+                    }
+                    apply(outputI(0))
                 }
             }
-            println("Valeur final : ")
-            println(outputI(1)(0))
+            
 
-            apply(outputI(0))
-            observe = outputI(couches_.length - 1)
             iteration = iteration + 1
         }
-    }
-
-    def verifInferieur(observe_ : Array[Double], souhaite_ : Array[Double]) : Boolean = {
-        var ret : Boolean = false
-        require(observe_.length == souhaite_.length, "pour la verification les vecteurs doivent avoir la même taille")
-        for(i <- observe_.indices){
-            if(observe_(i) == souhaite_(i)){
-                ret = true
-            }
-        }
-        ret
     }
 
     def affichePoids() : Unit = {
@@ -122,10 +113,12 @@ object Perceptron{
 
 object Main {
     def main(args: Array[String]): Unit ={
-        val perceptron = Perceptron($(2, 2, 1))
+        val perceptron = Perceptron($(2, 1))
         //perceptron($(0.0, 0.0), $(0.0)).foreach(println)
         //perceptron($(0.0, 1.0), $(0.0)).foreach(println)
-        //perceptron($(1.0, 0.0), $(0.0)).foreach(println)
-        perceptron($(1.0, 1.0), $(1.0)).foreach(println)
+        perceptron($(1.0, 0.0), $(0.0)).foreach(println)
+        //perceptron($(1.0, 1.0), $(1.0)).foreach(println)
     }
 }
+case class X( x_ : Array[Double]) // entree 
+case class Y( y_ : Array[Double]) // sortie

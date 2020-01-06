@@ -35,9 +35,9 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = simpleViewer1.0.0
-DISTDIR = /home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/examples/simpleViewer/.obj/simpleViewer1.0.0
+DISTDIR = /home/vmubuntu/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/examples/simpleViewer/.obj/simpleViewer1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/lordrayd/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/QGLViewer
+LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/vmubuntu/Documents/Master1/2110_Interface_Graphique/TP8/libQGLViewer-2.7.1/QGLViewer
 LIBS          = $(SUBLIBS) -L../../QGLViewer -lQGLViewer-qt5 -lGL -lQt5OpenGL -lQt5Widgets -lQt5Gui -lQt5Xml -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
@@ -399,7 +399,19 @@ compiler_clean: compiler_moc_predefs_clean
 		../../QGLViewer/constraint.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/simpleViewer.o simpleViewer.cpp
 
-.obj/main.o: main.cpp 
+.obj/main.o: main.cpp view.h \
+		../../QGLViewer/qglviewer.h \
+		../../QGLViewer/camera.h \
+		../../QGLViewer/keyFrameInterpolator.h \
+		../../QGLViewer/quaternion.h \
+		../../QGLViewer/vec.h \
+		../../QGLViewer/config.h \
+		../../QGLViewer/frame.h \
+		../../QGLViewer/constraint.h \
+		vertex.h \
+		face.h \
+		objparser.h \
+		glm.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/main.o main.cpp
 
 .obj/glm.o: glm.cpp glm.h
