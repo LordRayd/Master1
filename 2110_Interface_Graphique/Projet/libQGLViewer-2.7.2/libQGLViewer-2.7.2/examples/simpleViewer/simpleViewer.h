@@ -37,8 +37,16 @@ class Viewer : public QGLViewer {
 public :
     float dist_sun_earth;
     Sphere* terre, *soleil;
+    virtual void drawSun();
+    virtual void drawEarth();
+    virtual void drawVenus();
+    virtual void drawMars();
+    virtual void drawMercure();
+    float radius_earth, radius_sun,radius_moon,radius_mars, radius_venus, radius_mercure;
+    int yearE,dayE, yearMa,dayMa, yearV,dayV, yearMe,dayMe;
+    float dist_mercure, dist_venus, dist_earth, dist_mars, dist_moon;
+    float mer_rot_earthScale, venus_rot_earthScale, mars_rot_earthScale, earth_rot_earthScale;
 protected:
     virtual void draw();
     virtual void init();
-    virtual void animate();
 };

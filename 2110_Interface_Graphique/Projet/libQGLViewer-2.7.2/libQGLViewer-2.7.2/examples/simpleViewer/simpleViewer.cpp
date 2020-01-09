@@ -27,33 +27,86 @@ using namespace std;
 
 // Draws a sphere
 void Viewer::draw() {
-/*
- * x = R Cos(B) Cos(L)
-y = R Cos(B) sin(L)
-z = R sin(B)
+    drawSun();
+    drawEarth();
+    drawMars();
+    drawVenus();
+    drawMercure();
+    yearE = (yearE + 10) % 3600;
+    dayE = (dayE + 30) % 3600;
+    update();
+}
 
-avec
-L la longitude en °
-B la latitude en °
-R la distance au Soleil en la ramenant en UA (R Terre-Soleil = 1 UA)*/
+void Viewer::drawSun(){
+    //RED
+    glPushMatrix();
+    QColor color = QColor(252,150,1);
+    glColor3f(color.redF(),color.greenF(),color.blueF());
+    glutSolidSphere(radius_sun, 32, 32);
+    glPopMatrix();
+}
+void Viewer::drawEarth(){
+    glPushMatrix();
+    QColor color = QColor(140,177,222);
+    glColor3f(color.redF(),color.greenF(),color.blueF());
+    glRotatef((GLfloat)yearE / 10, 0.0, 0.0, 1.0);
+    glTranslatef( radius_sun + dist_earth + radius_earth, 0.0, 0.0);
+    glRotatef((GLfloat)dayE / 10, 0.0, 0.0, 1.0);
+    glutSolidSphere(radius_earth, 20, 16);
 
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glRotatef((GLfloat)yearE / 10, 0.0f, 0.0f, 1.0f);
+    glRotatef(dayE / 30.0 * 360.0, 0.0f, 0.0f, 1.0f);
+    glTranslatef(radius_earth + radius_moon + dist_moon, 0.0f, 0.0f);
+    glutSolidSphere(radius_moon, 20, 16);
+    glPopMatrix();
+}
+void Viewer::drawMercure(){
+    glPushMatrix();
+    QColor color = QColor(88,78,81);
+    glColor3f(color.redF(),color.greenF(),color.blueF());
+    glRotatef((GLfloat)(yearE / 10) * mer_rot_earthScale, 0.0, 0.0, 1.0);
+    glTranslatef( radius_sun + dist_mercure + radius_mercure, 0.0, 0.0);
+    glRotatef((GLfloat)dayE / 10, 0.0, 0.0, 1.0);
+    glutSolidSphere(radius_mercure, 20, 16);
+    glPopMatrix();
+}
 
-    soleil->draw();
+void Viewer::drawMars(){
+    glPushMatrix();
+    QColor color = QColor(226,123,88);
+    glColor3f(color.redF(),color.greenF(),color.blueF());
+    glRotatef((GLfloat)(yearE / 10)*mars_rot_earthScale, 0.0, 0.0, 1.0);
+    glTranslatef( radius_sun + dist_mars + radius_mars, 0.0, 0.0);
+    glRotatef((GLfloat)dayE / 10, 0.0, 0.0, 1.0);
+    glutSolidSphere(radius_mars, 20, 16);
+    glPopMatrix();
+}
 
-    terre->draw();
-
-
+void Viewer::drawVenus(){
+    glPushMatrix();
+    QColor color = QColor(187,183,171);
+    glColor3f(color.redF(),color.greenF(),color.blueF());
+    glRotatef((GLfloat)(yearE / 10)*venus_rot_earthScale, 0.0, 0.0, 1.0);
+    glTranslatef( radius_sun + dist_venus + radius_venus, 0.0, 0.0);
+    glRotatef((GLfloat)dayE / 10, 0.0, 0.0, 1.0);
+    glutSolidSphere(radius_venus, 20, 16);
+    glPopMatrix();
 }
 
 void Viewer::init() {
+    setSceneRadius(1);
   // Restore previous viewer state.
   restoreStateFromFile();
-    dist_sun_earth = 0.3;
-    terre = new Sphere(0.3, Qt::blue,0.9f,0.0f,0.0f);
-    soleil = new Sphere(0.5, Qt::red,0.0f,0.0f,0.0f);
-    startAnimation();
-}
+  radius_sun = 30;
+  radius_mercure = 0.57; dist_mercure = 13;
+  radius_venus = 1.43; dist_venus = 25;
+  dayE = 0;  yearE = 0;  radius_earth =1.64;  dist_earth = 33;  radius_moon = 0.446; dist_moon = 0.084;
+  dayMa = 0; radius_mars = 0.58;  dist_mars = 53;
+  mer_rot_earthScale = 4.19; venus_rot_earthScale = 1.63; mars_rot_earthScale = 0.53; earth_rot_earthScale = 1;
+  glEnable(GL_LIGHTING);
+  glMatrixMode(GL_MODELVIEW);
 
-void Viewer::animate() {
-    terre->animate();
+  glEnable(GL_DEPTH_TEST);
+
 }

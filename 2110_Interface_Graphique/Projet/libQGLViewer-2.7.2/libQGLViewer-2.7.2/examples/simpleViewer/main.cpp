@@ -24,6 +24,9 @@
 #include <qapplication.h>
 
 int main(int argc, char **argv) {
+
+    glutInit((int*)&argc,argv);
+
   // Read command lines arguments.
   QApplication application(argc, argv);
 
