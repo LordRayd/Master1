@@ -26,7 +26,7 @@
                 ret = y1
         }
         ret = Math.round((ret / 100) + 0.5) * 100
-        return ret;
+        return ret + 5;
     }
 
     function syracuse(debut, iteration) {
@@ -88,6 +88,7 @@
             }
             ret = (max > ret) ? max : ret
         }
+        return ret + 5
     }
 
     function vol(nb_iteration_) {
@@ -115,10 +116,10 @@
                 max = max + 1
             }
             cahier.fillStyle = "blue";
-            cahier.fillText(max, (n * 10), maxVolHeight - max);
-            //cahier.fillText(max, (n * 10), maxVolHeight - max * (maxVolHeight / maxVolHauteur) - 2);
+            //cahier.fillText(max, (n * 10), maxVolHeight - max);
+            cahier.fillText(max, (n * 10), maxVolHeight - max * (maxVolHeight / maxVolHauteur) - 2);
             cahier.fillStyle = "red";
-            cahier.fillRect(n * 10, maxVolHeight - max, 10, max);
+            cahier.fillRect(n * 10, maxVolHeight - max * (maxVolHeight / maxVolHauteur), 10, max * (maxVolHeight / maxVolHauteur));
         }
         cahier.stroke();
     }
