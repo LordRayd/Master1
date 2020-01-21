@@ -11,11 +11,11 @@
     var maxVolWidth = 5000
     var maxVolHeight = 300
 
-    function maxSyracuse(debut, iteration) {
-        var ret = debut
-        var y1 = debut
+    function maxSyracuse(debut_, iteration_) {
+        var ret = debut_
+        var y1 = debut_
         var y2 = 0
-        for (var n = 1; n < iteration; n++) {
+        for (var n = 1; n < iteration_; n++) {
             if (y1 % 2 == 0) {
                 y2 = y1 / 2
             } else {
@@ -29,16 +29,16 @@
         return ret + 5;
     }
 
-    function syracuse(debut, iteration) {
+    function syracuse(debut_, iteration_) {
         var cahier = document.getElementById("dessin").getContext("2d");
         cahier.beginPath()
         cahier.font = "10px Helvetica";
-        var max = maxSyracuse(debut, iteration)
+        var max = maxSyracuse(debut_, iteration_)
         var x1 = 0
         var x2 = 0
-        var y1 = debut
+        var y1 = debut_
         var y2 = 0
-        for (var n = 1; n < iteration; n++) {
+        for (var n = 1; n < iteration_; n++) {
             if (y1 % 2 == 0) {
                 y2 = y1 / 2
             } else {
