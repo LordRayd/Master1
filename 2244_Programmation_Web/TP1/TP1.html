@@ -1,0 +1,134 @@
+<html>
+<canvas id="dessin" width="5000" height="500"> </canvas>
+<br> Debut: <input type="number" id="debut"> Itération: <input type="number" id="iteration">
+<input type="button" onclick="startSyracuse()" value="Submit"><br> Itération Vol : <input type="number" id="vol_iteration">
+<input type="button" onclick="startVol()" value="Submit">
+<br>
+<canvas id="vol" width="5000" height="300"> </canvas>
+<script>
+    var maxDessinWidth = 5000
+    var maxDessinHeight = 500
+    var maxVolWidth = 5000
+    var maxVolHeight = 300
+
+    function maxSyracuse(debut, iteration) {
+        var ret = debut
+        var y1 = debut
+        var y2 = 0
+        for (var n = 1; n < iteration; n++) {
+            if (y1 % 2 == 0) {
+                y2 = y1 / 2
+            } else {
+                y2 = (y1 * 3) + 1
+            }
+            y1 = y2
+            if (y1 > ret)
+                ret = y1
+        }
+        ret = Math.round((ret / 100) + 0.5) * 100
+        return ret;
+    }
+
+    function syracuse(debut, iteration) {
+        var cahier = document.getElementById("dessin").getContext("2d");
+        cahier.beginPath()
+        cahier.font = "10px Helvetica";
+        var max = maxSyracuse(debut, iteration)
+        var x1 = 0
+        var x2 = 0
+        var y1 = debut
+        var y2 = 0
+        for (var n = 1; n < iteration; n++) {
+            if (y1 % 2 == 0) {
+                y2 = y1 / 2
+            } else {
+                y2 = (y1 * 3) + 1
+            }
+            x1 = (n - 1) * 10
+            x2 = n * 10
+            cahier.fillStyle = "dark";
+            cahier.moveTo(x2, maxDessinHeight - y2 * (maxDessinHeight / max));
+            cahier.lineTo(x1, maxDessinHeight - y1 * (maxDessinHeight / max));
+            cahier.fillStyle = "blue";
+            cahier.fillText(y1, x1, maxDessinHeight - y1 * (maxDessinHeight / max) - 2);
+            y1 = y2
+        }
+        cahier.fillText(y2, x2, maxDessinHeight - y2 * (maxDessinHeight / max) - 2);
+        cahier.stroke();
+    }
+
+    function startSyracuse() {
+        var cahier = document.getElementById("dessin").getContext("2d")
+
+        cahier.clearRect(0, 0, 5000, maxDessinHeight);
+
+        syracuse(document.getElementById("debut").value, document.getElementById("iteration").value)
+    }
+
+    function maxVol(nb_iteration_) {
+        var ret = 0
+        var x1 = 0
+        var x2 = 0
+        var y1 = 0
+        var y2 = 0
+        for (var n = 1; n <= nb_iteration_; n++) {
+            var max = 0;
+            y1 = n
+            x1 = 0
+            x2 = 0
+            y2 = 0
+            while (y1 != 1 && y1 != 2 && y1 != 4) {
+                if (y1 % 2 == 0) {
+                    y2 = y1 / 2
+                } else {
+                    y2 = (y1 * 3) + 1
+                }
+                y1 = y2
+                max = max + 1
+            }
+            ret = (max > ret) ? max : ret
+        }
+    }
+
+    function vol(nb_iteration_) {
+        var cahier = document.getElementById("vol").getContext("2d");
+        cahier.beginPath()
+        cahier.font = "10px Helvetica";
+        var x1 = 0
+        var maxVolHauteur = maxVol(nb_iteration_)
+        var x2 = 0
+        var y1 = 0
+        var y2 = 0
+        for (var n = 1; n <= nb_iteration_; n++) {
+            var max = 0;
+            y1 = n
+            x1 = 0
+            x2 = 0
+            y2 = 0
+            while (y1 != 1 && y1 != 2 && y1 != 4) {
+                if (y1 % 2 == 0) {
+                    y2 = y1 / 2
+                } else {
+                    y2 = (y1 * 3) + 1
+                }
+                y1 = y2
+                max = max + 1
+            }
+            cahier.fillStyle = "blue";
+            cahier.fillText(max, (n * 10), maxVolHeight - max);
+            //cahier.fillText(max, (n * 10), maxVolHeight - max * (maxVolHeight / maxVolHauteur) - 2);
+            cahier.fillStyle = "red";
+            cahier.fillRect(n * 10, maxVolHeight - max, 10, max);
+        }
+        cahier.stroke();
+    }
+
+    function startVol() {
+        var canvas = document.getElementById("vol").getContext("2d")
+
+        canvas.clearRect(0, 0, 5000, 300);
+        vol(document.getElementById("vol_iteration").value)
+    }
+</script>
+
+</html>
