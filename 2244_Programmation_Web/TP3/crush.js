@@ -12,8 +12,6 @@ class LutinBonbon {
         this.type = type_
         this.x1 = 0
         this.y1 = 0
-        this.x2 = 0
-        this.y2 = 0
         this.selectionne = false
     }
 
@@ -76,7 +74,7 @@ class LutinBonbon {
      * 
      */
     estEnMouvement() {
-        return ((this.x1 != this.x2) || (this.y1 != this.y2))
+        return ((this.x1 !== this.x2) || (this.y1 !== this.y2))
     }
 
     /**
@@ -101,8 +99,11 @@ class Vue {
      * @param {*} modele 
      * @param {*} tailleLutin 
      */
-    constructor(txy, monControleur, modele, tailleLutin) {
-
+    constructor(txy, monControleur_, modele_, tailleLutin_) {
+        this.taille = txy;
+        this.controleur = monControleur_
+        this.modele = modele_
+        this.tailleLutin = tailleLutin_
     }
 
     /**
@@ -158,6 +159,7 @@ class Modele {
      */
     constructor(taille) {
         this.score = 0
+        this.tableau = Array.from({ length: taille }, e => Array(taille).fill(0));
     }
 
     /**
@@ -168,7 +170,9 @@ class Modele {
      * @param {*} y2 
      */
     echange2cases(x1, y1, x2, y2) {
-
+        var tmp = this.tableau[x1][y1]
+        this.tableau[x1][y1] = this.tableau[x2][y2]
+        this.tableau[x2][y2] = tmp
     }
 
     /**
@@ -196,14 +200,6 @@ class Controleur {
     constructor(tailleJeu, tailleLutin) {
         this.modele = new Modele(tailleJeu)
         this.vue = new Vue(tailleJeu, this, this.modele, tailleLutin);
-
-        var lutin = new LutinBonbon(1, tailleLutin, tailleLutin);
-        lutin.positionXY(50, 50);
-        lutin.dessin(context)
-        console.log("50,50")
-        lutin.positionXY(70, 70);
-        lutin.dessin(context)
-        console.log("70,70")
     }
 
     /**
