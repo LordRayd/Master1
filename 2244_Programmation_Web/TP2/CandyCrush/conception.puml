@@ -1,0 +1,65 @@
+@startuml Candy Crush
+actor Joueur
+Joueur -> Controller : click
+note left: Une seul matrice partagé entre \nle controller et la vue
+activate Controller
+Controller -> Controller : stopClicking()
+Controller --> Controller
+Controller -> Controller : movePossible(x,y,x2,y2) crée matrice tmp et check si swap donne combinaison
+Controller --> Controller
+alt Mouvement possible
+
+	Controller -> Vue : animation(x,y,x2,y2)
+    activate Vue
+    Vue -> Vue : swapElements(x,y,x2,y2)
+    Vue --> Vue
+    loop une fois pour chaque element
+        Vue -> Controller : Combinaison(x,y)
+        Controller --> Vue : retour List des élément sous forme [[x,y],..] ou null
+        alt retour non vide 
+            loop pour chaque element
+                Vue -> Vue : deleteElement(x,y)
+                Vue --> Vue
+            end
+        end 
+        Vue -> Vue : descendreElementAndCreateNew
+            loop i = 0 to largeurMatrice
+                Vue -> Vue : VideInColonne(i)
+                Vue --> Vue : positionFirstSpace [x,y] or null
+                alt not null
+                    Vue -> Vue : descendreElementAPartirDe(x,y)
+                    Vue -> Vue : animation descente colonne
+                    Vue --> Vue 
+                    Vue -> Vue : update matrice()
+                    Vue --> Vue 
+                    Vue --> Vue
+                end
+            end
+        Vue --> Vue
+    end
+    Vue -> Controller : checkAllPossibleCombinaison()
+    loop x = 0 to largeurMatrice
+        loop y = 0 to hauteurMatrice
+            Controller -> Controller : Combinaison(x,y)
+            Controller --> Controller
+            alt resultat  non null
+                Controller -> Vue : animation(x,y,x2,y2)
+                Vue --> Controller
+            end
+        end
+    end
+    Controller --> Vue
+    Vue --> Controller
+
+    deactivate Vue
+    Controller -> Modele : update()
+    Modele --> Controller
+	
+else Mouvement Impossible
+
+
+end
+Controller -> Controller : restartCliking()
+Controller --> Joueur
+deactivate Controller
+@enduml
