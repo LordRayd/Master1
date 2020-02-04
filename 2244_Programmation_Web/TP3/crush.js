@@ -157,9 +157,10 @@ class Modele {
      * taille est le coté du carré en nombre de cases
      * @param {*} taille 
      */
-    constructor(taille) {
+    constructor(taille_) {
         this.score = 0
-        this.tableau = Array.from({ length: taille }, e => Array(taille).fill(0));
+        this.taille = taille_
+        this.tableau = Array.from({ length: taille_ }, e => Array(taille_).fill(0));
     }
 
     /**
@@ -179,14 +180,45 @@ class Modele {
      * on fait les explosions du modèle
      */
     faitExplosion() {
-
+        var listExplosion = this.explosePossible();
+        list.forEach(e => this.tableau[e[0]][e[1]] = 0)
     }
 
     /**
      * est-ce qu'il y a des explosions potentielles dans le modèle ?
      */
     explosePossible() {
+        var list = []
+        for (var i = 0; i < this.taille; i++) {
+            for (var j = 0; j < this.taille; j++) {
+                if (this.correspondanceElement(i, j, i + 1, j))
+                    if (this.correspondanceElement(i, j, i + 2, j))
+                        list.concat([x, j], [x + 1, j], [x + 2, j]);
 
+                if (this.correspondanceElement(i, j, i - 1, j))
+                    if (this.correspondanceElement(i, j, i - 2, j))
+                        list.concat([x, j], [x - 1, j], [x - 2, j]);
+
+                if (this.correspondanceElement(i, j, i, j - 1))
+                    if (this.correspondanceElement(i, j, i, j - 2))
+                        list.concat([x, j], [x, j - 1], [x, j - 2]);
+
+                if (this.correspondanceElement(i, j, i, j + 1))
+                    if (this.correspondanceElement(i, j, i, j + 2))
+                        list.concat([x, j], [x, j + 1], [x, j + 2]);
+
+            }
+        }
+        return new Set(list)
+    }
+
+    correspondanceElement(x1, y2, x2, y2) {
+        if (!(this.verifieIndice(x1) || this.verifieIndice(y2) || this.verifieIndice(x2) || this.verifieIndice(y2))) return
+        return this.tableau[x1][y1] == this.tableau[x2][y2]
+    }
+
+    verifieIndice(position_) {
+        return !(position_ < 0 || position_ > this.taille)
     }
 }
 
