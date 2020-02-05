@@ -104,13 +104,18 @@ class Vue {
         this.controleur = monControleur_
         this.modele = modele_
         this.tailleLutin = tailleLutin_
+        this.listLutin = []
     }
 
     /**
      * la vue va aller chercher son état dans son propre modèle
      */
     metAJourAPartirDuModele() {
-
+        for (i in this.modele.tableau) {
+            for (j in this.modele.tableau[i]) {
+                this.listLutin.append(new LutinBonbon(j, this.tailleLutin, this.tailleLutin))
+            }
+        }
     }
 
     /**
@@ -181,7 +186,7 @@ class Modele {
      */
     faitExplosion() {
         var listExplosion = this.explosePossible();
-        list.forEach(e => this.tableau[e[0]][e[1]] = 0)
+        listExplosion.forEach(e => this.tableau[e[0]][e[1]] = 0)
     }
 
     /**
