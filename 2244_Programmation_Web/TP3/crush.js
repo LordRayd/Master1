@@ -45,19 +45,12 @@ class LutinBonbon {
      * @param {*} context 
      */
     dessin(context) {
-        var img = new Image(); // Crée un nouvel élément Image
-        if (this.typeBonbon() == 1) {
-            img.src = 'images/Blue.png';
-        } else if (this.typeBonbon() == 2) {
-            img.src = 'images/Green.png';
-        } else if (this.typeBonbon() == 3) {
-            img.src = 'images/Orange.png';
-        } else if (this.typeBonbon() == 4) {
-            img.src = 'images/Red.png';
-        } else if (this.typeBonbon() == 5) {
-            img.src = 'images/Yellow.png';
+        if (this.typeBonbon() == 1) {context.drawImage(document.getElementById("blue"), this.x1, this.y1); 
+        } else if (this.typeBonbon() == 2) {context.drawImage(document.getElementById("green"), this.x1, this.y1); 
+        } else if (this.typeBonbon() == 3) {context.drawImage(document.getElementById("orange"), this.x1, this.y1); 
+        } else if (this.typeBonbon() == 4) {context.drawImage(document.getElementById("red"), this.x1, this.y1); 
+        } else if (this.typeBonbon() == 5) {context.drawImage(document.getElementById("yellow"), this.x1, this.y1); 
         }
-        context.drawImage(img, this.x1, this.y1);
     }
 
     /**
@@ -111,9 +104,9 @@ class Vue {
      * la vue va aller chercher son état dans son propre modèle
      */
     metAJourAPartirDuModele() {
-        for (i in this.modele.tableau) {
-            for (j in this.modele.tableau[i]) {
-                this.listLutin.append(new LutinBonbon(j, this.tailleLutin, this.tailleLutin))
+        for (let i = 0; i < this.modele.tableau.length; i++) {
+            for (let j = 0; j < this.modele.tableau.length[j]; j++) {
+                this.listLutin.push(new LutinBonbon(this.modele.tableau[i][j], this.tailleLutin, this.tailleLutin))
             }
         }
     }
@@ -137,14 +130,59 @@ class Vue {
      */
     echange2lutins(x1, y1, x2, y2) {
 
+        for(i in this.listLutin){
+            if(i.x1 == x1 && i.y1 == y1){
+
+            }
+        }
+
     }
 
+
+    effaceEcran(contexte){
+        contexte.clearRect(0,0,contexte.largeur,contexte.hauteur);
+    }
+
+    premierAffichage(contexte){
+        let counter = 0
+        document.getElementById("blue").onload = function (e) {
+            counter++
+            if (counter == 5) afficheVue(contexte)
+        }
+        document.getElementById("green").onload = function (e) {
+            counter++
+            if (counter == 5) afficheVue(contexte)
+        }
+        document.getElementById("orange").onload = function (e) {
+            counter++
+            if (counter == 5) afficheVue(contexte)
+        }
+        document.getElementById("red").onload = function (e) {
+            counter++
+            if (counter == 5) afficheVue(contexte)
+        }
+        document.getElementById("yellow").onload = function (e) {
+            counter++
+            if (counter == 5) afficheVue(contexte)
+        }
+    }
     /**
      * dessine la vue sans animation
      * @param {*} contexte 
      */
     afficheVue(contexte) {
+        this.effaceEcran(contexte)
+        var lutin = new LutinBonbon(2,50,50);
+        lutin.positionXY(100,100)
+        lutin.dessin(document.getElementById("cvs").getContext("2d"))
 
+        document.getElementById("cvs").getContext("2d").stroke();
+        //this.listLutin.forEach(element => (element.dessin(contexte)))
+
+        /*document.getElementById("cvs").getContext("2d").beginPath()
+        this.listLutin.forEach(e => e.dessin(document.getElementById("cvs").getContext("2d")));
+        document.getElementById("cvs").getContext("2d").stroke();*/
+        
     }
 
     /**
@@ -166,6 +204,7 @@ class Modele {
         this.score = 0
         this.taille = taille_
         this.tableau = Array.from({ length: taille_ }, e => Array(taille_).fill(0));
+
     }
 
     /**
@@ -217,7 +256,7 @@ class Modele {
         return new Set(list)
     }
 
-    correspondanceElement(x1, y2, x2, y2) {
+    correspondanceElement(x1, y1, x2, y2) {
         if (!(this.verifieIndice(x1) || this.verifieIndice(y2) || this.verifieIndice(x2) || this.verifieIndice(y2))) return
         return this.tableau[x1][y1] == this.tableau[x2][y2]
     }
@@ -237,6 +276,8 @@ class Controleur {
     constructor(tailleJeu, tailleLutin) {
         this.modele = new Modele(tailleJeu)
         this.vue = new Vue(tailleJeu, this, this.modele, tailleLutin);
+        
+
     }
 
     /**
@@ -257,6 +298,13 @@ class Controleur {
      * @param {*} y 
      */
     click(x, y) {
+
+        var lutin = new LutinBonbon(2,50,50);
+        lutin.positionXY(x,y)
+        lutin.dessin(document.getElementById("cvs").getContext("2d"))
+
+        document.getElementById("cvs").getContext("2d").stroke();
+        //this.vue.listLutin.forEach(e => e.dessin(document.getElementById("cvs").getContext("2d")));
 
     }
 
@@ -289,8 +337,10 @@ function init() {
     context.width = document.getElementById("cvs").width;
     context.height = document.getElementById("cvs").height;
     var jeu = new Controleur(10, 50)
-        //jeu.maVue.metAJourAPartirDuModele();
-        //jeu.maVue.animeVue(context)
+    jeu.vue.metAJourAPartirDuModele();
+    jeu.vue.premierAffichage(context)
+    //jeu.vue.afficheVue(context)
+    //jeu.vue.animeVue(context)
 
     /**
      * on intercepte le click souris 
@@ -302,6 +352,7 @@ function init() {
             var x = event.pageX - event.target.offsetLeft;
             var y = event.pageY - event.target.offsetTop;
             jeu.click(x, y)
+            
         }
     }
 
