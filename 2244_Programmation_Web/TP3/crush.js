@@ -78,18 +78,28 @@ class LutinBonbon {
      * 
      */
     estEnMouvement() {
-        return (!(this.x1 == this.x2) && !(this.y1 == this.y2))
+        return !((this.x1 == this.x2) && (this.y1 == this.y2))
     }
 
     /**
      * met à jour les coordonnées du sprite si besoin
      */
     metAJour() {
-        if (!this.estEnMouvement()) return undefined
-        if (this.x1 < this.x2) this.x1 = this.x1 + 5
-        if (this.y1 < this.y2) this.y1 = this.y1 + 5
-        if (this.x1 > this.x2) this.x1 = this.x1 - 5
-        if (this.y1 > this.y2) this.y1 = this.y1 - 5
+        if (this.estEnMouvement()){
+            if (this.x1 < this.x2) {
+                this.x1 = this.x1 + 5
+            }
+            if (this.y1 < this.y2) {
+                this.y1 = this.y1 + 5
+            }
+            if (this.x1 > this.x2){
+                this.x1 = this.x1 - 5
+            } 
+            if (this.y1 > this.y2){
+                this.y1 = this.y1 - 5
+            } 
+        }
+        
     }
 } // class LutinBonbon
 
@@ -137,6 +147,29 @@ class Vue {
         this.listLutin.push(lutin)
     }
 
+    nouveauLutinPourApparition(x,y,quel,compteur){
+        let lutin = new LutinBonbon(quel, this.tailleLutin, this.tailleLutin)
+        lutin.positionXY(x*this.tailleLutin,-compteur*this.tailleLutin);
+        lutin.deplacementVers(x * this.tailleLutin, y * this.tailleLutin);
+        this.listLutin.push(lutin);
+    }
+
+    echangePossible(x1, y1, x2, y2){
+        var ret = false;
+        this.modele.echange2cases(x1, y1, x2, y2);
+        let listExplosion = this.modele.explosePossible();
+        for (let i = 0; i < listExplosion.length && ret != true; i++) {
+            for (let j = 0; j < listExplosion.length && ret != true; j++) {
+                if (listExplosion[i][j] == 1) {
+                    ret = true
+                }
+            }
+        }
+        if(ret == false){
+            this.modele.echange2cases(x1, y1, x2, y2);
+        }
+        return ret
+    }
     /**
      * intervertit deux cases dans la vue
      * @param {*} x1 
@@ -145,15 +178,21 @@ class Vue {
      * @param {*} y2 
      */
     echange2lutins(x1, y1, x2, y2) {
-        this.listLutin.forEach(sprite => {
-            if (sprite.x1 == (x1 * this.tailleLutin) && sprite.y1 == (y1 * this.tailleLutin)) {
-                sprite.deplacementVers(x2, y2);
+        if(((x1 == x2) && (y1 == y2-1 || y1 == y2+1)) || ((y1 == y2) && (x1 == x2+1 || x1 == x2-1) )){
+            
+            if(this.echangePossible(x1, y1, x2, y2)){
+                this.listLutin.forEach(sprite => {
+                    if (sprite.x1 == (x1 * this.tailleLutin) && sprite.y1 == (y1 * this.tailleLutin)) {
+                        sprite.deplacementVers(x2* this.tailleLutin, y2* this.tailleLutin);
+                    }
+                    if (sprite.x1 == (x2 * this.tailleLutin) && sprite.y1 == (y2 * this.tailleLutin)) {
+                        sprite.deplacementVers(x1* this.tailleLutin, y1* this.tailleLutin);
+                    }
+                });
+                this.animeVue(context)
             }
-            if (sprite.x1 == (x2 * this.tailleLutin) && sprite.y1 == (y2 * this.tailleLutin)) {
-                sprite.deplacementVers(x1, y1);
-            }
-        });
-        this.animeVue(context)
+            
+        }
     }
 
 
@@ -161,6 +200,8 @@ class Vue {
         contexte.clearRect(0, 0, contexte.width, contexte.height);
         contexte.fillStyle = "grey";
         contexte.fillRect(0, 0, contexte.width, contexte.height);
+        contexte.fillStyle = "white";
+        contexte.fillText(this.modele.score, 100, 800);
     }
 
     /**
@@ -186,8 +227,8 @@ class Vue {
                 if (sprite.estEnMouvement()) {
                     ret = true;
                 }
-            })
-            return ret
+            });
+            return ret;
         }
         /**
          * anime les bonbons et quand c'est terminé, appelle le contrôleur
@@ -200,8 +241,8 @@ class Vue {
         var that = this
         if (this.estEnMouvement()) {
             setTimeout(() => { that.animeVue(contexte) }, 10)
-        } else {
-            console.log("stop")
+        }else{
+            this.controleur.finAnimation(contexte);
         }
     }
 }
@@ -244,7 +285,8 @@ class Modele {
         for (let i = 0; i < listExplosion.length; i++) {
             for (let j = 0; j < listExplosion.length; j++) {
                 if (listExplosion[i][j] == 1) {
-                    this.tableau[i][j] = 0
+                    this.score = this.score + 1;
+                    this.tableau[i][j] = 0;
                 }
             }
         }
@@ -292,9 +334,24 @@ class Modele {
         return list
     }
 
+    /**
+     * 
+     */
+    combbinaisonExistante(){
+        let ret = false;
+        this.explosePossible().forEach(ligne => ligne.forEach(colonne => {
+            if(colonne == 1){
+                ret = true;
+            }
+        }))
+        return ret;
+    }
+
     correspondanceElement(x1, y1, x2, y2) {
         if (this.verifieIndice(x1) && this.verifieIndice(y1) && this.verifieIndice(x2) && this.verifieIndice(y2)) {
-            return this.tableau[x1][y1] == this.tableau[x2][y2]
+            if(this.tableau[x1][y1] != 0 && this.tableau[x2][y2] != 0){
+                return this.tableau[x1][y1] == this.tableau[x2][y2];
+            }
         }
     }
 
@@ -311,10 +368,15 @@ class Controleur {
      * @param {*} tailleLutin 
      */
     constructor(tailleJeu, tailleLutin) {
-        this.modele = new Modele(tailleJeu)
+        this.tailleJeu = tailleJeu;
+        this.modele = new Modele(tailleJeu);
         this.vue = new Vue(tailleJeu, this, this.modele, tailleLutin);
-        this.modele.faitExplosion();
         this.vue.metAJourAPartirDuModele()
+        while(this.modele.combbinaisonExistante()){
+            this.modele.faitExplosion();
+            this.repackGrille(context);
+        }
+        this.modele.score = 0;
     }
 
     /**
@@ -326,7 +388,12 @@ class Controleur {
      * @param {*} contexte 
      */
     finAnimation(contexte) {
-
+        while(this.modele.combbinaisonExistante()){
+            this.modele.faitExplosion();
+            this.repackGrille(contexte);
+        }
+        this.vue.metAJourAPartirDuModele();
+        this.vue.afficheVue(contexte);
     }
 
     /**
@@ -362,7 +429,26 @@ class Controleur {
          * @param {*} contexte 
          */
     repackGrille(contexte) {
+        for(let i=0; i<this.tailleJeu;i++){
+            this.repackColonne(i);
+        }
+        this.rajouteDesLutins();
+    }
 
+    /**
+     * 
+     */
+    rajouteDesLutins(){
+        for(let i=0; i<this.tailleJeu;i++){
+            let compteur = 0;
+            for(let j=this.tailleJeu-1;j>=0 ;j--){
+                if(this.modele.tableau[i][j]==0){
+                    this.modele.tableau[i][j] = Math.floor(Math.random() * Math.floor(5) + 1);
+                    compteur = compteur+1;
+                    this.vue.nouveauLutinPourApparition(i,j,this.modele.tableau[i][j],compteur);
+                }
+            }
+        }
     }
 
     /**
@@ -370,7 +456,56 @@ class Controleur {
      * @param {*} col 
      */
     repackColonne(col) {
+        let ret = false;
+        if(this.elementVideDansColonne(col)){
+            for(let i=0;i<this.tailleJeu && ret != true;i++){
+                if(this.modele.tableau[col][i] == 0){
+                    if(this.elementPlusHaut(col,i)){
+                        this.deplaceVersLeBasAPartirDe(col,i);
+                        ret = true;
+                        this.repackColonne(col)
+                    }
+                }
+            }
+        }
+        return ret;
+    }
 
+    /**
+     * 
+     * @param {*} col 
+     */
+    elementVideDansColonne(col){
+        let ret = false
+        this.modele.tableau.forEach(e=> e.forEach(element => {if(element==0)ret = true}))
+        return ret
+    }
+
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
+    elementPlusHaut(x,y){
+        let ret = false;
+        for(let i=y-1; i>=0 && ret==false;i--){
+            if(this.modele.tableau[x][i] != 0){
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
+    deplaceVersLeBasAPartirDe(x,y){
+        if(x>=0 && x<this.tailleJeu && y>0 && y<this.tailleJeu){
+            this.modele.echange2cases(x,y,x,y-1);
+            this.deplaceVersLeBasAPartirDe(x,y-1);
+        }
     }
 }
 
@@ -387,7 +522,7 @@ function init() {
     context.height = document.getElementById("cvs").height;
     var jeu = new Controleur(6, 100);
     jeu.vue.afficheVue(context)
-        //jeu.vue.animeVue(context)
+    jeu.vue.animeVue(context)
 
     /**
      * on intercepte le click souris 
