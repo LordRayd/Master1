@@ -12,6 +12,8 @@ class LutinBonbon {
         this.type = type_
         this.x1 = 0
         this.y1 = 0
+        this.x2 = 0
+        this.y2 = 0
         this.selectionne = false
     }
 
@@ -23,6 +25,8 @@ class LutinBonbon {
     positionXY(x1_, y1_) {
         this.x1 = x1_
         this.y1 = y1_
+        this.x2 = x1_
+        this.y2 = y1_
     }
 
     /**
@@ -74,14 +78,14 @@ class LutinBonbon {
      * 
      */
     estEnMouvement() {
-        return ((this.x1 !== this.x2) || (this.y1 !== this.y2))
+        return (!(this.x1 == this.x2) && !(this.y1 == this.y2))
     }
 
     /**
      * met à jour les coordonnées du sprite si besoin
      */
     metAJour() {
-        if (!this.estEnMouvement()) return
+        if (!this.estEnMouvement()) return undefined
         if (this.x1 < this.x2) this.x1 = this.x1 + 5
         if (this.y1 < this.y2) this.y1 = this.y1 + 5
         if (this.x1 > this.x2) this.x1 = this.x1 - 5
@@ -141,13 +145,15 @@ class Vue {
      * @param {*} y2 
      */
     echange2lutins(x1, y1, x2, y2) {
-
-        for (i in this.listLutin) {
-            if (i.x1 == x1 && i.y1 == y1) {
-
+        this.listLutin.forEach(sprite => {
+            if (sprite.x1 == (x1 * this.tailleLutin) && sprite.y1 == (y1 * this.tailleLutin)) {
+                sprite.deplacementVers(x2, y2);
             }
-        }
-
+            if (sprite.x1 == (x2 * this.tailleLutin) && sprite.y1 == (y2 * this.tailleLutin)) {
+                sprite.deplacementVers(x1, y1);
+            }
+        });
+        this.animeVue(context)
     }
 
 
@@ -168,12 +174,35 @@ class Vue {
         });
     }
 
-    /**
-     * anime les bonbons et quand c'est terminé, appelle le contrôleur
-     * @param {*} contexte 
-     */
-    animeVue(contexte) {
+    metAJour() {
+        this.listLutin.forEach(sprite => {
+            sprite.metAJour();
+        });
+    }
 
+    estEnMouvement() {
+            var ret = false;
+            this.listLutin.forEach(sprite => {
+                if (sprite.estEnMouvement()) {
+                    ret = true;
+                }
+            })
+            return ret
+        }
+        /**
+         * anime les bonbons et quand c'est terminé, appelle le contrôleur
+         * @param {*} contexte 
+         */
+    animeVue(contexte) {
+        this.metAJour()
+            // itere sur la mise à vue de chaque Sprite
+        this.afficheVue(contexte)
+        var that = this
+        if (this.estEnMouvement()) {
+            setTimeout(() => { that.animeVue(contexte) }, 10)
+        } else {
+            console.log("stop")
+        }
     }
 }
 
@@ -312,9 +341,11 @@ class Controleur {
         } else if (this.indice_x2 == undefined && this.indice_y2 == undefined) {
             this.indice_x2 = Math.floor(x / this.vue.tailleLutin);
             this.indice_y2 = Math.floor(y / this.vue.tailleLutin);
-            this.modele.echange2cases(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
+            this.vue.echange2lutins(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
+
+            /*this.modele.echange2cases(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
             this.modele.faitExplosion();
-            this.vue.metAJourAPartirDuModele();
+            this.vue.metAJourAPartirDuModele();*/
             this.effacePointClicker();
         }
         this.vue.afficheVue(context);
