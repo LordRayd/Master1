@@ -45,11 +45,18 @@ class LutinBonbon {
      * @param {*} context 
      */
     dessin(context) {
-        if (this.typeBonbon() == 1) {context.drawImage(document.getElementById("blue"), this.x1, this.y1); 
-        } else if (this.typeBonbon() == 2) {context.drawImage(document.getElementById("green"), this.x1, this.y1); 
-        } else if (this.typeBonbon() == 3) {context.drawImage(document.getElementById("orange"), this.x1, this.y1); 
-        } else if (this.typeBonbon() == 4) {context.drawImage(document.getElementById("red"), this.x1, this.y1); 
-        } else if (this.typeBonbon() == 5) {context.drawImage(document.getElementById("yellow"), this.x1, this.y1); 
+        if (this.typeBonbon() == 1) {
+            context.drawImage(document.getElementById("blue"), this.x1, this.y1);
+        } else if (this.typeBonbon() == 2) {
+            context.drawImage(document.getElementById("green"), this.x1, this.y1);
+        } else if (this.typeBonbon() == 3) {
+            context.drawImage(document.getElementById("orange"), this.x1, this.y1);
+        } else if (this.typeBonbon() == 4) {
+            context.drawImage(document.getElementById("red"), this.x1, this.y1);
+        } else if (this.typeBonbon() == 5) {
+            context.drawImage(document.getElementById("yellow"), this.x1, this.y1);
+        } else if (this.typeBonbon() == 0) {
+            console.log("erreur bonbon");
         }
     }
 
@@ -94,19 +101,22 @@ class Vue {
      */
     constructor(txy, monControleur_, modele_, tailleLutin_) {
         this.taille = txy;
-        this.controleur = monControleur_
-        this.modele = modele_
-        this.tailleLutin = tailleLutin_
-        this.listLutin = []
+        this.controleur = monControleur_;
+        this.modele = modele_;
+        this.tailleLutin = tailleLutin_;
+        this.listLutin = this.metAJourAPartirDuModele();
     }
 
     /**
      * la vue va aller chercher son état dans son propre modèle
      */
     metAJourAPartirDuModele() {
+        this.listLutin = []
         for (let i = 0; i < this.modele.tableau.length; i++) {
-            for (let j = 0; j < this.modele.tableau.length[j]; j++) {
-                this.listLutin.push(new LutinBonbon(this.modele.tableau[i][j], this.tailleLutin, this.tailleLutin))
+            for (let j = 0; j < this.modele.tableau.length; j++) {
+                if (this.modele.tableau[i][j] != 0) {
+                    this.nouveauLutin(i, j, this.modele.tableau[i][j]);
+                }
             }
         }
     }
@@ -118,7 +128,9 @@ class Vue {
      * @param {*} quel 
      */
     nouveauLutin(x, y, quel) {
-
+        let lutin = new LutinBonbon(quel, this.tailleLutin, this.tailleLutin)
+        lutin.positionXY(x * this.tailleLutin, y * this.tailleLutin)
+        this.listLutin.push(lutin)
     }
 
     /**
@@ -130,8 +142,8 @@ class Vue {
      */
     echange2lutins(x1, y1, x2, y2) {
 
-        for(i in this.listLutin){
-            if(i.x1 == x1 && i.y1 == y1){
+        for (i in this.listLutin) {
+            if (i.x1 == x1 && i.y1 == y1) {
 
             }
         }
@@ -139,50 +151,21 @@ class Vue {
     }
 
 
-    effaceEcran(contexte){
-        contexte.clearRect(0,0,contexte.largeur,contexte.hauteur);
+    effaceEcran(contexte) {
+        contexte.clearRect(0, 0, contexte.width, contexte.height);
+        contexte.fillStyle = "grey";
+        contexte.fillRect(0, 0, contexte.width, contexte.height);
     }
 
-    premierAffichage(contexte){
-        let counter = 0
-        document.getElementById("blue").onload = function (e) {
-            counter++
-            if (counter == 5) afficheVue(contexte)
-        }
-        document.getElementById("green").onload = function (e) {
-            counter++
-            if (counter == 5) afficheVue(contexte)
-        }
-        document.getElementById("orange").onload = function (e) {
-            counter++
-            if (counter == 5) afficheVue(contexte)
-        }
-        document.getElementById("red").onload = function (e) {
-            counter++
-            if (counter == 5) afficheVue(contexte)
-        }
-        document.getElementById("yellow").onload = function (e) {
-            counter++
-            if (counter == 5) afficheVue(contexte)
-        }
-    }
     /**
      * dessine la vue sans animation
      * @param {*} contexte 
      */
     afficheVue(contexte) {
         this.effaceEcran(contexte)
-        var lutin = new LutinBonbon(2,50,50);
-        lutin.positionXY(100,100)
-        lutin.dessin(document.getElementById("cvs").getContext("2d"))
-
-        document.getElementById("cvs").getContext("2d").stroke();
-        //this.listLutin.forEach(element => (element.dessin(contexte)))
-
-        /*document.getElementById("cvs").getContext("2d").beginPath()
-        this.listLutin.forEach(e => e.dessin(document.getElementById("cvs").getContext("2d")));
-        document.getElementById("cvs").getContext("2d").stroke();*/
-        
+        this.listLutin.forEach(sprite => {
+            sprite.dessin(contexte);
+        });
     }
 
     /**
@@ -204,7 +187,11 @@ class Modele {
         this.score = 0
         this.taille = taille_
         this.tableau = Array.from({ length: taille_ }, e => Array(taille_).fill(0));
-
+        for (let i = 0; i < this.tableau.length; i++) {
+            for (let j = 0; j < this.tableau.length; j++) {
+                this.tableau[i][j] = Math.floor(Math.random() * Math.floor(5) + 1)
+            }
+        }
     }
 
     /**
@@ -225,44 +212,65 @@ class Modele {
      */
     faitExplosion() {
         var listExplosion = this.explosePossible();
-        listExplosion.forEach(e => this.tableau[e[0]][e[1]] = 0)
+        for (let i = 0; i < listExplosion.length; i++) {
+            for (let j = 0; j < listExplosion.length; j++) {
+                if (listExplosion[i][j] == 1) {
+                    this.tableau[i][j] = 0
+                }
+            }
+        }
     }
 
     /**
      * est-ce qu'il y a des explosions potentielles dans le modèle ?
      */
     explosePossible() {
-        var list = []
-        for (var i = 0; i < this.taille; i++) {
-            for (var j = 0; j < this.taille; j++) {
-                if (this.correspondanceElement(i, j, i + 1, j))
-                    if (this.correspondanceElement(i, j, i + 2, j))
-                        list.concat([x, j], [x + 1, j], [x + 2, j]);
-
-                if (this.correspondanceElement(i, j, i - 1, j))
-                    if (this.correspondanceElement(i, j, i - 2, j))
-                        list.concat([x, j], [x - 1, j], [x - 2, j]);
-
-                if (this.correspondanceElement(i, j, i, j - 1))
-                    if (this.correspondanceElement(i, j, i, j - 2))
-                        list.concat([x, j], [x, j - 1], [x, j - 2]);
-
-                if (this.correspondanceElement(i, j, i, j + 1))
-                    if (this.correspondanceElement(i, j, i, j + 2))
-                        list.concat([x, j], [x, j + 1], [x, j + 2]);
-
+        var list = Array.from({ length: this.taille }, e => Array(this.taille).fill(0));
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list.length; j++) {
+                if (list[i][j] == 0) {
+                    if (this.correspondanceElement(i, j, i + 1, j)) {
+                        if (this.correspondanceElement(i, j, i + 2, j)) {
+                            list[i][j] = 1;
+                            list[i + 1][j] = 1;
+                            list[i + 2][j] = 1;
+                        }
+                    }
+                    if (this.correspondanceElement(i, j, i - 1, j)) {
+                        if (this.correspondanceElement(i, j, i - 2, j)) {
+                            list[i][j] = 1;
+                            list[i - 1][j] = 1;
+                            list[i - 2][j] = 1;
+                        }
+                    }
+                    if (this.correspondanceElement(i, j, i, j - 1)) {
+                        if (this.correspondanceElement(i, j, i, j - 2)) {
+                            list[i][j] = 1;
+                            list[i][j - 1] = 1;
+                            list[i][j - 2] = 1;
+                        }
+                    }
+                    if (this.correspondanceElement(i, j, i, j + 1)) {
+                        if (this.correspondanceElement(i, j, i, j + 2)) {
+                            list[i][j] = 1;
+                            list[i][j + 1] = 1;
+                            list[i][j + 2] = 1;
+                        }
+                    }
+                }
             }
         }
-        return new Set(list)
+        return list
     }
 
     correspondanceElement(x1, y1, x2, y2) {
-        if (!(this.verifieIndice(x1) || this.verifieIndice(y2) || this.verifieIndice(x2) || this.verifieIndice(y2))) return
-        return this.tableau[x1][y1] == this.tableau[x2][y2]
+        if (this.verifieIndice(x1) && this.verifieIndice(y1) && this.verifieIndice(x2) && this.verifieIndice(y2)) {
+            return this.tableau[x1][y1] == this.tableau[x2][y2]
+        }
     }
 
     verifieIndice(position_) {
-        return !(position_ < 0 || position_ > this.taille)
+        return (position_ >= 0 && position_ < this.taille)
     }
 }
 
@@ -276,8 +284,8 @@ class Controleur {
     constructor(tailleJeu, tailleLutin) {
         this.modele = new Modele(tailleJeu)
         this.vue = new Vue(tailleJeu, this, this.modele, tailleLutin);
-        
-
+        this.modele.faitExplosion();
+        this.vue.metAJourAPartirDuModele()
     }
 
     /**
@@ -298,20 +306,30 @@ class Controleur {
      * @param {*} y 
      */
     click(x, y) {
-
-        var lutin = new LutinBonbon(2,50,50);
-        lutin.positionXY(x,y)
-        lutin.dessin(document.getElementById("cvs").getContext("2d"))
-
-        document.getElementById("cvs").getContext("2d").stroke();
-        //this.vue.listLutin.forEach(e => e.dessin(document.getElementById("cvs").getContext("2d")));
-
+        if (this.indice_x1 == undefined && this.indice_y1 == undefined) {
+            this.indice_x1 = Math.floor(x / this.vue.tailleLutin);
+            this.indice_y1 = Math.floor(y / this.vue.tailleLutin);
+        } else if (this.indice_x2 == undefined && this.indice_y2 == undefined) {
+            this.indice_x2 = Math.floor(x / this.vue.tailleLutin);
+            this.indice_y2 = Math.floor(y / this.vue.tailleLutin);
+            this.modele.echange2cases(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
+            this.modele.faitExplosion();
+            this.vue.metAJourAPartirDuModele();
+            this.effacePointClicker();
+        }
+        this.vue.afficheVue(context);
     }
 
-    /**
-     * fait tomber et rebouche les trous en créant de nouveaux bonbons
-     * @param {*} contexte 
-     */
+    effacePointClicker() {
+            this.indice_x1 = undefined;
+            this.indice_x2 = undefined;
+            this.indice_y1 = undefined;
+            this.indice_y2 = undefined;
+        }
+        /**
+         * fait tomber et rebouche les trous en créant de nouveaux bonbons
+         * @param {*} contexte 
+         */
     repackGrille(contexte) {
 
     }
@@ -336,11 +354,9 @@ function init() {
     context = document.getElementById("cvs").getContext("2d");
     context.width = document.getElementById("cvs").width;
     context.height = document.getElementById("cvs").height;
-    var jeu = new Controleur(10, 50)
-    jeu.vue.metAJourAPartirDuModele();
-    jeu.vue.premierAffichage(context)
-    //jeu.vue.afficheVue(context)
-    //jeu.vue.animeVue(context)
+    var jeu = new Controleur(6, 100);
+    jeu.vue.afficheVue(context)
+        //jeu.vue.animeVue(context)
 
     /**
      * on intercepte le click souris 
@@ -352,7 +368,7 @@ function init() {
             var x = event.pageX - event.target.offsetLeft;
             var y = event.pageY - event.target.offsetTop;
             jeu.click(x, y)
-            
+
         }
     }
 
