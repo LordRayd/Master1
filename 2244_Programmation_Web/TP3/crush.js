@@ -197,11 +197,13 @@ class Vue {
 
 
     effaceEcran(contexte) {
-        contexte.clearRect(0, 0, contexte.width, contexte.height);
+        contexte.clearRect(0, 0, contexte.width,contexte.height);
         contexte.fillStyle = "grey";
-        contexte.fillRect(0, 0, contexte.width, contexte.height);
-        contexte.fillStyle = "white";
-        contexte.fillText(this.modele.score, 100, 800);
+        contexte.fillRect(0, 0, this.controleur.tailleJeu*this.tailleLutin, this.controleur.tailleJeu*this.tailleLutin);
+        contexte.font = '48px serif';
+        contexte.fillStyle = "black";
+        contexte.fillText("Score : ", 100, 800);
+        contexte.fillText(this.modele.score, 250, 800);
     }
 
     /**
@@ -244,6 +246,18 @@ class Vue {
         }else{
             this.controleur.finAnimation(contexte);
         }
+    }
+
+    /**
+     * effaace le carre representant un lutin
+     * @param {*} contexte 
+     * @param {*} x 
+     * @param {*} y 
+     */
+    effaceLutin(contexte,x,y){
+        contexte.clearRect(x*this.tailleLutin, y*this.tailleLutin, this.tailleLutin, this.tailleLutin);
+        contexte.fillStyle = "grey";
+        contexte.fillRect(x*this.tailleLutin, y*this.tailleLutin, this.tailleLutin, this.tailleLutin);
     }
 }
 
@@ -372,10 +386,7 @@ class Controleur {
         this.modele = new Modele(tailleJeu);
         this.vue = new Vue(tailleJeu, this, this.modele, tailleLutin);
         this.vue.metAJourAPartirDuModele()
-        while(this.modele.combbinaisonExistante()){
-            this.modele.faitExplosion();
-            this.repackGrille(context);
-        }
+        
         this.modele.score = 0;
     }
 
@@ -388,12 +399,15 @@ class Controleur {
      * @param {*} contexte 
      */
     finAnimation(contexte) {
-        while(this.modele.combbinaisonExistante()){
+        if(this.modele.combbinaisonExistante()){
+            this.explosionVue(context);
             this.modele.faitExplosion();
             this.repackGrille(contexte);
+            this.vue.animeVue(contexte)
+        }else{
+            this.vue.metAJourAPartirDuModele();
+            this.vue.afficheVue(contexte);
         }
-        this.vue.metAJourAPartirDuModele();
-        this.vue.afficheVue(contexte);
     }
 
     /**
@@ -409,10 +423,6 @@ class Controleur {
             this.indice_x2 = Math.floor(x / this.vue.tailleLutin);
             this.indice_y2 = Math.floor(y / this.vue.tailleLutin);
             this.vue.echange2lutins(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
-
-            /*this.modele.echange2cases(this.indice_x1, this.indice_y1, this.indice_x2, this.indice_y2);
-            this.modele.faitExplosion();
-            this.vue.metAJourAPartirDuModele();*/
             this.effacePointClicker();
         }
         this.vue.afficheVue(context);
@@ -505,6 +515,17 @@ class Controleur {
         if(x>=0 && x<this.tailleJeu && y>0 && y<this.tailleJeu){
             this.modele.echange2cases(x,y,x,y-1);
             this.deplaceVersLeBasAPartirDe(x,y-1);
+        }
+    }
+
+    explosionVue(contexte){
+        var listExplosion = this.modele.explosePossible();
+        for (let i = 0; i < listExplosion.length; i++) {
+            for (let j = 0; j < listExplosion.length; j++) {
+                if (listExplosion[i][j] == 1) {
+                    this.vue.effaceLutin(contexte,i,j);
+                }
+            }
         }
     }
 }
