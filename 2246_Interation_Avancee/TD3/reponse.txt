@@ -1,0 +1,19 @@
+MVC : modele d'architecture logiciel
+Le modele represente les données et ne fait reien d'autre, il ne depend de rien.
+La vue affiche les données du modele, un modele peut contenir plusieurs vues. Elles faits des demandes au modele.
+
+Le controleur et la vue vont contenir toutes les interactions que l'utilisateur pourra avoir avec la machine.
+MVC est inventé par Trygve Reenskaug lors d'une visite à XEROX en 1970s.
+
+MVC pour le thermomètre
+Modele :
+    ChangeLaTemperature();
+    retourneLaTemperature();
+Vue : 
+    AfficheLaTemperature();
+Controleur : 
+    ChangementDeTemperature();
+    RegarderLaTemperature();
+
+THÉORIE DE L'ACTIVITÉ
+Inventé par Lev Vygotsky, Alexei Leont'ev et Sergei Rubinstein en
