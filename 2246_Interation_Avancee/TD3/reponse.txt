@@ -17,3 +17,43 @@ Controleur :
 
 THÉORIE DE L'ACTIVITÉ
 Inventé par Lev Vygotsky, Alexei Leont'ev et Sergei Rubinstein en
+
+
+Schéma théorie de l'activité : 
+                               Outils ou Computer
+                                     /\
+                                    /  \
+                                   /    \
+                                  /      \
+                                 /        \
+                                /          \
+                               /            \
+                              /              \
+                             /                \
+                            /                  \
+                           /                    \
+                          /     Productuion      \
+                         /                        \
+                        /                          \
+                Sujet  /____________________________\ Objectif        ===============|>    Résultat
+                      /\                            /\                  
+                     /  \                          /  \
+                    /    \                        /    \
+                   /      \                      /      \
+                  /        \    Consommation    /        \
+                 /          \                  /          \
+                /            \                /            \
+               /              \              /              \
+              /                \            /                \
+             /                  \          /                  \                  
+            /       Echange      \        /    Distribution    \
+           /                      \      /                      \
+          /                        \    /                        \
+         /                          \  /                          \
+Règles  /____________________________\/____________________________\ Division du Travail
+                                 Communauté
+
+Vigotski : 20s - 30s
+Leontuv : 60s - 70s
+Engelström : 
+Nardi : 
