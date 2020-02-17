@@ -70,8 +70,8 @@ class LutinBonbon {
      * @param {*} y2_ 
      */
     deplacementVers(x2_, y2_) {
-        this.x2 = x2_
-        this.y2 = y2_
+        this.x2 = x2_* this.largeur
+        this.y2 = y2_* this.hauteur
     }
 
     /**
@@ -150,7 +150,7 @@ class Vue {
     nouveauLutinPourApparition(x,y,quel,compteur){
         let lutin = new LutinBonbon(quel, this.tailleLutin, this.tailleLutin)
         lutin.positionXY(x*this.tailleLutin,-compteur*this.tailleLutin);
-        lutin.deplacementVers(x * this.tailleLutin, y * this.tailleLutin);
+        lutin.deplacementVers(x, y);
         this.listLutin.push(lutin);
     }
 
@@ -183,10 +183,10 @@ class Vue {
             if(this.echangePossible(x1, y1, x2, y2)){
                 this.listLutin.forEach(sprite => {
                     if (sprite.x1 == (x1 * this.tailleLutin) && sprite.y1 == (y1 * this.tailleLutin)) {
-                        sprite.deplacementVers(x2* this.tailleLutin, y2* this.tailleLutin);
+                        sprite.deplacementVers(x2, y2);
                     }
                     if (sprite.x1 == (x2 * this.tailleLutin) && sprite.y1 == (y2 * this.tailleLutin)) {
-                        sprite.deplacementVers(x1* this.tailleLutin, y1* this.tailleLutin);
+                        sprite.deplacementVers(x1, y1);
                     }
                 });
                 this.animeVue(context)
@@ -203,7 +203,7 @@ class Vue {
         contexte.font = '48px serif';
         contexte.fillStyle = "black";
         contexte.fillText("Score : ", 100, 800);
-        contexte.fillText(this.modele.score, 250, 800);
+        contexte.fillText(this.modele.score, 400, 800);
     }
 
     /**
@@ -255,9 +255,10 @@ class Vue {
      * @param {*} y 
      */
     effaceLutin(contexte,x,y){
-        contexte.clearRect(x*this.tailleLutin, y*this.tailleLutin, this.tailleLutin, this.tailleLutin);
-        contexte.fillStyle = "grey";
-        contexte.fillRect(x*this.tailleLutin, y*this.tailleLutin, this.tailleLutin, this.tailleLutin);
+        var that = this
+        this.listLutin = this.listLutin.filter(function(value, index, arr){
+            return !(value.x1==(x*that.tailleLutin) && value.y1==(y*that.tailleLutin));
+        });
     }
 }
 
@@ -351,7 +352,7 @@ class Modele {
     /**
      * 
      */
-    combbinaisonExistante(){
+    combinaisonExistante(){
         let ret = false;
         this.explosePossible().forEach(ligne => ligne.forEach(colonne => {
             if(colonne == 1){
@@ -399,11 +400,9 @@ class Controleur {
      * @param {*} contexte 
      */
     finAnimation(contexte) {
-        if(this.modele.combbinaisonExistante()){
-            this.explosionVue(context);
-            this.modele.faitExplosion();
-            this.repackGrille(contexte);
-            this.vue.animeVue(contexte)
+        if(this.modele.combinaisonExistante()){
+            this.explosion(contexte);
+            this.vue.animeVue(contexte);
         }else{
             this.vue.metAJourAPartirDuModele();
             this.vue.afficheVue(contexte);
@@ -428,16 +427,30 @@ class Controleur {
         this.vue.afficheVue(context);
     }
 
+    /**
+     * 
+     */
     effacePointClicker() {
-            this.indice_x1 = undefined;
-            this.indice_x2 = undefined;
-            this.indice_y1 = undefined;
-            this.indice_y2 = undefined;
-        }
-        /**
-         * fait tomber et rebouche les trous en créant de nouveaux bonbons
-         * @param {*} contexte 
-         */
+        this.indice_x1 = undefined;
+        this.indice_x2 = undefined;
+        this.indice_y1 = undefined;
+        this.indice_y2 = undefined;
+    }
+
+    /**
+     * 
+     * @param {*} contexte 
+     */
+    explosion(contexte){
+        this.explosionVue(contexte);
+        this.modele.faitExplosion();
+        this.repackGrille(contexte);
+    }
+
+    /**
+     * fait tomber et rebouche les trous en créant de nouveaux bonbons
+     * @param {*} contexte 
+     */
     repackGrille(contexte) {
         for(let i=0; i<this.tailleJeu;i++){
             this.repackColonne(i);
@@ -513,7 +526,15 @@ class Controleur {
      */
     deplaceVersLeBasAPartirDe(x,y){
         if(x>=0 && x<this.tailleJeu && y>0 && y<this.tailleJeu){
+            var that = this
+            this.vue.listLutin.forEach(sprite =>{
+                if(sprite.x1 == (x*that.vue.tailleLutin) && sprite.y1 == (y*that.vue.tailleLutin)){
+                    console.log("passe");
+                    sprite.deplacementVers(x,y+1);
+                }
+            });
             this.modele.echange2cases(x,y,x,y-1);
+            
             this.deplaceVersLeBasAPartirDe(x,y-1);
         }
     }
