@@ -85,17 +85,15 @@ int scalar_saxpy(float ss[], float yy[], float a, float xx[]) {
 **************************************************************************/
 int simd_saxpy(float ss[], float yy[], float a, float xx[]) {
     
-    __m256i al = _mm256_set1_epi32(a);
-    for (int i = 0; i < N; i += 32) {// Roll out loop by eight to fit the eight-element vectors:
-        
-        __m256i y = _mm256_load_si256((__m256i *) (yy+i));// Load eight consecutive elements from bb into vector b:
-        __m256i x = _mm256_load_si256((__m256i *) (xx+i));// Load eight consecutive elements from cc into vector c:
+    m256 aa = _mm256_set1_ps(a);
+    for (int i = 0; i < N; i += 8)
+    {
+        m256 x = _mm256_load_ps((float *)(xx + i));
+        m256 y = _mm256_load_ps((float *)(yy + i));
 
-        __m256i ax = _mm256_mullo_epi32(x, al);// Multiply b and c
+        m256 axpy = _mm256_fmadd_ps(x,aa,y);
 
-        __m256i s = _mm256_add_epi32(ax,y);
-
-        _mm256_store_si256((__m256i *)(ss+i),s);
+        _mm256_store_ps((float *)(ss + i), axpy);
     }
     return 0;
 }

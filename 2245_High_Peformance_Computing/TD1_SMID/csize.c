@@ -11,5 +11,6 @@ int main() {
   printf( "long long int: %zd\n", sizeof(long long int) ) ;
   printf( "       size_t: %zd\n", sizeof(size_t) ) ;
   printf( "        void*: %zd\n\n", sizeof(void *) ) ;
+  printf( "         char: %zd\n\n", sizeof(char) ) ;
   return 0;
 }

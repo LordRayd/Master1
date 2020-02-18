@@ -48,6 +48,7 @@
         "types.h": "c",
         "stat.h": "c",
         "unistd.h": "c",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "complex": "c"
     }
 }
