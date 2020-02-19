@@ -1,5 +1,11 @@
-{ 
-    "main" : "candy.html", 
-    "name" : "candycrush", 
-    "version" :"0.1.0" 
+{
+  "main": "candy.html",
+  "name": "candycrush",
+  "version": "0.1.0",
+  "description": "Samuel LE BERRE Master 1 - AIDN\r Pour les points importants j'ai suivi votre conception, à savoir\r     - Un bonbon est representé comme un LutinBonbon, les points x et y spécifie la position du lutin sur le canvas.\r     - La vue connait le modele et peut créer sa grille par rapport à ce dernier\r     - Le controleur gère les clicks sourient et l'appel à l'animation et la fin de celle \r         si repack la grille (redescend les bonbons) et en crée de nouveaux.\r     - Le modèle comptent les points, regarde les combinaisons faisables et réalise les explosions.",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
 }

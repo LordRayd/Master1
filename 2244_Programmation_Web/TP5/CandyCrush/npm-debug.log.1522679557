@@ -1,0 +1,2039 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'nwjs-builder-phoenix',
+1 verbose cli   '--save-dev' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData nwjs-builder-phoenix
+8 silly fetchNamedPackageData nwjs-builder-phoenix
+9 silly mapToRegistry name nwjs-builder-phoenix
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/nwjs-builder-phoenix
+13 verbose request uri https://registry.npmjs.org/nwjs-builder-phoenix
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 19:59:12
+16 verbose request id 433c2c4934ad329a
+17 verbose etag W/"8756d2459634ec81989b7d2a9fd66afd"
+18 verbose lastModified Wed, 19 Dec 2018 06:57:31 GMT
+19 http request GET https://registry.npmjs.org/nwjs-builder-phoenix
+20 http 304 https://registry.npmjs.org/nwjs-builder-phoenix
+21 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'set-cookie':
+21 verbose headers    [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+21 verbose headers   'cf-ray': '567a7a135b16cdab-CDG',
+21 verbose headers   age: '5834',
+21 verbose headers   'cache-control': 'public, max-age=300',
+21 verbose headers   etag: '"8756d2459634ec81989b7d2a9fd66afd"',
+21 verbose headers   'last-modified': 'Wed, 19 Dec 2018 06:57:31 GMT',
+21 verbose headers   vary: 'Accept-Encoding',
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   server: 'cloudflare' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie':
+22 silly get      [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+22 silly get     'cf-ray': '567a7a135b16cdab-CDG',
+22 silly get     age: '5834',
+22 silly get     'cache-control': 'public, max-age=300',
+22 silly get     etag: '"8756d2459634ec81989b7d2a9fd66afd"',
+22 silly get     'last-modified': 'Wed, 19 Dec 2018 06:57:31 GMT',
+22 silly get     vary: 'Accept-Encoding',
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     server: 'cloudflare' } ]
+23 verbose etag https://registry.npmjs.org/nwjs-builder-phoenix from cache
+24 verbose get saving nwjs-builder-phoenix to /home/vmubuntu/.npm/registry.npmjs.org/nwjs-builder-phoenix/.cache.json
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule nwjs-builder-phoenix@1.15.0 checking installable status
+38 silly cache add args [ 'nwjs-builder-phoenix', null ]
+39 verbose cache add spec nwjs-builder-phoenix
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'nwjs-builder-phoenix',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'nwjs-builder-phoenix',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed nwjs-builder-phoenix@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for nwjs-builder-phoenix
+43 info addNameTag [ 'nwjs-builder-phoenix', 'latest' ]
+44 silly mapToRegistry name nwjs-builder-phoenix
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry uri https://registry.npmjs.org/nwjs-builder-phoenix
+48 verbose addNameTag registry:https://registry.npmjs.org/nwjs-builder-phoenix not in flight; fetching
+49 verbose get https://registry.npmjs.org/nwjs-builder-phoenix not expired, no request
+50 silly addNameTag next cb for nwjs-builder-phoenix with tag latest
+51 silly addNamed nwjs-builder-phoenix@1.15.0
+52 verbose addNamed "1.15.0" is a plain semver version for nwjs-builder-phoenix
+53 silly cache afterAdd nwjs-builder-phoenix@1.15.0
+54 verbose afterAdd /home/vmubuntu/.npm/nwjs-builder-phoenix/1.15.0/package/package.json not in flight; writing
+55 verbose afterAdd /home/vmubuntu/.npm/nwjs-builder-phoenix/1.15.0/package/package.json written
+56 silly fetchNamedPackageData dir-compare
+57 silly mapToRegistry name dir-compare
+58 silly mapToRegistry using default registry
+59 silly mapToRegistry registry https://registry.npmjs.org/
+60 silly mapToRegistry uri https://registry.npmjs.org/dir-compare
+61 verbose request uri https://registry.npmjs.org/dir-compare
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 19:59:13
+64 verbose etag W/"f879760a0698c8ce0e1dc0c6f3d9e263"
+65 verbose lastModified Sun, 02 Feb 2020 01:04:36 GMT
+66 http request GET https://registry.npmjs.org/dir-compare
+67 http 304 https://registry.npmjs.org/dir-compare
+68 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+68 verbose headers   connection: 'keep-alive',
+68 verbose headers   'set-cookie':
+68 verbose headers    [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+68 verbose headers   'cf-ray': '567a7a158928cdab-CDG',
+68 verbose headers   age: '246',
+68 verbose headers   'cache-control': 'public, max-age=300',
+68 verbose headers   etag: '"f879760a0698c8ce0e1dc0c6f3d9e263"',
+68 verbose headers   'last-modified': 'Sun, 02 Feb 2020 01:04:36 GMT',
+68 verbose headers   vary: 'Accept-Encoding',
+68 verbose headers   'cf-cache-status': 'HIT',
+68 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+68 verbose headers   server: 'cloudflare' }
+69 silly get cb [ 304,
+69 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+69 silly get     connection: 'keep-alive',
+69 silly get     'set-cookie':
+69 silly get      [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+69 silly get     'cf-ray': '567a7a158928cdab-CDG',
+69 silly get     age: '246',
+69 silly get     'cache-control': 'public, max-age=300',
+69 silly get     etag: '"f879760a0698c8ce0e1dc0c6f3d9e263"',
+69 silly get     'last-modified': 'Sun, 02 Feb 2020 01:04:36 GMT',
+69 silly get     vary: 'Accept-Encoding',
+69 silly get     'cf-cache-status': 'HIT',
+69 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+69 silly get     server: 'cloudflare' } ]
+70 verbose etag https://registry.npmjs.org/dir-compare from cache
+71 verbose get saving dir-compare to /home/vmubuntu/.npm/registry.npmjs.org/dir-compare/.cache.json
+72 silly resolveWithNewModule dir-compare@1.8.0 checking installable status
+73 silly cache add args [ 'dir-compare@^1.3.0', null ]
+74 verbose cache add spec dir-compare@^1.3.0
+75 silly cache add parsed spec Result {
+75 silly cache add   raw: 'dir-compare@^1.3.0',
+75 silly cache add   scope: null,
+75 silly cache add   name: 'dir-compare',
+75 silly cache add   rawSpec: '^1.3.0',
+75 silly cache add   spec: '>=1.3.0 <2.0.0',
+75 silly cache add   type: 'range' }
+76 silly addNamed dir-compare@>=1.3.0 <2.0.0
+77 verbose addNamed ">=1.3.0 <2.0.0" is a valid semver range for dir-compare
+78 silly addNameRange { name: 'dir-compare', range: '>=1.3.0 <2.0.0', hasData: false }
+79 silly mapToRegistry name dir-compare
+80 silly mapToRegistry using default registry
+81 silly mapToRegistry registry https://registry.npmjs.org/
+82 silly mapToRegistry uri https://registry.npmjs.org/dir-compare
+83 verbose addNameRange registry:https://registry.npmjs.org/dir-compare not in flight; fetching
+84 verbose get https://registry.npmjs.org/dir-compare not expired, no request
+85 silly addNameRange number 2 { name: 'dir-compare', range: '>=1.3.0 <2.0.0', hasData: true }
+86 silly addNameRange versions [ 'dir-compare',
+86 silly addNameRange   [ '0.0.1',
+86 silly addNameRange     '0.0.2',
+86 silly addNameRange     '0.0.3',
+86 silly addNameRange     '1.0.0',
+86 silly addNameRange     '1.0.1',
+86 silly addNameRange     '1.1.0',
+86 silly addNameRange     '1.2.0',
+86 silly addNameRange     '1.3.0',
+86 silly addNameRange     '1.4.0',
+86 silly addNameRange     '1.5.0',
+86 silly addNameRange     '1.5.1',
+86 silly addNameRange     '1.5.2',
+86 silly addNameRange     '1.5.3',
+86 silly addNameRange     '1.5.4',
+86 silly addNameRange     '1.6.0',
+86 silly addNameRange     '1.7.0',
+86 silly addNameRange     '1.7.1',
+86 silly addNameRange     '1.7.2',
+86 silly addNameRange     '1.7.3',
+86 silly addNameRange     '1.8.0',
+86 silly addNameRange     '2.0.0',
+86 silly addNameRange     '2.0.1',
+86 silly addNameRange     '2.2.0' ] ]
+87 silly addNamed dir-compare@1.8.0
+88 verbose addNamed "1.8.0" is a plain semver version for dir-compare
+89 silly cache afterAdd dir-compare@1.8.0
+90 verbose afterAdd /home/vmubuntu/.npm/dir-compare/1.8.0/package/package.json not in flight; writing
+91 verbose afterAdd /home/vmubuntu/.npm/dir-compare/1.8.0/package/package.json written
+92 silly fetchNamedPackageData 7zip-bin-mac
+93 silly mapToRegistry name 7zip-bin-mac
+94 silly mapToRegistry using default registry
+95 silly mapToRegistry registry https://registry.npmjs.org/
+96 silly mapToRegistry uri https://registry.npmjs.org/7zip-bin-mac
+97 silly fetchNamedPackageData 7zip-bin-win
+98 silly mapToRegistry name 7zip-bin-win
+99 silly mapToRegistry using default registry
+100 silly mapToRegistry registry https://registry.npmjs.org/
+101 silly mapToRegistry uri https://registry.npmjs.org/7zip-bin-win
+102 verbose request uri https://registry.npmjs.org/7zip-bin-mac
+103 verbose request no auth needed
+104 info attempt registry request try #1 at 19:59:13
+105 verbose etag W/"f8200dca0fe464fe496e62e068aa50cc"
+106 verbose lastModified Sat, 26 May 2018 14:11:00 GMT
+107 http request GET https://registry.npmjs.org/7zip-bin-mac
+108 verbose request uri https://registry.npmjs.org/7zip-bin-win
+109 verbose request no auth needed
+110 info attempt registry request try #1 at 19:59:13
+111 verbose etag W/"aa4ccb8d2999e2a997bb39b9b67e6d61"
+112 verbose lastModified Sat, 26 May 2018 14:11:00 GMT
+113 http request GET https://registry.npmjs.org/7zip-bin-win
+114 http 304 https://registry.npmjs.org/7zip-bin-mac
+115 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+115 verbose headers   connection: 'keep-alive',
+115 verbose headers   'set-cookie':
+115 verbose headers    [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+115 verbose headers   'cf-ray': '567a7a162a93cdab-CDG',
+115 verbose headers   age: '244',
+115 verbose headers   'cache-control': 'public, max-age=300',
+115 verbose headers   etag: '"f8200dca0fe464fe496e62e068aa50cc"',
+115 verbose headers   'last-modified': 'Sat, 26 May 2018 14:11:00 GMT',
+115 verbose headers   vary: 'Accept-Encoding',
+115 verbose headers   'cf-cache-status': 'HIT',
+115 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+115 verbose headers   server: 'cloudflare' }
+116 silly get cb [ 304,
+116 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+116 silly get     connection: 'keep-alive',
+116 silly get     'set-cookie':
+116 silly get      [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+116 silly get     'cf-ray': '567a7a162a93cdab-CDG',
+116 silly get     age: '244',
+116 silly get     'cache-control': 'public, max-age=300',
+116 silly get     etag: '"f8200dca0fe464fe496e62e068aa50cc"',
+116 silly get     'last-modified': 'Sat, 26 May 2018 14:11:00 GMT',
+116 silly get     vary: 'Accept-Encoding',
+116 silly get     'cf-cache-status': 'HIT',
+116 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+116 silly get     server: 'cloudflare' } ]
+117 verbose etag https://registry.npmjs.org/7zip-bin-mac from cache
+118 verbose get saving 7zip-bin-mac to /home/vmubuntu/.npm/registry.npmjs.org/7zip-bin-mac/.cache.json
+119 silly resolveWithNewModule 7zip-bin-mac@1.0.1 checking installable status
+120 http 304 https://registry.npmjs.org/7zip-bin-win
+121 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+121 verbose headers   connection: 'keep-alive',
+121 verbose headers   'set-cookie':
+121 verbose headers    [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+121 verbose headers   'cf-ray': '567a7a16b9f2cd9f-CDG',
+121 verbose headers   age: '244',
+121 verbose headers   'cache-control': 'public, max-age=300',
+121 verbose headers   etag: '"aa4ccb8d2999e2a997bb39b9b67e6d61"',
+121 verbose headers   'last-modified': 'Sat, 26 May 2018 14:11:00 GMT',
+121 verbose headers   vary: 'Accept-Encoding',
+121 verbose headers   'cf-cache-status': 'HIT',
+121 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+121 verbose headers   server: 'cloudflare' }
+122 silly get cb [ 304,
+122 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+122 silly get     connection: 'keep-alive',
+122 silly get     'set-cookie':
+122 silly get      [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+122 silly get     'cf-ray': '567a7a16b9f2cd9f-CDG',
+122 silly get     age: '244',
+122 silly get     'cache-control': 'public, max-age=300',
+122 silly get     etag: '"aa4ccb8d2999e2a997bb39b9b67e6d61"',
+122 silly get     'last-modified': 'Sat, 26 May 2018 14:11:00 GMT',
+122 silly get     vary: 'Accept-Encoding',
+122 silly get     'cf-cache-status': 'HIT',
+122 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+122 silly get     server: 'cloudflare' } ]
+123 verbose etag https://registry.npmjs.org/7zip-bin-win from cache
+124 verbose get saving 7zip-bin-win to /home/vmubuntu/.npm/registry.npmjs.org/7zip-bin-win/.cache.json
+125 silly resolveWithNewModule 7zip-bin-win@2.1.1 checking installable status
+126 silly fetchNamedPackageData bluebird
+127 silly mapToRegistry name bluebird
+128 silly mapToRegistry using default registry
+129 silly mapToRegistry registry https://registry.npmjs.org/
+130 silly mapToRegistry uri https://registry.npmjs.org/bluebird
+131 silly fetchNamedPackageData buffer-equal
+132 silly mapToRegistry name buffer-equal
+133 silly mapToRegistry using default registry
+134 silly mapToRegistry registry https://registry.npmjs.org/
+135 silly mapToRegistry uri https://registry.npmjs.org/buffer-equal
+136 silly fetchNamedPackageData colors
+137 silly mapToRegistry name colors
+138 silly mapToRegistry using default registry
+139 silly mapToRegistry registry https://registry.npmjs.org/
+140 silly mapToRegistry uri https://registry.npmjs.org/colors
+141 silly fetchNamedPackageData commander
+142 silly mapToRegistry name commander
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry uri https://registry.npmjs.org/commander
+146 silly fetchNamedPackageData minimatch
+147 silly mapToRegistry name minimatch
+148 silly mapToRegistry using default registry
+149 silly mapToRegistry registry https://registry.npmjs.org/
+150 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+151 verbose request uri https://registry.npmjs.org/bluebird
+152 verbose request no auth needed
+153 info attempt registry request try #1 at 19:59:13
+154 verbose etag W/"cbc9c9d2e22625016fa5f0309d9c6a71"
+155 verbose lastModified Tue, 03 Dec 2019 18:38:26 GMT
+156 http request GET https://registry.npmjs.org/bluebird
+157 verbose request uri https://registry.npmjs.org/buffer-equal
+158 verbose request no auth needed
+159 info attempt registry request try #1 at 19:59:13
+160 verbose etag W/"1032af131b42bebe769c443a55865d92"
+161 verbose lastModified Sat, 26 May 2018 19:07:22 GMT
+162 http request GET https://registry.npmjs.org/buffer-equal
+163 verbose request uri https://registry.npmjs.org/colors
+164 verbose request no auth needed
+165 info attempt registry request try #1 at 19:59:13
+166 verbose etag W/"64409f180c5fe836269a137c233ef66d"
+167 verbose lastModified Sun, 22 Sep 2019 23:46:11 GMT
+168 http request GET https://registry.npmjs.org/colors
+169 verbose request uri https://registry.npmjs.org/commander
+170 verbose request no auth needed
+171 info attempt registry request try #1 at 19:59:13
+172 verbose etag W/"065e79344bdf6996bd40cb471b2648ac"
+173 verbose lastModified Tue, 11 Feb 2020 09:54:00 GMT
+174 http request GET https://registry.npmjs.org/commander
+175 verbose request uri https://registry.npmjs.org/minimatch
+176 verbose request no auth needed
+177 info attempt registry request try #1 at 19:59:13
+178 verbose etag W/"74d0b8b38c427aed03f1f23d14bfb863"
+179 verbose lastModified Mon, 15 Apr 2019 06:36:47 GMT
+180 http request GET https://registry.npmjs.org/minimatch
+181 http 304 https://registry.npmjs.org/buffer-equal
+182 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+182 verbose headers   connection: 'keep-alive',
+182 verbose headers   'set-cookie':
+182 verbose headers    [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+182 verbose headers   'cf-ray': '567a7a173b75cd9f-CDG',
+182 verbose headers   age: '2049',
+182 verbose headers   'cache-control': 'public, max-age=300',
+182 verbose headers   etag: '"1032af131b42bebe769c443a55865d92"',
+182 verbose headers   'last-modified': 'Sat, 26 May 2018 19:07:22 GMT',
+182 verbose headers   vary: 'Accept-Encoding',
+182 verbose headers   'cf-cache-status': 'HIT',
+182 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+182 verbose headers   server: 'cloudflare' }
+183 silly get cb [ 304,
+183 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+183 silly get     connection: 'keep-alive',
+183 silly get     'set-cookie':
+183 silly get      [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+183 silly get     'cf-ray': '567a7a173b75cd9f-CDG',
+183 silly get     age: '2049',
+183 silly get     'cache-control': 'public, max-age=300',
+183 silly get     etag: '"1032af131b42bebe769c443a55865d92"',
+183 silly get     'last-modified': 'Sat, 26 May 2018 19:07:22 GMT',
+183 silly get     vary: 'Accept-Encoding',
+183 silly get     'cf-cache-status': 'HIT',
+183 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+183 silly get     server: 'cloudflare' } ]
+184 verbose etag https://registry.npmjs.org/buffer-equal from cache
+185 verbose get saving buffer-equal to /home/vmubuntu/.npm/registry.npmjs.org/buffer-equal/.cache.json
+186 http 304 https://registry.npmjs.org/bluebird
+187 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+187 verbose headers   connection: 'keep-alive',
+187 verbose headers   'set-cookie':
+187 verbose headers    [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+187 verbose headers   'cf-ray': '567a7a173d5dcdab-CDG',
+187 verbose headers   age: '1892',
+187 verbose headers   'cache-control': 'public, max-age=300',
+187 verbose headers   etag: '"cbc9c9d2e22625016fa5f0309d9c6a71"',
+187 verbose headers   'last-modified': 'Tue, 03 Dec 2019 18:38:26 GMT',
+187 verbose headers   vary: 'Accept-Encoding',
+187 verbose headers   'cf-cache-status': 'HIT',
+187 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+187 verbose headers   server: 'cloudflare' }
+188 silly get cb [ 304,
+188 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+188 silly get     connection: 'keep-alive',
+188 silly get     'set-cookie':
+188 silly get      [ '__cfduid=db7b48683278f8d8bf8a2b36edbb8d7f41582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+188 silly get     'cf-ray': '567a7a173d5dcdab-CDG',
+188 silly get     age: '1892',
+188 silly get     'cache-control': 'public, max-age=300',
+188 silly get     etag: '"cbc9c9d2e22625016fa5f0309d9c6a71"',
+188 silly get     'last-modified': 'Tue, 03 Dec 2019 18:38:26 GMT',
+188 silly get     vary: 'Accept-Encoding',
+188 silly get     'cf-cache-status': 'HIT',
+188 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+188 silly get     server: 'cloudflare' } ]
+189 verbose etag https://registry.npmjs.org/bluebird from cache
+190 verbose get saving bluebird to /home/vmubuntu/.npm/registry.npmjs.org/bluebird/.cache.json
+191 silly resolveWithNewModule buffer-equal@1.0.0 checking installable status
+192 silly cache add args [ 'buffer-equal@1.0.0', null ]
+193 verbose cache add spec buffer-equal@1.0.0
+194 silly cache add parsed spec Result {
+194 silly cache add   raw: 'buffer-equal@1.0.0',
+194 silly cache add   scope: null,
+194 silly cache add   name: 'buffer-equal',
+194 silly cache add   rawSpec: '1.0.0',
+194 silly cache add   spec: '1.0.0',
+194 silly cache add   type: 'version' }
+195 silly addNamed buffer-equal@1.0.0
+196 verbose addNamed "1.0.0" is a plain semver version for buffer-equal
+197 silly mapToRegistry name buffer-equal
+198 silly mapToRegistry using default registry
+199 silly mapToRegistry registry https://registry.npmjs.org/
+200 silly mapToRegistry uri https://registry.npmjs.org/buffer-equal
+201 verbose addNameVersion registry:https://registry.npmjs.org/buffer-equal not in flight; fetching
+202 silly resolveWithNewModule bluebird@3.4.1 checking installable status
+203 silly cache add args [ 'bluebird@3.4.1', null ]
+204 verbose cache add spec bluebird@3.4.1
+205 silly cache add parsed spec Result {
+205 silly cache add   raw: 'bluebird@3.4.1',
+205 silly cache add   scope: null,
+205 silly cache add   name: 'bluebird',
+205 silly cache add   rawSpec: '3.4.1',
+205 silly cache add   spec: '3.4.1',
+205 silly cache add   type: 'version' }
+206 silly addNamed bluebird@3.4.1
+207 verbose addNamed "3.4.1" is a plain semver version for bluebird
+208 silly mapToRegistry name bluebird
+209 silly mapToRegistry using default registry
+210 silly mapToRegistry registry https://registry.npmjs.org/
+211 silly mapToRegistry uri https://registry.npmjs.org/bluebird
+212 verbose addNameVersion registry:https://registry.npmjs.org/bluebird not in flight; fetching
+213 verbose get https://registry.npmjs.org/buffer-equal not expired, no request
+214 verbose get https://registry.npmjs.org/bluebird not expired, no request
+215 silly cache afterAdd buffer-equal@1.0.0
+216 verbose afterAdd /home/vmubuntu/.npm/buffer-equal/1.0.0/package/package.json not in flight; writing
+217 silly cache afterAdd bluebird@3.4.1
+218 verbose afterAdd /home/vmubuntu/.npm/bluebird/3.4.1/package/package.json not in flight; writing
+219 verbose afterAdd /home/vmubuntu/.npm/buffer-equal/1.0.0/package/package.json written
+220 verbose afterAdd /home/vmubuntu/.npm/bluebird/3.4.1/package/package.json written
+221 http 304 https://registry.npmjs.org/colors
+222 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+222 verbose headers   connection: 'keep-alive',
+222 verbose headers   'set-cookie':
+222 verbose headers    [ '__cfduid=d545d27b1741d59b80670016ab9ce2e9d1582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+222 verbose headers   'cf-ray': '567a7a17db52eddf-CDG',
+222 verbose headers   age: '2589',
+222 verbose headers   'cache-control': 'public, max-age=300',
+222 verbose headers   etag: '"64409f180c5fe836269a137c233ef66d"',
+222 verbose headers   'last-modified': 'Sun, 22 Sep 2019 23:46:11 GMT',
+222 verbose headers   vary: 'Accept-Encoding',
+222 verbose headers   'cf-cache-status': 'HIT',
+222 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+222 verbose headers   server: 'cloudflare' }
+223 silly get cb [ 304,
+223 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+223 silly get     connection: 'keep-alive',
+223 silly get     'set-cookie':
+223 silly get      [ '__cfduid=d545d27b1741d59b80670016ab9ce2e9d1582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+223 silly get     'cf-ray': '567a7a17db52eddf-CDG',
+223 silly get     age: '2589',
+223 silly get     'cache-control': 'public, max-age=300',
+223 silly get     etag: '"64409f180c5fe836269a137c233ef66d"',
+223 silly get     'last-modified': 'Sun, 22 Sep 2019 23:46:11 GMT',
+223 silly get     vary: 'Accept-Encoding',
+223 silly get     'cf-cache-status': 'HIT',
+223 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+223 silly get     server: 'cloudflare' } ]
+224 verbose etag https://registry.npmjs.org/colors from cache
+225 verbose get saving colors to /home/vmubuntu/.npm/registry.npmjs.org/colors/.cache.json
+226 silly resolveWithNewModule colors@1.0.3 checking installable status
+227 silly cache add args [ 'colors@1.0.3', null ]
+228 verbose cache add spec colors@1.0.3
+229 silly cache add parsed spec Result {
+229 silly cache add   raw: 'colors@1.0.3',
+229 silly cache add   scope: null,
+229 silly cache add   name: 'colors',
+229 silly cache add   rawSpec: '1.0.3',
+229 silly cache add   spec: '1.0.3',
+229 silly cache add   type: 'version' }
+230 silly addNamed colors@1.0.3
+231 verbose addNamed "1.0.3" is a plain semver version for colors
+232 silly mapToRegistry name colors
+233 silly mapToRegistry using default registry
+234 silly mapToRegistry registry https://registry.npmjs.org/
+235 silly mapToRegistry uri https://registry.npmjs.org/colors
+236 verbose addNameVersion registry:https://registry.npmjs.org/colors not in flight; fetching
+237 verbose get https://registry.npmjs.org/colors not expired, no request
+238 silly cache afterAdd colors@1.0.3
+239 verbose afterAdd /home/vmubuntu/.npm/colors/1.0.3/package/package.json not in flight; writing
+240 verbose afterAdd /home/vmubuntu/.npm/colors/1.0.3/package/package.json written
+241 http 304 https://registry.npmjs.org/commander
+242 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+242 verbose headers   connection: 'keep-alive',
+242 verbose headers   'set-cookie':
+242 verbose headers    [ '__cfduid=d19974a2860bb776bf4ecf75564b6e7aa1582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+242 verbose headers   'cf-ray': '567a7a17ed2eede7-CDG',
+242 verbose headers   age: '6567',
+242 verbose headers   'cache-control': 'public, max-age=300',
+242 verbose headers   etag: '"065e79344bdf6996bd40cb471b2648ac"',
+242 verbose headers   'last-modified': 'Tue, 11 Feb 2020 09:54:00 GMT',
+242 verbose headers   vary: 'Accept-Encoding',
+242 verbose headers   'cf-cache-status': 'HIT',
+242 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+242 verbose headers   server: 'cloudflare' }
+243 silly get cb [ 304,
+243 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+243 silly get     connection: 'keep-alive',
+243 silly get     'set-cookie':
+243 silly get      [ '__cfduid=d19974a2860bb776bf4ecf75564b6e7aa1582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+243 silly get     'cf-ray': '567a7a17ed2eede7-CDG',
+243 silly get     age: '6567',
+243 silly get     'cache-control': 'public, max-age=300',
+243 silly get     etag: '"065e79344bdf6996bd40cb471b2648ac"',
+243 silly get     'last-modified': 'Tue, 11 Feb 2020 09:54:00 GMT',
+243 silly get     vary: 'Accept-Encoding',
+243 silly get     'cf-cache-status': 'HIT',
+243 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+243 silly get     server: 'cloudflare' } ]
+244 verbose etag https://registry.npmjs.org/commander from cache
+245 verbose get saving commander to /home/vmubuntu/.npm/registry.npmjs.org/commander/.cache.json
+246 http 304 https://registry.npmjs.org/minimatch
+247 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+247 verbose headers   connection: 'keep-alive',
+247 verbose headers   'set-cookie':
+247 verbose headers    [ '__cfduid=d4e839f37135c2bdbb004b3782982cff51582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+247 verbose headers   'cf-ray': '567a7a17ee62a8a3-CDG',
+247 verbose headers   age: '4056',
+247 verbose headers   'cache-control': 'public, max-age=300',
+247 verbose headers   etag: '"74d0b8b38c427aed03f1f23d14bfb863"',
+247 verbose headers   'last-modified': 'Mon, 15 Apr 2019 06:36:47 GMT',
+247 verbose headers   vary: 'Accept-Encoding',
+247 verbose headers   'cf-cache-status': 'HIT',
+247 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+247 verbose headers   server: 'cloudflare' }
+248 silly get cb [ 304,
+248 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+248 silly get     connection: 'keep-alive',
+248 silly get     'set-cookie':
+248 silly get      [ '__cfduid=d4e839f37135c2bdbb004b3782982cff51582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+248 silly get     'cf-ray': '567a7a17ee62a8a3-CDG',
+248 silly get     age: '4056',
+248 silly get     'cache-control': 'public, max-age=300',
+248 silly get     etag: '"74d0b8b38c427aed03f1f23d14bfb863"',
+248 silly get     'last-modified': 'Mon, 15 Apr 2019 06:36:47 GMT',
+248 silly get     vary: 'Accept-Encoding',
+248 silly get     'cf-cache-status': 'HIT',
+248 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+248 silly get     server: 'cloudflare' } ]
+249 verbose etag https://registry.npmjs.org/minimatch from cache
+250 verbose get saving minimatch to /home/vmubuntu/.npm/registry.npmjs.org/minimatch/.cache.json
+251 silly resolveWithNewModule commander@2.9.0 checking installable status
+252 silly cache add args [ 'commander@2.9.0', null ]
+253 verbose cache add spec commander@2.9.0
+254 silly cache add parsed spec Result {
+254 silly cache add   raw: 'commander@2.9.0',
+254 silly cache add   scope: null,
+254 silly cache add   name: 'commander',
+254 silly cache add   rawSpec: '2.9.0',
+254 silly cache add   spec: '2.9.0',
+254 silly cache add   type: 'version' }
+255 silly addNamed commander@2.9.0
+256 verbose addNamed "2.9.0" is a plain semver version for commander
+257 silly mapToRegistry name commander
+258 silly mapToRegistry using default registry
+259 silly mapToRegistry registry https://registry.npmjs.org/
+260 silly mapToRegistry uri https://registry.npmjs.org/commander
+261 verbose addNameVersion registry:https://registry.npmjs.org/commander not in flight; fetching
+262 silly resolveWithNewModule minimatch@3.0.2 checking installable status
+263 silly cache add args [ 'minimatch@3.0.2', null ]
+264 verbose cache add spec minimatch@3.0.2
+265 silly cache add parsed spec Result {
+265 silly cache add   raw: 'minimatch@3.0.2',
+265 silly cache add   scope: null,
+265 silly cache add   name: 'minimatch',
+265 silly cache add   rawSpec: '3.0.2',
+265 silly cache add   spec: '3.0.2',
+265 silly cache add   type: 'version' }
+266 silly addNamed minimatch@3.0.2
+267 verbose addNamed "3.0.2" is a plain semver version for minimatch
+268 silly mapToRegistry name minimatch
+269 silly mapToRegistry using default registry
+270 silly mapToRegistry registry https://registry.npmjs.org/
+271 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+272 verbose addNameVersion registry:https://registry.npmjs.org/minimatch not in flight; fetching
+273 verbose get https://registry.npmjs.org/commander not expired, no request
+274 verbose get https://registry.npmjs.org/minimatch not expired, no request
+275 silly cache afterAdd commander@2.9.0
+276 verbose afterAdd /home/vmubuntu/.npm/commander/2.9.0/package/package.json not in flight; writing
+277 silly cache afterAdd minimatch@3.0.2
+278 verbose afterAdd /home/vmubuntu/.npm/minimatch/3.0.2/package/package.json not in flight; writing
+279 verbose afterAdd /home/vmubuntu/.npm/commander/2.9.0/package/package.json written
+280 verbose afterAdd /home/vmubuntu/.npm/minimatch/3.0.2/package/package.json written
+281 silly fetchNamedPackageData graceful-readlink
+282 silly mapToRegistry name graceful-readlink
+283 silly mapToRegistry using default registry
+284 silly mapToRegistry registry https://registry.npmjs.org/
+285 silly mapToRegistry uri https://registry.npmjs.org/graceful-readlink
+286 verbose request uri https://registry.npmjs.org/graceful-readlink
+287 verbose request no auth needed
+288 info attempt registry request try #1 at 19:59:13
+289 verbose etag W/"7e1aa4591615c6775d58881e2119bb1b"
+290 verbose lastModified Sun, 27 May 2018 02:39:28 GMT
+291 http request GET https://registry.npmjs.org/graceful-readlink
+292 http 304 https://registry.npmjs.org/graceful-readlink
+293 verbose headers { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+293 verbose headers   connection: 'keep-alive',
+293 verbose headers   'set-cookie':
+293 verbose headers    [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+293 verbose headers   'cf-ray': '567a7a188efecd9f-CDG',
+293 verbose headers   age: '6378',
+293 verbose headers   'cache-control': 'public, max-age=300',
+293 verbose headers   etag: '"7e1aa4591615c6775d58881e2119bb1b"',
+293 verbose headers   'last-modified': 'Sun, 27 May 2018 02:39:28 GMT',
+293 verbose headers   vary: 'Accept-Encoding',
+293 verbose headers   'cf-cache-status': 'HIT',
+293 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+293 verbose headers   server: 'cloudflare' }
+294 silly get cb [ 304,
+294 silly get   { date: 'Wed, 19 Feb 2020 18:59:15 GMT',
+294 silly get     connection: 'keep-alive',
+294 silly get     'set-cookie':
+294 silly get      [ '__cfduid=d172e0a8eaf8e0de54d564ed7421ef2041582138755; expires=Fri, 20-Mar-20 18:59:15 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+294 silly get     'cf-ray': '567a7a188efecd9f-CDG',
+294 silly get     age: '6378',
+294 silly get     'cache-control': 'public, max-age=300',
+294 silly get     etag: '"7e1aa4591615c6775d58881e2119bb1b"',
+294 silly get     'last-modified': 'Sun, 27 May 2018 02:39:28 GMT',
+294 silly get     vary: 'Accept-Encoding',
+294 silly get     'cf-cache-status': 'HIT',
+294 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+294 silly get     server: 'cloudflare' } ]
+295 verbose etag https://registry.npmjs.org/graceful-readlink from cache
+296 verbose get saving graceful-readlink to /home/vmubuntu/.npm/registry.npmjs.org/graceful-readlink/.cache.json
+297 silly resolveWithNewModule graceful-readlink@1.0.1 checking installable status
+298 silly cache add args [ 'graceful-readlink@>= 1.0.0', null ]
+299 verbose cache add spec graceful-readlink@>= 1.0.0
+300 silly cache add parsed spec Result {
+300 silly cache add   raw: 'graceful-readlink@>= 1.0.0',
+300 silly cache add   scope: null,
+300 silly cache add   name: 'graceful-readlink',
+300 silly cache add   rawSpec: '>= 1.0.0',
+300 silly cache add   spec: '>=1.0.0',
+300 silly cache add   type: 'range' }
+301 silly addNamed graceful-readlink@>=1.0.0
+302 verbose addNamed ">=1.0.0" is a valid semver range for graceful-readlink
+303 silly addNameRange { name: 'graceful-readlink', range: '>=1.0.0', hasData: false }
+304 silly mapToRegistry name graceful-readlink
+305 silly mapToRegistry using default registry
+306 silly mapToRegistry registry https://registry.npmjs.org/
+307 silly mapToRegistry uri https://registry.npmjs.org/graceful-readlink
+308 verbose addNameRange registry:https://registry.npmjs.org/graceful-readlink not in flight; fetching
+309 verbose get https://registry.npmjs.org/graceful-readlink not expired, no request
+310 silly addNameRange number 2 { name: 'graceful-readlink', range: '>=1.0.0', hasData: true }
+311 silly addNameRange versions [ 'graceful-readlink', [ '1.0.0', '1.0.1' ] ]
+312 silly addNamed graceful-readlink@1.0.1
+313 verbose addNamed "1.0.1" is a plain semver version for graceful-readlink
+314 silly cache afterAdd graceful-readlink@1.0.1
+315 verbose afterAdd /home/vmubuntu/.npm/graceful-readlink/1.0.1/package/package.json not in flight; writing
+316 verbose afterAdd /home/vmubuntu/.npm/graceful-readlink/1.0.1/package/package.json written
+317 silly loadAllDepsIntoIdealTree Finishing
+318 silly idealTree:prePrune candycrush@0.1.0
+318 silly idealTree:prePrune ├── 7zip-bin-linux@1.3.1
+318 silly idealTree:prePrune ├── 7zip-bin@2.4.1
+318 silly idealTree:prePrune ├── ajv@6.11.0
+318 silly idealTree:prePrune ├── ansi-regex@2.1.1
+318 silly idealTree:prePrune ├── array-union@1.0.2
+318 silly idealTree:prePrune ├── array-uniq@1.0.3
+318 silly idealTree:prePrune ├── asn1@0.2.4
+318 silly idealTree:prePrune ├── assert-plus@1.0.0
+318 silly idealTree:prePrune ├── asynckit@0.4.0
+318 silly idealTree:prePrune ├── aws-sign2@0.7.0
+318 silly idealTree:prePrune ├── aws4@1.9.1
+318 silly idealTree:prePrune ├── balanced-match@1.0.0
+318 silly idealTree:prePrune ├── base64-js@1.2.0
+318 silly idealTree:prePrune ├── bcrypt-pbkdf@1.0.2
+318 silly idealTree:prePrune ├── bluebird@3.7.2
+318 silly idealTree:prePrune ├── brace-expansion@1.1.11
+318 silly idealTree:prePrune ├── buffer-equal@1.0.0
+318 silly idealTree:prePrune ├── camelcase@3.0.0
+318 silly idealTree:prePrune ├── caseless@0.12.0
+318 silly idealTree:prePrune ├── cliui@3.2.0
+318 silly idealTree:prePrune ├── code-point-at@1.1.0
+318 silly idealTree:prePrune ├── colors@1.0.3
+318 silly idealTree:prePrune ├── combined-stream@1.0.8
+318 silly idealTree:prePrune ├── commander@2.9.0
+318 silly idealTree:prePrune ├── concat-map@0.0.1
+318 silly idealTree:prePrune ├── core-util-is@1.0.2
+318 silly idealTree:prePrune ├── dashdash@1.14.1
+318 silly idealTree:prePrune ├── debug@2.6.9
+318 silly idealTree:prePrune ├── decamelize@1.2.0
+318 silly idealTree:prePrune ├── delayed-stream@1.0.0
+318 silly idealTree:prePrune ├─┬ dir-compare@1.8.0
+318 silly idealTree:prePrune │ └── bluebird@3.4.1
+318 silly idealTree:prePrune ├── ecc-jsbn@0.1.2
+318 silly idealTree:prePrune ├── error-ex@1.3.2
+318 silly idealTree:prePrune ├── extend@3.0.2
+318 silly idealTree:prePrune ├── extsprintf@1.3.0
+318 silly idealTree:prePrune ├── fast-deep-equal@3.1.1
+318 silly idealTree:prePrune ├── fast-json-stable-stringify@2.1.0
+318 silly idealTree:prePrune ├── find-up@1.1.2
+318 silly idealTree:prePrune ├── forever-agent@0.6.1
+318 silly idealTree:prePrune ├── form-data@2.3.3
+318 silly idealTree:prePrune ├── fs-extra@3.0.1
+318 silly idealTree:prePrune ├── fs.realpath@1.0.0
+318 silly idealTree:prePrune ├── get-caller-file@1.0.3
+318 silly idealTree:prePrune ├── getpass@0.1.7
+318 silly idealTree:prePrune ├─┬ glob@7.1.6
+318 silly idealTree:prePrune │ └── minimatch@3.0.4
+318 silly idealTree:prePrune ├── globby@6.1.0
+318 silly idealTree:prePrune ├── graceful-fs@4.2.3
+318 silly idealTree:prePrune ├── graceful-readlink@1.0.1
+318 silly idealTree:prePrune ├── har-schema@2.0.0
+318 silly idealTree:prePrune ├── har-validator@5.1.3
+318 silly idealTree:prePrune ├── hosted-git-info@2.8.5
+318 silly idealTree:prePrune ├── http-signature@1.2.0
+318 silly idealTree:prePrune ├── inflight@1.0.6
+318 silly idealTree:prePrune ├── inherits@2.0.4
+318 silly idealTree:prePrune ├── invert-kv@1.0.0
+318 silly idealTree:prePrune ├── is-arrayish@0.2.1
+318 silly idealTree:prePrune ├── is-fullwidth-code-point@1.0.0
+318 silly idealTree:prePrune ├── is-typedarray@1.0.0
+318 silly idealTree:prePrune ├── is-utf8@0.2.1
+318 silly idealTree:prePrune ├── isstream@0.1.2
+318 silly idealTree:prePrune ├── jsbn@0.1.1
+318 silly idealTree:prePrune ├── json-schema-traverse@0.4.1
+318 silly idealTree:prePrune ├── json-schema@0.2.3
+318 silly idealTree:prePrune ├── json-stringify-safe@5.0.1
+318 silly idealTree:prePrune ├── jsonfile@3.0.1
+318 silly idealTree:prePrune ├── jsprim@1.4.1
+318 silly idealTree:prePrune ├── lcid@1.0.0
+318 silly idealTree:prePrune ├── load-json-file@1.1.0
+318 silly idealTree:prePrune ├── mime-db@1.43.0
+318 silly idealTree:prePrune ├── mime-types@2.1.26
+318 silly idealTree:prePrune ├── minimatch@3.0.2
+318 silly idealTree:prePrune ├── ms@2.0.0
+318 silly idealTree:prePrune ├── normalize-package-data@2.5.0
+318 silly idealTree:prePrune ├── number-is-nan@1.0.1
+318 silly idealTree:prePrune ├── nwjs-builder-phoenix@1.15.0
+318 silly idealTree:prePrune ├── oauth-sign@0.9.0
+318 silly idealTree:prePrune ├── object-assign@4.1.1
+318 silly idealTree:prePrune ├── once@1.4.0
+318 silly idealTree:prePrune ├── os-locale@1.4.0
+318 silly idealTree:prePrune ├── os-tmpdir@1.0.2
+318 silly idealTree:prePrune ├── parse-json@2.2.0
+318 silly idealTree:prePrune ├── path-exists@2.1.0
+318 silly idealTree:prePrune ├── path-is-absolute@1.0.1
+318 silly idealTree:prePrune ├── path-parse@1.0.6
+318 silly idealTree:prePrune ├── path-type@1.1.0
+318 silly idealTree:prePrune ├── performance-now@2.1.0
+318 silly idealTree:prePrune ├── pify@2.3.0
+318 silly idealTree:prePrune ├── pinkie-promise@2.0.1
+318 silly idealTree:prePrune ├── pinkie@2.0.4
+318 silly idealTree:prePrune ├── plist@2.1.0
+318 silly idealTree:prePrune ├── progress@1.1.8
+318 silly idealTree:prePrune ├── psl@1.7.0
+318 silly idealTree:prePrune ├── punycode@2.1.1
+318 silly idealTree:prePrune ├── qs@6.5.2
+318 silly idealTree:prePrune ├── rcedit@0.8.0
+318 silly idealTree:prePrune ├── read-pkg-up@1.0.1
+318 silly idealTree:prePrune ├── read-pkg@1.1.0
+318 silly idealTree:prePrune ├── request-progress@3.0.0
+318 silly idealTree:prePrune ├── request@2.88.2
+318 silly idealTree:prePrune ├── require-directory@2.1.1
+318 silly idealTree:prePrune ├── require-main-filename@1.0.1
+318 silly idealTree:prePrune ├── resolve@1.15.1
+318 silly idealTree:prePrune ├── safe-buffer@5.2.0
+318 silly idealTree:prePrune ├── safer-buffer@2.1.2
+318 silly idealTree:prePrune ├── semver@5.7.1
+318 silly idealTree:prePrune ├── set-blocking@2.0.0
+318 silly idealTree:prePrune ├── source-map-support@0.4.18
+318 silly idealTree:prePrune ├── source-map@0.5.7
+318 silly idealTree:prePrune ├── spdx-correct@3.1.0
+318 silly idealTree:prePrune ├── spdx-exceptions@2.2.0
+318 silly idealTree:prePrune ├── spdx-expression-parse@3.0.0
+318 silly idealTree:prePrune ├── spdx-license-ids@3.0.5
+318 silly idealTree:prePrune ├── sshpk@1.16.1
+318 silly idealTree:prePrune ├── string-width@1.0.2
+318 silly idealTree:prePrune ├── strip-ansi@3.0.1
+318 silly idealTree:prePrune ├── strip-bom@2.0.0
+318 silly idealTree:prePrune ├── throttleit@1.0.0
+318 silly idealTree:prePrune ├── tmp@0.0.31
+318 silly idealTree:prePrune ├── tough-cookie@2.5.0
+318 silly idealTree:prePrune ├── tunnel-agent@0.6.0
+318 silly idealTree:prePrune ├── tweetnacl@0.14.5
+318 silly idealTree:prePrune ├── universalify@0.1.2
+318 silly idealTree:prePrune ├── uri-js@4.2.2
+318 silly idealTree:prePrune ├── uuid@3.4.0
+318 silly idealTree:prePrune ├── validate-npm-package-license@3.0.4
+318 silly idealTree:prePrune ├── verror@1.10.0
+318 silly idealTree:prePrune ├── which-module@1.0.0
+318 silly idealTree:prePrune ├── wrap-ansi@2.1.0
+318 silly idealTree:prePrune ├── wrappy@1.0.2
+318 silly idealTree:prePrune ├── xmlbuilder@8.2.2
+318 silly idealTree:prePrune ├── xmldom@0.1.31
+318 silly idealTree:prePrune ├── y18n@3.2.1
+318 silly idealTree:prePrune ├── yargs-parser@5.0.0
+318 silly idealTree:prePrune └── yargs@7.1.0
+319 silly loadIdealTree Finishing
+320 silly currentTree candycrush@0.1.0
+320 silly currentTree ├── 7zip-bin-linux@1.3.1
+320 silly currentTree ├── 7zip-bin@2.4.1
+320 silly currentTree ├── ajv@6.11.0
+320 silly currentTree ├── ansi-regex@2.1.1
+320 silly currentTree ├── array-union@1.0.2
+320 silly currentTree ├── array-uniq@1.0.3
+320 silly currentTree ├── asn1@0.2.4
+320 silly currentTree ├── assert-plus@1.0.0
+320 silly currentTree ├── asynckit@0.4.0
+320 silly currentTree ├── aws-sign2@0.7.0
+320 silly currentTree ├── aws4@1.9.1
+320 silly currentTree ├── balanced-match@1.0.0
+320 silly currentTree ├── base64-js@1.2.0
+320 silly currentTree ├── bcrypt-pbkdf@1.0.2
+320 silly currentTree ├── bluebird@3.7.2
+320 silly currentTree ├── brace-expansion@1.1.11
+320 silly currentTree ├── camelcase@3.0.0
+320 silly currentTree ├── caseless@0.12.0
+320 silly currentTree ├── cliui@3.2.0
+320 silly currentTree ├── code-point-at@1.1.0
+320 silly currentTree ├── combined-stream@1.0.8
+320 silly currentTree ├── concat-map@0.0.1
+320 silly currentTree ├── core-util-is@1.0.2
+320 silly currentTree ├── dashdash@1.14.1
+320 silly currentTree ├── debug@2.6.9
+320 silly currentTree ├── decamelize@1.2.0
+320 silly currentTree ├── delayed-stream@1.0.0
+320 silly currentTree ├── ecc-jsbn@0.1.2
+320 silly currentTree ├── error-ex@1.3.2
+320 silly currentTree ├── extend@3.0.2
+320 silly currentTree ├── extsprintf@1.3.0
+320 silly currentTree ├── fast-deep-equal@3.1.1
+320 silly currentTree ├── fast-json-stable-stringify@2.1.0
+320 silly currentTree ├── find-up@1.1.2
+320 silly currentTree ├── forever-agent@0.6.1
+320 silly currentTree ├── form-data@2.3.3
+320 silly currentTree ├── fs-extra@3.0.1
+320 silly currentTree ├── fs.realpath@1.0.0
+320 silly currentTree ├── get-caller-file@1.0.3
+320 silly currentTree ├── getpass@0.1.7
+320 silly currentTree ├─┬ glob@7.1.6
+320 silly currentTree │ └── minimatch@3.0.4
+320 silly currentTree ├── globby@6.1.0
+320 silly currentTree ├── graceful-fs@4.2.3
+320 silly currentTree ├── har-schema@2.0.0
+320 silly currentTree ├── har-validator@5.1.3
+320 silly currentTree ├── hosted-git-info@2.8.5
+320 silly currentTree ├── http-signature@1.2.0
+320 silly currentTree ├── inflight@1.0.6
+320 silly currentTree ├── inherits@2.0.4
+320 silly currentTree ├── invert-kv@1.0.0
+320 silly currentTree ├── is-arrayish@0.2.1
+320 silly currentTree ├── is-fullwidth-code-point@1.0.0
+320 silly currentTree ├── is-typedarray@1.0.0
+320 silly currentTree ├── is-utf8@0.2.1
+320 silly currentTree ├── isstream@0.1.2
+320 silly currentTree ├── jsbn@0.1.1
+320 silly currentTree ├── json-schema-traverse@0.4.1
+320 silly currentTree ├── json-schema@0.2.3
+320 silly currentTree ├── json-stringify-safe@5.0.1
+320 silly currentTree ├── jsonfile@3.0.1
+320 silly currentTree ├── jsprim@1.4.1
+320 silly currentTree ├── lcid@1.0.0
+320 silly currentTree ├── load-json-file@1.1.0
+320 silly currentTree ├── mime-db@1.43.0
+320 silly currentTree ├── mime-types@2.1.26
+320 silly currentTree ├── ms@2.0.0
+320 silly currentTree ├── normalize-package-data@2.5.0
+320 silly currentTree ├── number-is-nan@1.0.1
+320 silly currentTree ├── oauth-sign@0.9.0
+320 silly currentTree ├── object-assign@4.1.1
+320 silly currentTree ├── once@1.4.0
+320 silly currentTree ├── os-locale@1.4.0
+320 silly currentTree ├── os-tmpdir@1.0.2
+320 silly currentTree ├── parse-json@2.2.0
+320 silly currentTree ├── path-exists@2.1.0
+320 silly currentTree ├── path-is-absolute@1.0.1
+320 silly currentTree ├── path-parse@1.0.6
+320 silly currentTree ├── path-type@1.1.0
+320 silly currentTree ├── performance-now@2.1.0
+320 silly currentTree ├── pify@2.3.0
+320 silly currentTree ├── pinkie-promise@2.0.1
+320 silly currentTree ├── pinkie@2.0.4
+320 silly currentTree ├── plist@2.1.0
+320 silly currentTree ├── progress@1.1.8
+320 silly currentTree ├── psl@1.7.0
+320 silly currentTree ├── punycode@2.1.1
+320 silly currentTree ├── qs@6.5.2
+320 silly currentTree ├── rcedit@0.8.0
+320 silly currentTree ├── read-pkg-up@1.0.1
+320 silly currentTree ├── read-pkg@1.1.0
+320 silly currentTree ├── request-progress@3.0.0
+320 silly currentTree ├── request@2.88.2
+320 silly currentTree ├── require-directory@2.1.1
+320 silly currentTree ├── require-main-filename@1.0.1
+320 silly currentTree ├── resolve@1.15.1
+320 silly currentTree ├── safe-buffer@5.2.0
+320 silly currentTree ├── safer-buffer@2.1.2
+320 silly currentTree ├── semver@5.7.1
+320 silly currentTree ├── set-blocking@2.0.0
+320 silly currentTree ├── source-map-support@0.4.18
+320 silly currentTree ├── source-map@0.5.7
+320 silly currentTree ├── spdx-correct@3.1.0
+320 silly currentTree ├── spdx-exceptions@2.2.0
+320 silly currentTree ├── spdx-expression-parse@3.0.0
+320 silly currentTree ├── spdx-license-ids@3.0.5
+320 silly currentTree ├── sshpk@1.16.1
+320 silly currentTree ├── string-width@1.0.2
+320 silly currentTree ├── strip-ansi@3.0.1
+320 silly currentTree ├── strip-bom@2.0.0
+320 silly currentTree ├── throttleit@1.0.0
+320 silly currentTree ├── tmp@0.0.31
+320 silly currentTree ├── tough-cookie@2.5.0
+320 silly currentTree ├── tunnel-agent@0.6.0
+320 silly currentTree ├── tweetnacl@0.14.5
+320 silly currentTree ├── universalify@0.1.2
+320 silly currentTree ├── uri-js@4.2.2
+320 silly currentTree ├── uuid@3.4.0
+320 silly currentTree ├── validate-npm-package-license@3.0.4
+320 silly currentTree ├── verror@1.10.0
+320 silly currentTree ├── which-module@1.0.0
+320 silly currentTree ├── wrap-ansi@2.1.0
+320 silly currentTree ├── wrappy@1.0.2
+320 silly currentTree ├── xmlbuilder@8.2.2
+320 silly currentTree ├── xmldom@0.1.31
+320 silly currentTree ├── y18n@3.2.1
+320 silly currentTree ├── yargs-parser@5.0.0
+320 silly currentTree └── yargs@7.1.0
+321 silly idealTree candycrush@0.1.0
+321 silly idealTree ├── 7zip-bin-linux@1.3.1
+321 silly idealTree ├── 7zip-bin@2.4.1
+321 silly idealTree ├── ajv@6.11.0
+321 silly idealTree ├── ansi-regex@2.1.1
+321 silly idealTree ├── array-union@1.0.2
+321 silly idealTree ├── array-uniq@1.0.3
+321 silly idealTree ├── asn1@0.2.4
+321 silly idealTree ├── assert-plus@1.0.0
+321 silly idealTree ├── asynckit@0.4.0
+321 silly idealTree ├── aws-sign2@0.7.0
+321 silly idealTree ├── aws4@1.9.1
+321 silly idealTree ├── balanced-match@1.0.0
+321 silly idealTree ├── base64-js@1.2.0
+321 silly idealTree ├── bcrypt-pbkdf@1.0.2
+321 silly idealTree ├── bluebird@3.7.2
+321 silly idealTree ├── brace-expansion@1.1.11
+321 silly idealTree ├── buffer-equal@1.0.0
+321 silly idealTree ├── camelcase@3.0.0
+321 silly idealTree ├── caseless@0.12.0
+321 silly idealTree ├── cliui@3.2.0
+321 silly idealTree ├── code-point-at@1.1.0
+321 silly idealTree ├── colors@1.0.3
+321 silly idealTree ├── combined-stream@1.0.8
+321 silly idealTree ├── commander@2.9.0
+321 silly idealTree ├── concat-map@0.0.1
+321 silly idealTree ├── core-util-is@1.0.2
+321 silly idealTree ├── dashdash@1.14.1
+321 silly idealTree ├── debug@2.6.9
+321 silly idealTree ├── decamelize@1.2.0
+321 silly idealTree ├── delayed-stream@1.0.0
+321 silly idealTree ├─┬ dir-compare@1.8.0
+321 silly idealTree │ └── bluebird@3.4.1
+321 silly idealTree ├── ecc-jsbn@0.1.2
+321 silly idealTree ├── error-ex@1.3.2
+321 silly idealTree ├── extend@3.0.2
+321 silly idealTree ├── extsprintf@1.3.0
+321 silly idealTree ├── fast-deep-equal@3.1.1
+321 silly idealTree ├── fast-json-stable-stringify@2.1.0
+321 silly idealTree ├── find-up@1.1.2
+321 silly idealTree ├── forever-agent@0.6.1
+321 silly idealTree ├── form-data@2.3.3
+321 silly idealTree ├── fs-extra@3.0.1
+321 silly idealTree ├── fs.realpath@1.0.0
+321 silly idealTree ├── get-caller-file@1.0.3
+321 silly idealTree ├── getpass@0.1.7
+321 silly idealTree ├─┬ glob@7.1.6
+321 silly idealTree │ └── minimatch@3.0.4
+321 silly idealTree ├── globby@6.1.0
+321 silly idealTree ├── graceful-fs@4.2.3
+321 silly idealTree ├── graceful-readlink@1.0.1
+321 silly idealTree ├── har-schema@2.0.0
+321 silly idealTree ├── har-validator@5.1.3
+321 silly idealTree ├── hosted-git-info@2.8.5
+321 silly idealTree ├── http-signature@1.2.0
+321 silly idealTree ├── inflight@1.0.6
+321 silly idealTree ├── inherits@2.0.4
+321 silly idealTree ├── invert-kv@1.0.0
+321 silly idealTree ├── is-arrayish@0.2.1
+321 silly idealTree ├── is-fullwidth-code-point@1.0.0
+321 silly idealTree ├── is-typedarray@1.0.0
+321 silly idealTree ├── is-utf8@0.2.1
+321 silly idealTree ├── isstream@0.1.2
+321 silly idealTree ├── jsbn@0.1.1
+321 silly idealTree ├── json-schema-traverse@0.4.1
+321 silly idealTree ├── json-schema@0.2.3
+321 silly idealTree ├── json-stringify-safe@5.0.1
+321 silly idealTree ├── jsonfile@3.0.1
+321 silly idealTree ├── jsprim@1.4.1
+321 silly idealTree ├── lcid@1.0.0
+321 silly idealTree ├── load-json-file@1.1.0
+321 silly idealTree ├── mime-db@1.43.0
+321 silly idealTree ├── mime-types@2.1.26
+321 silly idealTree ├── minimatch@3.0.2
+321 silly idealTree ├── ms@2.0.0
+321 silly idealTree ├── normalize-package-data@2.5.0
+321 silly idealTree ├── number-is-nan@1.0.1
+321 silly idealTree ├── nwjs-builder-phoenix@1.15.0
+321 silly idealTree ├── oauth-sign@0.9.0
+321 silly idealTree ├── object-assign@4.1.1
+321 silly idealTree ├── once@1.4.0
+321 silly idealTree ├── os-locale@1.4.0
+321 silly idealTree ├── os-tmpdir@1.0.2
+321 silly idealTree ├── parse-json@2.2.0
+321 silly idealTree ├── path-exists@2.1.0
+321 silly idealTree ├── path-is-absolute@1.0.1
+321 silly idealTree ├── path-parse@1.0.6
+321 silly idealTree ├── path-type@1.1.0
+321 silly idealTree ├── performance-now@2.1.0
+321 silly idealTree ├── pify@2.3.0
+321 silly idealTree ├── pinkie-promise@2.0.1
+321 silly idealTree ├── pinkie@2.0.4
+321 silly idealTree ├── plist@2.1.0
+321 silly idealTree ├── progress@1.1.8
+321 silly idealTree ├── psl@1.7.0
+321 silly idealTree ├── punycode@2.1.1
+321 silly idealTree ├── qs@6.5.2
+321 silly idealTree ├── rcedit@0.8.0
+321 silly idealTree ├── read-pkg-up@1.0.1
+321 silly idealTree ├── read-pkg@1.1.0
+321 silly idealTree ├── request-progress@3.0.0
+321 silly idealTree ├── request@2.88.2
+321 silly idealTree ├── require-directory@2.1.1
+321 silly idealTree ├── require-main-filename@1.0.1
+321 silly idealTree ├── resolve@1.15.1
+321 silly idealTree ├── safe-buffer@5.2.0
+321 silly idealTree ├── safer-buffer@2.1.2
+321 silly idealTree ├── semver@5.7.1
+321 silly idealTree ├── set-blocking@2.0.0
+321 silly idealTree ├── source-map-support@0.4.18
+321 silly idealTree ├── source-map@0.5.7
+321 silly idealTree ├── spdx-correct@3.1.0
+321 silly idealTree ├── spdx-exceptions@2.2.0
+321 silly idealTree ├── spdx-expression-parse@3.0.0
+321 silly idealTree ├── spdx-license-ids@3.0.5
+321 silly idealTree ├── sshpk@1.16.1
+321 silly idealTree ├── string-width@1.0.2
+321 silly idealTree ├── strip-ansi@3.0.1
+321 silly idealTree ├── strip-bom@2.0.0
+321 silly idealTree ├── throttleit@1.0.0
+321 silly idealTree ├── tmp@0.0.31
+321 silly idealTree ├── tough-cookie@2.5.0
+321 silly idealTree ├── tunnel-agent@0.6.0
+321 silly idealTree ├── tweetnacl@0.14.5
+321 silly idealTree ├── universalify@0.1.2
+321 silly idealTree ├── uri-js@4.2.2
+321 silly idealTree ├── uuid@3.4.0
+321 silly idealTree ├── validate-npm-package-license@3.0.4
+321 silly idealTree ├── verror@1.10.0
+321 silly idealTree ├── which-module@1.0.0
+321 silly idealTree ├── wrap-ansi@2.1.0
+321 silly idealTree ├── wrappy@1.0.2
+321 silly idealTree ├── xmlbuilder@8.2.2
+321 silly idealTree ├── xmldom@0.1.31
+321 silly idealTree ├── y18n@3.2.1
+321 silly idealTree ├── yargs-parser@5.0.0
+321 silly idealTree └── yargs@7.1.0
+322 silly generateActionsToTake Starting
+323 silly install generateActionsToTake
+324 silly generateActionsToTake Finishing
+325 silly diffTrees action count 8
+326 silly diffTrees add buffer-equal@1.0.0
+327 silly diffTrees add colors@1.0.3
+328 silly diffTrees add bluebird@3.4.1
+329 silly diffTrees add graceful-readlink@1.0.1
+330 silly diffTrees add commander@2.9.0
+331 silly diffTrees add minimatch@3.0.2
+332 silly diffTrees add dir-compare@1.8.0
+333 silly diffTrees add nwjs-builder-phoenix@1.15.0
+334 silly decomposeActions action count 64
+335 silly decomposeActions fetch buffer-equal@1.0.0
+336 silly decomposeActions extract buffer-equal@1.0.0
+337 silly decomposeActions test buffer-equal@1.0.0
+338 silly decomposeActions preinstall buffer-equal@1.0.0
+339 silly decomposeActions build buffer-equal@1.0.0
+340 silly decomposeActions install buffer-equal@1.0.0
+341 silly decomposeActions postinstall buffer-equal@1.0.0
+342 silly decomposeActions finalize buffer-equal@1.0.0
+343 silly decomposeActions fetch colors@1.0.3
+344 silly decomposeActions extract colors@1.0.3
+345 silly decomposeActions test colors@1.0.3
+346 silly decomposeActions preinstall colors@1.0.3
+347 silly decomposeActions build colors@1.0.3
+348 silly decomposeActions install colors@1.0.3
+349 silly decomposeActions postinstall colors@1.0.3
+350 silly decomposeActions finalize colors@1.0.3
+351 silly decomposeActions fetch bluebird@3.4.1
+352 silly decomposeActions extract bluebird@3.4.1
+353 silly decomposeActions test bluebird@3.4.1
+354 silly decomposeActions preinstall bluebird@3.4.1
+355 silly decomposeActions build bluebird@3.4.1
+356 silly decomposeActions install bluebird@3.4.1
+357 silly decomposeActions postinstall bluebird@3.4.1
+358 silly decomposeActions finalize bluebird@3.4.1
+359 silly decomposeActions fetch graceful-readlink@1.0.1
+360 silly decomposeActions extract graceful-readlink@1.0.1
+361 silly decomposeActions test graceful-readlink@1.0.1
+362 silly decomposeActions preinstall graceful-readlink@1.0.1
+363 silly decomposeActions build graceful-readlink@1.0.1
+364 silly decomposeActions install graceful-readlink@1.0.1
+365 silly decomposeActions postinstall graceful-readlink@1.0.1
+366 silly decomposeActions finalize graceful-readlink@1.0.1
+367 silly decomposeActions fetch commander@2.9.0
+368 silly decomposeActions extract commander@2.9.0
+369 silly decomposeActions test commander@2.9.0
+370 silly decomposeActions preinstall commander@2.9.0
+371 silly decomposeActions build commander@2.9.0
+372 silly decomposeActions install commander@2.9.0
+373 silly decomposeActions postinstall commander@2.9.0
+374 silly decomposeActions finalize commander@2.9.0
+375 silly decomposeActions fetch minimatch@3.0.2
+376 silly decomposeActions extract minimatch@3.0.2
+377 silly decomposeActions test minimatch@3.0.2
+378 silly decomposeActions preinstall minimatch@3.0.2
+379 silly decomposeActions build minimatch@3.0.2
+380 silly decomposeActions install minimatch@3.0.2
+381 silly decomposeActions postinstall minimatch@3.0.2
+382 silly decomposeActions finalize minimatch@3.0.2
+383 silly decomposeActions fetch dir-compare@1.8.0
+384 silly decomposeActions extract dir-compare@1.8.0
+385 silly decomposeActions test dir-compare@1.8.0
+386 silly decomposeActions preinstall dir-compare@1.8.0
+387 silly decomposeActions build dir-compare@1.8.0
+388 silly decomposeActions install dir-compare@1.8.0
+389 silly decomposeActions postinstall dir-compare@1.8.0
+390 silly decomposeActions finalize dir-compare@1.8.0
+391 silly decomposeActions fetch nwjs-builder-phoenix@1.15.0
+392 silly decomposeActions extract nwjs-builder-phoenix@1.15.0
+393 silly decomposeActions test nwjs-builder-phoenix@1.15.0
+394 silly decomposeActions preinstall nwjs-builder-phoenix@1.15.0
+395 silly decomposeActions build nwjs-builder-phoenix@1.15.0
+396 silly decomposeActions install nwjs-builder-phoenix@1.15.0
+397 silly decomposeActions postinstall nwjs-builder-phoenix@1.15.0
+398 silly decomposeActions finalize nwjs-builder-phoenix@1.15.0
+399 silly executeActions Starting
+400 silly install executeActions
+401 silly doSerial global-install 0
+402 silly doParallel fetch 8
+403 verbose lock using /home/vmubuntu/.npm/_locks/staging-a8af3924c6dd2a4c.lock for /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging
+404 silly doParallel extract 8
+405 silly extract buffer-equal@1.0.0
+406 silly extract colors@1.0.3
+407 silly extract bluebird@3.4.1
+408 silly extract graceful-readlink@1.0.1
+409 silly extract commander@2.9.0
+410 silly extract minimatch@3.0.2
+411 silly extract dir-compare@1.8.0
+412 silly extract nwjs-builder-phoenix@1.15.0
+413 verbose unbuild node_modules/.staging/buffer-equal-4a7027a8
+414 verbose unbuild node_modules/.staging/colors-2ff3ccd6
+415 verbose unbuild node_modules/.staging/bluebird-222d0c0b
+416 verbose unbuild node_modules/.staging/graceful-readlink-28c61de2
+417 verbose unbuild node_modules/.staging/commander-c6635201
+418 verbose unbuild node_modules/.staging/minimatch-62af17b9
+419 verbose unbuild node_modules/.staging/dir-compare-e2748d8a
+420 verbose unbuild node_modules/.staging/nwjs-builder-phoenix-bccad261
+421 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+422 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8
+423 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+424 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6
+425 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+426 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b
+427 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+428 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2
+429 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+430 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201
+431 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+432 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9
+433 verbose tar unpack /home/vmubuntu/.npm/buffer-equal/1.0.0/package.tgz
+434 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8
+435 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8 is being purged
+436 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8
+437 verbose tar unpack /home/vmubuntu/.npm/colors/1.0.3/package.tgz
+438 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6
+439 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6 is being purged
+440 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6
+441 verbose tar unpack /home/vmubuntu/.npm/bluebird/3.4.1/package.tgz
+442 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b
+443 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b is being purged
+444 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b
+445 verbose tar unpack /home/vmubuntu/.npm/graceful-readlink/1.0.1/package.tgz
+446 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2
+447 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2 is being purged
+448 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2
+449 verbose tar unpack /home/vmubuntu/.npm/commander/2.9.0/package.tgz
+450 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201
+451 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201 is being purged
+452 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201
+453 verbose tar unpack /home/vmubuntu/.npm/minimatch/3.0.2/package.tgz
+454 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9
+455 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9 is being purged
+456 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9
+457 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+458 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a
+459 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261 is being purged from base /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+460 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261
+461 silly gunzTarPerm modes [ '755', '644' ]
+462 silly gunzTarPerm modes [ '755', '644' ]
+463 silly gunzTarPerm modes [ '755', '644' ]
+464 silly gunzTarPerm modes [ '755', '644' ]
+465 silly gunzTarPerm modes [ '755', '644' ]
+466 silly gunzTarPerm modes [ '755', '644' ]
+467 verbose tar unpack /home/vmubuntu/.npm/dir-compare/1.8.0/package.tgz
+468 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a
+469 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a is being purged
+470 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a
+471 verbose tar unpack /home/vmubuntu/.npm/nwjs-builder-phoenix/1.15.0/package.tgz
+472 verbose tar unpacking to /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261
+473 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261 is being purged
+474 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261
+475 silly gunzTarPerm modes [ '755', '644' ]
+476 silly gunzTarPerm modes [ '755', '644' ]
+477 silly gunzTarPerm extractEntry package.json
+478 silly gunzTarPerm extractEntry package.json
+479 silly gunzTarPerm extractEntry package.json
+480 silly gunzTarPerm extractEntry package.json
+481 silly gunzTarPerm extractEntry package.json
+482 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+483 silly gunzTarPerm extractEntry package.json
+484 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+485 silly gunzTarPerm extractEntry package.json
+486 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+487 silly gunzTarPerm extractEntry package.json
+488 silly gunzTarPerm extractEntry LICENSE
+489 silly gunzTarPerm extractEntry index.js
+490 silly gunzTarPerm extractEntry safe.js
+491 silly gunzTarPerm extractEntry .travis.yml
+492 silly gunzTarPerm extractEntry README.md
+493 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+494 silly gunzTarPerm extractEntry LICENSE
+495 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+496 silly gunzTarPerm extractEntry .npmignore
+497 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+498 silly gunzTarPerm extractEntry README.md
+499 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+500 silly gunzTarPerm extractEntry LICENSE
+501 silly gunzTarPerm extractEntry index.js
+502 silly gunzTarPerm extractEntry README.md
+503 silly gunzTarPerm extractEntry LICENSE
+504 silly gunzTarPerm extractEntry .travis.yml
+505 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+506 silly gunzTarPerm extractEntry appveyor.yml
+507 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+508 silly gunzTarPerm extractEntry CHANGELOG.md
+509 silly gunzTarPerm extractEntry lerna.json
+510 silly gunzTarPerm extractEntry LICENSE
+511 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+512 silly gunzTarPerm extractEntry index.js
+513 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+514 silly gunzTarPerm extractEntry .travis.yml
+515 silly gunzTarPerm extractEntry README.markdown
+516 silly gunzTarPerm extractEntry MIT-LICENSE.txt
+517 silly gunzTarPerm extractEntry ReadMe.md
+518 silly gunzTarPerm extractEntry Readme.md
+519 silly gunzTarPerm extractEntry minimatch.js
+520 silly gunzTarPerm extractEntry changelog.md
+521 silly gunzTarPerm modified mode [ 'changelog.md', 436, 420 ]
+522 silly gunzTarPerm extractEntry js/browser/bluebird.core.js
+523 silly gunzTarPerm modified mode [ 'js/browser/bluebird.core.js', 436, 420 ]
+524 silly gunzTarPerm extractEntry common.js
+525 silly gunzTarPerm modified mode [ 'common.js', 436, 420 ]
+526 silly gunzTarPerm extractEntry compareAsync.js
+527 silly gunzTarPerm modified mode [ 'compareAsync.js', 436, 420 ]
+528 silly gunzTarPerm extractEntry LICENSE
+529 silly gunzTarPerm extractEntry README.md
+530 silly gunzTarPerm extractEntry .travis.yml
+531 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+532 silly gunzTarPerm extractEntry example/eq.js
+533 silly gunzTarPerm extractEntry test/eq.js
+534 silly gunzTarPerm extractEntry examples/normal-usage.js
+535 silly gunzTarPerm extractEntry examples/safe-string.js
+536 silly gunzTarPerm extractEntry History.md
+537 silly gunzTarPerm extractEntry js/browser/bluebird.core.min.js
+538 silly gunzTarPerm modified mode [ 'js/browser/bluebird.core.min.js', 436, 420 ]
+539 silly gunzTarPerm extractEntry compareSync.js
+540 silly gunzTarPerm modified mode [ 'compareSync.js', 436, 420 ]
+541 silly gunzTarPerm extractEntry tsconfig.json
+542 silly gunzTarPerm extractEntry tslint.json
+543 silly gunzTarPerm extractEntry lib/colors.js
+544 silly gunzTarPerm extractEntry js/browser/bluebird.js
+545 silly gunzTarPerm modified mode [ 'js/browser/bluebird.js', 436, 420 ]
+546 silly gunzTarPerm extractEntry js/browser/bluebird.min.js
+547 silly gunzTarPerm modified mode [ 'js/browser/bluebird.min.js', 436, 420 ]
+548 silly gunzTarPerm extractEntry lib/extendStringPrototype.js
+549 silly gunzTarPerm extractEntry defaultResultBuilderCallback.js
+550 silly gunzTarPerm modified mode [ 'defaultResultBuilderCallback.js', 436, 420 ]
+551 silly gunzTarPerm extractEntry dircompare.js
+552 silly gunzTarPerm modified mode [ 'dircompare.js', 436, 420 ]
+553 silly gunzTarPerm extractEntry assets/nsis/Bin/LibraryLocal.exe
+554 silly gunzTarPerm extractEntry assets/nsis/Bin/makensis.exe
+555 silly gunzTarPerm extractEntry lib/index.js
+556 silly gunzTarPerm extractEntry lib/styles.js
+557 silly gunzTarPerm extractEntry js/release/any.js
+558 silly gunzTarPerm modified mode [ 'js/release/any.js', 436, 420 ]
+559 silly gunzTarPerm extractEntry js/release/finally.js
+560 silly gunzTarPerm modified mode [ 'js/release/finally.js', 436, 420 ]
+561 silly gunzTarPerm extractEntry js/release/generators.js
+562 silly gunzTarPerm modified mode [ 'js/release/generators.js', 436, 420 ]
+563 silly gunzTarPerm extractEntry fsPromise.js
+564 silly gunzTarPerm modified mode [ 'fsPromise.js', 436, 420 ]
+565 silly gunzTarPerm extractEntry index.d.ts
+566 silly gunzTarPerm modified mode [ 'index.d.ts', 436, 420 ]
+567 silly gunzTarPerm extractEntry js/release/join.js
+568 silly gunzTarPerm modified mode [ 'js/release/join.js', 436, 420 ]
+569 silly gunzTarPerm extractEntry lib/custom/trap.js
+570 silly gunzTarPerm extractEntry lib/custom/zalgo.js
+571 silly gunzTarPerm extractEntry js/release/filter.js
+572 silly gunzTarPerm modified mode [ 'js/release/filter.js', 436, 420 ]
+573 silly gunzTarPerm extractEntry index.js
+574 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+575 silly gunzTarPerm extractEntry LICENSE
+576 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+577 silly gunzTarPerm extractEntry js/release/method.js
+578 silly gunzTarPerm modified mode [ 'js/release/method.js', 436, 420 ]
+579 silly gunzTarPerm extractEntry assets/nsis/Bin/RegTool.bin
+580 silly gunzTarPerm extractEntry assets/nsis/Bin/zlib1.dll
+581 silly gunzTarPerm extractEntry js/release/nodeback.js
+582 silly gunzTarPerm modified mode [ 'js/release/nodeback.js', 436, 420 ]
+583 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9/node_modules is being purged
+584 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9/node_modules
+585 silly gunzTarPerm extractEntry lib/maps/america.js
+586 silly gunzTarPerm extractEntry lib/maps/rainbow.js
+587 silly gunzTarPerm extractEntry js/release/nodeify.js
+588 silly gunzTarPerm modified mode [ 'js/release/nodeify.js', 436, 420 ]
+589 silly gunzTarPerm extractEntry print.js
+590 silly gunzTarPerm modified mode [ 'print.js', 436, 420 ]
+591 silly gunzTarPerm extractEntry README.md
+592 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+593 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/big.bmp
+594 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2/node_modules is being purged
+595 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2/node_modules
+596 silly gunzTarPerm extractEntry js/release/promise.js
+597 silly gunzTarPerm modified mode [ 'js/release/promise.js', 436, 420 ]
+598 silly gunzTarPerm extractEntry lib/maps/random.js
+599 silly gunzTarPerm extractEntry lib/maps/zebra.js
+600 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201/node_modules is being purged
+601 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201/node_modules
+602 silly gunzTarPerm extractEntry tsconfig.json
+603 silly gunzTarPerm modified mode [ 'tsconfig.json', 436, 420 ]
+604 silly gunzTarPerm extractEntry tslint.json
+605 silly gunzTarPerm modified mode [ 'tslint.json', 436, 420 ]
+606 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/classic-cross.bmp
+607 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/classic.bmp
+608 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8/node_modules is being purged
+609 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8/node_modules
+610 silly gunzTarPerm extractEntry lib/system/supports-colors.js
+611 silly gunzTarPerm extractEntry screenshots/colors.png
+612 silly gunzTarPerm extractEntry file_compare_handlers/bufferPool.js
+613 silly gunzTarPerm modified mode [ 'file_compare_handlers/bufferPool.js', 436, 420 ]
+614 silly gunzTarPerm extractEntry file_compare_handlers/common.js
+615 silly gunzTarPerm modified mode [ 'file_compare_handlers/common.js', 436, 420 ]
+616 silly gunzTarPerm extractEntry js/release/promise_array.js
+617 silly gunzTarPerm modified mode [ 'js/release/promise_array.js', 436, 420 ]
+618 silly gunzTarPerm extractEntry js/release/es5.js
+619 silly gunzTarPerm modified mode [ 'js/release/es5.js', 436, 420 ]
+620 silly gunzTarPerm extractEntry js/release/promisify.js
+621 silly gunzTarPerm modified mode [ 'js/release/promisify.js', 436, 420 ]
+622 silly gunzTarPerm extractEntry file_compare_handlers/defaultFileCompare.js
+623 silly gunzTarPerm modified mode [ 'file_compare_handlers/defaultFileCompare.js', 436, 420 ]
+624 silly gunzTarPerm extractEntry file_compare_handlers/fileDescriptorQueue.js
+625 silly gunzTarPerm modified mode [ 'file_compare_handlers/fileDescriptorQueue.js', 436, 420 ]
+626 silly gunzTarPerm extractEntry tests/basic-test.js
+627 silly gunzTarPerm extractEntry tests/safe-test.js
+628 silly gunzTarPerm extractEntry js/release/errors.js
+629 silly gunzTarPerm modified mode [ 'js/release/errors.js', 436, 420 ]
+630 silly gunzTarPerm extractEntry js/release/props.js
+631 silly gunzTarPerm modified mode [ 'js/release/props.js', 436, 420 ]
+632 silly gunzTarPerm extractEntry themes/generic-logging.js
+633 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/colorful.bmp
+634 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/grey-cross.bmp
+635 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/grey.bmp
+636 silly gunzTarPerm extractEntry file_compare_handlers/lineBasedFileCompare.js
+637 silly gunzTarPerm modified mode [ 'file_compare_handlers/lineBasedFileCompare.js', 436, 420 ]
+638 silly gunzTarPerm extractEntry file_compare_handlers/queue.js
+639 silly gunzTarPerm modified mode [ 'file_compare_handlers/queue.js', 436, 420 ]
+640 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/modern.bmp
+641 silly gunzTarPerm extractEntry js/release/each.js
+642 silly gunzTarPerm modified mode [ 'js/release/each.js', 436, 420 ]
+643 silly gunzTarPerm extractEntry js/release/queue.js
+644 silly gunzTarPerm modified mode [ 'js/release/queue.js', 436, 420 ]
+645 silly gunzTarPerm extractEntry js/release/direct_resolve.js
+646 silly gunzTarPerm modified mode [ 'js/release/direct_resolve.js', 436, 420 ]
+647 silly gunzTarPerm extractEntry tests/expected/test001_1.txt
+648 silly gunzTarPerm modified mode [ 'tests/expected/test001_1.txt', 436, 420 ]
+649 silly gunzTarPerm extractEntry tests/expected/test001_10.txt
+650 silly gunzTarPerm modified mode [ 'tests/expected/test001_10.txt', 436, 420 ]
+651 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/red-round.bmp
+652 silly gunzTarPerm extractEntry js/release/race.js
+653 silly gunzTarPerm modified mode [ 'js/release/race.js', 436, 420 ]
+654 silly gunzTarPerm extractEntry tests/expected/test001_2.txt
+655 silly gunzTarPerm modified mode [ 'tests/expected/test001_2.txt', 436, 420 ]
+656 silly gunzTarPerm extractEntry tests/expected/test001_3.txt
+657 silly gunzTarPerm modified mode [ 'tests/expected/test001_3.txt', 436, 420 ]
+658 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/red.bmp
+659 silly gunzTarPerm extractEntry js/release/debuggability.js
+660 silly gunzTarPerm modified mode [ 'js/release/debuggability.js', 436, 420 ]
+661 silly gunzTarPerm extractEntry js/release/reduce.js
+662 silly gunzTarPerm modified mode [ 'js/release/reduce.js', 436, 420 ]
+663 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/simple-round.bmp
+664 silly gunzTarPerm extractEntry js/release/context.js
+665 silly gunzTarPerm modified mode [ 'js/release/context.js', 436, 420 ]
+666 silly gunzTarPerm extractEntry tests/expected/test001_4.txt
+667 silly gunzTarPerm modified mode [ 'tests/expected/test001_4.txt', 436, 420 ]
+668 silly gunzTarPerm extractEntry tests/expected/test001_5.txt
+669 silly gunzTarPerm modified mode [ 'tests/expected/test001_5.txt', 436, 420 ]
+670 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/simple-round2.bmp
+671 silly gunzTarPerm extractEntry js/release/schedule.js
+672 silly gunzTarPerm modified mode [ 'js/release/schedule.js', 436, 420 ]
+673 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Checks/simple.bmp
+674 silly gunzTarPerm extractEntry js/release/catch_filter.js
+675 silly gunzTarPerm modified mode [ 'js/release/catch_filter.js', 436, 420 ]
+676 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis-r.bmp
+677 silly gunzTarPerm extractEntry tests/expected/test001_6.txt
+678 silly gunzTarPerm modified mode [ 'tests/expected/test001_6.txt', 436, 420 ]
+679 silly gunzTarPerm extractEntry tests/expected/test001_8.txt
+680 silly gunzTarPerm modified mode [ 'tests/expected/test001_8.txt', 436, 420 ]
+681 silly gunzTarPerm extractEntry js/release/settle.js
+682 silly gunzTarPerm modified mode [ 'js/release/settle.js', 436, 420 ]
+683 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis.bmp
+684 silly gunzTarPerm extractEntry js/release/cancel.js
+685 silly gunzTarPerm modified mode [ 'js/release/cancel.js', 436, 420 ]
+686 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-branding-r.bmp
+687 silly gunzTarPerm extractEntry js/release/some.js
+688 silly gunzTarPerm modified mode [ 'js/release/some.js', 436, 420 ]
+689 silly gunzTarPerm extractEntry tests/expected/test001_9.txt
+690 silly gunzTarPerm modified mode [ 'tests/expected/test001_9.txt', 436, 420 ]
+691 silly gunzTarPerm extractEntry tests/expected/test002_0.txt
+692 silly gunzTarPerm modified mode [ 'tests/expected/test002_0.txt', 436, 420 ]
+693 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-branding.bmp
+694 silly gunzTarPerm extractEntry js/release/call_get.js
+695 silly gunzTarPerm modified mode [ 'js/release/call_get.js', 436, 420 ]
+696 silly gunzTarPerm extractEntry tests/expected/test002_1.txt
+697 silly gunzTarPerm modified mode [ 'tests/expected/test002_1.txt', 436, 420 ]
+698 silly gunzTarPerm extractEntry tests/expected/test002_10.txt
+699 silly gunzTarPerm modified mode [ 'tests/expected/test002_10.txt', 436, 420 ]
+700 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-grey-right.bmp
+701 silly gunzTarPerm extractEntry js/release/synchronous_inspection.js
+702 silly gunzTarPerm modified mode [ 'js/release/synchronous_inspection.js', 436, 420 ]
+703 silly gunzTarPerm extractEntry js/release/bluebird.js
+704 silly gunzTarPerm modified mode [ 'js/release/bluebird.js', 436, 420 ]
+705 silly gunzTarPerm extractEntry js/release/thenables.js
+706 silly gunzTarPerm modified mode [ 'js/release/thenables.js', 436, 420 ]
+707 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-grey.bmp
+708 silly gunzTarPerm extractEntry js/release/bind.js
+709 silly gunzTarPerm modified mode [ 'js/release/bind.js', 436, 420 ]
+710 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-metro-right.bmp
+711 silly gunzTarPerm extractEntry tests/expected/test002_11.txt
+712 silly gunzTarPerm modified mode [ 'tests/expected/test002_11.txt', 436, 420 ]
+713 silly gunzTarPerm extractEntry tests/expected/test002_12.txt
+714 silly gunzTarPerm modified mode [ 'tests/expected/test002_12.txt', 436, 420 ]
+715 silly gunzTarPerm extractEntry js/release/timers.js
+716 silly gunzTarPerm modified mode [ 'js/release/timers.js', 436, 420 ]
+717 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-metro.bmp
+718 silly gunzTarPerm extractEntry js/release/async.js
+719 silly gunzTarPerm modified mode [ 'js/release/async.js', 436, 420 ]
+720 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-vintage-right.bmp
+721 silly gunzTarPerm extractEntry js/release/using.js
+722 silly gunzTarPerm modified mode [ 'js/release/using.js', 436, 420 ]
+723 silly gunzTarPerm extractEntry tests/expected/test002_13.txt
+724 silly gunzTarPerm modified mode [ 'tests/expected/test002_13.txt', 436, 420 ]
+725 silly gunzTarPerm extractEntry tests/expected/test002_14.txt
+726 silly gunzTarPerm modified mode [ 'tests/expected/test002_14.txt', 436, 420 ]
+727 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/nsis3-vintage.bmp
+728 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-nsis.bmp
+729 silly gunzTarPerm extractEntry js/release/assert.js
+730 silly gunzTarPerm modified mode [ 'js/release/assert.js', 436, 420 ]
+731 silly gunzTarPerm extractEntry js/release/util.js
+732 silly gunzTarPerm modified mode [ 'js/release/util.js', 436, 420 ]
+733 silly gunzTarPerm extractEntry tests/expected/test002_2.txt
+734 silly gunzTarPerm modified mode [ 'tests/expected/test002_2.txt', 436, 420 ]
+735 silly gunzTarPerm extractEntry tests/expected/test002_3.txt
+736 silly gunzTarPerm modified mode [ 'tests/expected/test002_3.txt', 436, 420 ]
+737 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-r-nsis.bmp
+738 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-r.bmp
+739 silly gunzTarPerm extractEntry tests/expected/test002_4.txt
+740 silly gunzTarPerm modified mode [ 'tests/expected/test002_4.txt', 436, 420 ]
+741 silly gunzTarPerm extractEntry tests/expected/test002_5.txt
+742 silly gunzTarPerm modified mode [ 'tests/expected/test002_5.txt', 436, 420 ]
+743 silly gunzTarPerm extractEntry js/release/map.js
+744 silly gunzTarPerm modified mode [ 'js/release/map.js', 436, 420 ]
+745 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-uninstall-nsis.bmp
+746 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-uninstall-r-nsis.bmp
+747 silly gunzTarPerm extractEntry tests/expected/test002_6.txt
+748 silly gunzTarPerm modified mode [ 'tests/expected/test002_6.txt', 436, 420 ]
+749 silly gunzTarPerm extractEntry tests/expected/test002_7.txt
+750 silly gunzTarPerm modified mode [ 'tests/expected/test002_7.txt', 436, 420 ]
+751 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-uninstall-r.bmp
+752 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange-uninstall.bmp
+753 silly gunzTarPerm extractEntry tests/expected/test002_8.txt
+754 silly gunzTarPerm modified mode [ 'tests/expected/test002_8.txt', 436, 420 ]
+755 silly gunzTarPerm extractEntry tests/expected/test002_9.txt
+756 silly gunzTarPerm modified mode [ 'tests/expected/test002_9.txt', 436, 420 ]
+757 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/orange.bmp
+758 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Header/win.bmp
+759 silly gunzTarPerm extractEntry tests/expected/test003_0.txt
+760 silly gunzTarPerm modified mode [ 'tests/expected/test003_0.txt', 436, 420 ]
+761 silly gunzTarPerm extractEntry tests/expected/test003_1.txt
+762 silly gunzTarPerm modified mode [ 'tests/expected/test003_1.txt', 436, 420 ]
+763 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/arrow-install.ico
+764 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/arrow-uninstall.ico
+765 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/arrow2-install.ico
+766 silly gunzTarPerm extractEntry tests/expected/test004_0.txt
+767 silly gunzTarPerm modified mode [ 'tests/expected/test004_0.txt', 436, 420 ]
+768 silly gunzTarPerm extractEntry tests/expected/test004_1.txt
+769 silly gunzTarPerm modified mode [ 'tests/expected/test004_1.txt', 436, 420 ]
+770 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/arrow2-uninstall.ico
+771 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/box-install.ico
+772 silly gunzTarPerm extractEntry tests/expected/test005_0.txt
+773 silly gunzTarPerm modified mode [ 'tests/expected/test005_0.txt', 436, 420 ]
+774 silly gunzTarPerm extractEntry tests/expected/test005_1_1.txt
+775 silly gunzTarPerm modified mode [ 'tests/expected/test005_1_1.txt', 436, 420 ]
+776 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/box-uninstall.ico
+777 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6/node_modules is being purged
+778 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6/node_modules
+779 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/classic-install.ico
+780 silly gunzTarPerm extractEntry tests/expected/test005_1.txt
+781 silly gunzTarPerm modified mode [ 'tests/expected/test005_1.txt', 436, 420 ]
+782 silly gunzTarPerm extractEntry tests/expected/test005_10.txt
+783 silly gunzTarPerm modified mode [ 'tests/expected/test005_10.txt', 436, 420 ]
+784 silly gunzTarPerm extractEntry tests/expected/test005_11.txt
+785 silly gunzTarPerm modified mode [ 'tests/expected/test005_11.txt', 436, 420 ]
+786 silly gunzTarPerm extractEntry tests/expected/test005_12.txt
+787 silly gunzTarPerm modified mode [ 'tests/expected/test005_12.txt', 436, 420 ]
+788 silly gunzTarPerm extractEntry tests/expected/test005_13.txt
+789 silly gunzTarPerm modified mode [ 'tests/expected/test005_13.txt', 436, 420 ]
+790 silly gunzTarPerm extractEntry tests/expected/test005_14.txt
+791 silly gunzTarPerm modified mode [ 'tests/expected/test005_14.txt', 436, 420 ]
+792 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/classic-uninstall.ico
+793 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/llama-blue.ico
+794 silly gunzTarPerm extractEntry tests/expected/test005_15.txt
+795 silly gunzTarPerm modified mode [ 'tests/expected/test005_15.txt', 436, 420 ]
+796 silly gunzTarPerm extractEntry tests/expected/test005_16.txt
+797 silly gunzTarPerm modified mode [ 'tests/expected/test005_16.txt', 436, 420 ]
+798 silly gunzTarPerm extractEntry tests/expected/test005_17.txt
+799 silly gunzTarPerm modified mode [ 'tests/expected/test005_17.txt', 436, 420 ]
+800 silly gunzTarPerm extractEntry tests/expected/test005_18.txt
+801 silly gunzTarPerm modified mode [ 'tests/expected/test005_18.txt', 436, 420 ]
+802 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/llama-grey.ico
+803 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-install-blue-full.ico
+804 silly gunzTarPerm extractEntry tests/expected/test005_19.txt
+805 silly gunzTarPerm modified mode [ 'tests/expected/test005_19.txt', 436, 420 ]
+806 silly gunzTarPerm extractEntry tests/expected/test005_2.txt
+807 silly gunzTarPerm modified mode [ 'tests/expected/test005_2.txt', 436, 420 ]
+808 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-install-blue.ico
+809 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-install-colorful.ico
+810 silly gunzTarPerm extractEntry tests/expected/test005_3.txt
+811 silly gunzTarPerm modified mode [ 'tests/expected/test005_3.txt', 436, 420 ]
+812 silly gunzTarPerm extractEntry tests/expected/test005_4.txt
+813 silly gunzTarPerm modified mode [ 'tests/expected/test005_4.txt', 436, 420 ]
+814 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-install-full.ico
+815 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-install.ico
+816 silly gunzTarPerm extractEntry tests/expected/test005_5_1.txt
+817 silly gunzTarPerm modified mode [ 'tests/expected/test005_5_1.txt', 436, 420 ]
+818 silly gunzTarPerm extractEntry tests/expected/test005_5.txt
+819 silly gunzTarPerm modified mode [ 'tests/expected/test005_5.txt', 436, 420 ]
+820 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-uninstall-blue-full.ico
+821 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-uninstall-blue.ico
+822 silly gunzTarPerm extractEntry tests/expected/test005_6.txt
+823 silly gunzTarPerm modified mode [ 'tests/expected/test005_6.txt', 436, 420 ]
+824 silly gunzTarPerm extractEntry tests/expected/test005_7.txt
+825 silly gunzTarPerm modified mode [ 'tests/expected/test005_7.txt', 436, 420 ]
+826 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-uninstall-colorful.ico
+827 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-uninstall-full.ico
+828 silly gunzTarPerm extractEntry tests/expected/test005_8.txt
+829 silly gunzTarPerm modified mode [ 'tests/expected/test005_8.txt', 436, 420 ]
+830 silly gunzTarPerm extractEntry tests/expected/test005_9.txt
+831 silly gunzTarPerm modified mode [ 'tests/expected/test005_9.txt', 436, 420 ]
+832 silly gunzTarPerm extractEntry tests/expected/test006_0.txt
+833 silly gunzTarPerm modified mode [ 'tests/expected/test006_0.txt', 436, 420 ]
+834 silly gunzTarPerm extractEntry tests/expected/test006_1.txt
+835 silly gunzTarPerm modified mode [ 'tests/expected/test006_1.txt', 436, 420 ]
+836 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/modern-uninstall.ico
+837 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/nsis1-install.ico
+838 silly gunzTarPerm extractEntry tests/expected/test007_0.txt
+839 silly gunzTarPerm modified mode [ 'tests/expected/test007_0.txt', 436, 420 ]
+840 silly gunzTarPerm extractEntry tests/expected/test007_1.txt
+841 silly gunzTarPerm modified mode [ 'tests/expected/test007_1.txt', 436, 420 ]
+842 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/nsis1-uninstall.ico
+843 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/nsis3-install-alt.ico
+844 silly gunzTarPerm extractEntry tests/expected/test010_0.txt
+845 silly gunzTarPerm modified mode [ 'tests/expected/test010_0.txt', 436, 420 ]
+846 silly gunzTarPerm extractEntry tests/expected/test010_1.txt
+847 silly gunzTarPerm modified mode [ 'tests/expected/test010_1.txt', 436, 420 ]
+848 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/nsis3-install.ico
+849 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/nsis3-uninstall.ico
+850 silly gunzTarPerm extractEntry tests/expected/test010_2.txt
+851 silly gunzTarPerm modified mode [ 'tests/expected/test010_2.txt', 436, 420 ]
+852 silly gunzTarPerm extractEntry tests/expected/test010_3.txt
+853 silly gunzTarPerm modified mode [ 'tests/expected/test010_3.txt', 436, 420 ]
+854 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/orange-install-nsis.ico
+855 silly gunzTarPerm extractEntry tests/expected/test010_4.txt
+856 silly gunzTarPerm modified mode [ 'tests/expected/test010_4.txt', 436, 420 ]
+857 silly gunzTarPerm extractEntry tests/expected/test010_5.txt
+858 silly gunzTarPerm modified mode [ 'tests/expected/test010_5.txt', 436, 420 ]
+859 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/orange-install.ico
+860 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/orange-uninstall-nsis.ico
+861 silly gunzTarPerm extractEntry tests/expected/test010_6.txt
+862 silly gunzTarPerm modified mode [ 'tests/expected/test010_6.txt', 436, 420 ]
+863 silly gunzTarPerm extractEntry tests/expected/test011_1.txt
+864 silly gunzTarPerm modified mode [ 'tests/expected/test011_1.txt', 436, 420 ]
+865 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/orange-uninstall.ico
+866 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/pixel-install.ico
+867 silly gunzTarPerm extractEntry tests/expected/test011_2.txt
+868 silly gunzTarPerm modified mode [ 'tests/expected/test011_2.txt', 436, 420 ]
+869 silly gunzTarPerm extractEntry tests/expected/test011_3.txt
+870 silly gunzTarPerm modified mode [ 'tests/expected/test011_3.txt', 436, 420 ]
+871 silly gunzTarPerm extractEntry tests/expected/test011_4.txt
+872 silly gunzTarPerm modified mode [ 'tests/expected/test011_4.txt', 436, 420 ]
+873 silly gunzTarPerm extractEntry tests/expected/test011_5.txt
+874 silly gunzTarPerm modified mode [ 'tests/expected/test011_5.txt', 436, 420 ]
+875 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/pixel-uninstall.ico
+876 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/win-install.ico
+877 silly gunzTarPerm extractEntry tests/expected/test011_6.txt
+878 silly gunzTarPerm modified mode [ 'tests/expected/test011_6.txt', 436, 420 ]
+879 silly gunzTarPerm extractEntry tests/expected/test011_7.txt
+880 silly gunzTarPerm modified mode [ 'tests/expected/test011_7.txt', 436, 420 ]
+881 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Icons/win-uninstall.ico
+882 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/arrow.bmp
+883 silly gunzTarPerm extractEntry tests/expected/test012_0.txt
+884 silly gunzTarPerm modified mode [ 'tests/expected/test012_0.txt', 436, 420 ]
+885 silly gunzTarPerm extractEntry tests/expected/test012_1.txt
+886 silly gunzTarPerm modified mode [ 'tests/expected/test012_1.txt', 436, 420 ]
+887 silly gunzTarPerm extractEntry tests/expected/test012_2.txt
+888 silly gunzTarPerm modified mode [ 'tests/expected/test012_2.txt', 436, 420 ]
+889 silly gunzTarPerm extractEntry tests/extended/clean.sh
+890 silly gunzTarPerm modified mode [ 'tests/extended/clean.sh', 509, 493 ]
+891 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/llama.bmp
+892 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nsis.bmp
+893 silly gunzTarPerm extractEntry tests/extended/compare.ts
+894 silly gunzTarPerm modified mode [ 'tests/extended/compare.ts', 436, 420 ]
+895 silly gunzTarPerm extractEntry tests/extended/concurrent.ts
+896 silly gunzTarPerm modified mode [ 'tests/extended/concurrent.ts', 436, 420 ]
+897 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nsis3-branding.bmp
+898 silly gunzTarPerm extractEntry tests/extended/init.sh
+899 silly gunzTarPerm modified mode [ 'tests/extended/init.sh', 509, 493 ]
+900 silly gunzTarPerm extractEntry tests/extended/leaks-async.ts
+901 silly gunzTarPerm modified mode [ 'tests/extended/leaks-async.ts', 436, 420 ]
+902 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nsis3-grey.bmp
+903 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nsis3-metro.bmp
+904 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nsis3-vintage.bmp
+905 silly gunzTarPerm extractEntry tests/extended/leaks-sync.ts
+906 silly gunzTarPerm modified mode [ 'tests/extended/leaks-sync.ts', 436, 420 ]
+907 silly gunzTarPerm extractEntry tests/extended/loop.sh
+908 silly gunzTarPerm modified mode [ 'tests/extended/loop.sh', 509, 493 ]
+909 silly gunzTarPerm extractEntry tests/extended/runall.sh
+910 silly gunzTarPerm modified mode [ 'tests/extended/runall.sh', 509, 493 ]
+911 silly gunzTarPerm extractEntry tests/extract.js
+912 silly gunzTarPerm modified mode [ 'tests/extract.js', 436, 420 ]
+913 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/nullsoft.bmp
+914 silly gunzTarPerm extractEntry tests/pack.sh
+915 silly gunzTarPerm modified mode [ 'tests/pack.sh', 509, 493 ]
+916 silly gunzTarPerm extractEntry tests/runTests.ts
+917 silly gunzTarPerm modified mode [ 'tests/runTests.ts', 436, 420 ]
+918 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/orange-nsis.bmp
+919 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/orange-uninstall-nsis.bmp
+920 silly gunzTarPerm extractEntry tests/testdir.tar
+921 silly gunzTarPerm modified mode [ 'tests/testdir.tar', 436, 420 ]
+922 silly gunzTarPerm extractEntry tests/tests.ts
+923 silly gunzTarPerm modified mode [ 'tests/tests.ts', 436, 420 ]
+924 silly gunzTarPerm extractEntry tests/unpack.sh
+925 silly gunzTarPerm modified mode [ 'tests/unpack.sh', 509, 493 ]
+926 silly gunzTarPerm extractEntry tests/untar.js
+927 silly gunzTarPerm modified mode [ 'tests/untar.js', 436, 420 ]
+928 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/orange-uninstall.bmp
+929 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/orange.bmp
+930 silly gunzTarPerm extractEntry assets/nsis/Contrib/Graphics/Wizard/win.bmp
+931 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Afrikaans.nlf
+932 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Afrikaans.nsh
+933 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Albanian.nlf
+934 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Albanian.nsh
+935 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Arabic.nlf
+936 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Arabic.nsh
+937 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Armenian.nlf
+938 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Armenian.nsh
+939 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Asturian.nlf
+940 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Asturian.nsh
+941 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Basque.nlf
+942 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Basque.nsh
+943 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b/node_modules is being purged
+944 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b/node_modules
+945 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Belarusian.nlf
+946 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Belarusian.nsh
+947 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Bosnian.nlf
+948 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Bosnian.nsh
+949 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Breton.nlf
+950 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Breton.nsh
+951 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Bulgarian.nlf
+952 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Bulgarian.nsh
+953 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Catalan.nlf
+954 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Catalan.nsh
+955 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Corsican.nlf
+956 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Corsican.nsh
+957 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Croatian.nlf
+958 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Croatian.nsh
+959 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Czech.nlf
+960 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Czech.nsh
+961 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Danish.nlf
+962 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Danish.nsh
+963 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Dutch.nlf
+964 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Dutch.nsh
+965 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/English.nlf
+966 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/English.nsh
+967 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Esperanto.nlf
+968 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Esperanto.nsh
+969 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Estonian.nlf
+970 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Estonian.nsh
+971 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Farsi.nlf
+972 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Farsi.nsh
+973 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Finnish.nlf
+974 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Finnish.nsh
+975 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/French.nlf
+976 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/French.nsh
+977 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Galician.nlf
+978 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Galician.nsh
+979 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Georgian.nlf
+980 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Georgian.nsh
+981 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/German.nlf
+982 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/German.nsh
+983 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Greek.nlf
+984 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Greek.nsh
+985 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Hebrew.nlf
+986 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Hebrew.nsh
+987 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Hungarian.nlf
+988 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Hungarian.nsh
+989 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Icelandic.nlf
+990 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Icelandic.nsh
+991 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Indonesian.nlf
+992 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Indonesian.nsh
+993 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Irish.nlf
+994 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Irish.nsh
+995 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Italian.nlf
+996 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Italian.nsh
+997 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Japanese.nlf
+998 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Japanese.nsh
+999 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Korean.nlf
+1000 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Korean.nsh
+1001 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Kurdish.nlf
+1002 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Kurdish.nsh
+1003 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Latvian.nlf
+1004 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Latvian.nsh
+1005 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Lithuanian.nlf
+1006 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Lithuanian.nsh
+1007 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Luxembourgish.nlf
+1008 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Luxembourgish.nsh
+1009 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Macedonian.nlf
+1010 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Macedonian.nsh
+1011 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Malay.nlf
+1012 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Malay.nsh
+1013 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Mongolian.nlf
+1014 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Mongolian.nsh
+1015 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Norwegian.nlf
+1016 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Norwegian.nsh
+1017 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/NorwegianNynorsk.nlf
+1018 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/NorwegianNynorsk.nsh
+1019 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Pashto.nlf
+1020 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Pashto.nsh
+1021 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Polish.nlf
+1022 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Polish.nsh
+1023 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Portuguese.nlf
+1024 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Portuguese.nsh
+1025 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/PortugueseBR.nlf
+1026 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/PortugueseBR.nsh
+1027 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Romanian.nlf
+1028 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Romanian.nsh
+1029 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Russian.nlf
+1030 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a/node_modules is being purged
+1031 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a/node_modules
+1032 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Russian.nsh
+1033 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/ScotsGaelic.nlf
+1034 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/ScotsGaelic.nsh
+1035 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Serbian.nlf
+1036 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Serbian.nsh
+1037 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SerbianLatin.nlf
+1038 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SerbianLatin.nsh
+1039 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SimpChinese.nlf
+1040 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SimpChinese.nsh
+1041 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Slovak.nlf
+1042 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Slovak.nsh
+1043 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Slovenian.nlf
+1044 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Slovenian.nsh
+1045 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Spanish.nlf
+1046 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Spanish.nsh
+1047 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SpanishInternational.nlf
+1048 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/SpanishInternational.nsh
+1049 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Swedish.nlf
+1050 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Swedish.nsh
+1051 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Thai.nlf
+1052 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Thai.nsh
+1053 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/TradChinese.nlf
+1054 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/TradChinese.nsh
+1055 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Turkish.nlf
+1056 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Turkish.nsh
+1057 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Ukrainian.nlf
+1058 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Ukrainian.nsh
+1059 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Uzbek.nlf
+1060 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Uzbek.nsh
+1061 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Vietnamese.nlf
+1062 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Vietnamese.nsh
+1063 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Welsh.nlf
+1064 silly gunzTarPerm extractEntry assets/nsis/Contrib/Language files/Welsh.nsh
+1065 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Deprecated.nsh
+1066 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Interface.nsh
+1067 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Localization.nsh
+1068 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/MUI2.nsh
+1069 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages.nsh
+1070 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/Components.nsh
+1071 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/Directory.nsh
+1072 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/Finish.nsh
+1073 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/InstallFiles.nsh
+1074 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/License.nsh
+1075 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/StartMenu.nsh
+1076 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/UninstallConfirm.nsh
+1077 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI 2/Pages/Welcome.nsh
+1078 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI/ioSpecial.ini
+1079 silly gunzTarPerm extractEntry assets/nsis/Contrib/Modern UI/System.nsh
+1080 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/default.exe
+1081 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/modern_headerbmp.exe
+1082 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/modern_headerbmpr.exe
+1083 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/modern_nodesc.exe
+1084 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/modern_smalldesc.exe
+1085 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/modern.exe
+1086 silly gunzTarPerm extractEntry assets/nsis/Contrib/UIs/sdbarker_tiny.exe
+1087 silly gunzTarPerm extractEntry assets/nsis/Contrib/zip2exe/Base.nsh
+1088 silly gunzTarPerm extractEntry assets/nsis/Contrib/zip2exe/Classic.nsh
+1089 silly gunzTarPerm extractEntry assets/nsis/Contrib/zip2exe/Modern.nsh
+1090 silly gunzTarPerm extractEntry assets/nsis/COPYING
+1091 silly gunzTarPerm extractEntry assets/nsis/Include/Colors.nsh
+1092 silly gunzTarPerm extractEntry assets/nsis/Include/FileFunc.nsh
+1093 silly gunzTarPerm extractEntry assets/nsis/Include/InstallOptions.nsh
+1094 silly gunzTarPerm extractEntry assets/nsis/Include/LangFile.nsh
+1095 silly gunzTarPerm extractEntry assets/nsis/Include/Library.nsh
+1096 silly gunzTarPerm extractEntry assets/nsis/Include/LogicLib.nsh
+1097 silly gunzTarPerm extractEntry assets/nsis/Include/Memento.nsh
+1098 silly gunzTarPerm extractEntry assets/nsis/Include/MUI2.nsh
+1099 silly gunzTarPerm extractEntry assets/nsis/Include/MultiUser.nsh
+1100 silly gunzTarPerm extractEntry assets/nsis/Include/nsDialogs.nsh
+1101 silly gunzTarPerm extractEntry assets/nsis/Include/Sections.nsh
+1102 silly gunzTarPerm extractEntry assets/nsis/Include/StrFunc.nsh
+1103 silly gunzTarPerm extractEntry assets/nsis/Include/TextFunc.nsh
+1104 silly gunzTarPerm extractEntry assets/nsis/Include/UpgradeDLL.nsh
+1105 silly gunzTarPerm extractEntry assets/nsis/Include/Util.nsh
+1106 silly gunzTarPerm extractEntry assets/nsis/Include/VB6RunTime.nsh
+1107 silly gunzTarPerm extractEntry assets/nsis/Include/Win/COM.nsh
+1108 silly gunzTarPerm extractEntry assets/nsis/Include/Win/Propkey.nsh
+1109 silly gunzTarPerm extractEntry assets/nsis/Include/Win/WinDef.nsh
+1110 silly gunzTarPerm extractEntry assets/nsis/Include/Win/WinError.nsh
+1111 silly gunzTarPerm extractEntry assets/nsis/Include/Win/WinNT.nsh
+1112 silly gunzTarPerm extractEntry assets/nsis/Include/Win/WinUser.nsh
+1113 silly gunzTarPerm extractEntry assets/nsis/Include/WinCore.nsh
+1114 silly gunzTarPerm extractEntry assets/nsis/Include/WinMessages.nsh
+1115 silly gunzTarPerm extractEntry assets/nsis/Include/WinVer.nsh
+1116 silly gunzTarPerm extractEntry assets/nsis/Include/WordFunc.nsh
+1117 silly gunzTarPerm extractEntry assets/nsis/Include/x64.nsh
+1118 silly gunzTarPerm extractEntry assets/nsis/makensis.exe
+1119 silly gunzTarPerm extractEntry assets/nsis/nsisconf.nsh
+1120 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/advsplash.dll
+1121 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/Banner.dll
+1122 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/BgImage.dll
+1123 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/Dialer.dll
+1124 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/InstallOptions.dll
+1125 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/LangDLL.dll
+1126 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/Math.dll
+1127 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/nsDialogs.dll
+1128 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/nsExec.dll
+1129 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/nsis7z.dll
+1130 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/nsisdl.dll
+1131 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/splash.dll
+1132 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/StartMenu.dll
+1133 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/System.dll
+1134 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/TypeLib.dll
+1135 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/UserInfo.dll
+1136 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-ansi/VPatch.dll
+1137 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/advsplash.dll
+1138 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/Banner.dll
+1139 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/BgImage.dll
+1140 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/Dialer.dll
+1141 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/InstallOptions.dll
+1142 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/LangDLL.dll
+1143 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/Math.dll
+1144 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/nsDialogs.dll
+1145 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/nsExec.dll
+1146 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/nsis7z.dll
+1147 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/nsisdl.dll
+1148 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/splash.dll
+1149 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/StartMenu.dll
+1150 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/System.dll
+1151 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/TypeLib.dll
+1152 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/UserInfo.dll
+1153 silly gunzTarPerm extractEntry assets/nsis/Plugins/x86-unicode/VPatch.dll
+1154 silly gunzTarPerm extractEntry assets/nsis/Stubs/bzip2_solid-x86-ansi
+1155 silly gunzTarPerm extractEntry assets/nsis/Stubs/bzip2_solid-x86-unicode
+1156 silly gunzTarPerm extractEntry assets/nsis/Stubs/bzip2-x86-ansi
+1157 silly gunzTarPerm extractEntry assets/nsis/Stubs/bzip2-x86-unicode
+1158 silly gunzTarPerm extractEntry assets/nsis/Stubs/lzma_solid-x86-ansi
+1159 silly gunzTarPerm extractEntry assets/nsis/Stubs/lzma_solid-x86-unicode
+1160 silly gunzTarPerm extractEntry assets/nsis/Stubs/lzma-x86-ansi
+1161 silly gunzTarPerm extractEntry assets/nsis/Stubs/lzma-x86-unicode
+1162 silly gunzTarPerm extractEntry assets/nsis/Stubs/uninst
+1163 silly gunzTarPerm extractEntry assets/nsis/Stubs/zlib_solid-x86-ansi
+1164 silly gunzTarPerm extractEntry assets/nsis/Stubs/zlib_solid-x86-unicode
+1165 silly gunzTarPerm extractEntry assets/nsis/Stubs/zlib-x86-ansi
+1166 silly gunzTarPerm extractEntry assets/nsis/Stubs/zlib-x86-unicode
+1167 silly gunzTarPerm extractEntry dist/bin/build.d.ts
+1168 silly gunzTarPerm extractEntry dist/bin/build.js
+1169 silly gunzTarPerm extractEntry dist/bin/build.js.map
+1170 silly gunzTarPerm extractEntry dist/bin/run.d.ts
+1171 silly gunzTarPerm extractEntry dist/bin/run.js
+1172 silly gunzTarPerm extractEntry dist/bin/run.js.map
+1173 silly gunzTarPerm extractEntry dist/lib/Builder.d.ts
+1174 silly gunzTarPerm extractEntry dist/lib/Builder.js
+1175 silly gunzTarPerm extractEntry dist/lib/Builder.js.map
+1176 silly gunzTarPerm extractEntry dist/lib/common/DownloaderBase.d.ts
+1177 silly gunzTarPerm extractEntry dist/lib/common/DownloaderBase.js
+1178 silly gunzTarPerm extractEntry dist/lib/common/DownloaderBase.js.map
+1179 silly gunzTarPerm extractEntry dist/lib/common/Event.d.ts
+1180 silly gunzTarPerm extractEntry dist/lib/common/Event.js
+1181 silly gunzTarPerm extractEntry dist/lib/common/Event.js.map
+1182 silly gunzTarPerm extractEntry dist/lib/common/index.d.ts
+1183 silly gunzTarPerm extractEntry dist/lib/common/index.js
+1184 silly gunzTarPerm extractEntry dist/lib/common/index.js.map
+1185 silly gunzTarPerm extractEntry dist/lib/common/NsisVersionInfo.d.ts
+1186 silly gunzTarPerm extractEntry dist/lib/common/NsisVersionInfo.js
+1187 silly gunzTarPerm extractEntry dist/lib/common/NsisVersionInfo.js.map
+1188 silly gunzTarPerm extractEntry dist/lib/config/BuildConfig.d.ts
+1189 silly gunzTarPerm extractEntry dist/lib/config/BuildConfig.js
+1190 silly gunzTarPerm extractEntry dist/lib/config/BuildConfig.js.map
+1191 silly gunzTarPerm extractEntry dist/lib/config/index.d.ts
+1192 silly gunzTarPerm extractEntry dist/lib/config/index.js
+1193 silly gunzTarPerm extractEntry dist/lib/config/index.js.map
+1194 silly gunzTarPerm extractEntry dist/lib/config/LinuxConfig.d.ts
+1195 silly gunzTarPerm extractEntry dist/lib/config/LinuxConfig.js
+1196 silly gunzTarPerm extractEntry dist/lib/config/LinuxConfig.js.map
+1197 silly gunzTarPerm extractEntry dist/lib/config/MacConfig.d.ts
+1198 silly gunzTarPerm extractEntry dist/lib/config/MacConfig.js
+1199 silly gunzTarPerm extractEntry dist/lib/config/MacConfig.js.map
+1200 silly gunzTarPerm extractEntry dist/lib/config/NsisConfig.d.ts
+1201 silly gunzTarPerm extractEntry dist/lib/config/NsisConfig.js
+1202 silly gunzTarPerm extractEntry dist/lib/config/NsisConfig.js.map
+1203 silly gunzTarPerm extractEntry dist/lib/config/WinConfig.d.ts
+1204 silly gunzTarPerm extractEntry dist/lib/config/WinConfig.js
+1205 silly gunzTarPerm extractEntry dist/lib/config/WinConfig.js.map
+1206 silly gunzTarPerm extractEntry dist/lib/Downloader.d.ts
+1207 silly gunzTarPerm extractEntry dist/lib/Downloader.js
+1208 silly gunzTarPerm extractEntry dist/lib/Downloader.js.map
+1209 silly gunzTarPerm extractEntry dist/lib/FFmpegDownloader.d.ts
+1210 silly gunzTarPerm extractEntry dist/lib/FFmpegDownloader.js
+1211 silly gunzTarPerm extractEntry dist/lib/FFmpegDownloader.js.map
+1212 silly gunzTarPerm extractEntry dist/lib/index.d.ts
+1213 silly gunzTarPerm extractEntry dist/lib/index.js
+1214 silly gunzTarPerm extractEntry dist/lib/index.js.map
+1215 silly gunzTarPerm extractEntry dist/lib/nsis-gen/index.d.ts
+1216 silly gunzTarPerm extractEntry dist/lib/nsis-gen/index.js
+1217 silly gunzTarPerm extractEntry dist/lib/nsis-gen/index.js.map
+1218 silly gunzTarPerm extractEntry dist/lib/nsis-gen/Nsis7Zipper.d.ts
+1219 silly gunzTarPerm extractEntry dist/lib/nsis-gen/Nsis7Zipper.js
+1220 silly gunzTarPerm extractEntry dist/lib/nsis-gen/Nsis7Zipper.js.map
+1221 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisComposer.d.ts
+1222 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisComposer.js
+1223 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisComposer.js.map
+1224 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisDiffer.d.ts
+1225 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisDiffer.js
+1226 silly gunzTarPerm extractEntry dist/lib/nsis-gen/NsisDiffer.js.map
+1227 silly gunzTarPerm extractEntry dist/lib/Runner.d.ts
+1228 silly gunzTarPerm extractEntry dist/lib/Runner.js
+1229 silly gunzTarPerm extractEntry dist/lib/Runner.js.map
+1230 silly gunzTarPerm extractEntry dist/lib/util/archive.d.ts
+1231 silly gunzTarPerm extractEntry dist/lib/util/archive.js
+1232 silly gunzTarPerm extractEntry dist/lib/util/archive.js.map
+1233 silly gunzTarPerm extractEntry dist/lib/util/index.d.ts
+1234 silly gunzTarPerm extractEntry dist/lib/util/index.js
+1235 silly gunzTarPerm extractEntry dist/lib/util/index.js.map
+1236 silly gentlyRm /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261/node_modules is being purged
+1237 verbose gentlyRm don't care about contents; nuking /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261/node_modules
+1238 silly doParallel preinstall 8
+1239 silly preinstall buffer-equal@1.0.0 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/buffer-equal-4a7027a8
+1240 info lifecycle buffer-equal@1.0.0~preinstall: buffer-equal@1.0.0
+1241 silly preinstall colors@1.0.3 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/colors-2ff3ccd6
+1242 info lifecycle colors@1.0.3~preinstall: colors@1.0.3
+1243 silly preinstall bluebird@3.4.1 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/bluebird-222d0c0b
+1244 info lifecycle bluebird@3.4.1~preinstall: bluebird@3.4.1
+1245 silly preinstall graceful-readlink@1.0.1 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/graceful-readlink-28c61de2
+1246 info lifecycle graceful-readlink@1.0.1~preinstall: graceful-readlink@1.0.1
+1247 silly preinstall commander@2.9.0 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/commander-c6635201
+1248 info lifecycle commander@2.9.0~preinstall: commander@2.9.0
+1249 silly preinstall minimatch@3.0.2 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/minimatch-62af17b9
+1250 info lifecycle minimatch@3.0.2~preinstall: minimatch@3.0.2
+1251 silly preinstall dir-compare@1.8.0 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/dir-compare-e2748d8a
+1252 info lifecycle dir-compare@1.8.0~preinstall: dir-compare@1.8.0
+1253 silly preinstall nwjs-builder-phoenix@1.15.0 /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging/nwjs-builder-phoenix-bccad261
+1254 info lifecycle nwjs-builder-phoenix@1.15.0~preinstall: nwjs-builder-phoenix@1.15.0
+1255 silly lifecycle buffer-equal@1.0.0~preinstall: no script for preinstall, continuing
+1256 silly lifecycle colors@1.0.3~preinstall: no script for preinstall, continuing
+1257 silly lifecycle bluebird@3.4.1~preinstall: no script for preinstall, continuing
+1258 silly lifecycle graceful-readlink@1.0.1~preinstall: no script for preinstall, continuing
+1259 silly lifecycle commander@2.9.0~preinstall: no script for preinstall, continuing
+1260 silly lifecycle minimatch@3.0.2~preinstall: no script for preinstall, continuing
+1261 silly lifecycle dir-compare@1.8.0~preinstall: no script for preinstall, continuing
+1262 silly lifecycle nwjs-builder-phoenix@1.15.0~preinstall: no script for preinstall, continuing
+1263 silly doReverseSerial remove 0
+1264 silly doSerial move 0
+1265 silly doSerial finalize 8
+1266 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/buffer-equal
+1267 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/colors
+1268 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare/node_modules/bluebird
+1269 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/graceful-readlink
+1270 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/commander
+1271 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/minimatch
+1272 silly finalize /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare
+1273 verbose unlock done using /home/vmubuntu/.npm/_locks/staging-a8af3924c6dd2a4c.lock for /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.staging
+1274 silly rollbackFailedOptional Starting
+1275 silly rollbackFailedOptional Finishing
+1276 silly runTopLevelLifecycles Starting
+1277 silly runTopLevelLifecycles Finishing
+1278 silly install printInstalled
+1279 warn optional Skipping failed optional dependency /7zip-bin/7zip-bin-mac:
+1280 warn notsup Not compatible with your operating system or architecture: 7zip-bin-mac@1.0.1
+1281 warn optional Skipping failed optional dependency /7zip-bin/7zip-bin-win:
+1282 warn notsup Not compatible with your operating system or architecture: 7zip-bin-win@2.1.1
+1283 warn candycrush@0.1.0 No repository field.
+1284 warn candycrush@0.1.0 No license field.
+1285 verbose stack Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE'
+1285 verbose stack     at moveAway (/usr/share/npm/lib/install/action/finalize.js:38:5)
+1285 verbose stack     at destStatted (/usr/share/npm/lib/install/action/finalize.js:27:7)
+1285 verbose stack     at FSReqWrap.oncomplete (fs.js:153:5)
+1285 verbose stack
+1285 verbose stack Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE'
+1286 verbose cwd /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush
+1287 error Linux 5.0.0-37-generic
+1288 error argv "/usr/bin/node" "/usr/bin/npm" "install" "nwjs-builder-phoenix" "--save-dev"
+1289 error node v8.10.0
+1290 error npm  v3.5.2
+1291 error path /home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare
+1292 error code EPERM
+1293 error errno -1
+1294 error syscall rename
+1295 error Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE'
+1295 error     at moveAway (/usr/share/npm/lib/install/action/finalize.js:38:5)
+1295 error     at destStatted (/usr/share/npm/lib/install/action/finalize.js:27:7)
+1295 error     at FSReqWrap.oncomplete (fs.js:153:5)
+1295 error
+1295 error Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE'
+1295 error  { Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE'
+1295 error     at moveAway (/usr/share/npm/lib/install/action/finalize.js:38:5)
+1295 error     at destStatted (/usr/share/npm/lib/install/action/finalize.js:27:7)
+1295 error     at FSReqWrap.oncomplete (fs.js:153:5)
+1295 error
+1295 error Error: EPERM: operation not permitted, rename '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/dir-compare' -> '/home/vmubuntu/Documents/Master1/2244_Programmation_Web/TP5/CandyCrush/node_modules/.dir-compare.DELETE' parent: 'candycrush' }
+1296 error Please try running this command again as root/Administrator.
+1297 verbose exit [ -1, true ]
