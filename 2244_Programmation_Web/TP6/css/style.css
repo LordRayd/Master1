@@ -1,0 +1,29 @@
+.scene {
+    background-color: green;
+    overflow: hidden;
+    position: absolute;
+    height: 99%;
+    width: 99%;
+}
+
+.central {
+    background-color: red;
+    float: left;
+    overflow: hidden;
+    width: 470px;
+    height: 470px;
+}
+
+.imgG {
+    float: left;
+    width: 100px;
+    height: 470px;
+    overflow: hidden;
+}
+
+.imgD {
+    float: left;
+    width: 100px;
+    height: 470px;
+    overflow: hidden;
+}
