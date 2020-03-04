@@ -1,0 +1,61 @@
+DECOUVERTE
+Behavioral Interviews
+Ethnography
+Sketchboard
+
+DEFINITION
+Alignment model 
+Collaborative Sketching
+Controlled Vocabulary
+Free Listing
+GOMS
+Kano Analysis
+Rapid Facilitation
+Scenario Planning
+Tagging
+Task Analysis
+Taxonomy
+
+
+IDEATION
+Affiniti diagram
+Backcasting
+Card Sort
+Ecosystem Visualization
+Facets
+Five Whys
+Page Description Diagram
+Personas
+Six Thinking Hats
+Storyboarding
+Swimlanes
+User Scenario
+
+
+CONCEPTION
+Concept Model
+Concept Video
+Design Pattern
+Design the Box
+Paper Prototype 
+Participatory Design
+Service Design
+
+
+EVALUATION
+A/B testing
+Cafe test
+Collaborative Inspection 
+Diary Study
+Digital Ethnography
+Experience Map 
+Five Sketches™
+Heuristic Evaluation
+Process Flow 
+Site Map
+Tangible Futures
+Usability Capture Software
+Usability Testing
+Web Analytics
+Wireflow
+Wireframe
