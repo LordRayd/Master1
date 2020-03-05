@@ -1,5 +1,5 @@
 .scene {
-    background-color: green;
+    background-image: url("../images/fond.png");
     overflow: hidden;
     position: absolute;
     height: 99%;
@@ -21,9 +21,12 @@
     overflow: hidden;
 }
 
-.imgD {
-    float: left;
-    width: 100px;
-    height: 470px;
-    overflow: hidden;
+.txtbulle {}
+
+.panneauTxt {
+    position: absolute;
+    width: 235px;
+    height: 235px;
+    opacity: 0.5;
+    background-color: white;
 }
