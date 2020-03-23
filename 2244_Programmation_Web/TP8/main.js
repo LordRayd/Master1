@@ -3,7 +3,7 @@ const URL = require('url');
 const FS = require('fs');
 const port = 3000;
 const request = require('request');
-var jsdom = require("node-jsdom");
+var jsdom = require("jsdom").JSDOM;
 
 const errCb = (err, nomFichier) => {
     let writer = FS.createWriteStream(nomFichier, {
@@ -11,7 +11,7 @@ const errCb = (err, nomFichier) => {
     });
 
     let reader = FS.createReadStream(err).pipe(writer);
-}
+};
 
 const chargement = (url, nomFichier, errCb) => {
     request(url).pipe(FS.createWriteStream(nomFichier));
@@ -26,7 +26,7 @@ const chargement = (url, nomFichier, errCb) => {
             errCb(error, nomFichier);
         }
     });*/
-}
+};
 // callback de réaction
 const requestHandler = (requete, reponse) => {
     let ulp = URL.parse(requete.url);
@@ -57,6 +57,15 @@ const requestHandler = (requete, reponse) => {
         reponse.end();
         break;
 
+    case '/jsdom':
+        request('http://localhost:3000/index.html', function (error, response, body) {
+            let dom = new jsdom(body, {includeNodeLocations: true});
+            dom.window.document.querySelectorAll("img").forEach(function (image) {
+                console.log(image.getAttribute('src'));
+                chargement(image.getAttribute('src'), 'images/image' + 1 + '.png', errCb);
+            });
+        });
+        break;
     default:
         let rq = ulp.pathname;
         if (rq.length > 1) {
