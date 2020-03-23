@@ -3,7 +3,8 @@ const URL = require('url');
 const FS = require('fs');
 const port = 3000;
 const request = require('request');
-var jsdom = require("jsdom").JSDOM;
+const jsdom = require("jsdom");
+const parse = require('url-parse')
 
 const errCb = (err, nomFichier) => {
     let writer = FS.createWriteStream(nomFichier, {
@@ -29,6 +30,36 @@ const chargement = (url, nomFichier, errCb) => {
         }
     });*/
 };
+
+const jsdomParser = (url) =>{
+    request(url, function (error, response, body) {
+        let dom = new jsdom.JSDOM(body);
+        dom.window.document.querySelectorAll("img").forEach(function (image,index) {
+            console.log(image.getAttribute('src'));
+            let urlParse = parse(image.getAttribute('src'), true);
+            let extension = image.getAttribute('src').split('.').pop();
+            let nom = 'images/' + urlParse.hostname + index + '.' + extension;
+            chargement(image.getAttribute('src'), nom, errCb);
+            image.setAttribute('src', nom);
+        });
+        FS.writeFile('test.html', dom.serialize(), err => { // ne marche pas avec les streams
+            console.log('done');
+        });
+    });
+}
+
+const recupereImages = (url, prefixe, errCb) => {
+    request(url, function (error, response, body) {
+        let dom = new jsdom.JSDOM(body);
+        dom.window.document.querySelectorAll("img").forEach(function (image,index) {
+            console.log(image.getAttribute('src'));
+            let extension = image.getAttribute('src').split('.').pop();
+            let nom = 'images/' + prefixe + index + '.' + extension;
+            chargement(image.getAttribute('src'), nom, errCb);
+            image.setAttribute('src', nom);
+        });
+    });
+}
 // callback de réaction
 const requestHandler = (requete, reponse) => {
     let ulp = URL.parse(requete.url);
@@ -53,7 +84,7 @@ const requestHandler = (requete, reponse) => {
         break;
 
     case '/requestInFile':
-        chargement("https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png", 'downloaded.png', errCb);
+        chargement("https://ljdchost.com/027/revue-code-lol.png", 'images/downloaded.png', errCb);
         reponse.writeHead(200, {'Content-Type': 'text/html'});
         reponse.write("Fichier traité !!");
         reponse.end();
@@ -61,17 +92,26 @@ const requestHandler = (requete, reponse) => {
 
     case '/jsdom':
         request('http://localhost:3000/index.html', function (error, response, body) {
-            let dom = new jsdom(body, {includeNodeLocations: true});
+            const dom = new jsdom.JSDOM(body);
             dom.window.document.querySelectorAll("img").forEach(function (image,index) {
                 console.log(image.getAttribute('src'));
                 let nom = 'images/image' + index + '.png';
                 chargement(image.getAttribute('src'), nom, errCb);
                 image.setAttribute('src', nom);
-            });
-            FS.createReadStream(dom.serialize()).pipe(FS.createWriteStream('test.html'));
 
+            });
+            FS.writeFile('test.html', dom.serialize(), err => { // ne marche pas avec les streams
+                console.log('done');
+            });
         });
         break;
+
+    case '/jsdomParser' :
+        jsdomParser('http://localhost:3000/index.html');
+        break;
+    case '/recupere' :
+        recupereImages('http://localhost:3000/index.html', 'im', errCb);
+        break
     default:
         let rq = ulp.pathname;
         if (rq.length > 1) {
