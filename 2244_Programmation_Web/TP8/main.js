@@ -14,7 +14,9 @@ const errCb = (err, nomFichier) => {
 };
 
 const chargement = (url, nomFichier, errCb) => {
-    request(url).pipe(FS.createWriteStream(nomFichier));
+    request(url).pipe(FS.createWriteStream(nomFichier)).on('error', (err) => {
+        errCb(err, nomFichier);
+    });
     /*request(url, function (error, response, body) {
         if (response.statusCode == 200) {
             let writer = FS.createWriteStream(nomFichier, {
@@ -60,10 +62,14 @@ const requestHandler = (requete, reponse) => {
     case '/jsdom':
         request('http://localhost:3000/index.html', function (error, response, body) {
             let dom = new jsdom(body, {includeNodeLocations: true});
-            dom.window.document.querySelectorAll("img").forEach(function (image) {
+            dom.window.document.querySelectorAll("img").forEach(function (image,index) {
                 console.log(image.getAttribute('src'));
-                chargement(image.getAttribute('src'), 'images/image' + 1 + '.png', errCb);
+                let nom = 'images/image' + index + '.png';
+                chargement(image.getAttribute('src'), nom, errCb);
+                image.setAttribute('src', nom);
             });
+            FS.createReadStream(dom.serialize()).pipe(FS.createWriteStream('test.html'));
+
         });
         break;
     default:
