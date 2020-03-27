@@ -1,0 +1,16 @@
+{
+  "name": "tp9",
+  "version": "1.0.0",
+  "description": "TP 9 de la programmation web",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "jsdom": "^16.2.1"
+  }
+}
