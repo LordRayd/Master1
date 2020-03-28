@@ -1,0 +1,17 @@
+doctype html
+html(lang='fr')
+    head 
+        title Page pug
+    body
+        h1 Recherche ADN difference
+        form(method='GET' action='/#{user}/distance')
+          div.form-group
+            label(for='user') Name:
+            input#user.form-control(type='text', placeholder='utilisateur' name='user')
+          div.form-group
+            label(for='A') ADN A:
+            input#A.form-control(type='text', placeholder='AAATTTCGCGC' name='A')
+          div.form-group
+            label(for='B') ADN B:
+            input#B.form-control(type='text', placeholder='AAATTTCGCGC' name='B')
+          button.btn.btn-primary(type='submit') Sign up
