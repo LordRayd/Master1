@@ -1,10 +1,10 @@
-#TP 9 - Création Serveur Express et déploiement sur Heroku
-##Authors :
+# TP 9 - Création Serveur Express et déploiement sur Heroku
+## Authors :
     Samuel LE BERRE
-##Pour le déploiement faire :
+## Pour le déploiement faire :
     npm install
 
-##Pour tester utiliser l'url sur heroku :
+## Pour tester utiliser l'url sur heroku :
     https://tp9progwebsamuel.herokuapp.com
 
 Le serveur se trouve dans le fichier main.js<br>
