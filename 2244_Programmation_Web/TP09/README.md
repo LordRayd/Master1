@@ -1,9 +1,22 @@
 # TP 9 - Création Serveur Express et déploiement sur Heroku
 ## Authors :
     Samuel LE BERRE
-## Pour le déploiement faire :
+## Pour le déploiement :
     npm install
-
+## Pour le lancement :
+    node main.js
+## Les coommandes pour le déploiement sur Heroku :
+    git init
+    git add public/*
+    git add views/*
+    git add main.js
+    git add package-lock.json
+    git add package.json
+    git add README.md
+    git ls-tree - -full-tree –r HEAD
+    heroku login
+    heroku create hmonProjet
+    git push heroku –u master
 ## Pour tester utiliser l'url sur heroku :
     https://tp9progwebsamuel.herokuapp.com
 
