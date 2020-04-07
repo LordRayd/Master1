@@ -137,7 +137,17 @@ Quelles sont les deux approches de la méthode du tri de cartes utilisée en Exp
 Format de la réponse : xxxxxx / xxxxxxx (par exemple : grande / petite)
 #### Reponse 
     Ouvert / fermé
+
 ### Question 16
+#### Enoncé
+Pour James Gibson, qu'est-ce qu'une affordance ?<br>
+Veuillez choisir une réponse :<br>
+    a. une interprétation de la forme d'un objet<br>
+    b. un résultat de la perception d'un animal<br>
+    c. une possibilité d'action d'un environnement
+#### Reponse 
+    Une possibilité d'action d'un environnement
+### Question 17
 #### Enoncé
 Une revue de conception (design walkthrough) est une méthode d'évaluation qui consiste à<br>
 Veuillez choisir une réponse :<br>
@@ -145,7 +155,7 @@ a. Faire analyser une interface par des non experts en ergonomie<br>
 b. Faire analyser une interface par quelques experts en ergonomie
 #### Reponse 
     Non expert (Diapo 24)
-### Question 17
+### Question 18
 #### Enoncé
 Parmi les 3 questionnaires d'évaluation, lequel est particulièrement adapté à l'évaluation de sites web ?<br>
 Veuillez choisir une réponse :<br>
@@ -154,7 +164,7 @@ Veuillez choisir une réponse :<br>
     c. SUS
 #### Reponse 
     DEEP
-### Question 18
+### Question 19
 #### Enoncé
 Quelles sont les lois proposées par la Gestalt Théorie (psychologie de la forme) ?<br>
 Veuillez choisir au moins une réponse :<br>
@@ -169,7 +179,7 @@ Veuillez choisir au moins une réponse :<br>
     Loi de la proximité (groupement)
     Loi de la cloture
     Loi de la simplicité	
-### Question 19
+### Question 20
 #### Enoncé
 En RVB, le mélange du rouge, du vert et du bleu donne :<br>
 Veuillez choisir une réponse :<br>
@@ -179,12 +189,3 @@ Veuillez choisir une réponse :<br>
     d. du gris<br>
 #### Reponse 
     Blanc
-### Question 20
-#### Enoncé
-Pour James Gibson, qu'est-ce qu'une affordance ?<br>
-Veuillez choisir une réponse :<br>
-    a. une interprétation de la forme d'un objet<br>
-    b. un résultat de la perception d'un animal<br>
-    c. une possibilité d'action d'un environnement
-#### Reponse 
-    Une possibilité d'action d'un environnement
