@@ -9,6 +9,7 @@
     IA
 
 ## QCM
+Les réponses données permettent d'obtenir la note de 8.13/10
 ### Question 1
 #### Enoncé
 Pour Norman, le niveau de traitement de l'information qui est réalisé consciemment et relève de l'expérience est appelé :<br>
