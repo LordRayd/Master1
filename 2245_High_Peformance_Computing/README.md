@@ -4,7 +4,8 @@
     Nicolas Courty
 ## Conrtrole
 2 TPs noté avec Raimbault
-### Programmation en C 
+### Programmation en C SMID
+
 ### Programmation sur Hadoop
 #### Upload du fichier par ssh
 scp fichier username@ipaddressDistant:DestinationDirectory<br>
