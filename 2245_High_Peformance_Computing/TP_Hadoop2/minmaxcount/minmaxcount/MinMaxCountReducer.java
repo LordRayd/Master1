@@ -12,27 +12,27 @@ public class MinMaxCountReducer extends Reducer<IntWritable, MinMaxCountTuple, I
     @Override
     public void reduce(IntWritable inputKey, Iterable<MinMaxCountTuple> inputValues, Context context) throws IOException, InterruptedException {
 
-                Date min = new Date();
-                Date max = new Date();
-                long count = 0;
+        Date min = new Date();
+        Date max = new Date();
+        long count = 0;
 
-                for(MinMaxCountTuple tuple : inputValues){
+        for(MinMaxCountTuple tuple : inputValues){
 
-                    if(min.compareTo(tuple.getMin()) > 0){
-                        min = tuple.getMin();
-                    }
+            if(min.compareTo(tuple.getMin()) > 0){
+                min = tuple.getMin();
+            }
 
-                    if(max.compareTo(tuple.getMax()) < 0){
-                        max = tuple.getMax();
-                    }
+            if(max.compareTo(tuple.getMax()) < 0){
+                max = tuple.getMax();
+            }
 
-                    count += tuple.getCount();
-                }
+            count += tuple.getCount();
+        }
 
-                MinMaxCountTuple outputValue = new MinMaxCountTuple();
-                outputValue.setMin(min);
-                outputValue.setMax(max);
-                outputValue.setCount(count);
-                context.write(inputKey, outputValue);
+        MinMaxCountTuple outputValue = new MinMaxCountTuple();
+        outputValue.setMin(min);
+        outputValue.setMax(max);
+        outputValue.setCount(count);
+        context.write(inputKey, outputValue);
     }
 }

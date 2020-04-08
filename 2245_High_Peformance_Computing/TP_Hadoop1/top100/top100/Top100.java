@@ -18,7 +18,7 @@ import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.CombineTextInputFormat;//TODO Jules Audurier
+import org.apache.hadoop.mapreduce.lib.input.CombineTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
@@ -43,7 +43,6 @@ public class Top100 {
 
     Job job= Job.getInstance(conf,"Top100");
 
-    //TODO Jules Audurier
     URI stopUri = new URI("/data/stop-words/stop-words-english4.txt"+"#stopWords");
     job.addCacheFile(stopUri);
 
@@ -53,7 +52,7 @@ public class Top100 {
     job.setInputFormatClass(CombineTextInputFormat.class);//ou CombineTextInputFormat pour un gd nb de petits fichiers
     job.setMapOutputKeyClass(Text.class);
     job.setMapOutputValueClass(IntWritable.class);
-    job.setCombinerClass(Top100Reducer.class); //TODO Jules Audurier
+    job.setCombinerClass(Top100Reducer.class);
     job.setReducerClass(Top100Reducer.class);
 
     FileSystem hdfs= FileSystem.get(new URI("hdfs://hnn:9000"),conf);

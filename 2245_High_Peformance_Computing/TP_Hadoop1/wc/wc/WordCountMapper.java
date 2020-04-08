@@ -17,14 +17,14 @@ import org.apache.hadoop.mapreduce.Mapper;
 public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
   // private Pattern pattern_regexp;
-  private HashSet stoppedWordsHashSet; // TODO Jules Audurier
+  private HashSet stoppedWordsHashSet;
   private static final Pattern pattern_word = Pattern.compile("\\w+");
   private static final IntWritable ONE = new IntWritable(1);
 
   public static enum MapCounters {
     //MATCHED_WORDS, // nombre de mots qui ont été trouvés
-    REJECT_CNT, //TODO Jules Audurier
-    ACCEPTED_CNT //TODO Jules Audurier
+    REJECT_CNT,
+    ACCEPTED_CNT
   };
 
   @Override
@@ -52,7 +52,7 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
     Matcher match = pattern_word.matcher(value.toString());
     while (match.find()) {
       String word = match.group().toLowerCase();
-      if(!stoppedWordsHashSet.contains(word)) { //TODO Jules Audurier
+      if(!stoppedWordsHashSet.contains(word)) {
         context.write(new Text(word), ONE);
         context.getCounter(MapCounters.ACCEPTED_CNT).increment(1);
       }else{
