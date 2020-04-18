@@ -4,6 +4,3 @@ Ce git contient tout les TPs et poly concernant le Master 1 Application Intérac
     Samuel LE BERRE
 ## Années
     2019 - 2020
-## Autres lien
-Afin d'avoir d'autres références sur le même parcours se diriger vers : <br>
-    https://github.com/MrRedbloX/M1_INFO
