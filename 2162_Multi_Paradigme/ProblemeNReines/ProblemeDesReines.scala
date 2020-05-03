@@ -2,9 +2,9 @@ object Nqueen {
   type Queen = (Int, Int)
   type Solutions = List[List[Queen]]
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]) : Unit = {
     val size: Int = args match {
-      case Array() => sys.error("Provide a board size")
+      case Array() => sys.error("Donner la taille de l echiquer")
       case Array(n) => n.toInt
     }
     def placeQueens(n: Int): Solutions = 
@@ -18,8 +18,8 @@ object Nqueen {
             } yield queen :: queens
         }
         val solutions = placeQueens(size)
-        println(solutions.size + " solutions found")
-        // print the board of the first solution
+        println(s"${solutions.size} solutions found")
+        // affiche l'échiquier de la première solution
         for (queen <- solutions.head; x <- 1 to size) {
             if (queen._2 == x) print("Q ") else print(". ")
             if (x == size) println()
