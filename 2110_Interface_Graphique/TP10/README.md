@@ -1,0 +1,3 @@
+# TP 10 - Shaders
+Program the shaders seen in class. For those who do not have a personal laptop, you can work on the following online website: http://www.kickjs.org/example/shader_editor/shader_editor.html. <br>
+Be careful as you will have to adapt a few details to make them work. For those who have a personal laptop, you will need to install glext or equivalent (GLSL) and create the shader programs as seen in class (see files below: shaders.cpp to read the source code, main.cpp, tp11.cpp and tp11.h to read the .obj. Add you code into tp11.cpp (see comments)).
