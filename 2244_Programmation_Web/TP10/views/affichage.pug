@@ -1,0 +1,14 @@
+doctype html
+html(lang='fr')
+    head 
+        title TP10
+    body
+        h1 Résultat recherche
+        if nb !== undefined && specialite !== undefined && ville !== undefined
+            p Restaurants cuisine #{specialite} situé dans #{ville} : #{nb}
+        else if nb !== undefined && specialite !== undefined
+            p Restaurants cuisine #{specialite} : #{nb}
+        if resultat !== undefined
+            ul
+                each val in resultat
+                    li= val.name +' : '+ val.address.building +' '+ val.address.street +' '+ val.address.zipcode +' ('+ val.borough +'), '+ val.cuisine
