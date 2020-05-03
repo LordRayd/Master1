@@ -77,18 +77,18 @@ def question_5_3(f,fs):
 import cmath as cm
 def expsig(n,a):
     isreal = np.isreal(a)
+    result = np.zeros(n)
     if(isreal == True):
-        result = n**a
+        for i in range(n):
+            result[i] = np.power(i,a)
     else :
-        theta = cm.phase
+        theta = cm.phase(a)
+        for i in range(n):
+            result[i] = (a.real**i) * (np.cos(theta * i) + np.sin(theta * i)) 
+    print(result)
+    plt.figure(9)
+    plt.plot(result)
+    plt.stem(result)
         
-
-        
-    
-
-#def question_6_2():
-    #import cmat
-    #polar
-    
-question_5_2(40,1,20)
-question_5_2_alt(40,1,20)
+a = 0.95 ** cm.exp(complex(0.0,(np.pi/10)))
+expsig(50,a)
