@@ -1,0 +1,16 @@
+doctype html
+html(lang='fr')
+    head 
+        title TP10
+    body
+        h1 #{restaurant.name}
+        p Ce restaurant se trouve à #{distance} #{unit} de la position recherché
+        h2 Adresse
+        p #{restaurant.address.building} #{restaurant.address.street} #{restaurant.address.zipcode} #{restaurant.borough}
+        h2 Type de nourriture servi
+        p #{restaurant.cuisine}
+        h2 Avis
+        ul
+            each note in restaurant.grades
+                li= toDate(note.date) + ' : Note de -> ' + toNote(note.score) + ', grade ' + note.grade
+            

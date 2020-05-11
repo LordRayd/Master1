@@ -3,6 +3,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 const MongoClient = require("mongodb").MongoClient;
 
+function radians(nb){
+    return nb * ( Math.PI/180);
+}
+
+function distance(x1,y1,x2,y2) {
+    let radius = 6371;
+    return Math.acos(Math.sin(radians(x1)) * Math.sin(radians(x2)) + Math.cos(radians(x1)) * Math.cos(radians(x2)) * Math.cos(radians(y1 - y2))) * radius;
+}
+
 app.set('views', './views');
 app.set('view engine', 'pug');
 
@@ -44,29 +53,45 @@ app.get('/noms/:quartier/:specialite', (req, res, next) => {
     });
 });
 
-app.get('/coord/:y/:y', (req, res, next) => {
+
+app.get('/distance', (req, res, next) => {
+    res.redirect('/coord/' + req.query.lat + '/' + req.query.long);
+});
+
+app.get('/coord/:x/:y', (req, res, next) => {
 	MongoClient.connect("mongodb://localhost:27017", {useUnifiedTopology: true} , function(err, client) {
         if (err) {
             res.render('erreurConnection', {error: err});
         } else {
             var db = client.db('mongoimport');
             db.collection('restaurants').find().toArray(function(err, result) {
-                var ret = undefined;
-                let dist = 0;
-                for (resto in result) {
+                let ret = undefined;
+                let dist = 2;
+                let dist_unit = 'kilomètres';
+                result.forEach((item, index) => {
                     if (ret !== undefined){
-                        let distcmp = (resto.address.coord[0] - req.params.x) + (resto.address.coord[1] - req.params.y);
+                        let distcmp = distance(item.address.coord[0], item.address.coord[1], req.params.x, req.params.y);
                         if (dist > distcmp) {
-                            ret = resto;
+                            ret = item;
                             dist = distcmp;
                         }
                     } else {
-                        ret = resto;
-                        console.log(resto);
-                        dist = (resto.address.coord[0] - req.params.x) + (resto.address.coord[1] - req.params.y);
+                        ret = item;
+                        dist = distance(item.address.coord[0], item.address.coord[1], req.params.x, req.params.y);
                     }
+                });
+                if(dist < 0.01){
+                    dist = dist * 1000;
+                    dist_unit = 'mètres';
                 }
-                res.render('index', {nombre_restaurant: dist});
+                res.render('restaurant', {restaurant: ret, distance: dist, unit: dist_unit, toDate: (str_) => {
+                    let date = new Date(str_);
+                    return [date.getDate(), date.getMonth()+1, date.getFullYear()]
+                        .map(n => n < 10 ? `0${n}` : `${n}`).join('/');
+                }, toNote: (note) => {
+                    if(note < 10) return `0${note}`
+                    return `${note}`;
+                }});
             });
         }
     });

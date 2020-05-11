@@ -1,13 +1,17 @@
 # TP 10 - Utilisation MongoDB et serveur Express
 ## Installation
+    Il faut dans un premier temps exécuté les commandes de la Question 1 vu plus bas
     Récupéré les fichiers package.json et server.js ainsi que le dossier views
     Exécuté la ccommande : npm install
 ## Lancement
     node server.js
     Se rendre à l'URL : http://localhost:3000/home
-## Question 1 
+    Cette url gère le nombre de restaurant et la recherche par latitude longitude
+## Question 1
+    Installé MongoDB
     Importé base.json dans mongodb
     mongoimport --db mongoimport --collection restaurants --file D:\Cours\Master1\2244_Programmation_Web\TP10\base.json
+    La ligne du dessus doit être modifié selon la position du fichier base.json
 ## Question 3
 ### Exercice A
 #### Enoncé 

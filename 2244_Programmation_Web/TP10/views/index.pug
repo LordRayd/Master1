@@ -6,3 +6,11 @@ html(lang='fr')
         h1 Nombre de restaurants dans la base
         if nombre_restaurant !== undefined
            p Nombre restaurant : #{nombre_restaurant}
+        form(action="/distance")
+            div.form-group
+                label(for='lat') Latitude:
+                input#lat.form-control(type='text', placeholder='latitude' name='lat')
+            div.form-group
+                label(for='long') Longitude:
+                input#long.form-control(type='text', placeholder='longitude' name='long')
+            button.btn.btn-primary(type='submit') restaurant plus proche
