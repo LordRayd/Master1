@@ -30,8 +30,12 @@ Matrice B :
 | g | h | i |
 
 ### Déterminant
-detA = 1 / a*d - b*c * 
+detA = 1 / ad - bc <br>
+detB = 1 / () 
+### Matrice Inverse
+A<sup>-1</sup> = 1 / detA *
 | d | -b |
 |---|---|
 | -c | a |
-### Matrice Inverse
+
+$e^{i\pi} + 1 = 0$
