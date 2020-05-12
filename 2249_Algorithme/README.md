@@ -30,7 +30,8 @@ Matrice B :
 | g | h | i |
 
 ### Déterminant
-detA = $^1/_ad-bc$ * | d | -b |
+detA = 1 / a*d - b*c * 
+| d | -b |
 |---|---|
 | -c | a |
 ### Matrice Inverse
