@@ -38,8 +38,18 @@ A<sup>-1</sup> = 1 / detA *
 |---|---|
 | -c | a |
 
-B<sup>-1</sup> = 1 - detB * 
+B<sup>-1</sup> = 1 / detB * 
 | ei - fh | - ch - bi | bf - ce |
 |---|---|---|
 | - fg - di | ai - cg | - cd - af |
 | dh - eg | - bg - ah | ae - bd |
+
+### Valeurs propres
+Pour A resoudre :
+* (a - lambda)x + by = 0
+* cx + (d - lambda)y = 0
+
+Pour B resoudre : 
+* (a - lambda)x + by + cz = 0
+* dx + (e - lambda)y + fz = 0
+* gx + hy + (i - lambda)z = 0
