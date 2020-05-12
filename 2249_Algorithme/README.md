@@ -39,7 +39,7 @@ A<sup>-1</sup> = 1 / detA *
 | -c | a |
 
 B<sup>-1</sup> = 1 - detB * 
-| ei - fh | ch - bi | bf - ce |
+| ei - fh | - ch - bi | bf - ce |
 |---|---|---|
-| fg - di | ai - cg | cd - af |
-| dh - eg | bg - ah | ae - bd |
+| - fg - di | ai - cg | - cd - af |
+| dh - eg | - bg - ah | ae - bd |
