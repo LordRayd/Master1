@@ -31,11 +31,15 @@ Matrice B :
 
 ### Déterminant
 detA = 1 / ad - bc <br>
-detB = 1 / () 
+detB = 1 / aei + bfg + cdh - ceg - fha -ibd 
 ### Matrice Inverse
 A<sup>-1</sup> = 1 / detA *
 | d | -b |
 |---|---|
 | -c | a |
 
-$e^{i\pi} + 1 = 0$
+B<sup>-1</sup> = 1 - detB * 
+| ei - fh | ch - bi | bf - ce |
+|---|---|---|
+| fg - di | ai - cg | cd - af |
+| dh - eg | bg - ah | ae - bd |
