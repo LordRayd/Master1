@@ -17,3 +17,20 @@
 Les TPs sont soit: <br> 
 * Visibles directement sur Github
 * Soit ouvrables et exécutables sur JupyterLab, Notebook ou VsCode 
+## Rappel Mathématique
+Matrice A : 
+| a | b |
+|---|---|
+| c | d |
+
+Matrice B : 
+| a | b | c |
+|---|---|---|
+| d | e | f |
+| g | h | i |
+
+### Déterminant
+detA = $^1/_ad-bc$ * | d | -b |
+|---|---|
+| -c | a |
+### Matrice Inverse
