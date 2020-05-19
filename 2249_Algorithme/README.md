@@ -8,6 +8,7 @@
 * Régression logistique descente de gradient
 * Régularisation
 * Algorithme de classification
+* Algorithme des K Plus Proche Voisin
 * Sélection de modèles
 ## Controle
     1 sur table non noté (CC)
@@ -53,3 +54,7 @@ Pour B resoudre :
 * (a - lambda)x + by + cz = 0
 * dx + (e - lambda)y + fz = 0
 * gx + hy + (i - lambda)z = 0
+
+## QCM
+Resultat : 11.43 moyenne de classe 11.01
+### Partie 1
