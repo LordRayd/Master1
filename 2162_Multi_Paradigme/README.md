@@ -3,8 +3,8 @@
     Gildas Menier
 ## Informations Importantes
 Un petit test sera réalisé lors du premier cours sur les connaissances de base
-* Définitioon Généricité
-* Définitioon Polymorphisme
+* Définition Généricité
+* Définition Polymorphisme
 ## Controle
     Les TPs rendu
     1 partiel de 2h
