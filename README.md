@@ -7,7 +7,7 @@ Ce git contient tout les TPs et poly concernant le Master 1 Application Intérac
 ## Notes
 ### Semestre 1
 | **Matière** | **CT Note** | **CC Note** | **Moyenne** | **Moyenne de classe** |
-|---|---|---|
+|---|---|---|---|---|
 | Interface Graphique | 9 | 6.04 | 6.928 |  |
 | Concurrences Systèmes | 11 | 14 | 12 |  |
 | Multi-Paradigme | 13.5 | 10.5 | 11.25 |  |
@@ -19,12 +19,12 @@ Ce git contient tout les TPs et poly concernant le Master 1 Application Intérac
 
 ### Semestre 2
 | **Matière** | **CT Note** | **CC Note** | **Moyenne** | **Moyenne de classe** |
-|---|---|---|
+|---|---|---|---|---|
 | Programmation Web |  |  |  |  |
 | High Performance Computing | 11,50 |  | 11,50 | 11,19 |
 | Interaction Avancée | 16,26 |  | 16,26 | 14,6 |
 | Algorithme des Données | 11,43 |  | 11,43 | 11,13 |
 | Communication |  |  |  |  |
-| Projet |  |  | 12,75 |  |
+| Projet | 12,75 |  | 12,75 |  |
 | Anglais |  |  |  |  |
 | **Total** |  |  |  |  |
