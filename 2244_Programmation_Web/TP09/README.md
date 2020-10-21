@@ -13,7 +13,7 @@
     git add package-lock.json
     git add package.json
     git add README.md
-    git ls-tree - -full-tree –r HEAD
+    git ls-tree --full-tree –r HEAD
     heroku login
     heroku create hmonProjet
     git push heroku –u master

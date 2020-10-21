@@ -194,15 +194,18 @@ quelle est la coordonnée de cette observation si elle est projetée selon la pr
 <br>
 <br>
 * Question A: Les caractéristiques #1, #3, #5 sont nécessaires
+
 #### Question 38 (3/3 points)
 Quel est le taux de bonnes classification d’après la matrice de confusion suivante ? (en pourcentage à une décimale prêt, e.g. 56,3%)
 * 77,9%
+
 #### Question 39 (0/4 points)
 Soit un modèle de régression logistique avec les paramètres suivants β = (−ln(4),ln(2),−ln(3)).<br>
 Une nouvelle observation x a le vecteur de variables suivant (1,1). Quelle est la probabilité que cette observation appartienne à la classe positive (Y=1).<br>
 Donnez le résultat sous forme de fraction ou sous forme numérique avec trois chiffres après la virgule, e.g. 5/7 (sans espace) ou 0,123<br>
 Rappel : le logarithme d’un produit est la somme de ces facteurs ln(a.b)=ln(a)+ln(b)
 * Pas de réponse pas le temps
+
 #### Question 40 
 Anna veut prédire si une boisson est un thé ou un café. Elle a recueilli les données suivantes :
 * a. En utilisant l’algorithme du 1-plus proche voisin avec une distance euclidienne, quelle est l’étiquette prédite pour une boisson de 125 mL contenant 0,015 g de caféine ? Indiquez également le numéro de l'observation dont cette boisson est la plu proche (e.g., #1).

@@ -55,7 +55,7 @@ int codefils(int semid,int shmid, int N,int index){
     sigset_t set;
 
     while(1){
-        //P(&muttex)
+        //P(&mutex)
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
             printf("Probleme sur semop\n");
@@ -77,7 +77,7 @@ int codefils(int semid,int shmid, int N,int index){
 
         shmdt(variables);
 
-        //V(&muttex)
+        //V(&mutex)
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if((semop(semid,&op,1))==-1){
             printf("Probleme sur semop\n");
@@ -157,14 +157,14 @@ int main(int argc, char* argv[]){
     struct sembuf op;
     for(int i=0; i<N;i++){
         getchar();
-        //P(&muttex)
+        //P(&mutex)
         op.sem_num=0;op.sem_op=-1;op.sem_flg=0;
         if(semop(semid,&op,1)==-1){
             printf("problem semop");
             exit(1);
         }
         kill(pidTab[i],SIGUSR1);
-        //V(&muttex)
+        //V(&mutex)
         op.sem_num=0;op.sem_op=1;op.sem_flg=0;
         if(semop(semid,&op,1)==-1){
             printf("problem semop");
